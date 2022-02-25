@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  cmsApi: 'https://cms.crocobet.com',
+  testToken: '',
 };
