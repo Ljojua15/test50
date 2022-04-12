@@ -14,7 +14,6 @@ export class LandingComponent implements OnInit {
   rules : Rule[] = [];
   additionalRules: Rule | null = null;
   lang: 'en' | 'ge' | 'ru' = 'ge';
-  rulesTitle: string = '';
 
   constructor(private rulesService : RulesService,
               private translateService: TranslateService) { }
