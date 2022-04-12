@@ -1,0 +1,17 @@
+<div class="container" [ngClass]="{'last-container': lastItem}">
+  <div class="acc-header" [ngClass]="{'acc-main-header' : mainHeader}" (click)="toggle()">
+    <div class="header-title">
+      {{title}}
+    </div>
+    <div class="arrow">
+<!--      add arrow image-->
+      <img [@rotate]="!showBody ? 'default' : 'rotated'" src="" alt="arrow" class="arrow-img">
+    </div>
+  </div>
+  <div [@smoothCollapse]="!showBody ? 'initial' : 'final'">
+    <div class="acc-body" [ngClass]="{'no-padding' : mainHeader}">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+</div>

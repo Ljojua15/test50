@@ -1,0 +1,70 @@
+@use '../../fonts';
+
+.container {
+  margin-bottom: 10px;
+}
+
+.last-container {
+  margin-bottom: 0;
+}
+
+.acc-header {
+  min-height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  color: #fff;
+  background-color: rgba(38, 38, 38, 0.5);
+}
+
+.acc-main-header {
+  background-color: #0a0c2b;
+}
+
+.header-title {
+  overflow-wrap: break-word;
+  overflow: auto;
+  width: 100%;
+  text-align: start;
+  font-size: 16px;
+  font-family: fonts.$font-bold;
+}
+
+.acc-body {
+  min-height: 30px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  line-height: 1.5rem;
+  font-family: fonts.$font-regular;
+  font-size: 14px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+}
+
+.list-item {
+  color: red;
+  display: none;
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .acc-body,
+  .header-title{
+    font-size: 12px;
+  }
+
+  .acc-header {
+    padding: 8px;
+  }
+
+  .arrow-img {
+    width: 18px;
+  }
+
+}
