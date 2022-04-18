@@ -10,7 +10,11 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class LandingComponent implements OnInit {
 
-  title: {} | null =  null;
+  title: {
+    en: string;
+    ge: string;
+    ru: string;
+  } | null =  null;
   rules : Rule[] = [];
   additionalRules: Rule | null = null;
   lang: 'en' | 'ge' | 'ru' = 'ge';

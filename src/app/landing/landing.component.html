@@ -1,7 +1,7 @@
 
 
 <app-accordion>
-  <app-accordion-item [mainHeader]="true" [title]="title[lang]">
+  <app-accordion-item [mainHeader]="true" [title]="title![lang]">
     <app-accordion>
       <app-accordion-item *ngFor="let rule of rules" [title]="rule[lang].question">
         <div [innerHTML]="rule[lang].answer"></div>
