@@ -1,6 +1,24 @@
+.bgge {
+  background-image: url("../../assets/images/slot-vip-wheel/bgGe.jpg");
+  // background-image: url("../../assets/images/slot-vip-wheel/bgGe.jpg");
+}
+
+.bgen {
+  background-image: url("../../assets/images/slot-vip-wheel/bgEN.jpg");
+}
+
+.bgru {
+  background-image: url("../../assets/images/slot-vip-wheel/bgRU.jpg");
+}
+
 .play {
   margin-top: 70px;
   padding-bottom: 25px;
+}
+
+.disabled {
+  filter: grayscale(1);
+  pointer-events: none;
 }
 
 .w-layout-grid {
@@ -301,21 +319,12 @@
 
 .body-87 {
   background-color: #000;
-  background-image: url("../../assets/images/slot-vip-wheel/bgGe.jpg");
   background-position: 50% 0%;
   background-size: auto;
   background-repeat: no-repeat;
   font-family: Crocosanscaps, sans-serif;
   color: #fff;
   text-align: center;
-}
-
-.body-87.en {
-  background-image: url("../../assets/images/slot-vip-wheel/bgEN.jpg");
-}
-
-.body-87.ru {
-  background-image: url("../../assets/images/slot-vip-wheel/bgRU.jpg");
 }
 
 .text-block-22824 {

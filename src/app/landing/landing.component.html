@@ -1,20 +1,30 @@
-<body class="body-87">
+<body
+  class="body-87"
+  [ngClass]="{
+    bgge: ('lang' | translate) === 'ge',
+    bgen: ('lang' | translate) === 'en',
+    bgru: ('lang' | translate) === 'ru'
+  }"
+>
   <div class="section-cb wf-section">
     <div class="content-cb">
       <div class="text-block-22824">
-        ითამაშე ნებისმიერი სლოტი, ყოველ შესრულებულ პროგრესზე დაატრიალე ბორბალი,
+        {{ "beforeBr" | translate }}
       </div>
       <div class="text-block-22825">
-        მოიგე EGT ფრისპინები და ფულადი პრიზები!
+        {{ "afterBr" | translate }}
       </div>
-      <div class="chaerte_wrp">
+      <div class="chaerte_wrp" *ngIf="!isAuthorized">
         <div class="text-block-22871">
-          აქციაში მონაწილეობის მისაღებად, გთხოვთ, დარეგისტრირდით ან გაიარეთ
-          ავტორიზაცია
+          {{ "toEnter" | translate }}
         </div>
         <div class="w-layout-grid grid-7">
-          <a href="#" class="chaerte_btn w-button">რეგისტრაცია</a>
-          <a href="#" class="chaerte_btn auto w-button">ავტორიზაცია</a>
+          <a href="#" class="chaerte_btn w-button" (click)="onRegister()">{{
+            "register" | translate
+          }}</a>
+          <a href="#" class="chaerte_btn auto w-button" (click)="onLogin()">{{
+            "authorize" | translate
+          }}</a>
         </div>
         <div class="w-embed"></div>
       </div>
@@ -23,13 +33,13 @@
           href="https://crocobet.com/#/slots"
           target="_blank"
           class="play_bt w-button"
-          >ითამაშე</a
+          >{{ "play" | translate }}</a
         >
         <a
           href="https://m.crocobet.com/#/slots"
           target="_blank"
           class="play_bt m w-button"
-          >ითამაშე</a
+          >{{ "play" | translate }}</a
         >
       </div>
       <div class="div-block-40972"></div>
@@ -41,20 +51,29 @@
           data-duration-out="100"
           class="tabs w-tabs"
         >
-          <div class="tabs-menu w-tab-menu">
+          <div
+            class="tabs-menu w-tab-menu"
+            [ngClass]="{ disabled: disableDiv === true }"
+          >
             <a
               data-w-tab="Tab 1"
               id="tab1"
               class="tab _1 w-inline-block w-tab-link w--current"
+              [ngClass]="{ 'w--current': wheelType === 'silver' }"
+              (click)="getType('silver')"
             >
-              <div id="icon1" class="wheeliconwrp selected">
+              <div
+                id="icon1"
+                class="wheeliconwrp selected"
+                [ngClass]="{ selected: wheelType === 'silver' }"
+              >
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/wheel_icon.png"
                   alt=""
                   class="image-2625184"
                 />
-                <div>ვერცხლი</div>
+                <div>{{ "silver" | translate }}</div>
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/refresh_icon.png"
@@ -67,15 +86,21 @@
               data-w-tab="Tab 2"
               id="tab2"
               class="tab gold w-inline-block w-tab-link"
+              [ngClass]="{ 'w--current': wheelType === 'gold' }"
+              (click)="getType('gold')"
             >
-              <div id="icon2" class="wheeliconwrp">
+              <div
+                id="icon2"
+                class="wheeliconwrp"
+                [ngClass]="{ selected: wheelType === 'gold' }"
+              >
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/whgold.png"
                   alt=""
                   class="image-2625184"
                 />
-                <div>ოქრო</div>
+                <div>{{ "gold" | translate }}</div>
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/refresh_iconGold.png"
@@ -88,15 +113,21 @@
               data-w-tab="Tab 3"
               id="tab3"
               class="tab w-inline-block w-tab-link"
+              [ngClass]="{ 'w--current': wheelType === 'platinum' }"
+              (click)="getType('platinum')"
             >
-              <div id="icon3" class="wheeliconwrp">
+              <div
+                id="icon3"
+                class="wheeliconwrp"
+                [ngClass]="{ selected: wheelType === 'platinum' }"
+              >
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/wheel_icon.png"
                   alt=""
                   class="image-2625184"
                 />
-                <div>პლატინა</div>
+                <div>{{ "platinum" | translate }}</div>
                 <img
                   loading="lazy"
                   src="../../assets/images/slot-vip-wheel/refresh_icon.png"
@@ -108,16 +139,21 @@
           </div>
           <div class="tabs-content w-tab-content">
             <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+              <app-wheel-component
+                (newEvent)="getState($event)"
+                [wheelType]="wheelType"
+              ></app-wheel-component>
               <div class="wheel_wrp">
                 <div class="history_wrp">
                   <div>
-                    შეასრულე <span class="text-span">5 000₾</span> პროგრესი
+                    შეასრულე
+                    <span class="text-span">{{ amount }}</span> პროგრესი
                   </div>
                   <a
                     href="#"
                     data-w-id="dc5150c3-f693-111f-46c2-dbb67ae928f1"
                     class="history_btn w-button"
-                    >ისტორია</a
+                    >{{ "history" | translate }}</a
                   >
                 </div>
               </div>
@@ -126,7 +162,7 @@
         </div>
       </div>
       <div class="slots">
-        <div>ფრისპინები დაირიცხება EGT სლოტებში</div>
+        <div>{{ "getEGT" | translate }}</div>
         <div class="w-layout-grid grid-4">
           <a
             href="https://crocobet.com/#/slots/play?slot=20%20Dazzling%20Hot&amp;provider=egt"
