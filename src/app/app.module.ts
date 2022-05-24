@@ -14,6 +14,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WheelComponentComponent } from './landing/wheel-component/wheel-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WinPopupComponent } from './popup/win-popup/win-popup.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,11 +28,14 @@ export function createTranslateLoader(http: HttpClient) {
     LandingComponent,
     AccordionComponent,
     AccordionItemComponent,
+    WheelComponentComponent,
+    WinPopupComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
