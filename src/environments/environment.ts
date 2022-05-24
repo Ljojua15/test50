@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  cmsApi: 'https://cms.crocobet.com/',
-  testToken: '8a2b6dba-29d7-4e45-8458-69cb8af0a94c.oddsapi1',
-};
+  cmsApi: 'https://cms.crocobet.com',
+  testToken: ''
+ };
 
 /*
  * For easier debugging in development mode, you can import the following file

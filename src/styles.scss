@@ -1,20 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@use "fonts";
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  color: #fff;
-  font-family: fonts.$font-regular;
 }
 
-// body:-webkit-scrollbar {
-//   display: none;
-// }
-
-body {
-  background-color: #0b0e15;
-  // overflow: hidden !important;
+body:-webkit-scrollbar {
+  display: none;
 }
