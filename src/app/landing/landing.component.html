@@ -1,136 +1,17 @@
-<div class="body-87">
-  <div class="section-cb wf-section">
-    <div class="content">
-      <img
-        src="../../assets/images/GEO.png"
-        loading="lazy"
-        sizes="(max-width: 479px) 340px, (max-width: 767px) 430px, (max-width: 991px) 690px, (max-width: 1097px) 100vw, 1097px"
-        alt=""
-        class="image-2625115"
-      />
-      <div class="text-block-22897">
-        დარეგისტრირდი, გააკეთე დეპოზიტი და მიიღე
-      </div>
-      <div class="text-block-22898">2 500 EGT ფრისპინი!</div>
-      <div class="div-block-41007">
-        <div>3 იანვარი - 3 მარტი</div>
-      </div>
-      <div class="reg_wrp">
-        <div class="text-block-22871">
-          აქციაში მონაწილეობის მისაღებად, გთხოვთ, დარეგისტრირდით ან გაიაროთ
-          ავტორიზაცია
-        </div>
-        <div class="w-layout-grid grid-7">
-          <a href="#" class="chaerte_btn w-button">რეგისტრაცია</a>
-          <a href="#" class="chaerte_btn auto w-button">ავტორიზაცია</a>
-        </div>
-        <div class="w-embed"></div>
-      </div>
-      <div class="dep_wrp">
-        <div class="text-block-22871">
-          გააკეთე მინ. 50 ლარიანი დეპოზიტი<br />და დაატრიალე II ბორბალი
-        </div>
-        <div class="w-layout-grid grid-7">
-          <a href="#" class="chaerte_btn w-button">დეპოზიტი</a>
-        </div>
-        <div class="w-embed"></div>
-      </div>
-      <div class="er_wrp">
-        <div class="text-block-22871-copy">
-          აქცია აქტიურია მხოლოდ იმ მომხმარებლებისთვის, რომლებიც
-          დარეგისტრირდებიან აქციის განმავლობაში
-        </div>
-        <div class="w-embed"></div>
-      </div>
-      <div class="div-block-41009">
-        <div class="golden">
-          <div class="wheel_wrp dark">
-            <img
-              src=".../../assets/images/1.png"
-              loading="lazy"
-              alt=""
-              class="first"
-            />
-            <div class="text-block-22900" *ngIf="true">
-              დარეგისტრირდი, გაიარე ვერიფიკაცია<br />და დაატრიალე I ბორბალი
-            </div>
-            <div class="text-block-22900" *ngIf="false">
-              დაატრიალე პირველი ბორბალი
-            </div>
-            <div class="text-block-22900" *ngIf="false">
-              შენ უკვე დაატრიალე პირველი ბორბალი
-            </div>
-            <app-wheel-component [wheelType]="1"></app-wheel-component>
-          </div>
-        </div>
-        <div data-w-id="31e543fc-bc0c-a9ce-5f2d-dd7e8452d2b5" class="goldenhex">
-          <div class="hex">
-            <div>ისტორია</div>
-          </div>
-          <div class="w-embed"></div>
-        </div>
-        <div class="golden">
-          <div class="wheel_wrp green">
-            <img
-              src=".../../assets/images/2.png"
-              loading="lazy"
-              alt=""
-              class="second"
-            />
-            <div class="text-block-22900" *ngIf="true">
-              ჩარიცხე დეპოზიტზე მინ. 50₾<br />და დაატრიალე II ბორბალი
-            </div>
-            <div class="text-block-22900" *ngIf="false">
-              დაატრიალე მეორე ბორბალი
-            </div>
-            <div class="text-block-22900" *ngIf="false">
-              შენ უკვე დაატრიალე მეორე ბორბალი
-            </div>
-            <app-wheel-component [wheelType]="2"></app-wheel-component>
-          </div>
-        </div>
-      </div>
-      <a
-        href="https://www.crocobet.com/#/slots?menu=egt&amp;provider=egt&amp;slot=zodiacwheel"
-        target="_blank"
-        class="div-block-41004 w-inline-block"
-      >
-        <div class="div-block-41005">
-          <div class="div-block-41006">
-            <div>ფრისპინები დაირიცხება EGT სლოტში</div>
-            <img
-              src=".../../assets/images/zodiac-wheel-logo.png"
-              loading="lazy"
-              alt=""
-              class="image-2625113"
-            />
-          </div>
-          <img
-            src=".../../assets/images/circle_1circle.png"
-            loading="lazy"
-            alt=""
-            class="image-2625114"
-          />
-        </div>
-      </a>
-    </div>
-    <div class="w-embed rules-container w-container">
-      <app-accordion class="accor">
-        <app-accordion-item [mainHeader]="true" [title]="'RULES' | translate">
-          <app-accordion>
-            <app-accordion-item *ngFor="let rule of rules" [title]="rule.title">
-              <div class="table-content" [innerHTML]="rule.content"></div>
-            </app-accordion-item>
-          </app-accordion>
-        </app-accordion-item>
 
-        <app-accordion-item
-          [mainHeader]="true"
-          [title]="additionalRules?.title"
-        >
-          <div class="list" [innerHTML]="additionalRules?.content"></div>
-        </app-accordion-item>
-      </app-accordion>
-    </div>
-  </div>
-</div>
+
+<app-accordion>
+  <app-accordion-item [mainHeader]="true" [title]="title![lang]">
+    <app-accordion>
+      <app-accordion-item *ngFor="let rule of rules" [title]="rule[lang].question">
+        <div [innerHTML]="rule[lang].answer"></div>
+      </app-accordion-item>
+    </app-accordion>
+  </app-accordion-item>
+  <app-accordion-item [mainHeader]="true" [title]="additionalRules![lang].question">
+    <div class="list" [innerHTML]="additionalRules![lang].answer"></div>
+  </app-accordion-item>
+</app-accordion>
+
+
+// test

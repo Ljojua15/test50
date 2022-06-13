@@ -5,11 +5,8 @@
 export const environment = {
   production: false,
   cmsApi: 'https://cms.crocobet.com',
-  rulesApi: (lang: string) =>
-  `https://cms.crocobet.com/ui/policy/${lang}/categories/promotions/`,
-  testToken: '',
-  filePath: '',
-};
+  testToken: ''
+ };
 
 /*
  * For easier debugging in development mode, you can import the following file

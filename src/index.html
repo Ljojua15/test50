@@ -1,56 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Welcome Wheel</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <script
-      async
-      src=".../../assets/https://www.googletagmanager.com/gtag/js?id=G-H1MBB1M054"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+<head>
+  <meta charset="utf-8">
+  <title>LandingsStarter</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1MBB1M054"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-      gtag("js", new Date());
+    gtag('js', new Date());
 
-      gtag("config", "G-H1MBB1M054");
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src=".../../assets/https://www.googletagmanager.com/gtag/js?id=UA-133016164-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+    gtag('config', 'G-H1MBB1M054');
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133016164-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      gtag("js", new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-      gtag("config", "UA-133016164-1");
-    </script>
-    <script
-      src=".../../assets/https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-      async=""
-    ></script>
-    <script>
-      window.OneSignal = window.OneSignal || [];
-      OneSignal.push(function () {
-        OneSignal.init({
-          appId: "884edc3b-bd61-4dbd-98ff-c88ff810bca7",
-        });
+    gtag('js', new Date());
+
+
+    gtag('config', 'UA-133016164-1');
+  </script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "884edc3b-bd61-4dbd-98ff-c88ff810bca7",
       });
-    </script>
-  </head>
-  <body>
-    <app-root></app-root>
-  </body>
+    });
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
 </html>
