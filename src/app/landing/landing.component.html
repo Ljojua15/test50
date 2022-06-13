@@ -2,14 +2,9 @@
   <div class="section-cb wf-section">
     <div class="content">
       <img
-        src=".../../assets/images/GEO.png"
+        src="../../assets/images/GEO.png"
         loading="lazy"
         sizes="(max-width: 479px) 340px, (max-width: 767px) 430px, (max-width: 991px) 690px, (max-width: 1097px) 100vw, 1097px"
-        srcset="
-          images/GEO-p-500.png  500w,
-          images/GEO-p-800.png  800w,
-          images/GEO.png       1097w
-        "
         alt=""
         class="image-2625115"
       />
@@ -56,13 +51,16 @@
               alt=""
               class="first"
             />
-            <div class="text-block-22900">
+            <div class="text-block-22900" *ngIf="true">
               დარეგისტრირდი, გაიარე ვერიფიკაცია<br />და დაატრიალე I ბორბალი
             </div>
-            <div class="text-block-22900">დაატრიალე პირველი ბორბალი</div>
-            <div class="text-block-22900">
+            <div class="text-block-22900" *ngIf="false">
+              დაატრიალე პირველი ბორბალი
+            </div>
+            <div class="text-block-22900" *ngIf="false">
               შენ უკვე დაატრიალე პირველი ბორბალი
             </div>
+            <app-wheel-component [wheelType]="1"></app-wheel-component>
           </div>
         </div>
         <div data-w-id="31e543fc-bc0c-a9ce-5f2d-dd7e8452d2b5" class="goldenhex">
@@ -79,11 +77,16 @@
               alt=""
               class="second"
             />
-            <div class="text-block-22900">
+            <div class="text-block-22900" *ngIf="true">
               ჩარიცხე დეპოზიტზე მინ. 50₾<br />და დაატრიალე II ბორბალი
             </div>
-            <div class="text-block-22900">დაატრიალე მეორე ბორბალი</div>
-            <div class="text-block-22900">შენ უკვე დაატრიალე მეორე ბორბალი</div>
+            <div class="text-block-22900" *ngIf="false">
+              დაატრიალე მეორე ბორბალი
+            </div>
+            <div class="text-block-22900" *ngIf="false">
+              შენ უკვე დაატრიალე მეორე ბორბალი
+            </div>
+            <app-wheel-component [wheelType]="2"></app-wheel-component>
           </div>
         </div>
       </div>

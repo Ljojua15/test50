@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   cmsApi: 'https://cms.crocobet.com',
-  testToken: ''
+  testToken: '',
+  filePath: '',
  };
 
 /*

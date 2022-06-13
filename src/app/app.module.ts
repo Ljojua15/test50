@@ -7,9 +7,11 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LandingComponent } from './landing/landing.component';
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WheelComponentComponent } from './landing/wheel-component/wheel-component.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,11 +23,13 @@ export function createTranslateLoader(http: HttpClient) {
     LandingComponent,
     AccordionComponent,
     AccordionItemComponent,
+    WheelComponentComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
