@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="container__point">
+    <img
+      src="../../../{{ filePath }}assets/images/wheel-{{ wheelType }}-point.png"
+    />
+  </div>
+  <div class="container__bg">
+    <img
+      #prizeElement
+      class="container__wheel"
+      src="../../../{{ filePath }}assets/images/wheel-{{ wheelType }}.png"
+    />
+    <div class="container__btn" (click)="onGetPrize()">
+      <img src="../../../{{ filePath }}assets/images/wheel_btn.png" />
+    </div>
+  </div>
+</div>
