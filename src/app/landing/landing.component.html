@@ -114,6 +114,23 @@
         </div>
       </a>
     </div>
-    <div class="w-embed"></div>
+    <div class="w-embed rules-container w-container">
+      <app-accordion class="accor">
+        <app-accordion-item [mainHeader]="true" [title]="'RULES' | translate">
+          <app-accordion>
+            <app-accordion-item *ngFor="let rule of rules" [title]="rule.title">
+              <div class="table-content" [innerHTML]="rule.content"></div>
+            </app-accordion-item>
+          </app-accordion>
+        </app-accordion-item>
+
+        <app-accordion-item
+          [mainHeader]="true"
+          [title]="additionalRules?.title"
+        >
+          <div class="list" [innerHTML]="additionalRules?.content"></div>
+        </app-accordion-item>
+      </app-accordion>
+    </div>
   </div>
 </div>

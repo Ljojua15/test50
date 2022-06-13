@@ -1,4 +1,4 @@
-@use '../../fonts';
+@use "../../fonts";
 
 .container {
   margin-bottom: 10px;
@@ -19,7 +19,30 @@
 }
 
 .acc-main-header {
-  background-color: #0a0c2b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #353c4a;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .header-title {
@@ -46,7 +69,6 @@
   align-items: center;
 }
 
-
 .answer {
   margin: 10px 20px 0;
   font-size: 14px;
@@ -70,11 +92,9 @@
   text-align: left;
 }
 
-
 @media screen and (max-width: 767px) {
-
   .acc-body,
-  .header-title{
+  .header-title {
     font-size: 12px;
   }
 
@@ -99,7 +119,6 @@
     font-size: 12px;
     line-height: 125%;
   }
-
 }
 
 @media screen and (max-width: 479px) {
