@@ -27,6 +27,15 @@ export class IframeService {
         },
         CROSS_ORIGIN
       );
+    } else if (code === 1012) {
+      window.parent.postMessage(
+        {
+          action: 'deposit',
+          code: 1012,
+          message: 'deposit command',
+        },
+        CROSS_ORIGIN
+      );
     } else if (code === 1004) {
       window.parent.postMessage(
         {
@@ -75,6 +84,10 @@ export class IframeService {
 
   login() {
     this.sendMessage(1001);
+  }
+
+  deposit() {
+    this.sendMessage(1012);
   }
 
   verification() {
