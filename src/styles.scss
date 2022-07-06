@@ -17,9 +17,9 @@
   }
 }
 
-// body:-webkit-scrollbar {
-//   display: none;
-// }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .w-layout-grid {
   display: -ms-grid;
@@ -1240,7 +1240,7 @@
 
 .div-block-19464:hover {
   background-color: transparent;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .image-2625165 {
@@ -1322,6 +1322,8 @@
 }
 
 .gr_wrp {
+  z-index: 999999;
+
   width: 920px;
   margin-top: 40px;
   padding: 2px;
@@ -1780,7 +1782,7 @@
 .popup_bonus {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  z-index: 999999;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
