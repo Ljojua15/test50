@@ -24,7 +24,6 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
-    '07.07',
     '08.07',
     '09.07',
     '10.07',

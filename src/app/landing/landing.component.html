@@ -2,7 +2,7 @@
   <div class="section wf-section">
     <div class="content">
       <img
-        src="../../{{ filePath }}assets/images/geo.png"
+        src="../../{{ filePath }}assets/images/{{ 'lang' | translate }}.png"
         width="193"
         alt=""
         class="image-2625167"
@@ -39,10 +39,16 @@
       <div class="text-block-22876">
         {{ "headerBottom" | translate }}
       </div>
-      <div class="chaerte_wrp" *ngIf="!isAuthorized">
-        <div class="text-block-22871">
-          გაიარე ვერიფიკაცია და მიიღე ყოველდღიური გათამაშების
-          <span class="text-span-190">100 ბილეთი!</span>
+      <div class="chaerte_wrp" *ngIf="isAuthorized">
+        <div class="text-block-22871" *ngIf="lang !== 'ge'">
+          {{ "auth" | translate }}<br />
+          <span class="text-span-190">{{ "auth2" | translate }}</span>
+          {{ "auth3" | translate }}
+        </div>
+
+        <div class="text-block-22871" *ngIf="lang === 'ge'">
+          {{ "authText" | translate }}
+          <span class="text-span-190">{{ "authText2" | translate }}</span>
         </div>
         <div class="w-layout-grid grid-7">
           <a href="#" class="chaerte_btn w-button" (click)="onRegister()">{{
