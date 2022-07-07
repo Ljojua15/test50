@@ -21,12 +21,12 @@
           </div>
         </div>
         <div class="text-block-2">
-          დააგროვე ბილეთები და მოიგე
+          {{ "collect" | translate }}
           <span
             data-w-id="97437ac5-2f57-6aec-7a29-0c439ebb1706"
             class="text-span"
             (click)="openModal()"
-            >15 000₾ ყოველდღე!</span
+            >15 000₾ {{ "everyday" | translate }}</span
           >
         </div>
         <div class="div-block-40894">
@@ -36,19 +36,26 @@
             alt=""
             class="play_icon2"
           />
-          <div class="text-block-3">
-            უყურე
-            <span id="live-date" class="text-span-189">10.07</span>-ის
-            გათამაშებას
+          <div class="text-block-3" *ngIf="lang === 'ge'">
+            {{ "watchRaffle" | translate }}
+            <span id="live-date" class="text-span-189">10.07</span
+            ><span>{{ "watchRaffle2" | translate }}</span>
+            <span>{{ "watchRaffle3" | translate }}</span>
+          </div>
+          <div class="text-block-3" *ngIf="lang !== 'ge'">
+            {{ "watchRaffle" | translate }}
+            <span id="live-date" class="text-span-189">10.07</span>
           </div>
         </div>
         <div class="tab_points_wrp">
           <div class="w-layout-grid grid_wrp">
             <div class="cards_wrp">
               <div class="item_trigger_wrp">
-                <div class="card_title">ავტორიზაცია</div>
-                <div class="text-block">ავტორიზაცია = 1 ბილეთი</div>
-                <div>ჩემი ბილეთები</div>
+                <div class="card_title">{{ "authorize" | translate }}</div>
+                <div class="text-block">
+                  {{ "authorize" | translate }} = 1 {{ "ticket" | translate }}
+                </div>
+                <div>{{ "myTickets" | translate }}</div>
                 <div class="tkt_stroke _2">
                   <div class="tkt_wrp _2">
                     <div id="tkt_auto" class="tkt_text">
@@ -60,9 +67,9 @@
             </div>
             <div class="cards_wrp">
               <div class="item_trigger_wrp">
-                <div class="card_title">დეპოზიტი</div>
-                <div class="text-block">10₾ = 1 ბილეთი</div>
-                <div>ჩემი ბილეთები</div>
+                <div class="card_title">{{ "deposit" | translate }}</div>
+                <div class="text-block">10₾ = 1 {{ "ticket" | translate }}</div>
+                <div>{{ "myTickets" | translate }}</div>
                 <div class="tkt_stroke _2">
                   <div class="tkt_wrp _2">
                     <div id="tkt_dep" class="tkt_text">
@@ -74,9 +81,11 @@
             </div>
             <div class="cards_wrp">
               <div class="item_trigger_wrp">
-                <div class="card_title">სლოტი, კაზინო, UFO</div>
-                <div class="text-block">ჯამური 50₾ ფსონი = 1 ბილეთი</div>
-                <div>ჩემი ბილეთები</div>
+                <div class="card_title">{{ "slotCasinoUFO" | translate }}</div>
+                <div class="text-block">
+                  ჯამური 50₾ ფსონი = 1 {{ "ticket" | translate }}
+                </div>
+                <div>{{ "myTickets" | translate }}</div>
                 <div class="tkt_stroke _2">
                   <div class="tkt_wrp _2">
                     <div id="tkt_ufo" class="tkt_text">{{ dailyData.bet }}</div>
@@ -86,7 +95,7 @@
             </div>
           </div>
           <div class="div-block-19403">
-            <div>ჩემი ჯამური ბილეთები</div>
+            <div>{{ "ticketsSum" | translate }}</div>
             <div class="tkt_stroke _22">
               <div class="tkt_wrp _2">
                 <div id="tkt_auto" class="tkt_text">{{ dailyData.total }}</div>
@@ -104,16 +113,36 @@
         </div>
         <div class="popup_lr_daily" *ngIf="openInfo">
           <div class="w-layout-grid grid-209044">
-            <div class="text-block-690">გამარჯვებული N1 – 1 000₾</div>
-            <div class="text-block-690">გამარჯვებული N2 – 1 000₾</div>
-            <div class="text-block-690">გამარჯვებული N3 – 1 000₾</div>
-            <div class="text-block-690">გამარჯვებული N4 – 1 000₾</div>
-            <div class="text-block-690">გამარჯვებული N5 – 1 500₾</div>
-            <div class="text-block-690">გამარჯვებული N6 – 1 500₾</div>
-            <div class="text-block-690">გამარჯვებული N7 – 1 500₾</div>
-            <div class="text-block-690">გამარჯვებული N8 – 1 500₾</div>
-            <div class="text-block-690">გამარჯვებული N9 – 2 000₾</div>
-            <div class="text-block-690">გამარჯვებული N10 – 3 000₾</div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N1 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N2 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N3 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N4 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N5 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N6 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N7 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N8 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N9 – 2 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N10 – 3 000₾
+            </div>
           </div>
           <img
             src="../../../{{ filePath }}assets/images/x.svg"
