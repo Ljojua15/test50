@@ -23,15 +23,12 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
-    '30.06',
-    '04.07',
-    '05.07',
+    '07.07',
     '08.07',
     '09.07',
     '10.07',
     '11.07',
     '12.07',
-    '30.06',
     '14.07',
     '15.07',
     '16.07',

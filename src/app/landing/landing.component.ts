@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Rule } from '../models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -17,6 +17,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+  // @ViewChild('test2') testing: any;
+
   component: 'daily' | 'final' = 'final';
   isAuthorized: boolean = false;
   totalDaily: number = 0;
@@ -25,7 +27,8 @@ export class LandingComponent implements OnInit {
   test = false;
   streams: any;
   callFunction = true;
-  disableBtn = false;
+  disableBtn = true;
+  questionId!: number;
 
   filePath = environment.filePath;
 
@@ -79,8 +82,7 @@ export class LandingComponent implements OnInit {
     this.component = 'daily';
     this.lang = this.getCurrentLang();
     this.title = this.rulesService.getTitle();
-    this.rules = this.rulesService.getRules();
-    this.additionalRules = this.rulesService.getAdditionRules();
+    this.getRules();
     console.log(this.latencyTestService.isSlowConnection());
     this.checkUser();
     this.getUrl();
@@ -172,7 +174,8 @@ export class LandingComponent implements OnInit {
     const schedule = [
       '2022-07-05T19:00:00',
       '2022-07-06T15:10:40',
-      '2022-07-07T14:50:40',
+      '2022-07-07T14:40:40',
+      '2022-07-08T14:07:40',
 
       // '2022-07-01T19:13:00',
       '2022-05-13T19:15:00',
@@ -219,7 +222,7 @@ export class LandingComponent implements OnInit {
             console.log('timerup');
 
             this.checkLive();
-            this.checkButton();
+            this.getActiveQuestion();
             this.callFunction = false;
             return;
           }
@@ -260,6 +263,7 @@ export class LandingComponent implements OnInit {
       });
   }
 
+  //gasuli gatamasebebis linkebi
   getUrl() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
       console.log(res);
@@ -280,7 +284,6 @@ export class LandingComponent implements OnInit {
       timer(0, 10000)
         .pipe(switchMap(() => this.campaignService.getSchedule('live')))
         .subscribe((res) => {
-          console.log('checking live');
           if (res.data === null) {
             this.isLive = false;
             return;
@@ -292,38 +295,76 @@ export class LandingComponent implements OnInit {
     }
   }
 
-  checkButton() {
-    timer(0, 10000)
-      .pipe(switchMap(() => this.campaignService.getSchedule('url')))
-      .subscribe((res) => {
-        console.log('checking button');
-        if (res.data === null) {
-          this.isLive = false;
-          return;
-        }
-        this.isLive = true;
-      });
+  getActiveQuestion() {
+    if (this.callFunction) {
+      timer(0, 2000)
+        .pipe(
+          switchMap(() =>
+            this.campaignService.getActive('live-tv-drawing-080722')
+          )
+        )
+        .subscribe((questionId: number) => {
+          this.questionId = questionId;
+          if (!!questionId) {
+            this.disableBtn = false;
+          } else {
+            this.disableBtn = true;
+          }
+        });
+    } else {
+      return;
+    }
   }
 
-  getPrize() {
+  submitAnswer() {
     this.campaignService
-      .getPrize('/campaigns/slot-vip-wheel-030622/get-prize')
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .submitAnswer('live-tv-drawing-020522', this.questionId.toString())
+      .subscribe(
+        (res) => {
+          console.log(res);
+        }
+
+        // next: (res: any) => {
+        //   if (res.data) {
+        //     if (res.data.correct) {
+        //       if (res.data.prize) {
+        //         this.prizeAmount = res.data.prize.amount;
+        //         this.showPrize = true;
+        //       } else {
+        //         this.showLate = true;
+        //       }
+        //     } else {
+        //       this.showError = true;
+        //     }
+        //   }
+        // },
+        // error: (e) => {
+        //   if (e.message.toString() === 'Not Authorized') {
+        //     this.showAuth = true;
+        //   }
+        //   if (
+        //     e.error &&
+        //     e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
+        //   ) {
+        //     this.showSubmited = true;
+        //   }
+        // },
+      );
   }
 
-  // getRules() {
-  //   this.translateService.onLangChange
-  //     .pipe(
-  //       switchMap((language: any) => {
-  //         const lang = language.lang === 'ge' ? 'ka' : language.lang;
-  //         return this.campaignService.getRules(lang);
-  //       })
-  //     )
-  //     .subscribe((res: any) => {
-  //       this.rules = res.data;
-  //       this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
-  //     });
-  // }
+  getRules() {
+    this.translateService.onLangChange
+      .pipe(
+        switchMap((language: any) => {
+          const lang = language.lang === 'ge' ? 'ka' : language.lang;
+          return this.campaignService.getRules(lang);
+        })
+      )
+      .subscribe((res: any) => {
+        console.log(res);
+
+        this.rules = res.data;
+        this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
+      });
+  }
 }

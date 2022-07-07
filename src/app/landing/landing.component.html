@@ -3,7 +3,6 @@
     <div class="content">
       <img
         src="../../{{ filePath }}assets/images/geo.png"
-        loading="lazy"
         width="193"
         alt=""
         class="image-2625167"
@@ -15,7 +14,7 @@
             style="display: block"
             class="title"
           >
-            <div class="text-block-22883">{{ "win" | translate }}</div>
+            <div class="text-block-22883" #test2>{{ "win" | translate }}</div>
             <div class="text-block-22884">{{ "flat" | translate }}</div>
             <div class="text-block-22885">{{ "batumi" | translate }}</div>
           </div>
@@ -82,7 +81,6 @@
           >
             <div class="tablinkheader2 active">
               <img
-                loading="lazy"
                 src="../../{{ filePath }}assets/images/coins_bl.png"
                 alt=""
                 class="coins"
@@ -108,7 +106,6 @@
           >
             <div class="tablinkheader active">
               <img
-                loading="lazy"
                 src="../../{{ filePath }}assets/images/coins_grn.png"
                 alt=""
                 class="coins"
@@ -208,7 +205,7 @@
                 href="#"
                 class="bt-2 w-button"
                 [ngClass]="disableBtn === true ? 'disableBtn' : ''"
-                (click)="getPrize()"
+                (click)="submitAnswer()"
                 >{{ "freespins" | translate }}<br />{{ "get" | translate }}</a
               >
             </div>
@@ -217,7 +214,6 @@
             <div class="div-block-40887">
               <img
                 src="../../{{ filePath }}assets/images/play.svg"
-                loading="lazy"
                 alt=""
                 class="image-2625165"
               />
@@ -259,7 +255,6 @@
           <div class="popup_bonus" *ngIf="openInfo">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
               alt=""
               class="x_popup"
@@ -282,12 +277,10 @@
           <div class="popup_prize h">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               alt=""
               class="x_popup"
             /><img
               src="../../{{ filePath }}assets/images/shape-2.svg"
-              loading="lazy"
               alt=""
               class="image-2625168"
             />
@@ -308,7 +301,6 @@
             </div>
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               alt=""
               class="x_popup"
             />
@@ -320,7 +312,6 @@
           <div class="popup_error h">
             <img
               src="../../{{ filePath }}assets/images/shape-1.svg"
-              loading="lazy"
               alt=""
               class="image-2625169"
             />
@@ -330,7 +321,6 @@
             </div>
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               alt=""
               class="x_popup"
             />
@@ -338,7 +328,6 @@
           <div class="popup_error2 h">
             <img
               src="../../{{ filePath }}assets/images/shape-1.svg"
-              loading="lazy"
               alt=""
               class="image-2625169"
             />
@@ -348,7 +337,6 @@
             </div>
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               alt=""
               class="x_popup"
             />
@@ -356,7 +344,6 @@
           <div class="popup_time h">
             <img
               src="../../{{ filePath }}assets/images/shape-3.svg"
-              loading="lazy"
               alt=""
               class="image-2625170"
             />
@@ -366,7 +353,6 @@
             </div>
             <img
               src="../../{{ filePath }}assets/images/x.svg"
-              loading="lazy"
               alt=""
               class="x_popup"
             />
@@ -416,7 +402,7 @@
             </div>
             <div class="slide w-slide">
               <a href="#" class="lightbox-link w-inline-block w-lightbox"
-                ><img src="images/1.png" loading="lazy" alt="" />
+                ><img src="images/1.png" alt="" />
               </a>
             </div>
           </div>
@@ -425,22 +411,40 @@
           <div class="slide-nav w-slider-nav w-round"></div>
         </div>
       </div>
+      <div class="rules-container">
+        <app-accordion class="accor">
+          <app-accordion-item [mainHeader]="true" [title]="'rules' | translate">
+            <app-accordion>
+              <app-accordion-item
+                *ngFor="let rule of rules"
+                [title]="rule.title"
+              >
+                <div class="table-content" [innerHTML]="rule.content"></div>
+              </app-accordion-item>
+            </app-accordion>
+          </app-accordion-item>
+          <app-accordion-item
+            [mainHeader]="true"
+            [title]="additionalRules?.title"
+          >
+            <div class="list" [innerHTML]="additionalRules?.content"></div>
+          </app-accordion-item>
+        </app-accordion>
+      </div>
+    </div>
+    <div class="reglament">
+      <a
+        href="./../../assets/documents/2022 წლის ივლისის თვის პატარა წამახალისებელი 430 მესამე vol2.pdf"
+        class="pdf-bt"
+        >{{ "reglament" | translate }}</a
+      >
+      <a href="./../../assets/documents/19 03 430.pdf" class="pdf-bt">{{
+        "permission" | translate
+      }}</a>
     </div>
   </div>
 </div>
 
-<!-- <app-accordion>
-  <app-accordion-item [mainHeader]="true" [title]="title![lang]">
-    <app-accordion>
-      <app-accordion-item *ngFor="let rule of rules" [title]="rule[lang].question">
-        <div [innerHTML]="rule[lang].answer"></div>
-      </app-accordion-item>
-    </app-accordion>
-  </app-accordion-item>
-  <app-accordion-item [mainHeader]="true" [title]="additionalRules![lang].question">
-    <div class="list" [innerHTML]="additionalRules![lang].answer"></div>
-  </app-accordion-item>
-</app-accordion> -->
 <div class="video-popup" *ngIf="test">
   <img
     src="../../{{ filePath }}assets/images/x.svg"

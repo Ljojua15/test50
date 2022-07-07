@@ -1,3 +1,5 @@
+@use "./../../fonts";
+
 .disableBtn {
   pointer-events: none;
   filter: grayscale(1);
@@ -51,6 +53,23 @@
     height: 100%;
     border-radius: 25px;
   }
+}
+
+.reglament {
+  display: flex;
+  align-items: center;
+  font-family: fonts.$font-regular;
+  font-weight: 400;
+  margin-top: 50px;
+}
+
+.pdf-bt {
+  margin-right: 20px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
 }
 
 // .w-layout-grid {
