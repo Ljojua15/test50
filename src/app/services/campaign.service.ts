@@ -67,13 +67,14 @@ export class CampaignService {
       );
   }
 
-  submitAnswer(campaignId: string, questionId: string) {
+  submitAnswer(campaignId: string, questionId: string, answer: string) {
     if (!this.authService.isAuthorized()) {
       return throwError(() => new Error('Not Authorized'));
     }
     return this.http.post(
-      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,
-      {}
+      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,{
+      active: 'true',
+    }
     );
   }
 }

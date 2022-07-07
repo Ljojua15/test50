@@ -29,6 +29,8 @@ export class LandingComponent implements OnInit {
   callFunction = true;
   disableBtn = true;
   questionId!: number;
+  answer = 'crc';
+  showPrize = false;
 
   filePath = environment.filePath;
 
@@ -174,40 +176,8 @@ export class LandingComponent implements OnInit {
     const schedule = [
       '2022-07-05T19:00:00',
       '2022-07-06T15:10:40',
-      '2022-07-07T14:40:40',
-      '2022-07-08T14:07:40',
-
-      // '2022-07-01T19:13:00',
-      '2022-05-13T19:15:00',
-      '2022-05-14T19:15:00',
-      '2022-05-15T19:15:00',
-      '2022-05-16T19:15:00',
-      '2022-05-17T19:15:00',
-      '2022-05-17T21:30:00',
-      '2022-05-18T19:15:00',
-      '2022-05-19T19:15:00',
-      '2022-05-20T19:15:00',
-      '2022-05-21T19:15:00',
-      '2022-05-22T19:15:00',
-      '2022-05-23T19:15:00',
-      '2022-05-24T19:15:00',
-      '2022-05-24T21:30:00',
-      '2022-05-25T19:15:00',
-      '2022-05-26T19:15:00',
-      '2022-05-27T19:15:00',
-      '2022-05-28T19:15:00',
-      '2022-05-29T19:15:00',
-      '2022-05-30T19:15:00',
-      '2022-05-31T19:15:00',
-      '2022-05-31T21:30:00',
-      '2022-06-01T19:15:00',
-      '2022-06-02T19:15:00',
-      '2022-06-03T19:15:00',
-      '2022-06-04T19:15:00',
-      '2022-06-05T19:15:00',
-      '2022-06-06T19:15:00',
-      '2022-06-07T19:15:00',
-      '2022-06-07T21:30:00',
+      '2022-07-07T18:40:00',
+      '2022-07-08T14:07:40'
     ];
 
     for (const i in schedule) {
@@ -299,11 +269,16 @@ export class LandingComponent implements OnInit {
     if (this.callFunction) {
       timer(0, 2000)
         .pipe(
-          switchMap(() =>
-            this.campaignService.getActive('live-tv-drawing-080722')
-          )
+          switchMap(() =>{
+                let res = null;
+                if(!this.questionId){
+                  res =   this.campaignService.getActive('live-tv-drawing-080722')
+                } else {res = of(this.questionId);}
+                return res;
+            })
         )
         .subscribe((questionId: number) => {
+          console.log(questionId)
           this.questionId = questionId;
           if (!!questionId) {
             this.disableBtn = false;
@@ -318,38 +293,34 @@ export class LandingComponent implements OnInit {
 
   submitAnswer() {
     this.campaignService
-      .submitAnswer('live-tv-drawing-020522', this.questionId.toString())
-      .subscribe(
-        (res) => {
-          console.log(res);
-        }
-
-        // next: (res: any) => {
-        //   if (res.data) {
-        //     if (res.data.correct) {
-        //       if (res.data.prize) {
-        //         this.prizeAmount = res.data.prize.amount;
-        //         this.showPrize = true;
-        //       } else {
-        //         this.showLate = true;
-        //       }
-        //     } else {
-        //       this.showError = true;
-        //     }
-        //   }
-        // },
-        // error: (e) => {
-        //   if (e.message.toString() === 'Not Authorized') {
-        //     this.showAuth = true;
-        //   }
-        //   if (
-        //     e.error &&
-        //     e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
-        //   ) {
-        //     this.showSubmited = true;
-        //   }
-        // },
-      );
+      .submitAnswer('live-tv-drawing-080722', this.questionId.toString(), this.answer)
+      .subscribe({
+        next: (res: any) => {
+          if (res.data) {
+            if (res.data.correct) {
+              if (res.data.prize) {
+                //this.prizeAmount = res.data.prize.amount;
+                this.showPrize = true;
+              } else {
+               // this.showLate = true;
+              }
+            } else {
+              //this.showError = true;
+            }
+          }
+        },
+        error: (e) => {
+          if (e.message.toString() === 'Not Authorized') {
+            //this.showAuth = true;
+          }
+          if (
+            e.error &&
+            e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
+          ) {
+            //this.showSubmited = true;
+          }
+        },
+      });
   }
 
   getRules() {
@@ -366,5 +337,9 @@ export class LandingComponent implements OnInit {
         this.rules = res.data;
         this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
       });
+  }
+
+  onClosePrize(){
+    this.showPrize = false;
   }
 }
