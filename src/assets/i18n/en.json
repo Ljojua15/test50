@@ -28,5 +28,8 @@
   "deposit": "DEPOSIT",
   "ticket": "TICKET",
   "slotCasinoUFO": "SLOT, CASINO, UFO",
-  "ticketsSum": "MY TICKETS"
+  "ticketsSum": "MY TICKETS",
+  "reglament": "REGULATOR",
+  "permission": "PERMISSION #19-03/430",
+  "rules": "RULES:"
 }
