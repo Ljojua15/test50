@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { environment } from 'src/environments/environment';
 import { DailyData } from '../user';
@@ -11,6 +11,7 @@ import { DailyData } from '../user';
 export class EverydayTicketsComponent implements OnInit {
   // @Input() userData!: DailyData;
   @Output() tickets = new EventEmitter<number>();
+  @Input() lang: string | undefined;
 
   filePath = environment.filePath;
 

@@ -65,13 +65,13 @@
                 <div class="progress_popup_wrp">
                   <div class="progress_popup_top">
                     <div>
-                      შენი პროგრესი:
+                      {{ "yourProgress" | translate }}
                       <span id="dep_p_final" class="text-span-172"
                         >{{ userData.depositProgress }}₾</span
                       >
                     </div>
                   </div>
-                  <div>*ბილეთის მისაღებად შეავსე პროგრესი 1 000₾-მდე</div>
+                  <div>{{ "forTicket" | translate }}</div>
                 </div>
               </div>
             </div>
@@ -117,13 +117,13 @@
                 >
                   <div class="progress_popup_top">
                     <div>
-                      შენი პროგრესი:
+                      {{ "yourProgress" | translate }}
                       <span id="ufo_p_final" class="text-span-172"
                         >{{ userData.betProgress }}₾</span
                       >
                     </div>
                   </div>
-                  <div>*ბილეთის მისაღებად შეავსე პროგრესი 5 000₾-მდე</div>
+                  <div>{{ "forTicket2" | translate }}</div>
                 </div>
               </div>
             </div>
@@ -146,10 +146,18 @@
         </div>
         <div class="popup_lr_final" *ngIf="openPopup">
           <div class="w-layout-grid grid-209044">
-            <div class="text-block-690 _3">გამარჯვებული N1 – 5 000₾</div>
-            <div class="text-block-690 _3">გამარჯვებული N2 – 10 000₾</div>
-            <div class="text-block-690 _3">გამარჯვებული N3 – 15 000₾</div>
-            <div class="text-block-690 _3">გამარჯვებული N4 – ბინა ბათუმში</div>
+            <div class="text-block-690 _3">
+              {{ "winner" | translate }} N1 – 5 000₾
+            </div>
+            <div class="text-block-690 _3">
+              {{ "winner" | translate }} N2 – 10 000₾
+            </div>
+            <div class="text-block-690 _3">
+              {{ "winner" | translate }} N3 – 15 000₾
+            </div>
+            <div class="text-block-690 _3">
+              {{ "winner" | translate }} N4 – {{ "flatatbatumi" | translate }}
+            </div>
           </div>
           <img
             src="../../../{{ filePath }}assets/images/x.svg"
