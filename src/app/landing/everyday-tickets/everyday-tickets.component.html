@@ -106,9 +106,8 @@
         <div class="raffle-wrp">
           <div class="play_icon"></div>
           <div class="text3">
-            გათამაშება გაიმართება
-            <span id="date_daily">10.07</span>-ში  21:55 საათზე, კროკობეთის
-            ოფიციალურ ვებ-გვერდზე.
+            {{ "schedule" | translate }}
+            <span id="date_daily">10.07</span>{{ "schedule2" | translate }}
           </div>
         </div>
         <div class="popup_lr_daily" *ngIf="openInfo">
