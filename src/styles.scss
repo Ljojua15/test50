@@ -21,6 +21,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.daily {
+  font-family: fonts.$font-extra-bold !important;
+}
+
+.final {
+  font-family: fonts.$font-extra-bold !important;
+}
+
 .w-layout-grid {
   display: -ms-grid;
   display: grid;
@@ -379,7 +387,8 @@ body::-webkit-scrollbar {
   box-shadow: inset 0 -1px 10px 0 #4cff97;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   color: #fff;
   font-size: 24px;
   line-height: 1;
@@ -453,6 +462,7 @@ body::-webkit-scrollbar {
   font-size: 22px;
   line-height: 1;
   font-weight: 700;
+  padding-inline: 25px;
 }
 
 .tablinkheader2.active {
@@ -788,6 +798,8 @@ body::-webkit-scrollbar {
 
 .text-span {
   // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
+
   color: #8ad4ff;
   font-weight: 900;
   text-decoration: underline;
@@ -931,7 +943,8 @@ body::-webkit-scrollbar {
 .card_title {
   margin-top: 5px;
   margin-bottom: 10px;
-  font-family: Ttsupermolotneue, sans-serif;
+  // font-family: Ttsupermolotneue, sans-serif;
+  font-family: fonts.$font-extra-bold !important;
   font-size: 22px;
   line-height: 1;
   font-weight: 700;
@@ -942,9 +955,9 @@ body::-webkit-scrollbar {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-top: 15px;
+  padding-right: 27px;
+  padding-left: 27px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1019,7 +1032,8 @@ body::-webkit-scrollbar {
 }
 
 .text-block-22876 {
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   color: #24e5a4;
   font-size: 30px;
   line-height: 1;
@@ -1151,7 +1165,8 @@ body::-webkit-scrollbar {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   background-color: #2a516d;
-  font-family: Ttsupermolotneue, sans-serif;
+  // font-family: Ttsupermolotneue, sans-serif;
+  font-family: fonts.$font-extra-bold !important;
   font-size: 24px;
   line-height: 1;
   font-weight: 700;
@@ -1166,6 +1181,7 @@ body::-webkit-scrollbar {
 }
 
 .text-span-187 {
+  font-family: fonts.$font-extra-bold !important;
   color: #20e95d;
 }
 
@@ -1314,7 +1330,8 @@ body::-webkit-scrollbar {
 
 .text-block-2155 {
   margin-left: 10px;
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   font-size: 19px;
   line-height: 1;
   font-weight: 900;
@@ -1381,7 +1398,8 @@ body::-webkit-scrollbar {
 }
 
 .text-span-188 {
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   color: #14fd8a;
   font-weight: 900;
   text-decoration: underline;
@@ -1557,7 +1575,8 @@ body::-webkit-scrollbar {
 }
 
 .text-span-189 {
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   font-weight: 900;
 }
 
@@ -1567,7 +1586,7 @@ body::-webkit-scrollbar {
 }
 
 .image-2625167 {
-  width: 386px;
+  width: 301px;
 }
 
 .tv_wrp {
@@ -1723,7 +1742,8 @@ body::-webkit-scrollbar {
 }
 
 .text-span-2 {
-  font-family: "Crocosans caps", sans-serif;
+  // font-family: "Crocosans caps", sans-serif;
+  font-family: fonts.$font-bold !important;
   color: #2ecd5e;
   font-weight: 900;
   text-decoration: underline;
@@ -1913,7 +1933,7 @@ body::-webkit-scrollbar {
 
 .progress_wrp {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   height: 20px;
   -webkit-align-self: center;
@@ -1937,9 +1957,9 @@ body::-webkit-scrollbar {
   display: flex;
   width: 0%;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
+  -webkit-justify-content: flex-end;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: flex-end;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -1962,6 +1982,7 @@ body::-webkit-scrollbar {
   background-color: #103a57;
   font-size: 13px;
   line-height: 1;
+  transform: translateX(50%);
 }
 
 .progress_tkt {
@@ -2371,11 +2392,6 @@ body::-webkit-scrollbar {
     font-size: 18px;
   }
 
-  .item_trigger_wrp {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
   .text-block {
     font-size: 15px;
   }
@@ -2689,8 +2705,6 @@ body::-webkit-scrollbar {
   }
 
   .item_trigger_wrp {
-    padding-right: 10px;
-    padding-left: 10px;
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     -ms-grid-row-align: stretch;
@@ -3667,6 +3681,13 @@ body::-webkit-scrollbar {
 .bt-2 {
   -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
   animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+.bt {
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
+  box-shadow: inset 0 -1px 30px 20px #55b43b,
+    1px 1px 60px 8px rgba(19, 173, 75, 0.77);
 }
 
 .gal_vid {

@@ -33,7 +33,9 @@ export class CampaignService {
   }
 
   getLiveStreams(): Observable<any> {
-    return this.http.get(`https://cms.crocobet.com/twitch?category=test-live`);
+    return this.http.get(
+      `https://cms.crocobet.com/twitch?category=summer-live-raffle`
+    );
   }
 
   getButtonStatus(url: string) {
@@ -72,9 +74,10 @@ export class CampaignService {
       return throwError(() => new Error('Not Authorized'));
     }
     return this.http.post(
-      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,{
-      active: 'true',
-    }
+      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,
+      {
+        active: 'true',
+      }
     );
   }
 }

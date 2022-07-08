@@ -1,7 +1,7 @@
 {
-  "win": "",
-  "flat": "",
-  "batumi": "",
+  "win": "WIN",
+  "flat": "A FLAT",
+  "batumi": "IN BATUMI!",
   "headerTop": "COLLECT POINTS OF THE DAILY AND THE FINAL RAFFLES,",
   "headerBottom": "WIN A SHARE FROM 250 000₾ AND AN FLAT IN BATUMI!",
   "registerText": "PASS THE VERIFICATION AND GET 100 TICKETS FOR THE DAILY RAFFLE!",
@@ -35,11 +35,18 @@
   "collect": "COLLECT TICKETS AND WIN ",
   "everyday": " EVERY DAY!",
   "watchRaffle": "WATCH THE LIVE RAFFLE ON ",
+  "watchRaffle2": "",
   "winner": "WINNER",
   "flatatbatumi": "APARTMENT IN BATUMI",
   "yourProgress": "YOUR PROGRESS: ",
   "forTicket": "*TO GET A TICKET FILL THE PROGRESS UP TO 1 000₾",
   "forTicket2": "*TO GET A TICKET FILL THE PROGRESS UP TO 5 000₾",
   "schedule": "THE RAFFLE WILL BE HELD ON",
-  "schedule2": " AT 21:55, ON THE OFFICIAL PAGE OF CROCOBET"
+  "schedule2": " AT 21:55, ON THE OFFICIAL PAGE OF CROCOBET",
+  "lang": "en",
+  "sum": "TOTAL BET 50₾",
+  "sum2": "TOTAL BET 5 000₾",
+  "auth": "PASS THE VERIFICATION AND GET ",
+  "auth2": "100 TICKETS",
+  "auth3": " FOR THE DAILY RAFFLE!"
 }

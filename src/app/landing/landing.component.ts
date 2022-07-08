@@ -31,6 +31,7 @@ export class LandingComponent implements OnInit {
   questionId!: number;
   answer = 'crc';
   showPrize = false;
+  liveUrl = '';
 
   filePath = environment.filePath;
 
@@ -174,10 +175,20 @@ export class LandingComponent implements OnInit {
     const today = new Date();
 
     const schedule = [
-      '2022-07-05T19:00:00',
-      '2022-07-06T15:10:40',
-      '2022-07-07T18:40:00',
-      '2022-07-08T14:07:40'
+      '2022-07-10T21:55:00',
+      '2022-07-11T21:55:00',
+      '2022-07-12T21:55:00',
+      '2022-07-13T21:55:00',
+      '2022-07-14T21:55:00',
+      '2022-07-15T21:55:00',
+      '2022-07-16T21:55:00',
+      '2022-07-17T21:55:00',
+      '2022-07-18T21:55:00',
+      '2022-07-19T21:55:00',
+      '2022-07-20T21:55:00',
+      '2022-07-21T21:55:00',
+      '2022-07-22T21:55:00',
+      '2022-07-24T21:55:00',
     ];
 
     for (const i in schedule) {
@@ -223,6 +234,8 @@ export class LandingComponent implements OnInit {
         })
       )
       .subscribe((res) => {
+        console.log(res);
+
         if (res) {
           if (this.isAuthorized !== res) {
             this.isAuthorized = res;
@@ -239,10 +252,17 @@ export class LandingComponent implements OnInit {
       console.log(res);
 
       res.data.forEach((item: any) => {
-        const d = new Date(item.schedule);
-        item.schedule = `${d.getDate() < 10 ? 0 : ''}${d.getDate()}.0${
-          d.getUTCMonth() + 1
-        }.${d.getUTCFullYear()}`;
+        console.log(item);
+
+        if (item.schedule.length === 0) {
+          item.schedule = 'საზაფხულო გათამაშება';
+          return;
+        } else {
+          const d = new Date(item.schedule);
+          item.schedule = `${d.getDate() < 10 ? 0 : ''}${d.getDate()}.0${
+            d.getUTCMonth() + 1
+          }.${d.getUTCFullYear()}`;
+        }
       });
 
       this.streams = res.data;
@@ -254,10 +274,13 @@ export class LandingComponent implements OnInit {
       timer(0, 10000)
         .pipe(switchMap(() => this.campaignService.getSchedule('live')))
         .subscribe((res) => {
+          console.log(res);
+
           if (res.data === null) {
             this.isLive = false;
             return;
           }
+          this.liveUrl = res.data.twitchUrl;
           this.isLive = true;
         });
     } else {
@@ -269,16 +292,18 @@ export class LandingComponent implements OnInit {
     if (this.callFunction) {
       timer(0, 2000)
         .pipe(
-          switchMap(() =>{
-                let res = null;
-                if(!this.questionId){
-                  res =   this.campaignService.getActive('live-tv-drawing-080722')
-                } else {res = of(this.questionId);}
-                return res;
-            })
+          switchMap(() => {
+            let res = null;
+            if (!this.questionId) {
+              res = this.campaignService.getActive('live-tv-drawing-080722');
+            } else {
+              res = of(this.questionId);
+            }
+            return res;
+          })
         )
         .subscribe((questionId: number) => {
-          console.log(questionId)
+          console.log(questionId);
           this.questionId = questionId;
           if (!!questionId) {
             this.disableBtn = false;
@@ -293,7 +318,11 @@ export class LandingComponent implements OnInit {
 
   submitAnswer() {
     this.campaignService
-      .submitAnswer('live-tv-drawing-080722', this.questionId.toString(), this.answer)
+      .submitAnswer(
+        'live-tv-drawing-080722',
+        this.questionId.toString(),
+        this.answer
+      )
       .subscribe({
         next: (res: any) => {
           if (res.data) {
@@ -302,7 +331,7 @@ export class LandingComponent implements OnInit {
                 //this.prizeAmount = res.data.prize.amount;
                 this.showPrize = true;
               } else {
-               // this.showLate = true;
+                // this.showLate = true;
               }
             } else {
               //this.showError = true;
@@ -339,7 +368,7 @@ export class LandingComponent implements OnInit {
       });
   }
 
-  onClosePrize(){
+  onClosePrize() {
     this.showPrize = false;
   }
 }

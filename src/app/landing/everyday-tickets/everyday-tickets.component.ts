@@ -13,6 +13,9 @@ export class EverydayTicketsComponent implements OnInit {
   @Output() tickets = new EventEmitter<number>();
   @Input() lang: string | undefined;
 
+  nextLive = '';
+  lastLive = '';
+
   filePath = environment.filePath;
 
   dailyData: DailyData = {
@@ -24,7 +27,6 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
-    '07.07',
     '08.07',
     '09.07',
     '10.07',
@@ -52,6 +54,14 @@ export class EverydayTicketsComponent implements OnInit {
       date.getUTCMonth() + 1 < 10 ? 0 : date.getUTCMonth()
     }${date.getUTCMonth() + 1}`;
     this.getData();
+    console.log(this.currentDDMM);
+
+    this.nextLive = `${date.getDate() + 2}.${
+      date.getUTCMonth() + 1 < 10 ? 0 : date.getUTCMonth()
+    }${date.getUTCMonth() + 1}`;
+
+    // const [nextLiveDay] = this.currentDDMM.split('.');
+    // this.nextLive.substring(0, 2)
   }
 
   getData() {
@@ -80,11 +90,12 @@ export class EverydayTicketsComponent implements OnInit {
 
   getDate(date: string) {
     this.currentDDMM = date;
+    let [day, month] = date.split('.');
+    this.nextLive = `${Math.min(+day + 2, 22)}.${month}`;
     this.getData();
   }
 
   openModal() {
-    // this.openInfo = true;
     this.openInfo = true;
   }
 
