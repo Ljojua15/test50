@@ -32,28 +32,20 @@
 }
 
 .video-popup {
-  display: flex;
-  background: rgba(0, 0, 0, 0.9);
+  position: absolute;
   width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 999999999999;
-  overflow: hidden;
-  flex-direction: column;
-  align-items: center;
-
-  border-radius: 30px;
-  overflow: hidden;
 
   &-close {
     /* position: absolute; */
     width: 18px;
-    /* top: 10px; */
-    /* right: 10px; */
-    /* transform: translate(-100%,50%); */
+    top: -60px;
+    right: 55px;
+    transform: translate(-100%, 50%);
     cursor: pointer;
     position: relative;
     left: 47%;
@@ -68,7 +60,8 @@
   }
 
   &-iframe {
-    width: 940px;
+    box-shadow: 1px 1px 60px 100vw rgba(0, 0, 0, 0.6);
+    width: 80%;
     height: auto;
     z-index: 2;
     aspect-ratio: 2;
