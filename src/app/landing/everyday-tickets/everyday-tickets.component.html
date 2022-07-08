@@ -7,20 +7,20 @@
             id="w-node-cb48081a-d111-d955-ae94-6c8dcbdc9886-891ec38b"
             class="dates"
             *ngFor="let date of schedule"
-            [ngClass]="{ selected: currentDDMM === date }"
+            [ngClass]="{ selected: currentDDMM === date.date }"
             (click)="getDate(date)"
           >
-            <!-- selected -->
-            <div>{{ date }}</div>
+            <div>{{ date.date }}</div>
+            <!-- src="../../../{{ filePath }}assets/images/video-icon.png" -->
             <img
-              src="../../../{{ filePath }}assets/images/video-icon.png"
-              loading="lazy"
+              *ngIf="date.wasLive"
               alt=""
+              src="./../../../assets/images/video-icon.png"
               class="video-icon"
             />
           </div>
         </div>
-        <div class="text-block-2">
+        <div class="text-block-2" *ngIf="!showLive">
           {{ "collect" | translate }}
           <span
             data-w-id="97437ac5-2f57-6aec-7a29-0c439ebb1706"
@@ -29,7 +29,7 @@
             >15 000₾ {{ "everyday" | translate }}</span
           >
         </div>
-        <div class="div-block-40894">
+        <div class="div-block-40894" *ngIf="showLive">
           <img
             src="../../../{{ filePath }}assets/images/video-icon.png"
             loading="lazy"
@@ -45,7 +45,7 @@
         <div class="tab_points_wrp">
           <div class="w-layout-grid grid_wrp">
             <div class="cards_wrp">
-              <div class="item_trigger_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
                 <div class="card_title">{{ "authorize" | translate }}</div>
                 <div class="text-block">
                   {{ "authorize" | translate }} = 1 {{ "ticket" | translate }}
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div class="cards_wrp">
-              <div class="item_trigger_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
                 <div class="card_title">{{ "deposit" | translate }}</div>
                 <div class="text-block">10₾ = 1 {{ "ticket" | translate }}</div>
                 <div>{{ "myTickets" | translate }}</div>
@@ -75,7 +75,7 @@
               </div>
             </div>
             <div class="cards_wrp">
-              <div class="item_trigger_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
                 <div class="card_title">{{ "slotCasinoUFO" | translate }}</div>
                 <div class="text-block">
                   {{ "sum" | translate }} = 1 {{ "ticket" | translate }}

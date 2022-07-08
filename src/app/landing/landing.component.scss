@@ -1,5 +1,9 @@
 @use "./../../fonts";
 
+.titleGe {
+  width: 400px;
+}
+
 .ru {
   width: 650px;
   position: relative;
@@ -15,7 +19,7 @@
 .img_title {
   width: 600px;
   position: relative;
-  top: 25px;
+  top: -10px;
 }
 
 .disableBtn {
@@ -43,27 +47,17 @@
   z-index: 999999999999;
 
   &-close {
-    /* position: absolute; */
+    position: absolute;
     width: 18px;
     top: -60px;
     right: 55px;
     transform: translate(-100%, 50%);
     cursor: pointer;
-    position: relative;
-    left: 47%;
-    top: -5%;
-
-    // position: absolute;
-    // width: 18px;
-    // top: 10px;
-    // right: 10px;
-    // transform: translate(-100%, 50%);
-    // cursor: pointer;
   }
 
   &-iframe {
     box-shadow: 1px 1px 60px 100vw rgba(0, 0, 0, 0.6);
-    width: 80%;
+    width: 75%;
     height: auto;
     z-index: 2;
     aspect-ratio: 2;

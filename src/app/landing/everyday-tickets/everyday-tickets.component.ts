@@ -15,6 +15,7 @@ export class EverydayTicketsComponent implements OnInit {
 
   nextLive = '';
   lastLive = '';
+  showLive = false;
 
   filePath = environment.filePath;
 
@@ -27,20 +28,21 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
-    '08.07',
-    '09.07',
-    '10.07',
-    '11.07',
-    '12.07',
-    '14.07',
-    '15.07',
-    '16.07',
-    '17.07',
-    '18.07',
-    '19.07',
-    '20.07',
-    '21.07',
-    '22.07',
+    { date: '08.07', wasLive: false },
+    { date: '09.07', wasLive: false },
+    { date: '10.07', wasLive: false },
+    { date: '11.07', wasLive: false },
+    { date: '12.07', wasLive: false },
+    { date: '13.07', wasLive: false },
+    { date: '14.07', wasLive: false },
+    { date: '15.07', wasLive: false },
+    { date: '16.07', wasLive: false },
+    { date: '17.07', wasLive: false },
+    { date: '18.07', wasLive: false },
+    { date: '19.07', wasLive: false },
+    { date: '20.07', wasLive: false },
+    { date: '21.07', wasLive: false },
+    { date: '22.07', wasLive: false },
   ];
 
   openInfo = false;
@@ -54,31 +56,20 @@ export class EverydayTicketsComponent implements OnInit {
       date.getUTCMonth() + 1 < 10 ? 0 : date.getUTCMonth()
     }${date.getUTCMonth() + 1}`;
     this.getData();
-    console.log(this.currentDDMM);
 
     this.nextLive = `${date.getDate() + 2}.${
       date.getUTCMonth() + 1 < 10 ? 0 : date.getUTCMonth()
     }${date.getUTCMonth() + 1}`;
 
-    // const [nextLiveDay] = this.currentDDMM.split('.');
-    // this.nextLive.substring(0, 2)
+    this.checkRecent();
   }
 
   getData() {
     const date = new Date();
-    // const url = `live-tv-drawing-080722/user?scope=daily&date=${date.getUTCFullYear()}-0${
-    //   date.getUTCMonth() + 1
-    // }-${date.getUTCDate() > 10 ? 0 : date.getUTCDate()}${date.getUTCDate()}`;
-
     const [day, month] = this.currentDDMM.split('.');
-
-    //tve > ricxvi
-
     const url = `live-tv-drawing-080722/user?scope=daily&date=${date.getUTCFullYear()}-${month}-${day}`;
 
     return this.campaignService.getUserData(url).subscribe((res: any) => {
-      console.log(res);
-
       this.dailyData.login = res.data.metadata.tickets.login;
       this.dailyData.deposit = res.data.metadata.tickets.deposit;
       this.dailyData.bet = res.data.metadata.tickets.bet;
@@ -88,11 +79,26 @@ export class EverydayTicketsComponent implements OnInit {
     });
   }
 
-  getDate(date: string) {
-    this.currentDDMM = date;
-    let [day, month] = date.split('.');
-    this.nextLive = `${Math.min(+day + 2, 22)}.${month}`;
+  getDate(date: any) {
+    this.currentDDMM = date.date;
+
+    this.showLive = date.wasLive;
+    let [day, month] = date.date.split('.');
+
+    this.nextLive = `${Math.min(+day + 2, 24)}.${month}`;
+
     this.getData();
+  }
+
+  checkRecent() {
+    this.schedule.forEach((date) => {
+      const [day] = date.date.split('.');
+      const [currentDay] = this.currentDDMM.split('.');
+
+      if (+currentDay > +day) {
+        date.wasLive = true;
+      }
+    });
   }
 
   openModal() {

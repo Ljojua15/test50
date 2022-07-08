@@ -6,6 +6,7 @@
         width="193"
         alt=""
         class="image-2625167"
+        [ngClass]="{ titleGe: ('lang' | translate) === 'ge' }"
       />
       <!-- [ngClass]="{
           bgge: ('lang' | translate) === 'ge',
@@ -179,7 +180,7 @@
       </div>
       <div class="gr_wrp">
         <div class="div-block-40890">
-          <div class="video-popup" *ngIf="test">
+          <div class="video-popup" *ngIf="showRecentVideo">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
               class="video-popup-close"
@@ -188,7 +189,7 @@
               (click)="closeRecentVideo()"
             />
             <iframe
-              [src]="'https://www.youtube.com/embed/80p80ynsZ78' | safeUrl"
+              [src]="recentVideoUrl | safeUrl"
               frameborder="0"
               allow="fullscreen"
               class="video-popup-iframe"
@@ -276,8 +277,8 @@
             <div class="w-layout-grid gal_vid">
               <a
                 class="lightbox-link-2 w-inline-block w-lightbox"
-                *ngFor="let video of streams"
-                (click)="openRecentVideo()"
+                *ngFor="let video of streams; index as i"
+                (click)="openRecentVideo(i)"
               >
                 <div class="div-block-40888">
                   <div class="div-block-19464"></div>
@@ -328,7 +329,7 @@
               >
             </p>
           </div>
-          <div class="popup_prize h">
+          <div class="popup_prize">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
