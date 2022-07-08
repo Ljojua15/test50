@@ -141,6 +141,21 @@
       </div>
       <div class="gr_wrp">
         <div class="div-block-40890">
+          <div class="video-popup" *ngIf="test">
+            <img
+              src="../../{{ filePath }}assets/images/x.svg"
+              class="video-popup-close"
+              alt=""
+              scroll="no"
+              (click)="closeRecentVideo()"
+            />
+            <iframe
+              [src]="'https://www.youtube.com/embed/80p80ynsZ78' | safeUrl"
+              frameborder="0"
+              allow="fullscreen"
+              class="video-popup-iframe"
+            ></iframe>
+          </div>
           <div class="live-container" *ngIf="isLive">
             <iframe
               [src]="'https://www.youtube.com/embed/g-DESpow9xo' | safeUrl"
@@ -444,20 +459,4 @@
       }}</a>
     </div>
   </div>
-</div>
-
-<div class="video-popup" *ngIf="test">
-  <img
-    src="../../{{ filePath }}assets/images/x.svg"
-    class="video-popup-close"
-    alt=""
-    scroll="no"
-    (click)="closeRecentVideo()"
-  />
-  <iframe
-    [src]="'https://www.youtube.com/embed/80p80ynsZ78' | safeUrl"
-    frameborder="0"
-    allow="fullscreen"
-    class="video-popup-iframe"
-  ></iframe>
 </div>
