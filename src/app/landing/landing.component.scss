@@ -1,5 +1,9 @@
 @use "./../../fonts";
 
+.titleGe {
+  width: 400px;
+}
+
 .ru {
   width: 650px;
   position: relative;
@@ -53,7 +57,7 @@
 
   &-iframe {
     box-shadow: 1px 1px 60px 100vw rgba(0, 0, 0, 0.6);
-    width: 80%;
+    width: 75%;
     height: auto;
     z-index: 2;
     aspect-ratio: 2;

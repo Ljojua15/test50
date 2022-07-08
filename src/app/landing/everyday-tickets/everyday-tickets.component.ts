@@ -33,6 +33,7 @@ export class EverydayTicketsComponent implements OnInit {
     { date: '10.07', wasLive: false },
     { date: '11.07', wasLive: false },
     { date: '12.07', wasLive: false },
+    { date: '13.07', wasLive: false },
     { date: '14.07', wasLive: false },
     { date: '15.07', wasLive: false },
     { date: '16.07', wasLive: false },
@@ -83,7 +84,8 @@ export class EverydayTicketsComponent implements OnInit {
 
     this.showLive = date.wasLive;
     let [day, month] = date.date.split('.');
-    this.nextLive = `${Math.min(+day + 2, 22)}.${month}`;
+
+    this.nextLive = `${Math.min(+day + 2, 24)}.${month}`;
 
     this.getData();
   }

@@ -6,6 +6,7 @@
         width="193"
         alt=""
         class="image-2625167"
+        [ngClass]="{ titleGe: ('lang' | translate) === 'ge' }"
       />
       <!-- [ngClass]="{
           bgge: ('lang' | translate) === 'ge',
@@ -328,7 +329,7 @@
               >
             </p>
           </div>
-          <div class="popup_prize h">
+          <div class="popup_prize">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
