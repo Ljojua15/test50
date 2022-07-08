@@ -978,6 +978,12 @@ body::-webkit-scrollbar {
   background-color: #2e518c;
   font-size: 16px;
   line-height: 1;
+
+  &__everyday {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 
 .text-block {
