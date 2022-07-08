@@ -43,22 +43,12 @@
   z-index: 999999999999;
 
   &-close {
-    /* position: absolute; */
+    position: absolute;
     width: 18px;
     top: -60px;
     right: 55px;
     transform: translate(-100%, 50%);
     cursor: pointer;
-    position: relative;
-    left: 47%;
-    top: -5%;
-
-    // position: absolute;
-    // width: 18px;
-    // top: 10px;
-    // right: 10px;
-    // transform: translate(-100%, 50%);
-    // cursor: pointer;
   }
 
   &-iframe {

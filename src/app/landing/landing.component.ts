@@ -24,7 +24,8 @@ export class LandingComponent implements OnInit {
   totalDaily: number = 0;
   openInfo = false;
   isLive = false;
-  test = false;
+  showRecentVideo = false;
+  recentVideoUrl = 'https://www.youtube.com/embed/5Xq8SfzAE_s';
   streams: any;
   callFunction = true;
   disableBtn = true;
@@ -107,13 +108,15 @@ export class LandingComponent implements OnInit {
     this.openInfo = false;
   }
 
-  openRecentVideo() {
-    this.test = true;
+  openRecentVideo(i: number) {
+    this.showRecentVideo = true;
+    this.recentVideoUrl = this.streams[i].twitchUrl;
+
     document.body.style.overflow = 'hidden';
   }
 
   closeRecentVideo() {
-    this.test = false;
+    this.showRecentVideo = false;
     document.body.style.overflow = 'visible';
   }
 
