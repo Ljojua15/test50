@@ -1,19 +1,21 @@
 @use "./../../fonts";
 
 .ru {
-  width: 675px;
+  width: 650px;
   position: relative;
-  bottom: 50px;
+  bottom: 15px;
 }
 
 .en {
-  width: 675px;
+  width: 600px;
   position: relative;
-  bottom: 90px;
+  bottom: 40px;
 }
 
 .img_title {
   width: 600px;
+  position: relative;
+  top: 25px;
 }
 
 .disableBtn {
