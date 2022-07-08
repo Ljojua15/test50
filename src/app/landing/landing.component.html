@@ -2,7 +2,7 @@
   <div class="section wf-section">
     <div class="content">
       <img
-        src="../../{{ filePath }}assets/images/geo.png"
+        src="../../{{ filePath }}assets/images/{{ 'lang' | translate }}.png"
         width="193"
         alt=""
         class="image-2625167"
@@ -14,9 +14,34 @@
             style="display: block"
             class="title"
           >
-            <div class="text-block-22883" #test2>{{ "win" | translate }}</div>
+            <img
+              *ngIf="('lang' | translate) === 'ge'"
+              class="img_title"
+              src="../../{{ filePath }}assets/images/{{
+                'lang' | translate
+              }}_00060.png"
+              alt=""
+            />
+            <img
+              *ngIf="('lang' | translate) === 'en'"
+              src="../../{{ filePath }}assets/images/{{
+                'lang' | translate
+              }}_00060.png"
+              alt=""
+              class="en"
+            />
+            <img
+              *ngIf="('lang' | translate) === 'ru'"
+              src="../../{{ filePath }}assets/images/{{
+                'lang' | translate
+              }}_00060.png"
+              alt=""
+              class="ru"
+            />
+            <!-- [ngClass]="lang === 'en' ? 'en' : 'ru'" -->
+            <!-- <div class="text-block-22883" #test2>{{ "win" | translate }}</div>
             <div class="text-block-22884">{{ "flat" | translate }}</div>
-            <div class="text-block-22885">{{ "batumi" | translate }}</div>
+            <div class="text-block-22885">{{ "batumi" | translate }}</div> -->
           </div>
           <div
             data-w-id="c57d3d14-539d-5087-5848-7e83c0e736b2"
@@ -40,9 +65,15 @@
         {{ "headerBottom" | translate }}
       </div>
       <div class="chaerte_wrp" *ngIf="!isAuthorized">
-        <div class="text-block-22871">
-          გაიარე ვერიფიკაცია და მიიღე ყოველდღიური გათამაშების
-          <span class="text-span-190">100 ბილეთი!</span>
+        <div class="text-block-22871" *ngIf="lang !== 'ge'">
+          {{ "auth" | translate }}<br />
+          <span class="text-span-190">{{ "auth2" | translate }}</span>
+          {{ "auth3" | translate }}
+        </div>
+
+        <div class="text-block-22871" *ngIf="lang === 'ge'">
+          {{ "authText" | translate }}
+          <span class="text-span-190">{{ "authText2" | translate }}</span>
         </div>
         <div class="w-layout-grid grid-7">
           <a href="#" class="chaerte_btn w-button" (click)="onRegister()">{{
@@ -54,15 +85,17 @@
         </div>
       </div>
       <a
-        href="https://crocobet.com/#/casino"
+        href="https://crocobet.com"
         target="_blank"
         class="bt w-button"
+        *ngIf="isAuthorized"
         >{{ "play" | translate }}</a
       >
       <a
-        href="https://m.crocobet.com/#/casino"
+        href="https://m.crocobet.com"
         target="_blank"
         class="bt m w-button"
+        *ngIf="isAuthorized"
         >{{ "play" | translate }}</a
       >
       <div
@@ -85,7 +118,7 @@
                 alt=""
                 class="coins"
               />
-              <div>{{ "daily" | translate }}</div>
+              <div class="daily">{{ "daily" | translate }}</div>
               <div class="tickets_wrp">
                 <div class="text-block-22873">
                   {{ "myTickets" | translate }}
@@ -110,7 +143,7 @@
                 alt=""
                 class="coins"
               />
-              <div>{{ "final" | translate }}</div>
+              <div class="final">{{ "final" | translate }}</div>
               <div class="tickets_wrp">
                 <div class="text-block-22873">
                   {{ "myTickets" | translate }}
@@ -158,7 +191,7 @@
           </div>
           <div class="live-container" *ngIf="isLive">
             <iframe
-              [src]="'https://www.youtube.com/embed/g-DESpow9xo' | safeUrl"
+              [src]="liveUrl | safeUrl"
               frameborder="0"
               class="live-container-iframe"
             ></iframe>
@@ -422,8 +455,8 @@
               </a>
             </div>
           </div>
-          <div class="left-arrow w-slider-arrow-left"></div>
-          <div class="right-arrow w-slider-arrow-right"></div>
+          <!-- <div class="left-arrow w-slider-arrow-left"></div>
+          <div class="right-arrow w-slider-arrow-right"></div> -->
           <div class="slide-nav w-slider-nav w-round"></div>
         </div>
       </div>
@@ -450,13 +483,19 @@
     </div>
     <div class="reglament">
       <a
-        href="./../../assets/documents/2022 წლის ივლისის თვის პატარა წამახალისებელი 430 მესამე vol2.pdf"
+        href="../../{{
+          filePath
+        }}assets/documents/2022 წლის ივლისის თვის პატარა წამახალისებელი 430 მესამე vol2.pdf"
         class="pdf-bt"
+        target="_blank"
         >{{ "reglament" | translate }}</a
       >
-      <a href="./../../assets/documents/19 03 430.pdf" class="pdf-bt">{{
-        "permission" | translate
-      }}</a>
+      <a
+        href="../../{{ filePath }}assets/documents/19 03 430.pdf"
+        class="pdf-bt"
+        target="_blank"
+        >{{ "permission" | translate }}</a
+      >
     </div>
   </div>
 </div>

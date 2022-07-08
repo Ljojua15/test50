@@ -36,15 +36,10 @@
             alt=""
             class="play_icon2"
           />
-          <div class="text-block-3" *ngIf="lang === 'ge'">
-            {{ "watchRaffle" | translate }}
-            <span id="live-date" class="text-span-189">10.07</span
-            ><span>{{ "watchRaffle2" | translate }}</span>
-            <span>{{ "watchRaffle3" | translate }}</span>
-          </div>
-          <div class="text-block-3" *ngIf="lang !== 'ge'">
+          <div class="text-block-3">
             {{ "watchRaffle" | translate }}
             <span id="live-date" class="text-span-189">10.07</span>
+            {{ "watchRaffle2" | translate }}
           </div>
         </div>
         <div class="tab_points_wrp">
@@ -83,7 +78,7 @@
               <div class="item_trigger_wrp">
                 <div class="card_title">{{ "slotCasinoUFO" | translate }}</div>
                 <div class="text-block">
-                  ჯამური 50₾ ფსონი = 1 {{ "ticket" | translate }}
+                  {{ "sum" | translate }} = 1 {{ "ticket" | translate }}
                 </div>
                 <div>{{ "myTickets" | translate }}</div>
                 <div class="tkt_stroke _2">
