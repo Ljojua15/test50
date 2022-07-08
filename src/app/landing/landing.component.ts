@@ -86,7 +86,6 @@ export class LandingComponent implements OnInit {
     this.lang = this.getCurrentLang();
     this.title = this.rulesService.getTitle();
     this.getRules();
-    console.log(this.latencyTestService.isSlowConnection());
     this.checkUser();
     this.getUrl();
     this.getfinalData();
@@ -134,26 +133,11 @@ export class LandingComponent implements OnInit {
       : 'ge';
   }
 
-  // getData() {
-  //   const date = new Date();
-  //   const url = `live-tv-drawing-080722/user?scope=daily&date=${date.getUTCFullYear()}-0${
-  //     date.getUTCMonth() + 1
-  //   }-${date.getUTCDate() > 10 ? 0 : date.getUTCDate()}${date.getUTCDate()}`;
-
-  //   return this.campaignService.getUserData(url).subscribe((res: any) => {
-  //     this.dailyData.login = res.data.metadata.tickets.login;
-  //     this.dailyData.deposit = res.data.metadata.tickets.deposit;
-  //     this.dailyData.bet = res.data.metadata.tickets.bet;
-  //     this.dailyData.total = res.data.metadata.tickets.total;
-  //     console.log(res);
-  //   });
-  // }
-
   getfinalData() {
     return this.campaignService
       .getFinalData('live-tv-drawing-080722/user?scope=final&date=2022-07-22')
       .subscribe((res: any) => {
-        console.log(res);
+        res;
         this.finalData.total = res.data.metadata.tickets.total;
         this.finalData.bet = res.data.metadata.tickets.bet;
         this.finalData.deposit = res.data.metadata.tickets.deposit;
@@ -200,20 +184,12 @@ export class LandingComponent implements OnInit {
             (x.hours === 0 && x.minutes === 0 && x.seconds === 0) ||
             (x.hours === 23 && x.minutes > 30)
           ) {
-            console.log('timerup');
-
             this.checkLive();
             this.getActiveQuestion();
             this.callFunction = false;
             return;
           }
 
-          // if (x.hours === 23 && x.minutes > 30) {
-          //   this.checkLive();
-          //   console.log('stilcehcign');
-
-          //   return;
-          // }
           this.timer = {
             hours: x.hours.toString().padStart(2, '0'),
             minutes: x.minutes.toString().padStart(2, '0'),
@@ -234,8 +210,6 @@ export class LandingComponent implements OnInit {
         })
       )
       .subscribe((res) => {
-        console.log(res);
-
         if (res) {
           if (this.isAuthorized !== res) {
             this.isAuthorized = res;
@@ -249,11 +223,7 @@ export class LandingComponent implements OnInit {
   //gasuli gatamasebebis linkebi
   getUrl() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
-      console.log(res);
-
       res.data.forEach((item: any) => {
-        console.log(item);
-
         if (item.schedule.length === 0) {
           item.schedule = 'საზაფხულო გათამაშება';
           return;
@@ -274,8 +244,6 @@ export class LandingComponent implements OnInit {
       timer(0, 10000)
         .pipe(switchMap(() => this.campaignService.getSchedule('live')))
         .subscribe((res) => {
-          console.log(res);
-
           if (res.data === null) {
             this.isLive = false;
             return;
@@ -303,7 +271,6 @@ export class LandingComponent implements OnInit {
           })
         )
         .subscribe((questionId: number) => {
-          console.log(questionId);
           this.questionId = questionId;
           if (!!questionId) {
             this.disableBtn = false;
@@ -361,8 +328,6 @@ export class LandingComponent implements OnInit {
         })
       )
       .subscribe((res: any) => {
-        console.log(res);
-
         this.rules = res.data;
         this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
       });

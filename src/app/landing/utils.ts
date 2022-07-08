@@ -20,8 +20,6 @@ export const countdown$ = (
         (x - hours * 60 * 60 * 1000 - minutes * 60 * 1000) / 1000
       );
 
-      // console.log(x);
-
       return {
         hours,
         minutes,

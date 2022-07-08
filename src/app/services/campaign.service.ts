@@ -59,7 +59,6 @@ export class CampaignService {
       })
       .pipe(
         map((res: any) => {
-          console.log(res);
           if (res?.data?.active) {
             return res.data.active.id;
           } else {
