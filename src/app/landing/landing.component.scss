@@ -2914,6 +2914,23 @@
 //     padding-left: 20px;
 //   }
 // }
+@media screen and (max-width: 479px) {
+  .titleGe {
+    width: 240px;
+  }
+
+  .img_title {
+    top: -30px;
+  }
+
+  .en {
+    bottom: 70px;
+  }
+
+  .ru {
+    bottom: 30px;
+  }
+}
 
 // @media screen and (max-width: 479px) {
 //   .accordion_item_trigger-2 {
