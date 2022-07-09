@@ -4,7 +4,6 @@
       <div class="tab_cintent-wrp">
         <div id="daily_dates" class="w-layout-grid dates_daily">
           <div
-            id="w-node-cb48081a-d111-d955-ae94-6c8dcbdc9886-891ec38b"
             class="dates"
             *ngFor="let date of schedule"
             [ngClass]="{ selected: currentDDMM === date.date }"
@@ -21,10 +20,7 @@
         </div>
         <div class="text-block-2" *ngIf="!showLive">
           {{ "collect" | translate }}
-          <span
-            data-w-id="97437ac5-2f57-6aec-7a29-0c439ebb1706"
-            class="text-span"
-            (click)="openModal()"
+          <span class="text-span" (click)="openModal()"
             >15 000₾ {{ "everyday" | translate }}</span
           >
         </div>
