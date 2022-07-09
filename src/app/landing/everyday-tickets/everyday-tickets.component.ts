@@ -10,6 +10,8 @@ import { DailyData } from '../user';
 })
 export class EverydayTicketsComponent implements OnInit {
   // @Input() userData!: DailyData;
+  @Output() playVideo = new EventEmitter();
+
   @Output() tickets = new EventEmitter<number>();
   @Input() lang: string | undefined;
 
@@ -28,6 +30,8 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
+    { date: '06.07', wasLive: false },
+    { date: '07.07', wasLive: false },
     { date: '08.07', wasLive: false },
     { date: '09.07', wasLive: false },
     { date: '10.07', wasLive: false },
@@ -91,11 +95,16 @@ export class EverydayTicketsComponent implements OnInit {
   }
 
   checkRecent() {
+    const currentDate = new Date();
+    const liveEnd = currentDate.getHours();
+    const today = currentDate.getDate();
+
     this.schedule.forEach((date) => {
       const [day] = date.date.split('.');
+
       const [currentDay] = this.currentDDMM.split('.');
 
-      if (+currentDay > +day) {
+      if (+currentDay > +day || (liveEnd > 23 && today === +day)) {
         date.wasLive = true;
       }
     });
@@ -107,5 +116,9 @@ export class EverydayTicketsComponent implements OnInit {
 
   closeModal() {
     this.openInfo = false;
+  }
+
+  openVideo() {
+    this.playVideo.emit(this.nextLive);
   }
 }

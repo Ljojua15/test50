@@ -231,6 +231,8 @@ export class LandingComponent implements OnInit {
   //gasuli gatamasebebis linkebi
   getUrl() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
+      console.log(res);
+
       res.data.forEach((item: any) => {
         if (item.schedule.length === 0) {
           item.schedule = 'summer_raffle';
@@ -293,7 +295,7 @@ export class LandingComponent implements OnInit {
 
   submitAnswer() {
     console.log('submit');
-    if(this.totalDaily <10){
+    if (this.totalDaily < 10) {
       this.showMinTicketError = true;
       return;
     }
@@ -305,7 +307,7 @@ export class LandingComponent implements OnInit {
       )
       .subscribe({
         next: (res: any) => {
-          console.log(res, res.data, res.data.prize)
+          console.log(res, res.data, res.data.prize);
           if (res.data) {
             if (res.data.correct) {
               if (res.data.prize) {
@@ -320,7 +322,7 @@ export class LandingComponent implements OnInit {
           }
         },
         error: (e) => {
-          console.log(e, 'rerr')
+          console.log(e, 'rerr');
           if (e.message.toString() === 'Not Authorized') {
             this.showAuthError = true;
           }
@@ -348,9 +350,10 @@ export class LandingComponent implements OnInit {
         this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
       });
   }
-  onPrizeClose(){
+  onPrizeClose() {
     this.showPrize = false;
   }
+
   onHavePrizeClose() {
     this.showSubmited = false;
   }
@@ -362,5 +365,14 @@ export class LandingComponent implements OnInit {
   }
   onOutOfRangeErrorClose() {
     this.showOutOfRangeError = false;
+  }
+
+  playVideo(event: string) {
+    this.streams.forEach((stream: any) => {
+      if (stream.schedule.substring(0, 5) === event) {
+        this.recentVideoUrl = stream.twitchUrl;
+        this.showRecentVideo = true;
+      }
+    });
   }
 }
