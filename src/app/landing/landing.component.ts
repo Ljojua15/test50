@@ -167,7 +167,6 @@ export class LandingComponent implements OnInit {
     const today = new Date();
 
     const schedule = [
-      '2022-07-09T14:02:00',
       '2022-07-10T21:55:00',
       '2022-07-11T21:55:00',
       '2022-07-12T21:55:00',
