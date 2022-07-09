@@ -33,6 +33,11 @@ export class LandingComponent implements OnInit {
   answer = 'crc';
   showPrize = false;
   liveUrl = '';
+  prizeAmount = 'X';
+  showSubmited = false;
+  showAuthError = false;
+  showMinTicketError = false;
+  showOutOfRangeError = false;
 
   filePath = environment.filePath;
 
@@ -162,6 +167,7 @@ export class LandingComponent implements OnInit {
     const today = new Date();
 
     const schedule = [
+      '2022-07-09T14:02:00',
       '2022-07-10T21:55:00',
       '2022-07-11T21:55:00',
       '2022-07-12T21:55:00',
@@ -222,13 +228,12 @@ export class LandingComponent implements OnInit {
         }
       });
   }
-
   //gasuli gatamasebebis linkebi
   getUrl() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
       res.data.forEach((item: any) => {
         if (item.schedule.length === 0) {
-          item.schedule = 'საზაფხულო გათამაშება';
+          item.schedule = 'summer_raffle';
           return;
         } else {
           const d = new Date(item.schedule);
@@ -287,6 +292,11 @@ export class LandingComponent implements OnInit {
   }
 
   submitAnswer() {
+    console.log('submit');
+    if(this.totalDaily <10){
+      this.showMinTicketError = true;
+      return;
+    }
     this.campaignService
       .submitAnswer(
         'live-tv-drawing-080722',
@@ -295,13 +305,14 @@ export class LandingComponent implements OnInit {
       )
       .subscribe({
         next: (res: any) => {
+          console.log(res, res.data, res.data.prize)
           if (res.data) {
             if (res.data.correct) {
               if (res.data.prize) {
-                //this.prizeAmount = res.data.prize.amount;
+                this.prizeAmount = res.data.prize.amount;
                 this.showPrize = true;
               } else {
-                // this.showLate = true;
+                //this.showLate = true;
               }
             } else {
               //this.showError = true;
@@ -309,14 +320,16 @@ export class LandingComponent implements OnInit {
           }
         },
         error: (e) => {
+          console.log(e, 'rerr')
           if (e.message.toString() === 'Not Authorized') {
-            //this.showAuth = true;
+            this.showAuthError = true;
           }
           if (
             e.error &&
             e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
           ) {
-            //this.showSubmited = true;
+            this.showSubmited = true;
+            console.log(this.showSubmited);
           }
         },
       });
@@ -335,8 +348,19 @@ export class LandingComponent implements OnInit {
         this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
       });
   }
-
-  onClosePrize() {
+  onPrizeClose(){
     this.showPrize = false;
+  }
+  onHavePrizeClose() {
+    this.showSubmited = false;
+  }
+  onAuthErrorClose() {
+    this.showAuthError = false;
+  }
+  onMinTicketErrorClose() {
+    this.showMinTicketError = false;
+  }
+  onOutOfRangeErrorClose() {
+    this.showOutOfRangeError = false;
   }
 }

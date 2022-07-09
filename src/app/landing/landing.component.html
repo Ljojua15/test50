@@ -256,12 +256,11 @@
           <div class="gr_wrp _3">
             <div class="div-block-40891-copy">
               <p class="paragraph">{{ "getSpins" | translate }}</p>
-              <a
-                href="#"
-                class="bt-2 w-button"
+              <button
+                class="bt-2 w-button fr-sp-btn"
                 [ngClass]="disableBtn === true ? 'disableBtn' : ''"
                 (click)="submitAnswer()"
-                >{{ "freespins" | translate }}<br />{{ "get" | translate }}</a
+                >{{ "freespins" | translate }}<br />{{ "get" | translate }}</button
               >
             </div>
           </div>
@@ -303,7 +302,7 @@
                     ></iframe>
                   </div>
                 </div>
-                <div class="text-block-2156">{{ video.schedule }}</div>
+                <div class="text-block-2156">{{ video.schedule | translate }}</div>
               </a>
             </div>
           </div>
@@ -329,10 +328,11 @@
               >
             </p>
           </div>
-          <div class="popup_prize h">
+          <div class="popup_prize" *ngIf="showPrize">
             <img
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
+              (click)="onPrizeClose()"
               class="x_popup"
             /><img
               src="../../{{ filePath }}assets/images/shape-2.svg"
@@ -341,7 +341,7 @@
             />
             <p>
               <span class="text-span-192">გილოცავთ!<br /></span>‍<br />შენ მიიღე
-              <span id="frsp" class="text-span-194">X</span> ცალი
+              <span id="frsp" class="text-span-194">{{prizeAmount}}</span> ცალი
               <span id="frsp_amount">Y</span> ლარიანი EGT ფრისპინი<br /><br /><span
                 class="text-span-193"
                 >*ფრისპინები დაირიცხება სლოტში ZODIAC WHEEL გათამაშების
@@ -349,12 +349,13 @@
               >
             </p>
           </div>
-          <div class="popup_chaerte h">
+          <div class="popup_chaerte" *ngIf="showAuthError">
             <div class="text-block-22887">
               აქციაში მონაწილეობის მისაღებად, გთხოვთ,<br />გაიაროთ ავტორიაზია ან
               დარეგისტრირდეთ
             </div>
             <img
+              (click)="onAuthErrorClose()"
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
               class="x_popup"
@@ -364,7 +365,7 @@
               <a href="#" class="chaerte_btn2 auto _2 w-button">ავტორიზაცია</a>
             </div>
           </div>
-          <div class="popup_error h">
+          <div class="popup_error" *ngIf="showMinTicketError">
             <img
               src="../../{{ filePath }}assets/images/shape-1.svg"
               alt=""
@@ -375,12 +376,13 @@
               ბილეთი
             </div>
             <img
+              (click)="onMinTicketErrorClose()"
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
               class="x_popup"
             />
           </div>
-          <div class="popup_error2 h">
+          <div class="popup_error2" *ngIf="showSubmited">
             <img
               src="../../{{ filePath }}assets/images/shape-1.svg"
               alt=""
@@ -391,12 +393,13 @@
               გათამაშებას ხვალ 21:55 საათზე და მოიგე EGT ფრისპინები.
             </div>
             <img
+              (click)="onHavePrizeClose()"
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
               class="x_popup"
             />
           </div>
-          <div class="popup_time h">
+          <div class="popup_time" *ngIf="showOutOfRangeError">
             <img
               src="../../{{ filePath }}assets/images/shape-3.svg"
               alt=""
@@ -407,6 +410,7 @@
               გათამაშებას ხვალ, 21:55 საათზე და მიიღე 500 EGT ფრისპინი!
             </div>
             <img
+              (click)="onOutOfRangeErrorClose()"
               src="../../{{ filePath }}assets/images/x.svg"
               alt=""
               class="x_popup"
