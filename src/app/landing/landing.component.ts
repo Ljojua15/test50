@@ -181,6 +181,7 @@ export class LandingComponent implements OnInit {
       '2022-07-21T21:55:00',
       '2022-07-22T21:55:00',
       '2022-07-24T21:55:00',
+      '2022-07-25T21:55:00',
     ];
 
     for (const i in schedule) {
@@ -293,11 +294,11 @@ export class LandingComponent implements OnInit {
   }
 
   submitAnswer() {
-    console.log('submit');
-    if (this.totalDaily < 10) {
-      this.showMinTicketError = true;
-      return;
-    }
+    // console.log('submit');
+    // if (this.totalDaily < 10) {
+    //   this.showMinTicketError = true;
+    //   return;
+    // }
     this.campaignService
       .submitAnswer(
         'live-tv-drawing-080722',
@@ -310,8 +311,12 @@ export class LandingComponent implements OnInit {
           if (res.data) {
             if (res.data.correct) {
               if (res.data.prize) {
-                this.prizeAmount = res.data.prize.amount;
-                this.showPrize = true;
+                if (res.data.prize.amount < 10) {
+                  this.showMinTicketError = true;
+                } else {
+                  this.prizeAmount = res.data.prize.amount;
+                  this.showPrize = true;
+                }
               } else {
                 //this.showLate = true;
               }

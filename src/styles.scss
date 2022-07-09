@@ -2106,7 +2106,9 @@ body::-webkit-scrollbar {
 .popup_prize {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  // z-index: 99;
+  z-index: 999999;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2160,7 +2162,9 @@ body::-webkit-scrollbar {
 .popup_chaerte {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  // z-index: 99;
+  z-index: 999999;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2215,7 +2219,9 @@ body::-webkit-scrollbar {
 .popup_error {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  // z-index: 99;
+  z-index: 999999;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2255,7 +2261,9 @@ body::-webkit-scrollbar {
 .popup_error2 {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  // z-index: 99;
+  z-index: 999999;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2295,7 +2303,9 @@ body::-webkit-scrollbar {
 .popup_time {
   position: absolute;
   top: 10%;
-  z-index: 99;
+  // z-index: 99;
+  z-index: 999999;
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
