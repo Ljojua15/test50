@@ -261,8 +261,9 @@
                 class="bt-2 w-button fr-sp-btn"
                 [ngClass]="disableBtn === true ? 'disableBtn' : ''"
                 (click)="submitAnswer()"
-                >{{ "freespins" | translate }}<br />{{ "get" | translate }}</button
               >
+                {{ "freespins" | translate }}<br />{{ "get" | translate }}
+              </button>
             </div>
           </div>
           <div class="video_wrp">
@@ -303,7 +304,9 @@
                     ></iframe>
                   </div>
                 </div>
-                <div class="text-block-2156">{{ video.schedule | translate }}</div>
+                <div class="text-block-2156">
+                  {{ video.schedule | translate }}
+                </div>
               </a>
             </div>
           </div>
@@ -316,17 +319,12 @@
               (click)="closeModal()"
             />
             <p>
-              თუ მინდინარე დღის გათამაშებაში დაგროვებული გაქვს 300 ბილეთი და
-              გათამაშების მიმდინარეობისას დააჭერ ღილაკზე „ფრისპინების მიღება“,
-              დაგერიცხება 300 EGT ფრისპინი.<br /><br />ბონუს რაუნდში შეგიძლია
-              მიიღო მინ. 10 და მაქს. 500 EGT ფრისპინი;<br /><br />ფრისპინები
-              დაგერიცხება 1 საათის განმავლობაში;<br /><br />ყოველდღიურ
-              გათამაშებაში დაგერიცხება 0.15 ლარიანი ფრისპინები სლოტში
-              ZODIAC WHEEL;<br /><br />ფინალურ გათამაშებაში დაგერიცხება 0.5
-              ლარიანი ფრისპინები სლოტში ZODIAC WHEEL;<br /><br /><span
-                >*ფრისპინები დაერიცხება პირველ 2 000 მომხმარებელს, რომლებიც
-                დააჭერენ ღილაკს &quot;ფრისპინების მეღება&quot;.</span
-              >
+              {{ "bonus1" | translate }}<br /><br />{{ "bonus2" | translate
+              }}<br /><br />{{ "bonus3" | translate }}<br /><br />{{
+                "bonus4" | translate
+              }}<br /><br />{{ "bonus5" | translate }}<br /><br /><span>{{
+                "bonus6" | translate
+              }}</span>
             </p>
           </div>
           <div class="popup_prize" *ngIf="showPrize">
@@ -341,19 +339,21 @@
               class="image-2625168"
             />
             <p>
-              <span class="text-span-192">გილოცავთ!<br /></span>‍<br />შენ მიიღე
-              <span id="frsp" class="text-span-194">{{prizeAmount}}</span> ცალი
-              <span id="frsp_amount">Y</span> ლარიანი EGT ფრისპინი<br /><br /><span
+              <span class="text-span-192">{{ "prize1" | translate }}<br /></span
+              >‍<br />{{ "prize2" | translate }}
+              <span id="frsp" class="text-span-194">{{ prizeAmount }}</span>
+              {{ "prize3" | translate }} <span id="frsp_amount">Y</span
+              >{{ "prize4" | translate }}<br /><br /><span
                 class="text-span-193"
-                >*ფრისპინები დაირიცხება სლოტში ZODIAC WHEEL გათამაშების
-                დასრულებიდან 1 საათის განმავლობაში</span
+                >{{ "prize5" | translate }}</span
               >
             </p>
           </div>
           <div class="popup_chaerte" *ngIf="showAuthError">
             <div class="text-block-22887">
-              აქციაში მონაწილეობის მისაღებად, გთხოვთ,<br />გაიაროთ ავტორიაზია ან
-              დარეგისტრირდეთ
+              {{ "toContinue" | translate }}<br />{{
+                "toContinue2" | translate
+              }}
             </div>
             <img
               (click)="onAuthErrorClose()"
@@ -362,8 +362,12 @@
               class="x_popup"
             />
             <div class="w-layout-grid grid-7">
-              <a href="#" class="chaerte_btn2 w-button">რეგისტრაცია</a>
-              <a href="#" class="chaerte_btn2 auto _2 w-button">ავტორიზაცია</a>
+              <a href="#" class="chaerte_btn2 w-button">{{
+                "register" | translate
+              }}</a>
+              <a href="#" class="chaerte_btn2 auto _2 w-button">{{
+                "authorize" | translate
+              }}</a>
             </div>
           </div>
           <div class="popup_error" *ngIf="showMinTicketError">
@@ -373,8 +377,7 @@
               class="image-2625169"
             />
             <div class="text-block-22887">
-              EGt ფრისპინების მისაღებად აუილებელია დაგროვებული გქონდეს მინ. 10
-              ბილეთი
+              {{ "min10" | translate }}
             </div>
             <img
               (click)="onMinTicketErrorClose()"
@@ -390,8 +393,8 @@
               class="image-2625169"
             />
             <div class="text-block-22887">
-              შენ უკვე მიღებული გაქვს დღევანდელი პრიზი!<br /><br />უყურე LIVE
-              გათამაშებას ხვალ 21:55 საათზე და მოიგე EGT ფრისპინები.
+              {{ "alreadyTaken" | translate }}<br /><br />
+              {{ "alreadyTaken2" | translate }}
             </div>
             <img
               (click)="onHavePrizeClose()"
@@ -407,8 +410,8 @@
               class="image-2625170"
             />
             <div class="text-block-22887">
-              ფრისპინების მიღება შეუძლია პირველ 2 000  მომხმარებელს.<br /><br />უყურე
-              გათამაშებას ხვალ, 21:55 საათზე და მიიღე 500 EGT ფრისპინი!
+              {{ "first2000" | translate }}<br /><br />
+              {{ "alreadyTaken2" | translate }}
             </div>
             <img
               (click)="onOutOfRangeErrorClose()"
