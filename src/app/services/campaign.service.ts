@@ -33,9 +33,7 @@ export class CampaignService {
   }
 
   getLiveStreams(): Observable<any> {
-    return this.http.get(
-      `https://cms.crocobet.com/twitch?category=summer-live-raffle`
-    );
+    return this.http.get(`https://cms.crocobet.com/twitch?category=test-live`);
   }
 
   getButtonStatus(url: string) {

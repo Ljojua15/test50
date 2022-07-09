@@ -226,6 +226,8 @@ export class LandingComponent implements OnInit {
   //gasuli gatamasebebis linkebi
   getUrl() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
+      console.log(res);
+
       res.data.forEach((item: any) => {
         if (item.schedule.length === 0) {
           item.schedule = 'საზაფხულო გათამაშება';
@@ -338,5 +340,15 @@ export class LandingComponent implements OnInit {
 
   onClosePrize() {
     this.showPrize = false;
+  }
+
+  playVideo(event: string) {
+    this.streams.forEach((stream: any) => {
+      if (stream.schedule.substring(0, 5) === event) {
+        console.log('got');
+        this.recentVideoUrl = stream.twitchUrl;
+        this.showRecentVideo = true;
+      }
+    });
   }
 }

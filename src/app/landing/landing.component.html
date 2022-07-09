@@ -169,6 +169,7 @@
           <app-everyday-tickets
             *ngIf="component === 'daily'"
             (tickets)="setTicket($event)"
+            (playVideo)="playVideo($event)"
             [lang]="lang"
           ></app-everyday-tickets>
           <app-final-tickets
