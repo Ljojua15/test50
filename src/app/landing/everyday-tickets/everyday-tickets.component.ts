@@ -30,8 +30,6 @@ export class EverydayTicketsComponent implements OnInit {
   };
 
   schedule = [
-    { date: '06.07', wasLive: false },
-    { date: '07.07', wasLive: false },
     { date: '08.07', wasLive: false },
     { date: '09.07', wasLive: false },
     { date: '10.07', wasLive: false },
