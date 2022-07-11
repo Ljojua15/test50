@@ -1,4 +1,4 @@
-@use "../../fonts";
+@use '../../fonts';
 
 .container {
   margin-bottom: 10px;
@@ -19,8 +19,7 @@
 }
 
 .acc-main-header {
-  background-color: #2a516d;
-  border-radius: 10px;
+  background-color: #0a0c2b;
 }
 
 .header-title {
@@ -29,7 +28,7 @@
   width: 100%;
   text-align: start;
   font-size: 16px;
-  font-family: fonts.$font-bold !important;
+  font-family: fonts.$font-bold;
 }
 
 .acc-body {
@@ -40,7 +39,6 @@
   line-height: 1.5rem;
   font-family: fonts.$font-regular;
   font-size: 14px;
-  text-align: left;
 }
 
 .arrow {
@@ -48,8 +46,9 @@
   align-items: center;
 }
 
+
 .answer {
-  margin: 10px 0 0;
+  margin: 10px 20px 0;
   font-size: 14px;
   text-align: left;
   letter-spacing: 0;
@@ -71,9 +70,11 @@
   text-align: left;
 }
 
+
 @media screen and (max-width: 767px) {
+
   .acc-body,
-  .header-title {
+  .header-title{
     font-size: 12px;
   }
 
@@ -98,6 +99,7 @@
     font-size: 12px;
     line-height: 125%;
   }
+
 }
 
 @media screen and (max-width: 479px) {

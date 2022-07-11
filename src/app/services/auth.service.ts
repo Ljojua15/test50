@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { catchError, map, Observable, of, tap } from 'rxjs';
-import { getCookie } from '../utils';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
+import {catchError, map, Observable, of, tap} from "rxjs";
+import {getCookie} from "../utils";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
 
   public getToken(): string | undefined {
     if (!environment.production) {
@@ -27,7 +28,8 @@ export class AuthService {
       .get(`https://customers01.crocobet.com/customers/personal-data`)
       .pipe(
         catchError((_) => of(false)),
-        map((res: any) => !!res)
+        map((res: any) => !!res),
+        tap(res => console.log(res)),
       );
   }
 }
