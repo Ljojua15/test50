@@ -72,6 +72,9 @@ export class LandingComponent implements OnInit {
     ge: string;
     ru: string;
   } | null = null;
+
+  currentDDMM = '';
+
   rules: Rule[] = [];
   additionalRules: Rule | null = null;
   lang: 'en' | 'ge' | 'ru' = 'ge';
@@ -86,6 +89,11 @@ export class LandingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const date = new Date();
+    this.currentDDMM = `${date.getDate() < 10 ? '0' : ''}${date.getDate()}.${
+      date.getUTCMonth() + 1 < 10 ? 0 : date.getUTCMonth()
+    }${date.getUTCMonth() + 1}`;
+
     this.setTimer();
     this.component = 'daily';
     this.lang = this.getCurrentLang();
@@ -94,6 +102,24 @@ export class LandingComponent implements OnInit {
     this.checkUser();
     this.getUrl();
     this.getfinalData();
+    this.getBeforeData();
+  }
+
+  getBeforeData() {
+    const date = new Date();
+    const [day, month] = this.currentDDMM.split('.');
+
+    const dayBefore = `${+day - 2 < 10 ? '0' : ''}${+day - 2}`;
+    const url = `live-tv-drawing-080722/user?scope=daily&date=${date.getUTCFullYear()}-${month}-${dayBefore}`;
+
+    return this.campaignService.getUserData(url).subscribe((res: any) => {
+      const ticketsBefore = res.data.metadata.tickets.total;
+
+      if (ticketsBefore < 9) {
+        this.disableBtn = true;
+        this.disableBtnByAnswer = true;
+      }
+    });
   }
 
   setTicket(e: any) {
