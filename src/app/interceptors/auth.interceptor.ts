@@ -19,7 +19,9 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.authService.getToken();
 
     const requestWithHeader = request.clone({
-      headers: request.headers.set('X-ODDS-SESSION', token ? token : ''),
+      headers: request.url.includes('twitch')
+        ? request.headers
+        : request.headers.set('X-ODDS-SESSION', token ? token : ''),
     });
 
     return next.handle(requestWithHeader);

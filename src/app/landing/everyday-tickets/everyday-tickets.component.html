@@ -1,0 +1,153 @@
+<div data-w-tab="Tab 1" class="tab-panel w-tab-pane w--tab-active">
+  <div class="tabs_wrap blue">
+    <div class="golden_str">
+      <div class="tab_cintent-wrp">
+        <div id="daily_dates" class="w-layout-grid dates_daily">
+          <div
+            class="dates"
+            *ngFor="let date of schedule"
+            [class.selected]="currentDDMM === date.date"
+            (click)="getDate(date)"
+          >
+            <div [class.selectedFont]="currentDDMM === date.date">
+              {{ date.date }}
+            </div>
+            <img
+              *ngIf="date.wasLive"
+              alt=""
+              src="../../../{{ filePath }}assets/images/video-icon.png"
+              class="video-icon"
+            />
+          </div>
+        </div>
+        <div class="text-block-2" *ngIf="!showLive">
+          {{ "collect" | translate }}
+          <span class="text-span" (click)="openModal()"
+            >15 000₾ {{ "everyday" | translate }}</span
+          >
+        </div>
+        <div class="div-block-40894" *ngIf="showLive">
+          <img
+            src="../../../{{ filePath }}assets/images/video-icon.png"
+            loading="lazy"
+            alt=""
+            class="play_icon2"
+          />
+          <div class="text-block-3" (click)="openVideo(el)">
+            {{ "watchRaffle" | translate }}
+            <span id="live-date" class="text-span-189">{{ nextLive }}</span>
+            {{ "watchRaffle2" | translate }}
+          </div>
+        </div>
+        <div class="tab_points_wrp">
+          <div class="w-layout-grid grid_wrp">
+            <div class="cards_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
+                <div class="card_title">{{ "authorize" | translate }}</div>
+                <div class="text-block">
+                  {{ "authorize" | translate }} = 1 {{ "ticket" | translate }}
+                </div>
+                <div>{{ "myTickets" | translate }}</div>
+                <div class="tkt_stroke _2">
+                  <div class="tkt_wrp _2">
+                    <div id="tkt_auto" class="tkt_text">
+                      {{ dailyData.login }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cards_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
+                <div class="card_title">{{ "deposit" | translate }}</div>
+                <div class="text-block">10₾ = 1 {{ "ticket" | translate }}</div>
+                <div>{{ "myTickets" | translate }}</div>
+                <div class="tkt_stroke _2">
+                  <div class="tkt_wrp _2">
+                    <div id="tkt_dep" class="tkt_text">
+                      {{ dailyData.deposit }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cards_wrp">
+              <div class="item_trigger_wrp item_trigger_wrp__everyday">
+                <div class="card_title">{{ "slotCasinoUFO" | translate }}</div>
+                <div class="text-block">
+                  {{ "sum" | translate }} = 1 {{ "ticket" | translate }}
+                </div>
+                <div>{{ "myTickets" | translate }}</div>
+                <div class="tkt_stroke _2">
+                  <div class="tkt_wrp _2">
+                    <div id="tkt_ufo" class="tkt_text">{{ dailyData.bet }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-19403">
+            <div>{{ "ticketsSum" | translate }}</div>
+            <div class="tkt_stroke _22">
+              <div class="tkt_wrp _2">
+                <div id="tkt_auto" class="tkt_text">{{ dailyData.total }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="raffle-wrp" #el>
+          <div class="play_icon"></div>
+          <div class="text3">
+            {{ "schedule" | translate }}
+            <span id="date_daily">{{ nextLive }}</span
+            >{{ "schedule2" | translate }}
+          </div>
+        </div>
+        <div class="popup_lr_daily" *ngIf="openInfo">
+          <div class="w-layout-grid grid-209044">
+            <div class="text-block-690">
+              {{ "winner" | translate }} N1 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N2 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N3 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N4 – 1 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N5 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N6 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N7 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N8 – 1 500₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N9 – 2 000₾
+            </div>
+            <div class="text-block-690">
+              {{ "winner" | translate }} N10 – 3 000₾
+            </div>
+          </div>
+          <img
+            src="../../../{{ filePath }}assets/images/x.svg"
+            loading="lazy"
+            data-w-id="ca45ff73-dbc8-c88b-b16e-230e67bc5d4a"
+            alt=""
+            class="x_popup"
+            (click)="closeModal()"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="w-embed">
+  </div> -->

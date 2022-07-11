@@ -1,9 +1,9 @@
-$font-path: '/assets/fonts/';
+$font-path: "/assets/fonts/";
 
 @mixin register-font($name) {
   @font-face {
     font-family: $name;
-    src: url($font-path + $name + '.woff') format('woff');
+    src: url($font-path + $name + ".woff") format("woff");
   }
 }
 
@@ -12,7 +12,7 @@ $font-path: '/assets/fonts/';
 @include register-font(ProximaNova);
 @include register-font(TTSupermolotNeue);
 
-$font-bold: 'CrocoSansBlackCAPS', sans-serif;
-$font-regular : 'CrocoSansCAPSRegular', sans-serif;
-$font-thin : 'ProximaNova', sans-serif;
-$font-extra-bold: 'TTSupermolotNeue', sans-serif;
+$font-bold: "CrocoSansBlackCAPS", sans-serif;
+$font-regular: "CrocoSansCAPSRegular", sans-serif;
+$font-thin: "ProximaNova", sans-serif;
+$font-extra-bold: "TTSupermolotNeue", sans-serif;
