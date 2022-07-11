@@ -116,7 +116,8 @@ export class EverydayTicketsComponent implements OnInit {
     this.openInfo = false;
   }
 
-  openVideo() {
+  openVideo(el: any) {
     this.playVideo.emit(this.nextLive);
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

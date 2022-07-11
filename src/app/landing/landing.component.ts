@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Rule } from '../models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
 import { LatencyTestService } from '../services/latency-test.service';
 import { IframeService } from '../services/iframe.service';
-import { interval, of, switchMap, takeUntil, timer } from 'rxjs';
+import { interval, of, switchMap, timer } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { CampaignService } from '../services/campaign.service';
 import { DailyData, FinalData } from './user';
@@ -17,8 +17,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  // @ViewChild('test2') testing: any;
-
   component: 'daily' | 'final' = 'final';
   isAuthorized: boolean = false;
   totalDaily: number = 0;
@@ -40,6 +38,7 @@ export class LandingComponent implements OnInit {
   showOutOfRangeError = false;
 
   filePath = environment.filePath;
+  disableBtnByAnswer = false;
 
   timer = {
     hours: '00',
@@ -258,7 +257,7 @@ export class LandingComponent implements OnInit {
             this.isLive = false;
             return;
           }
-          const iframeSrc = `${res.data.twitchUrl}?autoplay=1&mute=1`;
+          const iframeSrc = `${res.data.twitchUrl}?autoplay=1`;
           this.liveUrl = iframeSrc;
           this.isLive = true;
         });
@@ -295,11 +294,6 @@ export class LandingComponent implements OnInit {
   }
 
   submitAnswer() {
-    // console.log('submit');
-    // if (this.totalDaily < 10) {
-    //   this.showMinTicketError = true;
-    //   return;
-    // }
     this.campaignService
       .submitAnswer(
         'live-tv-drawing-080722',
@@ -314,9 +308,11 @@ export class LandingComponent implements OnInit {
               if (res.data.prize) {
                 if (res.data.prize.amount < 10) {
                   this.showMinTicketError = true;
+                  this.disableBtnByAnswer = true;
                 } else {
                   this.prizeAmount = res.data.prize.amount;
                   this.showPrize = true;
+                  this.disableBtnByAnswer = true;
                 }
               } else {
                 //this.showLate = true;
@@ -336,6 +332,7 @@ export class LandingComponent implements OnInit {
             e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
           ) {
             this.showSubmited = true;
+            this.disableBtnByAnswer = true;
           }
         },
       });

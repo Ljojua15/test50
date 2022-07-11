@@ -44,10 +44,6 @@
               alt=""
               class="ru"
             />
-            <!-- [ngClass]="lang === 'en' ? 'en' : 'ru'" -->
-            <!-- <div class="text-block-22883" #test2>{{ "win" | translate }}</div>
-            <div class="text-block-22884">{{ "flat" | translate }}</div>
-            <div class="text-block-22885">{{ "batumi" | translate }}</div> -->
           </div>
           <div
             data-w-id="c57d3d14-539d-5087-5848-7e83c0e736b2"
@@ -201,6 +197,7 @@
               allow="autoplay"
               [src]="liveUrl | safeUrl"
               frameborder="0"
+              allow="fullscreen"
               class="live-container-iframe"
             ></iframe>
           </div>
@@ -260,7 +257,7 @@
               <p class="paragraph">{{ "getSpins" | translate }}</p>
               <button
                 class="bt-2 w-button fr-sp-btn"
-                [ngClass]="disableBtn === true ? 'disableBtn' : ''"
+                [class.disableBtn]="disableBtn || disableBtnByAnswer"
                 (click)="submitAnswer()"
               >
                 {{ "freespins" | translate }}<br />{{ "get" | translate }}

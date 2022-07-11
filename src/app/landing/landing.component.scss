@@ -95,6 +95,12 @@
 .fr-sp-btn {
   border: none;
 }
+
+@media (max-width: 478px) {
+  .live-container-iframe {
+    width: 100%;
+  }
+}
 // .w-layout-grid {
 //   display: -ms-grid;
 //   display: grid;

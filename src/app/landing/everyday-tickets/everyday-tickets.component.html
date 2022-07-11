@@ -6,10 +6,12 @@
           <div
             class="dates"
             *ngFor="let date of schedule"
-            [ngClass]="{ selected: currentDDMM === date.date }"
+            [class.selected]="currentDDMM === date.date"
             (click)="getDate(date)"
           >
-            <div>{{ date.date }}</div>
+            <div [class.selectedFont]="currentDDMM === date.date">
+              {{ date.date }}
+            </div>
             <img
               *ngIf="date.wasLive"
               alt=""
@@ -31,7 +33,7 @@
             alt=""
             class="play_icon2"
           />
-          <div class="text-block-3" (click)="openVideo()">
+          <div class="text-block-3" (click)="openVideo(el)">
             {{ "watchRaffle" | translate }}
             <span id="live-date" class="text-span-189">{{ nextLive }}</span>
             {{ "watchRaffle2" | translate }}
@@ -93,7 +95,7 @@
             </div>
           </div>
         </div>
-        <div class="raffle-wrp">
+        <div class="raffle-wrp" #el>
           <div class="play_icon"></div>
           <div class="text3">
             {{ "schedule" | translate }}
