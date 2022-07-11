@@ -198,6 +198,7 @@
           </div>
           <div class="live-container" *ngIf="isLive">
             <iframe
+              allow="autoplay"
               [src]="liveUrl | safeUrl"
               frameborder="0"
               class="live-container-iframe"
@@ -362,12 +363,18 @@
               class="x_popup"
             />
             <div class="w-layout-grid grid-7">
-              <a href="#" class="chaerte_btn2 w-button">{{
-                "register" | translate
-              }}</a>
-              <a href="#" class="chaerte_btn2 auto _2 w-button">{{
-                "authorize" | translate
-              }}</a>
+              <a
+                href="#"
+                class="chaerte_btn2 w-button"
+                (click)="onRegister()"
+                >{{ "register" | translate }}</a
+              >
+              <a
+                href="#"
+                class="chaerte_btn2 auto _2 w-button"
+                (click)="onLogin()"
+                >{{ "authorize" | translate }}</a
+              >
             </div>
           </div>
           <div class="popup_error" *ngIf="showMinTicketError">

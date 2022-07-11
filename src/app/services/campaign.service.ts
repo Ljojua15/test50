@@ -74,7 +74,7 @@ export class CampaignService {
     }
     return this.http.post(
       `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,
-      {answer: ''}
+      { answer: '' }
     );
   }
 }

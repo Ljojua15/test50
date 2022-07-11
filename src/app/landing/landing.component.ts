@@ -258,7 +258,8 @@ export class LandingComponent implements OnInit {
             this.isLive = false;
             return;
           }
-          this.liveUrl = res.data.twitchUrl;
+          const iframeSrc = `${res.data.twitchUrl}?autoplay=1&mute=1`;
+          this.liveUrl = iframeSrc;
           this.isLive = true;
         });
     } else {
@@ -335,7 +336,6 @@ export class LandingComponent implements OnInit {
             e.error.message.toString() === 'ANSWER_ALREADY_SUBMITTED'
           ) {
             this.showSubmited = true;
-            console.log(this.showSubmited);
           }
         },
       });

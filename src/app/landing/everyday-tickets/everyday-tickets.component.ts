@@ -102,7 +102,7 @@ export class EverydayTicketsComponent implements OnInit {
 
       const [currentDay] = this.currentDDMM.split('.');
 
-      if (+currentDay > +day || (liveEnd > 23 && today === +day)) {
+      if (+currentDay > +day + 1 || (liveEnd > 23 && today === +day)) {
         date.wasLive = true;
       }
     });
