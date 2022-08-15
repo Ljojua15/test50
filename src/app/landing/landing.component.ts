@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Rule} from "../models/rule";
+import {Rule} from "../shared/models/rule";
 import {RulesService} from "../services/rules.service";
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-landing',
+  selector: 'crc-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })

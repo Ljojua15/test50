@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Rule} from "../models/rule";
+import {Rule} from "../shared/models/rule";
 
 @Injectable({
   providedIn: 'root'

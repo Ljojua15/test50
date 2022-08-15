@@ -6,9 +6,10 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { LandingComponent } from './landing/landing.component';
-import {AuthInterceptor} from "./interceptors/auth.interceptor";
-import { AccordionComponent } from './accordion/accordion.component';
-import { AccordionItemComponent } from './accordion-item/accordion-item.component';
+import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
+import { AccordionComponent } from './ui/accordion/accordion.component';
+import { AccordionItemComponent } from './ui/accordion-item/accordion-item.component';
+import {UiComponentsModule} from "./ui/ui-components.module";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,6 +25,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    UiComponentsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
