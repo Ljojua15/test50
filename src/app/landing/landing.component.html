@@ -1,20 +1,25 @@
 <crc-landing-container>
   <crc-landing-container-header></crc-landing-container-header>
+  <crc-authorization-block></crc-authorization-block>
   <crc-landing-container-body></crc-landing-container-body>
   <crc-landing-container-footer>
     <app-accordion>
       <app-accordion-item [mainHeader]="true" [title]="title![lang]">
         <app-accordion>
-          <app-accordion-item *ngFor="let rule of rules" [title]="rule[lang].question">
+          <app-accordion-item
+            *ngFor="let rule of rules"
+            [title]="rule[lang].question"
+          >
             <div [innerHTML]="rule[lang].answer"></div>
           </app-accordion-item>
         </app-accordion>
       </app-accordion-item>
-      <app-accordion-item [mainHeader]="true" [title]="additionalRules![lang].question">
+      <app-accordion-item
+        [mainHeader]="true"
+        [title]="additionalRules![lang].question"
+      >
         <div class="list" [innerHTML]="additionalRules![lang].answer"></div>
       </app-accordion-item>
     </app-accordion>
   </crc-landing-container-footer>
 </crc-landing-container>
-
-

@@ -1,0 +1,59 @@
+@use "./../../../../fonts";
+
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 440px;
+  flex-direction: column;
+  align-items: center;
+
+  &__text {
+    max-width: 550px;
+    margin-top: 20px;
+    font-size: 24px;
+    line-height: 125%;
+    color: #fff;
+
+    span {
+      color: rgb(79, 232, 97);
+      font-size: 30px;
+      font-family: fonts.$font-bold;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding-top: 275px;
+    // padding-top: 175px;
+    margin: 0 auto;
+
+    &__img {
+      width: 250px;
+    }
+
+    &__text {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .header {
+    padding-top: 175px;
+    width: 90%;
+
+    &__img {
+      width: 150px;
+    }
+
+    &__text {
+      font-size: 14px;
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}

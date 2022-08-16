@@ -1,0 +1,99 @@
+@use "./../../../fonts";
+
+.main {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+
+  .auth-container {
+    display: flex;
+    width: 90%;
+    margin-top: 40px;
+    column-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(55, 68, 94, 0.9);
+    font-size: 16px;
+    line-height: 125%;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+
+    &__text {
+      margin-right: 10px;
+      text-align: left;
+    }
+
+    &__buttons {
+      display: flex;
+      column-gap: 16px;
+
+      &__btn {
+        background-color: rgb(21, 175, 68);
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+        padding: 13px 20px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .btn--black {
+        background-color: rgb(37, 43, 51);
+      }
+    }
+  }
+}
+
+@media (max-width: 1070px) {
+  .main {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    .auth-container {
+      flex-direction: column;
+      border-radius: 15px;
+      width: 100%;
+      padding: 15px;
+
+      &__text {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      &__buttons {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .main {
+    .auth-container {
+      padding: 15px;
+      border-radius: 10px;
+
+      &__text {
+        font-size: 12px;
+        line-height: 120%;
+      }
+
+      &__buttons {
+        column-gap: 10px;
+
+        &__btn {
+          font-size: 14px;
+          padding: 13px;
+        }
+      }
+    }
+  }
+}

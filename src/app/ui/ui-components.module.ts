@@ -5,8 +5,7 @@ import { LandingContainerHeaderComponent } from './landing-container/landing-con
 import { LandingContainerBodyComponent } from './landing-container/landing-container-body/landing-container-body.component';
 import { LandingContainerFooterComponent } from './landing-container/landing-container-footer/landing-container-footer.component';
 import { AuthorizationBlockComponent } from './authorization-block/authorization-block.component';
-
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -14,16 +13,15 @@ import { AuthorizationBlockComponent } from './authorization-block/authorization
     LandingContainerHeaderComponent,
     LandingContainerBodyComponent,
     LandingContainerFooterComponent,
-    AuthorizationBlockComponent
+    AuthorizationBlockComponent,
   ],
   exports: [
     LandingContainerComponent,
     LandingContainerHeaderComponent,
     LandingContainerBodyComponent,
-    LandingContainerFooterComponent
+    LandingContainerFooterComponent,
+    AuthorizationBlockComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule, TranslateModule],
 })
-export class UiComponentsModule { }
+export class UiComponentsModule {}

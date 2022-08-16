@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { LandingComponent } from './landing/landing.component';
-import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { AccordionComponent } from './ui/accordion/accordion.component';
 import { AccordionItemComponent } from './ui/accordion-item/accordion-item.component';
-import {UiComponentsModule} from "./ui/ui-components.module";
+import { UiComponentsModule } from './ui/ui-components.module';
+import { AppRoutingModule } from './app-routing.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,18 +30,20 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     UiComponentsModule,
+    AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
       },
       defaultLanguage: 'ge',
-    })
+    }),
   ],
+  exports: [TranslateModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
