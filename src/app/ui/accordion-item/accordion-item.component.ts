@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-accordion-item',
+  selector: 'crc-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.scss'],
   animations: [
