@@ -1,14 +1,17 @@
 <div class="main">
   <div class="auth-container">
     <div class="auth-container__text">
-      <p>{{ "authText" | translate }}</p>
+      <p>{{ "auth.text" | translate }}</p>
     </div>
 
     <div class="auth-container__buttons">
-      <button class="auth-container__buttons__btn">
+      <button class="auth-container__buttons__btn" (click)="onRegister()">
         {{ "register" | translate }}
       </button>
-      <button class="auth-container__buttons__btn btn--black">
+      <button
+        class="auth-container__buttons__btn btn--black"
+        (click)="onLogin()"
+      >
         {{ "authorization" | translate }}
       </button>
     </div>
