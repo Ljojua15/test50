@@ -9,8 +9,6 @@ import { environment } from 'src/environments/environment';
 export class LandingContainerHeaderComponent implements OnInit {
   filePath = environment.filePath;
 
-  headerUrl = `./../../${this.filePath}assets/images/en.png`;
-
   constructor() {}
 
   ngOnInit(): void {}
