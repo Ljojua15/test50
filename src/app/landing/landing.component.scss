@@ -2,8 +2,87 @@ crc-authorization-block {
   width: 100%;
 }
 
+// .list {
+//   p {
+//     display: flex;
+//   }
+// }
+
 @media (max-width: 767px) {
   crc-authorization-block {
     width: 90%;
   }
+
+  // .list-item {
+  //   font-size: 12px;
+  //   line-height: 125%;
+  // }
 }
+
+@media (max-width: 479px) {
+  // .rules-container {
+  //   margin-top: 110px;
+  // }
+
+  // .history {
+  //   width: 105px;
+  //   text-align: center;
+  //   padding: 10px 0px;
+  // }
+
+  // .list-t-1 {
+  //   margin-left: 10px;
+  // }
+
+  // .list-item {
+  //   font-size: 12px;
+  //   line-height: 125%;
+  // }
+
+  // .list {
+  //   margin-left: 10px;
+  // }
+}
+
+// .list-t-1 {
+//   margin-left: 20px;
+//   padding-right: 20px;
+//   padding-left: 15px;
+//   font-weight: 400;
+//   text-align: left;
+//   list-style-type: disc;
+// }
+
+// .list-t-1 {
+//   margin-left: 20px;
+//   padding-right: 20px;
+//   padding-left: 15px;
+//   font-weight: 400;
+//   text-align: left;
+//   list-style-type: disc;
+// }
+
+// .list-item {
+//   margin-bottom: 10px;
+//   font-family: "Proximanova text", sans-serif;
+// }
+
+// .list {
+//   margin-top: 10px;
+//   margin-left: 20px;
+//   padding-right: 20px;
+//   padding-left: 15px;
+//   font-weight: 400;
+//   text-align: left;
+//   list-style-type: disc;
+// }
+
+// .list {
+//   margin-top: 10px;
+//   margin-left: 20px;
+//   padding-right: 20px;
+//   padding-left: 15px;
+//   font-weight: 400;
+//   text-align: left;
+//   list-style-type: disc;
+// }

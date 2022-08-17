@@ -3,22 +3,16 @@
   <crc-authorization-block></crc-authorization-block>
   <crc-landing-container-body></crc-landing-container-body>
   <crc-landing-container-footer>
-    <app-accordion>
-      <app-accordion-item [mainHeader]="true" [title]="title![lang]">
+    <app-accordion class="accor">
+      <app-accordion-item [mainHeader]="true" [title]="'rules' | translate">
         <app-accordion>
-          <app-accordion-item
-            *ngFor="let rule of rules"
-            [title]="rule[lang].question"
-          >
-            <div [innerHTML]="rule[lang].answer"></div>
+          <app-accordion-item *ngFor="let rule of rules" [title]="rule.title">
+            <div class="table-content" [innerHTML]="rule.content"></div>
           </app-accordion-item>
         </app-accordion>
       </app-accordion-item>
-      <app-accordion-item
-        [mainHeader]="true"
-        [title]="additionalRules![lang].question"
-      >
-        <div class="list" [innerHTML]="additionalRules![lang].answer"></div>
+      <app-accordion-item [mainHeader]="true" [title]="additionalRules?.title">
+        <div class="list" [innerHTML]="additionalRules?.content"></div>
       </app-accordion-item>
     </app-accordion>
   </crc-landing-container-footer>
