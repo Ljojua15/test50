@@ -1,13 +1,10 @@
 <div class="header">
-  <img
-    class="header__img"
-    src="./../../../../assets/images/{{ 'lang' | translate }}.png"
-    alt=""
-  />
+  <!-- header image -->
+  <img class="header__img" [src]="headerUrl | async" alt="" />
 
+  <!-- header text (description) -->
   <div class="header__text">
     {{ "description" | translate }}
-    <br />
-    <span>{{ "5000freespin" | translate }}</span>
+    <span>{{ "description.prize" | translate }}</span>
   </div>
 </div>
