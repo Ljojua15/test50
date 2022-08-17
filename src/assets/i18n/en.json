@@ -1,7 +1,7 @@
 {
   "description": "MAKE A 5-LEVEL PROGRESS, SPIN THE PRAGMATIC WHEEL AND GET",
-  "5000freespin": "5 000 FREESPINS!",
-  "authText": "TO TAKE PART IN THE PROMOTION, PLEASE REGISTER AND GET VERIFIED",
+  "description.prize": "5 000 FREESPINS!",
+  "auth.text": "TO TAKE PART IN THE PROMOTION, PLEASE REGISTER AND GET VERIFIED",
   "register": "REGISTER",
   "authorization": "AUTHORIZATION",
   "rules": "RULES:",
