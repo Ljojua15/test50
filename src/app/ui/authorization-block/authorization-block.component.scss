@@ -1,5 +1,9 @@
 @use "./../../../fonts";
 
+:host {
+  width: 100%;
+}
+
 .main {
   width: 100%;
   max-width: 900px;
@@ -54,6 +58,10 @@
 }
 
 @media (max-width: 767px) {
+  :host {
+    width: 90%;
+  }
+
   .main {
     .auth-container {
       flex-direction: column;
