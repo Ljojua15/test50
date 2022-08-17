@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container-header',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-container-header.component.scss'],
 })
 export class LandingContainerHeaderComponent implements OnInit {
-  headerUrl = './../../../../assets/images/en.png';
+  filePath = environment.filePath;
+
+  headerUrl = `./../../${this.filePath}assets/images/en.png`;
 
   constructor() {}
 

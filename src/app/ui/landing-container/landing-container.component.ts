@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container',
@@ -13,7 +14,10 @@ export class LandingContainerComponent implements OnInit {
     };
   }
 
-  bgImg = './../../../assets/images/bg.jpg';
+  // bgImg = './../../../assets/images/bg.jpg';
+  filePath = environment.filePath;
+
+  bgImg = `../../${this.filePath}assets/images/bg.jpg`;
   bgColor = '#0c1514';
 
   constructor() {}
