@@ -14,10 +14,12 @@ export class LandingContainerComponent implements OnInit {
     };
   }
 
-  // bgImg = './../../../assets/images/bg.jpg';
   filePath = environment.filePath;
 
+  //main background image
   bgImg = `../../${this.filePath}assets/images/bg.jpg`;
+
+  //main background color
   bgColor = '#0c1514';
 
   constructor() {}
