@@ -1,7 +1,17 @@
-@use "./../../../fonts";
+@use "../../../fonts";
+
+$main-bg: #252f43;
+$secondary-bg: #252f43;
 
 .container {
   margin-bottom: 10px;
+}
+
+.w-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+  width: 100%;
 }
 
 .last-container {
@@ -15,12 +25,21 @@
   align-items: center;
   padding: 14px;
   color: #fff;
-  background-color: rgba(38, 38, 38, 0.5);
+  border-radius: 6px;
+  background-color: $secondary-bg;
 }
 
 .acc-main-header {
-  background-color: #11477b;
+  display: flex;
+  padding-right: 20px;
+  padding-left: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 10px;
+  background-color: $main-bg;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .header-title {
@@ -29,7 +48,7 @@
   width: 100%;
   text-align: start;
   font-size: 16px;
-  font-family: fonts.$font-bold !important;
+  font-family: fonts.$font-bold;
 }
 
 .acc-body {
@@ -48,27 +67,14 @@
   align-items: center;
 }
 
-.answer {
-  margin: 10px 0 0;
-  font-size: 14px;
-  text-align: left;
-  letter-spacing: 0;
-}
+@media (max-width: 999px) {
+  .w-container {
+    width: 90%;
+  }
 
-.grid-2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  -ms-grid-columns: 0.25fr 1fr 0.5fr;
-  grid-template-columns: 0.25fr 1fr 0.5fr;
-  display: grid;
-}
-
-.list {
-  margin: 10px;
-  text-align: left;
+  .acc-body {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -83,41 +89,5 @@
 
   .arrow-img {
     width: 18px;
-  }
-
-  .answer {
-    font-size: 12px;
-    line-height: 125%;
-  }
-
-  .grid-2 {
-    margin-bottom: 10px;
-    grid-column-gap: 20px;
-    -ms-grid-columns: 0.25fr 1fr 1fr;
-    grid-template-columns: 0.25fr 1fr 1fr;
-    font-size: 12px;
-    line-height: 125%;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .answer {
-    font-size: 10px;
-    margin-left: 10px;
-    line-height: 125%;
-  }
-
-  .grid-2 {
-    font-size: 10px;
-    margin-top: 10px;
-    margin-left: 10px;
-    grid-column-gap: 5px;
-    -ms-grid-columns: 0.25fr 0.75fr 0.5fr;
-    grid-template-columns: 0.25fr 0.75fr 0.5fr;
-    line-height: 1;
-  }
-
-  .list {
-    font-size: 10px;
   }
 }

@@ -1,2 +1,12 @@
-<p>landing-container-footer works!</p>
-<ng-content></ng-content>
+<app-accordion>
+  <app-accordion-item [mainHeader]="true" [title]="'rules' | translate">
+    <app-accordion>
+      <app-accordion-item *ngFor="let rule of rules" [title]="rule.title">
+        <div [innerHTML]="rule.content"></div>
+      </app-accordion-item>
+    </app-accordion>
+  </app-accordion-item>
+  <app-accordion-item [mainHeader]="true" [title]="additionalRules?.title">
+    <div [innerHTML]="additionalRules?.content"></div>
+  </app-accordion-item>
+</app-accordion>

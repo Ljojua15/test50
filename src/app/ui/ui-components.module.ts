@@ -6,6 +6,8 @@ import { LandingContainerBodyComponent } from './landing-container/landing-conta
 import { LandingContainerFooterComponent } from './landing-container/landing-container-footer/landing-container-footer.component';
 import { AuthorizationBlockComponent } from './authorization-block/authorization-block.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { AccordionComponent } from './accordion/accordion.component';
+import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     LandingContainerBodyComponent,
     LandingContainerFooterComponent,
     AuthorizationBlockComponent,
+    AccordionComponent,
+    AccordionItemComponent,
   ],
   exports: [
     LandingContainerComponent,

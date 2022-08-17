@@ -10,27 +10,22 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { LandingComponent } from './landing/landing.component';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { AccordionComponent } from './ui/accordion/accordion.component';
-import { AccordionItemComponent } from './ui/accordion-item/accordion-item.component';
 import { UiComponentsModule } from './ui/ui-components.module';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LandingComponent,
-    AccordionComponent,
-    AccordionItemComponent,
-  ],
+  declarations: [AppComponent, LandingComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     UiComponentsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

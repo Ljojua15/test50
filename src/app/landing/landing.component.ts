@@ -29,9 +29,6 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
     this.lang = this.getCurrentLang();
     this.title = this.rulesService.getTitle();
-    // this.rules = this.rulesService.getRules();
-    // this.additionalRules = this.rulesService.getAdditionRules();
-    this.getRules();
   }
 
   getCurrentLang() {
@@ -40,19 +37,5 @@ export class LandingComponent implements OnInit {
       : this.translateService.currentLang === 'ru'
       ? 'ru'
       : 'ge';
-  }
-
-  getRules() {
-    this.translateService.onLangChange
-      .pipe(
-        switchMap((language: any) => {
-          const lang = language.lang === 'ge' ? 'ka' : language.lang;
-          return this.campaignService.getRules(lang);
-        })
-      )
-      .subscribe((res: any) => {
-        this.rules = res.data;
-        this.additionalRules = this.rules.splice(this.rules.length - 1, 1)[0];
-      });
   }
 }
