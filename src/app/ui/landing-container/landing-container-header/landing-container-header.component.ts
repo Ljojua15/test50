@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -6,10 +8,13 @@ import { environment } from 'src/environments/environment';
   templateUrl: './landing-container-header.component.html',
   styleUrls: ['./landing-container-header.component.scss'],
 })
-export class LandingContainerHeaderComponent implements OnInit {
+export class LandingContainerHeaderComponent {
   filePath = environment.filePath;
 
-  constructor() {}
+  //header image url
+  headerUrl = this.translateService.onLangChange.pipe(
+    map((lang) => `./../../${this.filePath}assets/images/${lang.lang}.png`)
+  );
 
-  ngOnInit(): void {}
+  constructor(private translateService: TranslateService) {}
 }
