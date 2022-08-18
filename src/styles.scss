@@ -1,11 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-
+@use "./fonts";
+@use "./styles/variables";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  color: variables.$white;
+  font-family: fonts.$font-regular;
 }
 
 body:-webkit-scrollbar {

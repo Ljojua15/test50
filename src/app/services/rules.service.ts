@@ -1,61 +1,18 @@
-import {Injectable} from '@angular/core';
-import {Rule} from "../models/rule";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RulesService {
+  constructor() {}
 
   title = {
-    en : 'RULES:',
-    ge : 'წესები:',
-    ru : 'ПРАВИЛА:'
-  }
-
-  rules: Rule[] = [
-    {
-      en: {
-        question: '',
-        answer: ''
-      },
-      ge: {
-        question: '',
-        answer: ''
-      },
-      ru: {
-        question: '',
-        answer: ''
-      }
-    },
-  ];
-
-  additionalRules: Rule = {
-    en: {
-      question: '',
-      answer: ''
-    },
-    ge: {
-      question: '',
-      answer: ''
-    },
-    ru: {
-      question: '',
-      answer: ''
-    }
-  }
-
-  getRules(): Rule[] {
-    return this.rules;
-  }
-
-  getAdditionRules() {
-    return this.additionalRules;
-  }
+    en: 'RULES:',
+    ge: 'წესები:',
+    ru: 'ПРАВИЛА:',
+  };
 
   getTitle() {
     return this.title;
-  }
-
-  constructor() {
   }
 }

@@ -1,0 +1,12 @@
+<crc-accordion>
+  <crc-accordion-item [mainHeader]="true" [title]="'rules' | translate">
+    <crc-accordion>
+      <crc-accordion-item *ngFor="let rule of rules" [title]="rule.title">
+        <div [innerHTML]="rule.content"></div>
+      </crc-accordion-item>
+    </crc-accordion>
+  </crc-accordion-item>
+  <crc-accordion-item [mainHeader]="true" [title]="additionalRules?.title">
+    <div [innerHTML]="additionalRules?.content"></div>
+  </crc-accordion-item>
+</crc-accordion>

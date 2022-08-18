@@ -1,0 +1,108 @@
+@use "./../../../fonts";
+@use "./../../../styles/variables";
+
+:host {
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+
+  .auth-container {
+    display: flex;
+    width: 90%;
+    margin-top: 40px;
+    column-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$auth-bg-color;
+    font-size: variables.$font-size-m;
+    line-height: 125%;
+    padding: 15px;
+    border-radius: 5px;
+    color: variables.$white;
+
+    &__text {
+      margin-right: 10px;
+      text-align: left;
+    }
+
+    &__buttons {
+      display: flex;
+      column-gap: 16px;
+
+      &__btn {
+        background-color: variables.$reg-btn-color;
+        color: variables.$white;
+        font-size: variables.$font-size-l;
+        line-height: 1;
+        padding: 13px 20px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .btn--black {
+        background-color: variables.$auth-btn-color;
+      }
+    }
+  }
+}
+
+@media (max-width: variables.$tablet-l) {
+  .main {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: variables.$tablet) {
+  :host {
+    width: 90%;
+  }
+
+  .main {
+    .auth-container {
+      flex-direction: column;
+      border-radius: 15px;
+      width: 100%;
+      padding: 15px;
+
+      &__text {
+        font-size: variables.$font-size-s;
+        text-align: center;
+      }
+
+      &__buttons {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: variables.$mobile) {
+  .main {
+    .auth-container {
+      padding: 15px;
+      border-radius: 10px;
+
+      &__text {
+        font-size: variables.$font-size-xs;
+        line-height: 120%;
+      }
+
+      &__buttons {
+        column-gap: 10px;
+
+        &__btn {
+          font-size: variables.$font-size-s;
+          padding: 13px;
+        }
+      }
+    }
+  }
+}
