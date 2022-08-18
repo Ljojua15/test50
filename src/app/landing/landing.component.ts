@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Rule } from '../shared/models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
-import { CampaignService } from '../services/campaign.service';
-import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'crc-landing',
@@ -22,8 +20,7 @@ export class LandingComponent implements OnInit {
 
   constructor(
     private rulesService: RulesService,
-    private translateService: TranslateService,
-    private campaignService: CampaignService
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
