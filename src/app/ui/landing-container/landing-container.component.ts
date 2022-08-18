@@ -10,7 +10,6 @@ export class LandingContainerComponent implements OnInit {
   styleObject(): Object {
     return {
       'background-image': 'url(' + this.bgImg + ')',
-      'background-color': this.bgColor,
     };
   }
 
@@ -18,9 +17,6 @@ export class LandingContainerComponent implements OnInit {
 
   //main background image
   bgImg = `../../${this.filePath}assets/images/bg.jpg`;
-
-  //main background color
-  bgColor = '#0c1514';
 
   constructor() {}
 

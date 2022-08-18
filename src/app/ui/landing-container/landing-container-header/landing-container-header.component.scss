@@ -1,4 +1,5 @@
 @use "./../../../../fonts";
+@use "./../../../../styles/variables";
 
 .header {
   display: flex;
@@ -11,22 +12,21 @@
   &__text {
     max-width: 550px;
     margin-top: 20px;
-    font-size: 24px;
+    font-size: variables.$font-size-header-m;
     line-height: 125%;
-    color: #fff;
+    color: variables.$white;
 
     span {
-      color: rgb(79, 232, 97);
-      font-size: 30px;
+      color: variables.$main-header-color;
+      font-size: variables.$font-size-header-l;
       font-family: fonts.$font-bold;
     }
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: variables.$tablet) {
   .header {
     padding-top: 275px;
-    // padding-top: 175px;
     margin: 0 auto;
 
     &__img {
@@ -34,12 +34,12 @@
     }
 
     &__text {
-      font-size: 20px;
+      font-size: variables.$font-size-header-s;
     }
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: variables.$mobile) {
   .header {
     padding-top: 175px;
     width: 90%;
@@ -49,10 +49,10 @@
     }
 
     &__text {
-      font-size: 14px;
+      font-size: variables.$font-size-s;
 
       span {
-        font-size: 18px;
+        font-size: variables.$font-size-l;
       }
     }
   }

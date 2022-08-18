@@ -1,4 +1,5 @@
 @use "./../../../fonts";
+@use "./../../../styles/variables";
 
 :host {
   width: 100%;
@@ -18,12 +19,12 @@
     column-gap: 15px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(55, 68, 94, 0.9);
-    font-size: 16px;
+    background-color: variables.$auth-bg-color;
+    font-size: variables.$font-size-m;
     line-height: 125%;
     padding: 15px;
     border-radius: 5px;
-    color: #fff;
+    color: variables.$white;
 
     &__text {
       margin-right: 10px;
@@ -35,9 +36,9 @@
       column-gap: 16px;
 
       &__btn {
-        background-color: rgb(21, 175, 68);
-        color: #fff;
-        font-size: 18px;
+        background-color: variables.$reg-btn-color;
+        color: variables.$white;
+        font-size: variables.$font-size-l;
         line-height: 1;
         padding: 13px 20px;
         border-radius: 5px;
@@ -45,19 +46,19 @@
       }
 
       .btn--black {
-        background-color: rgb(37, 43, 51);
+        background-color: variables.$auth-btn-color;
       }
     }
   }
 }
 
-@media (max-width: 1070px) {
+@media (max-width: variables.$tablet-l) {
   .main {
     margin-inline: auto;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: variables.$tablet) {
   :host {
     width: 90%;
   }
@@ -70,7 +71,7 @@
       padding: 15px;
 
       &__text {
-        font-size: 14px;
+        font-size: variables.$font-size-s;
         text-align: center;
       }
 
@@ -83,14 +84,14 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: variables.$mobile) {
   .main {
     .auth-container {
       padding: 15px;
       border-radius: 10px;
 
       &__text {
-        font-size: 12px;
+        font-size: variables.$font-size-xs;
         line-height: 120%;
       }
 
@@ -98,7 +99,7 @@
         column-gap: 10px;
 
         &__btn {
-          font-size: 14px;
+          font-size: variables.$font-size-s;
           padding: 13px;
         }
       }

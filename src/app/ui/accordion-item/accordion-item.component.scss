@@ -1,7 +1,5 @@
 @use "../../../fonts";
-
-$main-bg: #252f43;
-$secondary-bg: #252f43;
+@use "../../../styles/variables";
 
 .acc-body:nth-child(1) {
   margin-top: 10px;
@@ -28,9 +26,9 @@ $secondary-bg: #252f43;
   display: flex;
   align-items: center;
   padding: 14px;
-  color: #fff;
+  color: variables.$white;
   border-radius: 6px;
-  background-color: $secondary-bg;
+  background-color: variables.$rules-secondary-bg;
 }
 
 .acc-main-header {
@@ -41,7 +39,7 @@ $secondary-bg: #252f43;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  background-color: $main-bg;
+  background-color: variables.$rules-main-bg;
   transition: all 500ms ease;
   cursor: pointer;
 }
@@ -51,7 +49,7 @@ $secondary-bg: #252f43;
   overflow: auto;
   width: 100%;
   text-align: start;
-  font-size: 16px;
+  font-size: variables.$font-size-m;
   font-family: fonts.$font-bold;
 }
 
@@ -62,7 +60,7 @@ $secondary-bg: #252f43;
   align-items: center;
   line-height: 1.5rem;
   font-family: fonts.$font-regular;
-  font-size: 14px;
+  font-size: variables.$font-size-s;
   text-align: left;
 }
 
@@ -71,7 +69,7 @@ $secondary-bg: #252f43;
   align-items: center;
 }
 
-@media (max-width: 999px) {
+@media (max-width: variables.$tablet-l) {
   .w-container {
     width: 90%;
   }
@@ -81,10 +79,10 @@ $secondary-bg: #252f43;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: variables.$tablet) {
   .acc-body,
   .header-title {
-    font-size: 12px;
+    font-size: variables.$font-size-xs;
   }
 
   .acc-header {
