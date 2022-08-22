@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
-  selector: 'crc-play-btn',
-  templateUrl: './play-btn.component.html',
-  styleUrls: ['./play-btn.component.scss'],
+  selector: 'crc-play-button',
+  templateUrl: './play-button.component.html',
+  styleUrls: ['./play-button.component.scss'],
 })
-export class PlayBtnComponent {
+export class PlayButtonnComponent {
   // redirect url on button click
   redirectUrl = 'https://crocobet.com/#/';
 
