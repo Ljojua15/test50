@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="container">
+    <div class="container__arrow">
+      <img [src]="arrowPath" />
+    </div>
+    <div class="container__frame">
+      <img [src]="framePath" />
+    </div>
+    <div class="container__prizes">
+      <img [src]="prizesPath | async" #prizeElement />
+    </div>
+    <div class="container__btn">
+      <img *ngIf="!isDisabled" [src]="btnPath" (click)="getPrize()" />
+      <img
+        *ngIf="isDisabled"
+        [src]="btnDisabledPath"
+        [ngClass]="{ disabled: isDisabled }"
+      />
+    </div>
+  </div>
+</div>
