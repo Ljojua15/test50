@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
@@ -6,10 +6,10 @@ import { IframeService } from 'src/app/services/iframe.service';
   templateUrl: './authorization-block.component.html',
   styleUrls: ['./authorization-block.component.scss'],
 })
-export class AuthorizationBlockComponent implements OnInit {
-  constructor(private iframeService: IframeService) {}
+export class AuthorizationBlockComponent {
+  hasAnimation = true;
 
-  ngOnInit(): void {}
+  constructor(private iframeService: IframeService) {}
 
   onRegister() {
     this.iframeService.register();

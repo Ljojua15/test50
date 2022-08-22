@@ -1,0 +1,24 @@
+@use "./../../../../styles/variables";
+
+:host {
+  width: 50%;
+  max-width: 600px;
+}
+
+@media (max-width: 1200px) {
+  :host {
+    width: 75%;
+  }
+}
+
+@media (max-width: 820px) {
+  :host {
+    width: 85%;
+  }
+}
+
+@media (max-width: variables.$tablet) {
+  :host {
+    width: 90%;
+  }
+}

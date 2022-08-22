@@ -5,11 +5,16 @@
     </div>
 
     <div class="auth-container__buttons">
-      <button class="auth-container__buttons__btn" (click)="onRegister()">
+      <button
+        class="auth-container__buttons__btn"
+        [class.pulse-reg]="hasAnimation"
+        (click)="onRegister()"
+      >
         {{ "register" | translate }}
       </button>
       <button
         class="auth-container__buttons__btn btn--black"
+        [class.pulse-auth]="hasAnimation"
         (click)="onLogin()"
       >
         {{ "authorization" | translate }}

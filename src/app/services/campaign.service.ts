@@ -19,6 +19,13 @@ export class CampaignService {
     return this.http.get<GenericResponse<User>>(`${this.API}${campaignId}`);
   }
 
+  getPrize(campaignId: string): Observable<GenericResponse<User>> {
+    return this.http.post<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/get-prize`,
+      {}
+    );
+  }
+
   getRules(lang: string): Observable<any> {
     return this.http.get<any>(environment.rulesApi(lang) + this.rulesKey);
   }

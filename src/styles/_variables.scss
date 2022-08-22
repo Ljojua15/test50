@@ -15,6 +15,13 @@ $auth-btn-color: rgb(37, 43, 51);
 $rules-main-bg: #252f43;
 $rules-secondary-bg: #252f43;
 
+// play button color
+$play-btn: linear-gradient(138deg, #15b17a, #0ab413);
+
+// play button hover
+$play-btn-hover: inset 0 -1px 30px 20px #74ff4c,
+  1px 1px 60px 8px rgba(19, 173, 75, 0.77);
+
 // colors
 $white: #fff;
 
@@ -35,3 +42,53 @@ $font-size-xs: 12px;
 $tablet-l: 1000px;
 $tablet: 767px;
 $mobile: 479px;
+
+// authorization buttons animation
+$pulse: 1s pulse ease-in-out infinite both;
+$pulse-blue: 1s pulseblue ease-in-out infinite both;
+
+// play button animation
+$heartbeat-animation: heartbeat 1.5s ease-in-out infinite both;
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(55, 194, 130, 0.85);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(55, 194, 130, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(55, 194, 130, 0);
+  }
+}
+
+@keyframes pulseblue {
+  0% {
+    box-shadow: 0 0 0 0 rgba(55, 97, 194, 0.85);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(55, 194, 130, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(55, 194, 130, 0);
+  }
+}
+
+// play button animation
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.91);
+  }
+  17% {
+    transform: scale(0.98);
+  }
+  33% {
+    transform: scale(0.87);
+  }
+  45% {
+    transform: scale(1);
+  }
+}
