@@ -22,15 +22,17 @@ export class WheelContainerComponent implements OnInit {
 
   filePath = environment.filePath;
   imagePath = `./../../../../${this.filePath}assets/images`;
+
+  // image paths
   arrowPath = `${this.imagePath}/wheel-arrow.png`;
   framePath = `${this.imagePath}/wheel-frame.png`;
   btnPath = `${this.imagePath}/wheel-btn.png`;
   btnDisabledPath = `${this.imagePath}/wheel-btn-disabled.png`;
-
   prizesPath = this.translateService.onLangChange.pipe(
     map((lang) => `${this.imagePath}/wheel-prizes-${lang.lang}.png`)
   );
 
+  // campaign id for get prize
   campaignId = '';
 
   // openPopup = false;
