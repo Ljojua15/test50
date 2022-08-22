@@ -7,14 +7,14 @@
     <div class="auth-container__buttons">
       <button
         class="auth-container__buttons__btn"
-        [ngClass]="{ 'pulse-reg': hasAnimation }"
+        [class.pulse-reg]="hasAnimation"
         (click)="onRegister()"
       >
         {{ "register" | translate }}
       </button>
       <button
         class="auth-container__buttons__btn btn--black"
-        [ngClass]="{ 'pulse-auth': hasAnimation }"
+        [class.pulse-auth]="hasAnimation"
         (click)="onLogin()"
       >
         {{ "authorization" | translate }}

@@ -14,7 +14,7 @@
       <img
         *ngIf="isDisabled"
         [src]="btnDisabledPath"
-        [ngClass]="{ disabled: isDisabled }"
+        [class.disabled]="isDisabled"
       />
     </div>
   </div>
