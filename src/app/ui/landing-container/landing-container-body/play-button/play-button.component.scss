@@ -17,6 +17,10 @@
   box-shadow: variables.$play-btn-hover;
 }
 
+.heartbeat {
+  animation: variables.$heartbeat-animation;
+}
+
 @media (max-width: variables.$mobile) {
   .play {
     padding: 15px;

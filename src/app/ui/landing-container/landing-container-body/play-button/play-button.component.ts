@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { IframeService } from 'src/app/services/iframe.service';
   styleUrls: ['./play-button.component.scss'],
 })
 export class PlayButtonnComponent {
+  @Input() hasAnimation = false;
+
   // redirect url on button click
   redirectUrl = 'https://crocobet.com/#/';
 

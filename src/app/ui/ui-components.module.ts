@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 import { PlayButtonnComponent } from './landing-container/landing-container-body/play-button/play-button.component';
-import { WheelContainerComponent } from './landing-container/landing-container-body/wheel-container/wheel-container.component';
+import { WheelComponent } from './landing-container/landing-container-body/wheel/wheel.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { WheelContainerComponent } from './landing-container/landing-container-b
     AccordionComponent,
     AccordionItemComponent,
     PlayButtonnComponent,
-    WheelContainerComponent,
+    WheelComponent,
   ],
   exports: [
     LandingContainerComponent,

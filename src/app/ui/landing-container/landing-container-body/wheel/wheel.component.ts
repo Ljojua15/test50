@@ -12,11 +12,11 @@ import { Prize } from 'src/app/shared/models/prize';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'crc-wheel-container',
-  templateUrl: './wheel-container.component.html',
-  styleUrls: ['./wheel-container.component.scss'],
+  selector: 'crc-wheel',
+  templateUrl: './wheel.component.html',
+  styleUrls: ['./wheel.component.scss'],
 })
-export class WheelContainerComponent implements OnInit {
+export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() isDisabled = false;
 
@@ -24,11 +24,11 @@ export class WheelContainerComponent implements OnInit {
   imagePath = `./../../../../${this.filePath}assets/images`;
 
   // image paths
-  arrowPath = `${this.imagePath}/wheel-arrow.png`;
-  framePath = `${this.imagePath}/wheel-frame.png`;
-  btnPath = `${this.imagePath}/wheel-btn.png`;
-  btnDisabledPath = `${this.imagePath}/wheel-btn-disabled.png`;
-  prizesPath = this.translateService.onLangChange.pipe(
+  arrowImage = `${this.imagePath}/wheel-arrow.png`;
+  frameImage = `${this.imagePath}/wheel-frame.png`;
+  buttonImage = `${this.imagePath}/wheel-btn.png`;
+  buttonDisabledImage = `${this.imagePath}/wheel-btn-disabled.png`;
+  prizesImage = this.translateService.onLangChange.pipe(
     map((lang) => `${this.imagePath}/wheel-prizes-${lang.lang}.png`)
   );
 

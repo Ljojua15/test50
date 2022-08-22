@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-container-body.component.scss'],
 })
 export class LandingContainerBodyComponent implements OnInit {
-  isDisabled = false;
+  // toggle play button heartbeat animation
+  hasAnimation = true;
+
+  // disable wheel button
+  isDisabled = true;
 
   constructor() {}
 
