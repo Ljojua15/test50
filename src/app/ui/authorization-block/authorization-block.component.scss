@@ -5,6 +5,14 @@
   width: 100%;
 }
 
+.pulse-reg {
+  animation: variables.$pulse;
+}
+
+.pulse-auth {
+  animation: variables.$pulse-blue;
+}
+
 .main {
   width: 100%;
   max-width: 900px;
