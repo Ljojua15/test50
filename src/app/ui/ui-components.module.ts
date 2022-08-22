@@ -8,7 +8,7 @@ import { AuthorizationBlockComponent } from './authorization-block/authorization
 import { TranslateModule } from '@ngx-translate/core';
 import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
-import { PlayButtonnComponent } from './landing-container/landing-container-body/play-button/play-button.component';
+import { PlayButtonComponent } from './landing-container/landing-container-body/play-button/play-button.component';
 import { WheelComponent } from './landing-container/landing-container-body/wheel/wheel.component';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { WheelComponent } from './landing-container/landing-container-body/wheel
     AuthorizationBlockComponent,
     AccordionComponent,
     AccordionItemComponent,
-    PlayButtonnComponent,
+    PlayButtonComponent,
     WheelComponent,
   ],
   exports: [

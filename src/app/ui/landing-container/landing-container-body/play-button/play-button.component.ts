@@ -6,7 +6,7 @@ import { IframeService } from 'src/app/services/iframe.service';
   templateUrl: './play-button.component.html',
   styleUrls: ['./play-button.component.scss'],
 })
-export class PlayButtonnComponent {
+export class PlayButtonComponent {
   @Input() hasAnimation = false;
 
   // redirect url on button click
