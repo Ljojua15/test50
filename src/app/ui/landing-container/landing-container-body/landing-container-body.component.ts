@@ -56,4 +56,10 @@ export class LandingContainerBodyComponent implements OnInit {
         };
       });
   }
+
+  // getHistory() {
+  //   return this.campaignService
+  //     .getHistory('ufo-double-wheel-190822')
+  //     .subscribe((res) => console.log(res));
+  // }
 }
