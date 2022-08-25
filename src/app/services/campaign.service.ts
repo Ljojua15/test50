@@ -16,7 +16,9 @@ export class CampaignService {
   constructor(private http: HttpClient) {}
 
   getUserData(campaignId: string): Observable<GenericResponse<User>> {
-    return this.http.get<GenericResponse<User>>(`${this.API}${campaignId}`);
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user`
+    );
   }
 
   getPrize(campaignId: string): Observable<GenericResponse<User>> {
