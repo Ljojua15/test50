@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { User } from 'src/app/shared/models/user';
@@ -9,6 +9,14 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./landing-container-body.component.scss'],
 })
 export class LandingContainerBodyComponent implements OnInit {
+  @Input() set isAuthorized(value: boolean) {
+    if (value) {
+      this.getData();
+    } else {
+      this.clearData();
+    }
+  }
+
   // toggle play button heartbeat animation
   hasAnimation = true;
 
@@ -28,9 +36,7 @@ export class LandingContainerBodyComponent implements OnInit {
 
   constructor(private campaignService: CampaignService) {}
 
-  ngOnInit(): void {
-    this.getData();
-  }
+  ngOnInit(): void {}
 
   getData() {
     return this.campaignService
@@ -55,6 +61,18 @@ export class LandingContainerBodyComponent implements OnInit {
           used: res.state.used,
         };
       });
+  }
+
+  clearData() {
+    this.progressData = {
+      levels: [],
+      amount: 0,
+    };
+
+    this.userData = {
+      unlockedLevel: 0,
+      used: 0,
+    };
   }
 
   // getHistory() {
