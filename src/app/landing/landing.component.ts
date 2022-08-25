@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Rule } from '../shared/models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'crc-landing',
@@ -9,6 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+  isAuthorized = false;
+
   title: {
     en: string;
     ge: string;
@@ -20,12 +23,20 @@ export class LandingComponent implements OnInit {
 
   constructor(
     private rulesService: RulesService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.lang = this.getCurrentLang();
     this.title = this.rulesService.getTitle();
+    this.checkToken();
+  }
+
+  checkToken() {
+    return this.authService.isAuthorized().subscribe((res: any) => {
+      this.isAuthorized = res;
+    });
   }
 
   getCurrentLang() {

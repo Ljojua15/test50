@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {catchError, map, Observable, of, tap} from "rxjs";
-import {getCookie} from "../utils";
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { catchError, map, Observable, of, tap } from 'rxjs';
+import { getCookie } from '../utils';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   public getToken(): string | undefined {
     if (!environment.production) {
@@ -19,8 +19,12 @@ export class AuthService {
     return getCookie('X-ODDS-SESSION');
   }
 
-  public isAuthorized(): boolean {
-    return !!this.getToken();
+  // public isAuthorized(): boolean {
+  //   return !!this.getToken();
+  // }
+
+  public isAuthorized(): Observable<boolean> {
+    return this.route.queryParams.pipe(map((res) => !!res['tk']));
   }
 
   public getVerificationStatus(): Observable<boolean> {
@@ -29,7 +33,7 @@ export class AuthService {
       .pipe(
         catchError((_) => of(false)),
         map((res: any) => !!res),
-        tap(res => console.log(res)),
+        tap((res) => console.log(res))
       );
   }
 }

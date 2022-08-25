@@ -28,6 +28,11 @@ export class CampaignService {
     );
   }
 
+  getHistory(campaignId: string): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/history`
+    );
+  }
   getRules(lang: string): Observable<any> {
     return this.http.get<any>(environment.rulesApi(lang) + this.rulesKey);
   }
