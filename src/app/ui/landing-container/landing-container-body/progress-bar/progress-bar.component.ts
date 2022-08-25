@@ -27,7 +27,6 @@ export class ProgressBarComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.getCurrentIndex();
-    console.log(this.userData);
   }
 
   getCurrentIndex() {
@@ -47,10 +46,7 @@ export class ProgressBarComponent implements OnChanges {
   getExtraWidth() {
     if (this.currentIndex === 0) {
       this.extraWidth =
-        ((this.progressData.levels[0].step / this.progressData.levels[0].step) *
-          this.progressData.amount *
-          100) /
-        this.progressData.levels[0].step;
+        (this.progressData.amount * 100) / this.progressData.levels[0].step;
     } else {
       const fractionAmount =
         this.progressData.levels[this.currentIndex].step -
@@ -63,8 +59,8 @@ export class ProgressBarComponent implements OnChanges {
   }
 
   changeImageStates() {
-    const baseSpinsUsed = this.userData.used % 5;
-    const goldSpinsUsed = Math.floor(this.userData.used / 5);
+    const baseSpinsUsed = this.userData.used % 5; // change depending on last points
+    const goldSpinsUsed = Math.floor(this.userData.used / 5); // change depending on last points
 
     this.progressData.levels.forEach((level, index) => {
       // check active icons

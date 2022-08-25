@@ -39,14 +39,12 @@ export class LandingContainerBodyComponent implements OnInit {
         map((res) => {
           res.data.state.steps.forEach((step: any) => {
             step.imageState = 'off';
-            step.points < 5 ? (step.points = 1) : (step.points = 5);
+            step.points < 5 ? (step.points = 1) : (step.points = 5); // change if last points costs more
           });
           return res.data;
         })
       )
       .subscribe((res: User) => {
-        console.log(res);
-
         this.progressData = {
           levels: res.state.steps,
           amount: Math.floor(Math.min(res.state.progress, 2500)), // limit max score

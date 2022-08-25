@@ -3,14 +3,14 @@
     <p>{{ "bet" | translate }}</p>
     <p>{{ "spin" | translate }}</p>
   </div>
-  <div class="main__zero">0₾</div>
+  <div class="main__zero">{{ 0 | gelPipe: false }}</div>
   <div class="main__bg">
     <div class="container">
       <div
         class="container__levels"
         *ngFor="let level of progressData.levels; index as i"
       >
-        <p class="">{{ level.step }}₾</p>
+        <p class="">{{ level.step | gelPipe: false }}</p>
         <div class="container__breaks"></div>
         <div
           class="container__progress"
