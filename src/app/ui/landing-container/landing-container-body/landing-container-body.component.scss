@@ -1,8 +1,13 @@
 @use "./../../../../styles/variables";
 
 :host {
-  width: 50%;
-  max-width: 600px;
+  width: 40%;
+}
+
+@media (max-width: 1700px) {
+  :host {
+    width: 55%;
+  }
 }
 
 @media (max-width: 1200px) {

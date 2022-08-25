@@ -6,5 +6,7 @@
   "authorization": "AUTHORIZATION",
   "rules": "RULES:",
   "lang": "en",
-  "play": "PLAY"
+  "play": "PLAY",
+  "bet": "BET",
+  "spin": "SPIN"
 }

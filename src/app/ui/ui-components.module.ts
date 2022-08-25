@@ -10,6 +10,8 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 import { PlayButtonComponent } from './landing-container/landing-container-body/play-button/play-button.component';
 import { WheelComponent } from './landing-container/landing-container-body/wheel/wheel.component';
+import { ProgressBarComponent } from './landing-container/landing-container-body/progress-bar/progress-bar.component';
+import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { WheelComponent } from './landing-container/landing-container-body/wheel
     AccordionItemComponent,
     PlayButtonComponent,
     WheelComponent,
+    ProgressBarComponent,
+    GelPipePipe,
   ],
   exports: [
     LandingContainerComponent,
