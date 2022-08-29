@@ -12,6 +12,7 @@ import { PlayButtonComponent } from './landing-container/landing-container-body/
 import { WheelComponent } from './landing-container/landing-container-body/wheel/wheel.component';
 import { ProgressBarComponent } from './landing-container/landing-container-body/progress-bar/progress-bar.component';
 import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
+import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
     WheelComponent,
     ProgressBarComponent,
     GelPipePipe,
+    SlotsComponent,
   ],
   exports: [
     LandingContainerComponent,
