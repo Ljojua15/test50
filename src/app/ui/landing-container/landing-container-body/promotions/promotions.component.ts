@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { map, switchMap } from 'rxjs';
+import { map } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { IframeService } from 'src/app/services/iframe.service';
 import SwiperCore, { Navigation, SwiperOptions } from 'swiper';
@@ -11,6 +11,7 @@ SwiperCore.use([Navigation]);
   selector: 'crc-promotions',
   templateUrl: './promotions.component.html',
   styleUrls: ['./promotions.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PromotionsComponent implements OnInit {
   promos: any = [];
