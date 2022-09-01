@@ -22,6 +22,7 @@
 }
 
 .swiper-header {
+  padding-bottom: 8px;
   font-size: 25.5px;
 }
 
@@ -97,7 +98,15 @@
 
   .swiper-button-next,
   .swiper-button-prev {
-    top: 90px;
+    top: 80px;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
   }
 
   .swiper-slide {
