@@ -27,15 +27,5 @@ export class AppComponent implements OnInit {
         this.iFrameService.sendMessage(1003);
       }
     }, 250);
-    // let currentHeight = 0;
-
-    // document.body.style.minHeight = 'unset';
-
-    // setInterval(() => {
-    //   if (document.body.offsetHeight !== currentHeight) {
-    //     currentHeight = document.body.offsetHeight;
-    //     this.iframeService.sendMessage(1003);
-    //   }
-    // }, 0);
   }
 }
