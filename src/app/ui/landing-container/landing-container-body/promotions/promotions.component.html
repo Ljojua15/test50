@@ -1,0 +1,21 @@
+<div class="swiper-container">
+  <p class="swiper-header">{{ "current.promos" | translate }}</p>
+  <!-- class="swiper mySwiper" -->
+  <swiper [config]="config">
+    <ng-template swiperSlide *ngFor="let promo of promos">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="swiper-image-container">
+            <img
+              class="swiper-image"
+              (click)="onClick(promo.href)"
+              [src]="promo.image"
+            />
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
