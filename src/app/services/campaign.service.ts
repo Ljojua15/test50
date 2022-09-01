@@ -40,7 +40,7 @@ export class CampaignService {
 
   getBanners(): Observable<any> {
     return this.http.get<any>(
-      'https://cms.crocobet.com/banners?platform=desktop&type=landing'
+      `${this.API}/banners?platform=desktop&type=landing`
     );
   }
 }
