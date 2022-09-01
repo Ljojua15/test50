@@ -8,12 +8,12 @@ import SwiperCore, { Navigation, SwiperOptions } from 'swiper';
 SwiperCore.use([Navigation]);
 
 @Component({
-  selector: 'crc-promotions',
+  selector: 'crc-promotions-swiper',
   templateUrl: './promotions.component.html',
   styleUrls: ['./promotions.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class PromotionsComponent implements OnInit {
+export class PromotionsSwiperComponent implements OnInit {
   promos: any = [];
 
   config: SwiperOptions = {

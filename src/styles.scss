@@ -1,7 +1,3 @@
-@use "swiper/scss";
-@use "swiper/scss/navigation";
-@use "swiper/scss/pagination";
-
 @use "./fonts";
 @use "./styles/variables";
 
@@ -16,10 +12,4 @@
 
 body:-webkit-scrollbar {
   display: none;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #fff;
-  opacity: 1;
 }

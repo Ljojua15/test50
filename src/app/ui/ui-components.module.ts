@@ -13,8 +13,8 @@ import { WheelComponent } from './landing-container/landing-container-body/wheel
 import { ProgressBarComponent } from './landing-container/landing-container-body/progress-bar/progress-bar.component';
 import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
-import { PromotionsComponent } from './landing-container/landing-container-body/promotions/promotions.component';
 import { SwiperModule } from 'swiper/angular';
+import { PromotionsSwiperComponent } from './landing-container/landing-container-body/promotions-swiper/promotions.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { SwiperModule } from 'swiper/angular';
     ProgressBarComponent,
     GelPipePipe,
     SlotsComponent,
-    PromotionsComponent,
+    PromotionsSwiperComponent,
   ],
   exports: [
     LandingContainerComponent,
