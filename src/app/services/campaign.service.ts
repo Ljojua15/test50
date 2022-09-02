@@ -33,7 +33,14 @@ export class CampaignService {
       `${this.API}/campaigns/${campaignId}/history`
     );
   }
+
   getRules(lang: string): Observable<any> {
     return this.http.get<any>(environment.rulesApi(lang) + this.rulesKey);
+  }
+
+  getBanners(): Observable<any> {
+    return this.http.get<any>(
+      `${this.API}/banners?platform=desktop&type=landing`
+    );
   }
 }

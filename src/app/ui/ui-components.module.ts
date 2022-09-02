@@ -13,6 +13,8 @@ import { WheelComponent } from './landing-container/landing-container-body/wheel
 import { ProgressBarComponent } from './landing-container/landing-container-body/progress-bar/progress-bar.component';
 import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
+import { SwiperModule } from 'swiper/angular';
+import { PromotionsSwiperComponent } from './landing-container/landing-container-body/promotions-swiper/promotions.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { SlotsComponent } from './landing-container/landing-container-body/slots
     ProgressBarComponent,
     GelPipePipe,
     SlotsComponent,
+    PromotionsSwiperComponent,
   ],
   exports: [
     LandingContainerComponent,
@@ -36,6 +39,6 @@ import { SlotsComponent } from './landing-container/landing-container-body/slots
     LandingContainerFooterComponent,
     AuthorizationBlockComponent,
   ],
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, SwiperModule],
 })
 export class UiComponentsModule {}
