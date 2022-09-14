@@ -1,6 +1,10 @@
 <div class="main">
   <div class="container">
-    <crc-popup-container [(openPopup)]="popup" (closePopup)="closePopup()">
+    <crc-popup-container
+      [(openPopup)]="popup"
+      [closeImage]="'assets/images/x.svg'"
+      [containerStyles]="popupContainerStyles"
+    >
       <!-- template here -->
     </crc-popup-container>
 

@@ -38,6 +38,10 @@ export class WheelComponent implements OnInit {
   // popup
   popup = true;
 
+  popupContainerStyles = {
+    'background-color': '#1b3a28',
+  };
+
   wheelDegree = 0;
   offset = 0;
 
@@ -48,10 +52,6 @@ export class WheelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
-  closePopup() {
-    this.popup = false;
-  }
 
   getPrize() {
     return this.campaignService
