@@ -14,6 +14,8 @@ import { BackdropService } from '../services/backdrop.service';
 export class LandingComponent implements OnInit {
   isAuthorized = false;
 
+  isBackdropClosable = false;
+
   backdrop$: Observable<boolean> | null = null;
 
   title: {
@@ -54,6 +56,8 @@ export class LandingComponent implements OnInit {
   }
 
   onClose() {
-    this.backdropService.backDrop$.next(false);
+    if (this.isBackdropClosable) {
+      this.backdropService.backDrop$.next(false);
+    }
   }
 }
