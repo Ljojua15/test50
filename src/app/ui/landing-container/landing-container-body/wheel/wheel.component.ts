@@ -36,7 +36,7 @@ export class WheelComponent implements OnInit {
   campaignId = '';
 
   // popup
-  openPopup = true;
+  popup = true;
 
   wheelDegree = 0;
   offset = 0;
@@ -48,6 +48,10 @@ export class WheelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  closePopup() {
+    this.popup = false;
+  }
 
   getPrize() {
     return this.campaignService

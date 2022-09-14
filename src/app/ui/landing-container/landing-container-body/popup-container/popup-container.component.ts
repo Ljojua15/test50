@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class PopupContainerComponent implements OnInit {
   @Input() openPopup!: boolean;
-  @Output() openPopupChange = new EventEmitter<boolean>();
+  @Output() closePopup = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -15,5 +15,6 @@ export class PopupContainerComponent implements OnInit {
 
   onClose() {
     this.openPopup = false;
+    this.closePopup.emit(false);
   }
 }
