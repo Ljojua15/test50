@@ -35,7 +35,8 @@ export class WheelComponent implements OnInit {
   // campaign id for get prize
   campaignId = '';
 
-  // openPopup = false;
+  // popup
+  openPopup = true;
 
   wheelDegree = 0;
   offset = 0;
