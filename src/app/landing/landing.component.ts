@@ -3,7 +3,7 @@ import { Rule } from '../shared/models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { BackdropService } from '../services/backdrop.service';
 
 @Component({
@@ -14,9 +14,8 @@ import { BackdropService } from '../services/backdrop.service';
 export class LandingComponent implements OnInit {
   isAuthorized = false;
 
-  isBackdropClosable = false;
-
   backdrop$: Observable<boolean> | null = null;
+  isBackdropClosable!: boolean;
 
   title: {
     en: string;
@@ -39,6 +38,9 @@ export class LandingComponent implements OnInit {
     this.title = this.rulesService.getTitle();
     this.checkToken();
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
+    this.backdropService.isBackdropClosable$.subscribe(
+      (res: boolean) => (this.isBackdropClosable = res)
+    );
   }
 
   checkToken() {

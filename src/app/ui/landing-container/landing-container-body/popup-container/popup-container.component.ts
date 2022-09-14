@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BackdropService } from 'src/app/services/backdrop.service';
 
 @Component({
@@ -6,12 +6,17 @@ import { BackdropService } from 'src/app/services/backdrop.service';
   templateUrl: './popup-container.component.html',
   styleUrls: ['./popup-container.component.scss'],
 })
-export class PopupContainerComponent {
+export class PopupContainerComponent implements OnInit {
+  @Input() isBackdropClosable!: boolean;
   @Input() containerStyles!: Object;
   @Input() closeImage!: string;
   @Output() closePopup = new EventEmitter<boolean>();
 
   constructor(private backdropService: BackdropService) {}
+
+  ngOnInit(): void {
+    this.backdropService.isBackdropClosable$.next(this.isBackdropClosable);
+  }
 
   onClose() {
     this.closePopup.emit(false);
