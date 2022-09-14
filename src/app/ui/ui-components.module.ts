@@ -15,6 +15,7 @@ import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
 import { SwiperModule } from 'swiper/angular';
 import { PromotionsSwiperComponent } from './landing-container/landing-container-body/promotions-swiper/promotions.component';
+import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PromotionsSwiperComponent } from './landing-container/landing-container
     GelPipePipe,
     SlotsComponent,
     PromotionsSwiperComponent,
+    PopupContainerComponent,
   ],
   exports: [
     LandingContainerComponent,

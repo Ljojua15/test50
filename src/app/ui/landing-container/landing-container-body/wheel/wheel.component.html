@@ -1,5 +1,15 @@
 <div class="main">
   <div class="container">
+    <crc-popup-container
+      (closePopup)="closePopup()"
+      [closeImage]="'assets/images/x.svg'"
+      [containerStyles]="popupContainerStyles"
+      [isBackdropClosable]="true"
+      *ngIf="popup"
+    >
+      <!-- template here -->
+    </crc-popup-container>
+
     <div class="container__arrow">
       <img [src]="arrowImage" />
     </div>
