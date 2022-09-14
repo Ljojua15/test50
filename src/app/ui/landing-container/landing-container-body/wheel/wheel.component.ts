@@ -58,11 +58,6 @@ export class WheelComponent implements OnInit {
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
   }
 
-  onClick() {
-    this.popup = true;
-    this.backdropService.backDrop$.next(true);
-  }
-
   closePopup() {
     this.popup = false;
   }
