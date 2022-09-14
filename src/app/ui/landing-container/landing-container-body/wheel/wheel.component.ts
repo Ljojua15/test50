@@ -6,7 +6,8 @@ import {
 } from '@angular/animations';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { BackdropService } from 'src/app/services/backdrop.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Prize } from 'src/app/shared/models/prize';
 import { environment } from 'src/environments/environment';
@@ -36,7 +37,7 @@ export class WheelComponent implements OnInit {
   campaignId = '';
 
   // popup configuration
-  popup = true;
+  popup = false;
   popupContainerStyles = {
     'background-color': '#1b3a28',
   };
@@ -44,13 +45,27 @@ export class WheelComponent implements OnInit {
   wheelDegree = 0;
   offset = 0;
 
+  backdrop$: Observable<boolean> | null = null;
+
   constructor(
     private builder: AnimationBuilder,
     private translateService: TranslateService,
-    private campaignService: CampaignService
+    private campaignService: CampaignService,
+    private backdropService: BackdropService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.backdrop$ = this.backdropService.backDrop$.asObservable();
+  }
+
+  onClick() {
+    this.popup = true;
+    this.backdropService.backDrop$.next(true);
+  }
+
+  closePopup() {
+    this.popup = false;
+  }
 
   getPrize() {
     return this.campaignService

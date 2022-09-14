@@ -1,9 +1,10 @@
 <div class="main">
   <div class="container">
     <crc-popup-container
-      [(openPopup)]="popup"
+      (closePopup)="closePopup()"
       [closeImage]="'assets/images/x.svg'"
       [containerStyles]="popupContainerStyles"
+      *ngIf="popup"
     >
       <!-- template here -->
     </crc-popup-container>
@@ -27,3 +28,4 @@
     </div>
   </div>
 </div>
+<button (click)="onClick()">Click</button>

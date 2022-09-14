@@ -6,3 +6,4 @@
   ></crc-landing-container-body>
   <crc-landing-container-footer></crc-landing-container-footer>
 </crc-landing-container>
+<div (click)="onClose()" *ngIf="backdrop$ | async" class="backdrop"></div>

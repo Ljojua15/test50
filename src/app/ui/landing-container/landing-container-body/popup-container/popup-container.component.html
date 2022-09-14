@@ -1,4 +1,4 @@
-<div class="main" *ngIf="openPopup" [ngStyle]="containerStyles">
+<div class="main" [ngStyle]="containerStyles">
   <img (click)="onClose()" class="main__close" [src]="closeImage" alt="" />
   <ng-content></ng-content>
 </div>

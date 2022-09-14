@@ -3,6 +3,8 @@ import { Rule } from '../shared/models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
+import { BackdropService } from '../services/backdrop.service';
 
 @Component({
   selector: 'crc-landing',
@@ -11,6 +13,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LandingComponent implements OnInit {
   isAuthorized = false;
+
+  backdrop$: Observable<boolean> | null = null;
 
   title: {
     en: string;
@@ -24,13 +28,15 @@ export class LandingComponent implements OnInit {
   constructor(
     private rulesService: RulesService,
     private translateService: TranslateService,
-    private authService: AuthService
+    private authService: AuthService,
+    private backdropService: BackdropService
   ) {}
 
   ngOnInit(): void {
     this.lang = this.getCurrentLang();
     this.title = this.rulesService.getTitle();
     this.checkToken();
+    this.backdrop$ = this.backdropService.backDrop$.asObservable();
   }
 
   checkToken() {
@@ -45,5 +51,9 @@ export class LandingComponent implements OnInit {
       : this.translateService.currentLang === 'ru'
       ? 'ru'
       : 'ge';
+  }
+
+  onClose() {
+    this.backdropService.backDrop$.next(false);
   }
 }
