@@ -35,9 +35,8 @@ export class WheelComponent implements OnInit {
   // campaign id for get prize
   campaignId = '';
 
-  // popup
+  // popup configuration
   popup = true;
-
   popupContainerStyles = {
     'background-color': '#1b3a28',
   };
