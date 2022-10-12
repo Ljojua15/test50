@@ -12,23 +12,30 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'ufocashbackwheel';
+  readonly campaignId = 'ufocashbackwheel-api';
 
   constructor(private http: HttpClient) {}
 
-  getUserData(campaignId: string): Observable<GenericResponse<User>> {
+  getUserData(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
       `${this.API}/campaigns/${campaignId}/user`
     );
   }
 
-  getPrize(campaignId: string): Observable<GenericResponse<User>> {
+  getPrize(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
     return this.http.post<GenericResponse<User>>(
       `${this.API}/campaigns/${campaignId}/get-prize`,
       {}
     );
   }
 
-  getHistory(campaignId: string): Observable<GenericResponse<User>> {
+  getHistory(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
       `${this.API}/campaigns/${campaignId}/history`
     );

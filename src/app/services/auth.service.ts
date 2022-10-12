@@ -19,11 +19,11 @@ export class AuthService {
     return getCookie('X-ODDS-SESSION');
   }
 
-  // public isAuthorized(): boolean {
-  //   return !!this.getToken();
-  // }
-
   public isAuthorized(): Observable<boolean> {
+    if (!environment.production && environment.testToken) {
+      return of(true);
+    }
+
     return this.route.queryParams.pipe(map((res) => !!res['tk']));
   }
 
