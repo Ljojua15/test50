@@ -3,7 +3,7 @@ export interface ProgressData {
   amount: number;
 }
 
-interface Levels {
+export interface Levels {
   step: number;
   points: number;
   imageState: string;

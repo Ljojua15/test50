@@ -1,6 +1,5 @@
 @use "./../../../../../styles/variables";
 
-$progress-levels: 5;
 $progress-color: #15af44;
 $main-bg: linear-gradient(0deg, #945527, #ffd372 50%, #945527);
 $container-bg: linear-gradient(0deg, #684739, #937050);
@@ -27,7 +26,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   &__zero {
     position: absolute;
     top: 50%;
-    left: 15%;
+    left: 14%;
     transform: translateY(-50%);
     font-size: variables.$font-size-l;
   }
@@ -73,8 +72,8 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     }
 
     &__levels {
+      background-color: $progress-color;
       text-align: end;
-      flex-basis: calc(100% / $progress-levels);
       font-size: variables.$font-size-l;
       position: relative;
 
