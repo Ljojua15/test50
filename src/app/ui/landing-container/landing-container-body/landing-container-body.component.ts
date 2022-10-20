@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
+import { Levels, ProgressData } from 'src/app/shared/models/progressData';
 import { User } from 'src/app/shared/models/user';
+import { UserData } from 'src/app/shared/models/userData';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container-body',
@@ -10,10 +13,12 @@ import { User } from 'src/app/shared/models/user';
 })
 export class LandingContainerBodyComponent implements OnInit {
   @Input() set isAuthorized(value: boolean) {
-    if (value) {
-      this.getData();
-    } else {
-      this.clearData();
+    if (environment.production === true) {
+      if (value) {
+        this.getData();
+      } else {
+        this.clearData();
+      }
     }
   }
 
@@ -23,14 +28,22 @@ export class LandingContainerBodyComponent implements OnInit {
   // disable wheel button
   isDisabled = true;
 
+  levels: Levels[] = [
+    { step: 100, points: 1, imageState: 'off' },
+    { step: 500, points: 1, imageState: 'off' },
+    { step: 1000, points: 1, imageState: 'off' },
+    { step: 5000, points: 1, imageState: 'off' },
+    { step: 10000, points: 1, imageState: 'off' },
+  ];
+
   // progress bar levels and progress amount
-  progressData: any = {
-    levels: [],
+  progressData: ProgressData = {
+    levels: this.levels,
     amount: 0,
   };
 
-  userData = {
-    unlockedLevel: 0,
+  userData: UserData = {
+    unlockedLevel: -1,
     used: 0,
   };
 
@@ -41,20 +54,11 @@ export class LandingContainerBodyComponent implements OnInit {
   getData() {
     return this.campaignService
       .getUserData('ufo-double-wheel-190822')
-      .pipe(
-        map((res) => {
-          res.data.state.steps.forEach((step: any) => {
-            step.imageState = 'off';
-            step.points < 5 ? (step.points = 1) : (step.points = 5); // change if last points costs more
-          });
-          return res.data;
-        })
-      )
+      .pipe(map((res) => res.data))
       .subscribe((res: User) => {
-        this.progressData = {
-          levels: res.state.steps,
-          amount: Math.floor(Math.min(res.state.progress, 2500)), // limit max score
-        };
+        this.progressData.amount = Math.floor(
+          Math.min(res.state.progress, 2500)
+        );
 
         this.userData = {
           unlockedLevel: res.state.currentStepIndex,
@@ -64,13 +68,15 @@ export class LandingContainerBodyComponent implements OnInit {
   }
 
   clearData() {
+    this.levels.forEach((level) => (level.imageState = 'off'));
+
     this.progressData = {
-      levels: [],
+      levels: this.levels,
       amount: 0,
     };
 
     this.userData = {
-      unlockedLevel: 0,
+      unlockedLevel: -1,
       used: 0,
     };
   }
