@@ -55,7 +55,7 @@ export class LandingContainerBodyComponent implements OnInit {
       .pipe(map((res) => res.data))
       .subscribe((res: User) => {
         this.progressData.amount = Math.floor(
-          Math.min(res.state.progress, 2500)
+          Math.min(res.state.progress, this.levels.slice(-1)[0].step)
         );
 
         this.userData = {
