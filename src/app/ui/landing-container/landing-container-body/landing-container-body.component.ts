@@ -13,12 +13,10 @@ import { environment } from 'src/environments/environment';
 })
 export class LandingContainerBodyComponent implements OnInit {
   @Input() set isAuthorized(value: boolean) {
-    if (environment.production === true) {
-      if (value) {
-        this.getData();
-      } else {
-        this.clearData();
-      }
+    if (value || environment.testToken) {
+      this.getData();
+    } else {
+      this.clearData();
     }
   }
 
