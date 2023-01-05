@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 
@@ -49,5 +49,46 @@ export class CampaignService {
     return this.http.get<any>(
       `${this.API}/banners?platform=desktop&type=landing`
     );
+  }
+
+  getLiveUrl(): Observable<any> {
+    return this.http.get(`https://cms.crocobet.com/twitch/get/live`);
+  }
+
+  getLiveStreams(): Observable<any> {
+    return this.http.get(
+      `https://cms.crocobet.com/twitch?category=new-year-raffle`
+    );
+  }
+
+  submitAnswer(campaignId: string = this.campaignId, questionId: string) {
+    return this.http.post(
+      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,
+      { answer: '' }
+    );
+  }
+
+  getTicketStatus(campaignId: string = this.campaignId, questionId: string) {
+    return this.http.get(
+      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/status`
+    );
+  }
+
+  getActiveButton(campaignId: string = this.campaignId) {
+    return this.http
+      .get(`https://cms.crocobet.com/campaigns/${campaignId}/quizzes`, {
+        params: {
+          active: 'true',
+        },
+      })
+      .pipe(
+        map((res: any) => {
+          if (res?.data?.active) {
+            return res.data.active.id;
+          } else {
+            return 0;
+          }
+        })
+      );
   }
 }

@@ -97,5 +97,8 @@
       }
     }
   },
-  "defaultProject": "landings-starter"
+  "defaultProject": "landings-starter",
+  "cli": {
+    "analytics": false
+  }
 }

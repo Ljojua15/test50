@@ -16,6 +16,8 @@ import { SlotsComponent } from './landing-container/landing-container-body/slots
 import { SwiperModule } from 'swiper/angular';
 import { PromotionsSwiperComponent } from './landing-container/landing-container-body/promotions-swiper/promotions.component';
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
+import { LiveComponent } from './landing-container/landing-container-body/live/live.component';
+import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { PopupContainerComponent } from './landing-container/landing-container-b
     WheelComponent,
     ProgressBarComponent,
     GelPipePipe,
+    SafeUrlPipe,
     SlotsComponent,
     PromotionsSwiperComponent,
     PopupContainerComponent,
+    LiveComponent,
   ],
   exports: [
     LandingContainerComponent,
