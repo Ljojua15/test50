@@ -163,7 +163,7 @@ export class LiveComponent implements OnInit {
     document.body.style.overflow = 'visible';
   }
 
-  openModal() {
+  onInfoOpen() {
     this.openInfo = true;
     setTimeout(() => {
       this.bonusPopup.nativeElement.scrollIntoView({
@@ -219,7 +219,7 @@ export class LiveComponent implements OnInit {
     this.showAuthError = false;
   }
 
-  closeModal() {
+  onInfoClose() {
     this.openInfo = false;
   }
 
@@ -231,7 +231,7 @@ export class LiveComponent implements OnInit {
     this.showMinTicketError = false;
   }
 
-  onHavePrizeClose() {
+  onSubmitedClose() {
     this.showSubmited = false;
   }
 

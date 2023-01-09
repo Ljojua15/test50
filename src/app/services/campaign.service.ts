@@ -12,7 +12,12 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'ufocashbackwheel';
-  readonly campaignId = 'ufocashbackwheel-api';
+  readonly campaignId = 'ufocashbackwheel';
+
+  //live
+  readonly liveId = 'new-year-raffle';
+  readonly buttonStatusId = 'live-tv-drawing-181122';
+  readonly buttonSubmitId = 'live-tv-drawing-211222-v2';
 
   constructor(private http: HttpClient) {}
 
@@ -55,22 +60,20 @@ export class CampaignService {
     return this.http.get(`https://cms.crocobet.com/twitch/get/live`);
   }
 
-  getLiveStreams(): Observable<any> {
+  getLiveStreams(liveId: string = this.liveId): Observable<any> {
+    return this.http.get(`https://cms.crocobet.com/twitch?category=${liveId}`);
+  }
+
+  getTicketStatus(questionId: string, buttonId: string = this.buttonStatusId) {
     return this.http.get(
-      `https://cms.crocobet.com/twitch?category=new-year-raffle`
+      `https://cms.crocobet.com/campaigns/${buttonId}/quizzes/${questionId}/status`
     );
   }
 
-  submitAnswer(campaignId: string = this.campaignId, questionId: string) {
+  submitAnswer(questionId: string, buttonId: string = this.buttonSubmitId) {
     return this.http.post(
-      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/submit`,
+      `https://cms.crocobet.com/campaigns/${buttonId}/quizzes/${questionId}/submit`,
       { answer: '' }
-    );
-  }
-
-  getTicketStatus(campaignId: string = this.campaignId, questionId: string) {
-    return this.http.get(
-      `https://cms.crocobet.com/campaigns/${campaignId}/quizzes/${questionId}/status`
     );
   }
 

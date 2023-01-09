@@ -1,250 +1,259 @@
-<div class="gr_wrp" #videoPopup>
-  <div class="div-block-40890">
-    <div class="video-popup" *ngIf="showRecentVideo">
-      <img
-        src="./assets/images/x.svg"
-        class="video-popup-close"
-        alt=""
-        scroll="no"
-        (click)="closeRecentVideo()"
-      />
-      <iframe
-        [src]="recentVideoUrl | safeUrl"
-        frameborder="0"
-        allow="fullscreen"
-        class="video-popup-iframe"
-      ></iframe>
+<div class="live-border">
+  <div class="live">
+    <div class="live__header">
+      {{ "watch-live" | translate }}
+      <span (click)="onInfoOpen()">{{ "win-spins" | translate }}</span>
     </div>
-    <div class="text-block-22878" *ngIf="!isLive">
-      {{ "watchLive" | translate }}
-      <span
-        data-w-id="99309747-9799-1173-675d-2709e2bee2e0"
-        class="text-span-188"
-        (click)="openModal()"
-        >{{ "winSpins" | translate }}</span
-      >
-    </div>
-    <div class="drop-trigger" (click)="toggleVideoDrop()">
+    <div (click)="toggleVideoDrop()" class="live__drop-trigger">
       <img
-        src="assets/images/arr.svg"
-        alt=""
         [@spinArrow]="dropVideo ? 'open' : 'close'"
+        src="assets/images/live/arr.svg"
+        alt=""
       />
     </div>
-    <div class="drop">
-      <div class="drop-content" [@openClose]="dropVideo ? 'open' : 'close'">
-        <div class="live-container" *ngIf="liveUrl" #liveContainer>
-          <iframe
-            allow="autoplay"
-            [src]="liveUrl | safeUrl"
-            frameborder="0"
-            class="live-container-iframe"
-          ></iframe>
-        </div>
-        <div class="gr_wrp gr_wrp-blue _2" *ngIf="!liveUrl">
-          <div class="div-block-40891">
-            <div class="waitlive">{{ "waitLive" | translate }}</div>
-            <div class="w-layout-grid timer_wrp">
-              <div
-                id="w-node-_9465f060-8de9-dc5f-1e4e-47727898823c-891ec38b"
-                class="timwe_strk"
-              >
-                <div class="timer">
-                  <div id="ho" class="timer_t">{{ timer.hours }}</div>
-                  <div class="timer_txt">{{ "hour" | translate }}</div>
+    <div class="live__drop" [@openClose]="dropVideo ? 'open' : 'close'">
+      <div class="live__drop__timer" *ngIf="!liveUrl">
+        <div class="live__drop__timer__content">
+          <div class="live__drop__timer__content__text">
+            {{ "wait-live" | translate }}
+          </div>
+          <div class="live__drop__timer__content__countdown">
+            <div class="live__drop__timer__content__countdown__border">
+              <div class="live__drop__timer__content__countdown__border__time">
+                <div
+                  class="live__drop__timer__content__countdown__border__time__num"
+                >
+                  {{ timer.hours }}
                 </div>
-              </div>
-              <div
-                id="w-node-_7e3549f4-fc8a-4a4d-c49b-7ec768aed07f-891ec38b"
-                class="timwe_strk"
-              >
-                <div class="timer">
-                  <div id="min" class="timer_t">{{ timer.minutes }}</div>
-                  <div class="timer_txt">{{ "min" | translate }}</div>
-                </div>
-              </div>
-              <div
-                id="w-node-_057527a8-4eac-a788-2d16-0c4f3bb314ce-891ec38b"
-                class="timwe_strk"
-              >
-                <div class="timer">
-                  <div id="sec" class="timer_t">{{ timer.seconds }}</div>
-                  <div class="timer_txt">{{ "sec" | translate }}</div>
+                <div
+                  class="live__drop__timer__content__countdown__border__time__text"
+                >
+                  {{ "hour" | translate }}
                 </div>
               </div>
             </div>
-            <div class="w-embed">
-              <style>
-                .timer_t {
-                  -webkit-text-stroke-width: 1px;
-                  -webkit-text-stroke-color: white;
-                }
-              </style>
+            <div class="live__drop__timer__content__countdown__border">
+              <div class="live__drop__timer__content__countdown__border__time">
+                <div
+                  class="live__drop__timer__content__countdown__border__time__num"
+                >
+                  {{ timer.minutes }}
+                </div>
+                <div
+                  class="live__drop__timer__content__countdown__border__time__text"
+                >
+                  {{ "min" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="live__drop__timer__content__countdown__border">
+              <div class="live__drop__timer__content__countdown__border__time">
+                <div
+                  class="live__drop__timer__content__countdown__border__time__num"
+                >
+                  {{ timer.seconds }}
+                </div>
+                <div
+                  class="live__drop__timer__content__countdown__border__time__text"
+                >
+                  {{ "sec" | translate }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="gr_wrp _3">
-          <div class="div-block-40891-copy">
-            <p class="paragraph white">{{ "getSpins" | translate }}</p>
-            <button
-              class="bt-2 w-button fr-sp-btn"
-              [ngClass]="disableBtn ? 'disableBtn' : ''"
-              (click)="submitAnswer()"
-            >
-              {{ "freespins" | translate }}<br />{{ "get" | translate }}
-            </button>
+      </div>
+      <div class="live__drop__live" *ngIf="liveUrl" #liveContainer>
+        <iframe
+          allow="autoplay"
+          [src]="liveUrl | safeUrl"
+          frameborder="0"
+          class="live-container-iframe"
+        ></iframe>
+      </div>
+      <div class="live__drop__freespins">
+        <div class="live__drop__freespins__content">
+          <div class="live__drop__freespins__content__text">
+            {{ "freespins-text" | translate }}
+          </div>
+          <div
+            (click)="submitAnswer()"
+            class="live__drop__freespins__content__button"
+          >
+            {{ "get-freespins" | translate }}
           </div>
         </div>
       </div>
     </div>
-
-    <div class="video_wrp">
-      <div class="div-block-40887">
-        <img src="./assets/images/play.svg" alt="" class="image-2625165" />
-        <div class="text-block-2155">{{ "watchRecent" | translate }}</div>
+    <div class="live__recent">
+      <div class="live__recent__header">
+        <img src="./assets/images/live/play.svg" alt="" />
+        <span>{{ "watch-recent" | translate }}</span>
       </div>
-      <div class="w-layout-grid gal_vid">
-        <a
-          class="lightbox-link-2 w-inline-block w-lightbox"
+      <div class="live__recent__videos">
+        <div
           *ngFor="let video of streams; index as i"
           (click)="openRecentVideo(i)"
+          class="live__recent__videos__video"
         >
-          <div class="div-block-40888">
-            <div class="div-block-19464"></div>
-            <div
-              style="padding-top: 56.17021276595745%"
-              class="w-embed-youtubevideo youtube-2"
-            >
-              <iframe
-                [src]="video.twitchUrl | safeUrl"
-                frameborder="0"
-                style="
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  width: 100%;
-                  height: 100%;
-                  pointer-events: auto;
-                "
-                allow="autoplay; encrypted-media"
-                allowfullscreen=""
-                title="🟢 კროკობეთის გრანდიოზული გათამაშება დაიწყო."
-              ></iframe>
-            </div>
+          <div
+            style="padding-top: 56.17021276595745%"
+            class="live__recent__videos__video__iframe"
+          >
+            <iframe
+              [src]="video.twitchUrl | safeUrl"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen=""
+              title="🟢 კროკობეთის გრანდიოზული გათამაშება დაიწყო."
+            ></iframe>
           </div>
-          <div class="text-block-2156">
+          <div class="live__recent__videos__video__title">
             {{ video.schedule | translate }}
           </div>
-        </a>
+        </div>
       </div>
     </div>
-    <div #bonusPopup class="popup_bonus" *ngIf="openInfo">
+  </div>
+
+  <div
+    class="overlay"
+    *ngIf="
+      openInfo ||
+      showPrize ||
+      showAuthError ||
+      showMinTicketError ||
+      showOutOfRangeError ||
+      showSubmited
+    "
+  ></div>
+
+  <div #bonusPopup class="popup" *ngIf="openInfo">
+    <div class="popup__info">
       <img
-        src="./assets/images/x.svg"
+        src="./assets/images/live/x.svg"
         data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
         alt=""
-        class="x_popup"
-        (click)="closeModal()"
-      />
-      <p class="bonus-text">
-        {{ "bonus1" | translate }}<br />
-        <br />
-        {{ "bonus2" | translate }}<br />
-        <br />
-        {{ "bonus3" | translate }}<br />
-        <br />
-        {{ "bonus4" | translate }}<br />
-        <br />
-        <br />
-        {{ "bonus5" | translate }}<br />
-        <br />
-        {{ "bonus7" | translate }}<br />
-        <br />
-        {{ "bonus6" | translate }}
-      </p>
-    </div>
-    <div class="popup_prize" *ngIf="showPrize">
-      <img
-        src="./assets/images/exit.png"
-        alt=""
-        (click)="onPrizeClose()"
-        class="x_popup"
+        class="popup-x"
+        (click)="onInfoClose()"
       />
       <p>
-        <span class="text-span-192">{{ "prize1" | translate }}<br /></span
-        >‍<br />
-
-        <span class="bold">
-          {{ "prize2" | translate }}
-          <span id="frsp" class="text-span-194 bold">{{ prizeAmount }} </span>
-          {{ "prize3" | translate }}<br />
-          <span id="frsp_amount"></span>
-          {{ "prize4" | translate }}<br />
-        </span>
+        {{ "live-info-popup.1" | translate }}<br />
         <br />
-        <span class="text-span-193">
-          {{ "prize5" | translate }}
-        </span>
+        {{ "live-info-popup.2" | translate }}<br />
+        <br />
+        {{ "live-info-popup.3" | translate }}<br />
+        <br />
+        {{ "live-info-popup.4" | translate }}<br />
+        <br />
+        {{ "live-info-popup.5" | translate }}<br />
+        <br />
+        {{ "live-info-popup.6" | translate }}<br />
+        <br />
+        {{ "live-info-popup.7" | translate }}
       </p>
-      <!-- <crc-play-button [redirectUrl]="slotUrl"></crc-play-button> -->
     </div>
-    <div class="popup_chaerte" *ngIf="showAuthError">
-      <div class="text-block-22887">
-        {{ "toContinue" | translate }}<br />{{ "toContinue2" | translate }}
-      </div>
+  </div>
+
+  <div class="popup" *ngIf="showPrize">
+    <div class="popup__prize">
       <img
+        src="./assets/images/live/x.svg"
+        data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
+        alt=""
+        class="popup-x"
+        (click)="onPrizeClose()"
+      />
+      <h6 class="popup__prize__header">
+        {{ "live-prize-popup.1" | translate }}
+      </h6>
+      <div>
+        {{ "live-prize-popup.2" | translate }}
+        {{ prizeAmount }}
+        {{ "live-prize-popup.3" | translate }}
+      </div>
+      <div class="popup__prize__footer">
+        {{ "live-prize-popup.4" | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" *ngIf="showAuthError">
+    <div class="popup__auth">
+      <img
+        src="./assets/images/live/x.svg"
+        data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
+        alt=""
+        class="popup-x"
         (click)="onAuthErrorClose()"
-        src="./assets/images/exit.png"
-        alt=""
-        class="x_popup"
       />
-      <div class="w-layout-grid grid-7">
-        <a href="#" class="chaerte_btn2 w-button" (click)="onRegister()">{{
-          "register" | translate
-        }}</a>
-        <a href="#" class="chaerte_btn2 auto _2 w-button" (click)="onLogin()">{{
-          "authorize" | translate
-        }}</a>
+      <div>{{ "live-auth-popup" | translate }}</div>
+      <div class="popup__auth__buttons">
+        <div class="popup__auth__buttons__auth">
+          {{ "register" | translate }}
+        </div>
+        <div class="popup__auth__buttons__reg">
+          {{ "authorization" | translate }}
+        </div>
       </div>
     </div>
-    <div class="popup_error" *ngIf="showMinTicketError">
-      <div class="text-block-22887">
-        <span class="bold">{{ "min10" | translate }}</span>
-      </div>
+  </div>
+
+  <div class="popup" *ngIf="showMinTicketError">
+    <div class="popup__mintkt">
       <img
+        src="./assets/images/live/x.svg"
+        data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
+        alt=""
+        class="popup-x"
         (click)="onMinTicketErrorClose()"
-        src="./assets/images/exit.png"
-        alt=""
-        class="x_popup"
       />
+      {{ "live-mintkt-popup.1" | translate }}
+      <span>{{ "live-mintkt-popup.2" | translate }}</span>
     </div>
-    <div class="popup_error2" *ngIf="showSubmited">
-      <div class="text-block-22887">
-        <span class="bold">
-          {{ "alreadyTaken" | translate }}
-        </span>
-        <!--              <br/><br/>-->
-        <!--              {{ "alreadyTaken2" | translate }}-->
-      </div>
+  </div>
+
+  <div class="popup" *ngIf="showSubmited">
+    <div class="popup__submited">
       <img
-        (click)="onHavePrizeClose()"
-        src="./assets/images/exit.png"
+        src="./assets/images/live/x.svg"
+        data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
         alt=""
-        class="x_popup"
+        class="popup-x"
+        (click)="onSubmitedClose()"
       />
+      {{ "live-submited-popup" | translate }}
     </div>
-    <div class="popup_time" *ngIf="showOutOfRangeError">
-      <img src="./assets/images/shape-3.svg" alt="" class="image-2625170" />
-      <div class="text-block-22887">
-        {{ "first2000" | translate }}<br /><br />
-        {{ "alreadyTaken2" | translate }}
-      </div>
+  </div>
+
+  <div class="popup" *ngIf="showOutOfRangeError">
+    <div class="popup__range">
       <img
+        src="./assets/images/live/x.svg"
+        data-w-id="df4428f1-b7ca-48ba-e34b-51cdad36f7c1"
+        alt=""
+        class="popup-x"
         (click)="onOutOfRangeErrorClose()"
-        src="./assets/images/exit.png"
-        alt=""
-        class="x_popup"
       />
+      <div>{{ "live-range-popup.1" | translate }}</div>
+      <br />
+      <div>{{ "live-range-popup.2" | translate }}</div>
     </div>
+  </div>
+
+  <div class="video-popup" *ngIf="showRecentVideo">
+    <img
+      src="./assets/images/live/x.svg"
+      class="video-popup-close"
+      alt=""
+      scroll="no"
+      (click)="closeRecentVideo()"
+    />
+    <iframe
+      [src]="recentVideoUrl | safeUrl"
+      frameborder="0"
+      allow="fullscreen"
+      class="video-popup-iframe"
+    ></iframe>
   </div>
 </div>

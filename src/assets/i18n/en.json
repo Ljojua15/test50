@@ -1,14 +1,54 @@
 {
-  "description": "MAKE A 5-LEVEL PROGRESS, SPIN THE PRAGMATIC WHEEL AND GET",
-  "description.prize": "5 000 FREESPINS!",
-  "auth.text": "TO TAKE PART IN THE PROMOTION, PLEASE REGISTER AND GET VERIFIED",
-  "register": "REGISTER",
+  "auth": {
+    "text": "TO TAKE PART IN THE PROMOTION, PLEASE REGISTER AND GET VERIFIED"
+  },
   "authorization": "AUTHORIZATION",
-  "rules": "RULES:",
-  "lang": "en",
-  "play": "PLAY",
+  "autumn_raffle": "ზამთრის გათამაშება",
   "bet": "BET",
+  "current": {
+    "promos": "CHECK OUT THE CURRENT PROMOTIONS"
+  },
+  "description": "MAKE A 5-LEVEL PROGRESS, SPIN THE PRAGMATIC WHEEL AND GET",
+  "freespins-text": "DURING THE RAFFLE, CLICK ON THE \"GET FREESPINS\" BUTTON AND GET TICKETS CORRESPONDING TO THE NUMBER OF TICKETS YOU HAVE COLLECTED",
+  "get-freespins": "GET FREESPINS",
+  "hour": "HR",
+  "lang": "en",
+  "live-auth-popup": "ფრისპინების მისაღებად აუცილებელია გაიარო ავტორიზაცია ან რეგისტრაცია",
+  "live-info-popup": {
+    "1": "If you have collected 300 tickets in the current day’s raffle and you click on the button \"get freespins\" during the raffle, you will be credited 300 EGT freespins;",
+    "2": "During a day you can get min. 10 and max. 500 EGT freespins;",
+    "3": "Freespins will be credited until 16:00 of the next day;",
+    "4": "In the weekly raffle, you will be credited freespins of 0.5₾ in 10 BURNING HEART;",
+    "5": "In the final raffle, you will be credited freespins of 1₾ in 20 DAZZLING HOT;",
+    "6": "Tickets collected in sports do not participate in receiving freespins;",
+    "7": "*Freespins will be credited to the first 2 000 users who will click on the \"Get freespins\" button."
+  },
+  "live-mintkt-popup": {
+    "1": "TO GET EGT FREESPINS YOU NEED TO COLLECT",
+    "2": "MIN. 10 TICKETS"
+  },
+  "live-prize-popup": {
+    "1": "CONGRATULATIONS!",
+    "2": "YOU’VE WON",
+    "3": "PIECES OF EGT FREESPIN",
+    "4": "*FREESPINS WILL BE CREDITED IN THE SLOT OF 10 BURNING HEART / 20 DAZZLING HOT;"
+  },
+  "live-range-popup": {
+    "1": "THE FIRST 2 000 USERS CAN GET EGT FREESPINS.",
+    "2": "WATCH THE LIVE RAFFLE TOMORROW AT 22:00 AND WIN EGT FREESPINS"
+  },
+  "live-submited-popup": "YOU HAVE ALREADY GOT THE PRIZE OF THE DAY!",
+  "min": "MIN",
+  "play": "PLAY",
+  "register": "REGISTER",
+  "rules": "RULES:",
+  "sec": "SEC",
+  "slots": {
+    "text": "FREESPINS WILL BE CREDITED IN EGT SLOTS"
+  },
   "spin": "SPIN",
-  "slots.text": "FREESPINS WILL BE CREDITED IN EGT SLOTS",
-  "current.promos": "CHECK OUT THE CURRENT PROMOTIONS"
+  "wait-live": "WAIT FOR THE LIVE RAFFLE",
+  "watch-live": "WATCH THE LIVE RAFFLE HERE AND",
+  "watch-recent": "WATCH THE PREVIOUS  RAFFLES",
+  "win-spins": "GET 500 EGT FREESPINS!"
 }
