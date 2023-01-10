@@ -110,11 +110,16 @@
     }
 
     &__live {
-      width: 643px;
-      height: 360px;
+      width: 100%;
       border: 2px solid #5c6a85;
-      border-radius: 20px;
       background-color: #36445e;
+      aspect-ratio: 2;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2;
+      }
     }
 
     &__freespins {

@@ -6,14 +6,10 @@ import { map, Observable, takeWhile, timer } from 'rxjs';
 })
 export class TimerService {
   schedule: string[] = [
-    'Dec 23 2022 22:00:00 GMT+0400',
-    'Dec 24 2022 18:00:00 GMT+0400',
-    'Dec 25 2022 22:00:00 GMT+0400',
-    'Dec 26 2022 22:00:00 GMT+0400',
-    'Dec 27 2022 22:00:00 GMT+0400',
-    'Dec 28 2022 22:00:00 GMT+0400',
-    'Dec 29 2022 21:30:00 GMT+0400',
-    'Dec 30 2022 22:00:00 GMT+0400',
+    'Jan 24 2023 22:00:00 GMT+0400',
+    'Jan 31 2023 22:00:00 GMT+0400',
+    'Feb 7 2023 22:00:00 GMT+0400',
+    'Feb 14 2023 22:00:00 GMT+0400',
   ];
 
   constructor() {}
