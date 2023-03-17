@@ -97,7 +97,7 @@ export class LiveComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUrl();
+    this.getRecentLiveUrls();
     let msAfterLastLive: boolean = this.timerService.checkLastLive();
 
     if (msAfterLastLive) {
@@ -196,8 +196,7 @@ export class LiveComponent implements OnInit {
     document.body.style.overflow = 'hidden';
   }
 
-  //gasuli gatamasebebis linkebi
-  getUrl() {
+  getRecentLiveUrls() {
     this.campaignService.getLiveStreams().subscribe((res: any) => {
       res.data.forEach((item: any) => {
         if (item.schedule.length === 0) {

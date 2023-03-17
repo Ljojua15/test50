@@ -6,13 +6,37 @@ import { map, Observable, takeWhile, timer } from 'rxjs';
 })
 export class TimerService {
   schedule: string[] = [
-    'Jan 24 2023 22:00:00 GMT+0400',
     'Jan 31 2023 22:00:00 GMT+0400',
     'Feb 7 2023 22:00:00 GMT+0400',
     'Feb 14 2023 22:00:00 GMT+0400',
+    'Feb 21 2023 22:00:00 GMT+0400',
   ];
 
   constructor() {}
+
+  private nextLive(): Date {
+    let today = new Date();
+    let toDate = this.schedule.find((date) => today < new Date(date));
+    return new Date(toDate!);
+  }
+
+  nextLiveDayMonthFormat(): string {
+    let toDate = this.nextLive();
+    let day = toDate.getDate();
+    let month =
+      toDate.getMonth() < 9
+        ? '0' + (toDate.getMonth() + 1)
+        : toDate.getMonth() + 1;
+
+    return day + '.' + month;
+  }
+
+  checkIf24HoursLeft(): boolean {
+    let currentDate = new Date().getTime();
+    let nextLive = this.nextLive().getTime();
+    // if (!nextLive) return true;
+    return nextLive - currentDate < 86400000;
+  }
 
   checkLastLive() {
     let oneHours = 3600000;
@@ -22,10 +46,14 @@ export class TimerService {
     let currentDate = new Date();
     let lastLiveIndex =
       this.schedule.findIndex((date) => currentDate < new Date(date)) - 1;
+
+    if (0 > lastLiveIndex) {
+      lastLiveIndex = this.schedule.length - 1;
+    }
+
     let passedMilliseconds =
       currentDate.getTime() - new Date(this.schedule[lastLiveIndex]).getTime();
 
-    // return passedMilliseconds < twoHours ? passedMilliseconds : false;
     return passedMilliseconds < twoHours;
   }
 
@@ -34,12 +62,11 @@ export class TimerService {
     minutes: number;
     seconds: number;
   }> {
-    let today = new Date();
-    let toDate = this.schedule.find((date) => today < new Date(date));
+    let toDate = this.nextLive();
 
     return timer(0, 1000).pipe(
       // get difference between dates
-      map(() => new Date(toDate!).getTime() - new Date().getTime()),
+      map(() => toDate.getTime() - new Date().getTime()),
       takeWhile((x: any) => x >= 0),
       // format countdown to H,M,S
       map((x: number) => {
