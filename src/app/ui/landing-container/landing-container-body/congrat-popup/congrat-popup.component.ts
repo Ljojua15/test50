@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { IframeService } from 'src/app/services/iframe.service';
+import { WithdrawPopupService } from 'src/app/services/withdraw-popup.service';
 
 @Component({
   selector: 'crc-congrat-popup',
   templateUrl: './congrat-popup.component.html',
   styleUrls: ['./congrat-popup.component.scss'],
 })
-export class CongratPopupComponent implements OnInit {
+export class CongratPopupComponent {
   @Input() data = {
     amount: 0,
     value: 0,
@@ -18,10 +19,10 @@ export class CongratPopupComponent implements OnInit {
     popuptype: 'SLOT',
   };
 
-  redirectUrls = [];
-  constructor(private iframeService: IframeService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private iframeService: IframeService,
+    private withdrawPopupService: WithdrawPopupService
+  ) {}
 
   redirectToSlot() {
     if (this.data.popuptype === 'SLOT') {
@@ -38,5 +39,9 @@ export class CongratPopupComponent implements OnInit {
         `https://crocobet.com/#/${this.data.popuptype.toLowerCase()}`
       );
     }
+  }
+
+  closePupup() {
+    this.withdrawPopupService.changeCongratPopupState(false);
   }
 }

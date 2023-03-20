@@ -3,6 +3,7 @@
     src="./assets/images/popups/close.png"
     class="withdraw-background__close"
     alt=""
+    (click)="closePupup()"
   />
 
   <ng-container [ngSwitch]="whichPopup">
@@ -33,19 +34,19 @@
     </div>
 
     <crc-ufo-and-casino
-      (displayPopupChange)="whichPopup = 'main'"
+      (displayPopupBack)="whichPopup = 'main'"
       [data]="casinoData"
       *ngSwitchCase="'casino'"
     ></crc-ufo-and-casino>
     <crc-ufo-and-casino
-      (displayPopupChange)="whichPopup = 'main'"
+      (displayPopupBack)="whichPopup = 'main'"
       [data]="ufoData"
       *ngSwitchCase="'ufo'"
     ></crc-ufo-and-casino>
 
     <crc-choose-slot
       *ngSwitchCase="'slot'"
-      (displayPopupChange)="whichPopup = 'main'"
+      (displayPopupBack)="whichPopup = 'main'"
       [cashOut]="cashOut"
     ></crc-choose-slot>
   </ng-container>

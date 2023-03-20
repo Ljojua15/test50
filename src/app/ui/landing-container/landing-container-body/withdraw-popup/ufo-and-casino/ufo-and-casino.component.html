@@ -3,7 +3,7 @@
     src="./assets/images/popups/redirect-back.png"
     alt=""
     class="main__redirect"
-    (click)="displayPopupChange.emit()"
+    (click)="displayPopupBack.emit()"
   />
 
   <img
@@ -23,7 +23,7 @@
       {{ data.withdrawTextkey1 | translate }}{{ data.amount
       }}{{ data.withdrawTextkey2 | translate }}
     </p>
-    <div class="main__footer__withdraw" (click)="getSpins()">
+    <div class="main__footer__withdraw" (click)="cashout()">
       <p>{{ "ufokey.5" | translate }}</p>
     </div>
   </div>

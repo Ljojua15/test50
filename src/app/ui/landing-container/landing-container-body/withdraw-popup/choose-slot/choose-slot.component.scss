@@ -1,3 +1,19 @@
+$slotFontSize: 20px;
+$white: #fff;
+$CrocoSansBlackCAPS: "CrocoSansBlackCAPS";
+$slotImageMaxWidth: 36px;
+$withdrawTextSize: 22px;
+$withdrawHeaderFontSize: 13px;
+$withdrawItemHeight: 58px;
+$withdrawItemMaxWidth: 25px;
+$slotFooterTextFontSize: 17px;
+$slotBorderRadius: 17.9px;
+$slotContentItemHeight: 49px;
+$slotContentItemMaxWidth: 21px;
+$slotContentItemFontSize: 8px;
+$slotContentItemlineLeight: 18px;
+$slotContentItemFontSizeL: 14px;
+
 .main {
   width: 100%;
   height: 100%;
@@ -8,15 +24,11 @@
   justify-content: space-between;
 
   &__header {
-    font-family: "CrocoSansBlackCAPS";
-    font-size: 20px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
+    font-family: $CrocoSansBlackCAPS;
+    font-size: $slotFontSize;
     line-height: 1.2;
-    letter-spacing: normal;
     text-align: center;
-    color: #fff;
+    color: $white;
     max-width: 84%;
     margin-bottom: 4%;
     margin-top: 3%;
@@ -55,7 +67,7 @@
         position: absolute;
         right: 2%;
         top: 19%;
-        max-width: 36px;
+        max-width: $slotImageMaxWidth;
       }
     }
 
@@ -86,7 +98,7 @@
     &__text {
       font-size: 17px;
       margin: auto;
-      font-family: "CrocoSansBlackCAPS";
+      font-family: $CrocoSansBlackCAPS;
     }
 
     &__withdraw {
@@ -104,8 +116,8 @@
       }
 
       p {
-        font-size: 22px;
-        font-family: "CrocoSansBlackCAPS";
+        font-size: $withdrawTextSize;
+        font-family: $CrocoSansBlackCAPS;
       }
 
       &.notChoosed {
@@ -120,7 +132,7 @@
 @media screen and (max-width: 767px) {
   .main {
     &__header {
-      font-size: 13px;
+      font-size: $withdrawHeaderFontSize;
     }
 
     &__redirect {
@@ -129,25 +141,25 @@
 
     &__content {
       &__item {
-        height: 58px;
+        height: $withdrawItemHeight;
 
         &__image {
-          max-width: 25px;
+          max-width: $withdrawItemMaxWidth;
         }
       }
     }
 
     &__footer {
       padding: 0 1% 0 7%;
-      border-radius: 17.9px;
+      border-radius: $slotBorderRadius;
 
       &__text {
-        font-size: 17px;
+        font-size: $slotFooterTextFontSize;
       }
 
       &__withdraw {
         p {
-          font-size: 17px;
+          font-size: $slotFooterTextFontSize;
         }
       }
     }
@@ -158,27 +170,27 @@
   .main {
     &__content {
       &__item {
-        height: 49px;
+        height: $slotContentItemHeight;
 
         &__image {
-          max-width: 21px;
+          max-width: $slotContentItemMaxWidth;
         }
 
         p {
-          font-size: 8px;
-          line-height: 18px;
+          font-size: $slotContentItemFontSize;
+          line-height: $slotContentItemlineLeight;
         }
       }
     }
 
     &__footer {
       &__text {
-        font-size: 13px;
+        font-size: $withdrawHeaderFontSize;
       }
 
       &__withdraw {
         p {
-          font-size: 14px;
+          font-size: $slotContentItemFontSizeL;
         }
       }
     }

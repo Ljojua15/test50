@@ -3,6 +3,7 @@
     src="./assets/images/popups/congrets-close.png"
     alt=""
     class="main__congrets-close"
+    (click)="closePupup()"
   />
   <p class="main__header">{{ "congretskey.1" | translate }}!</p>
   <p class="main__text" *ngIf="data.popuptype == 'SLOT'; else ufoAndCasiono">
@@ -13,11 +14,11 @@
   </p>
 
   <ng-template #ufoAndCasiono>
-    <p class="main__text" *ngIf="data.popuptype == 'UFO'; else Casiono">
+    <p class="main__text" *ngIf="data.popuptype == 'UFO'; else casiono">
       {{ "congretskey.6" | translate }}{{ data.amount
       }}{{ "congretskey.7" | translate }}
     </p>
-    <ng-template #Casiono>
+    <ng-template #casiono>
       <p class="main__text">
         {{ "congretskey.8" | translate }} {{ data.amount
         }}{{ "congretskey.9" | translate }}

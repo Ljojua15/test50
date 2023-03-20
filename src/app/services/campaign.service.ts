@@ -22,25 +22,6 @@ export class CampaignService {
   readonly buttonSubmitId = 'live-tv-drawing-211222-v2';
 
   public updateUserData = new Subject<boolean>();
-
-  private $showWithdrawPopupSubject = new BehaviorSubject<CashOut | boolean>(
-    false
-  );
-  private $showCongratPopupSubject = new BehaviorSubject<
-    CongratPopupData | boolean
-  >(false);
-
-  public showWithdrawPopup$ = this.$showWithdrawPopupSubject.asObservable();
-  public showCongratPopup$ = this.$showCongratPopupSubject.asObservable();
-
-  changeWithdrawPopupState(value: CashOut | boolean) {
-    this.$showWithdrawPopupSubject.next(value);
-  }
-
-  changeCongratPopupState(value: CongratPopupData | boolean) {
-    this.$showCongratPopupSubject.next(value);
-  }
-
   constructor(private http: HttpClient) {}
 
   getUserData(

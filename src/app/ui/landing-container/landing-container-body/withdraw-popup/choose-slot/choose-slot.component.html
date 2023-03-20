@@ -5,7 +5,7 @@
     src="./assets/images/popups/redirect-back.png"
     alt=""
     class="main__redirect"
-    (click)="displayPopupChange.emit()"
+    (click)="displayPopupBack.emit()"
   />
 
   <div class="main__content">
@@ -36,7 +36,7 @@
     <div
       class="main__footer__withdraw"
       [class.notChoosed]="choosedSlotIndex == undefined"
-      (click)="getSpins()"
+      (click)="cashout()"
     >
       <p>{{ "ufokey.5" | translate }}</p>
     </div>

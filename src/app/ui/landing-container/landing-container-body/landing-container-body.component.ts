@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
+import { WithdrawPopupService } from 'src/app/services/withdraw-popup.service';
 import { CashOut } from 'src/app/shared/models/cashout';
 import { CongratPopupData } from 'src/app/shared/models/congratPopupData';
 import { Levels, ProgressData } from 'src/app/shared/models/progressData';
@@ -48,10 +49,14 @@ export class LandingContainerBodyComponent implements OnInit {
   };
 
   showWithdrawPopup$: Observable<CashOut | boolean> =
-    this.campaignService.showWithdrawPopup$;
-  showCongratPopup$: Observable<any> = this.campaignService.showCongratPopup$;
+    this.withdrawPopupService.showWithdrawPopup$;
+  showCongratPopup$: Observable<any> =
+    this.withdrawPopupService.showCongratPopup$;
 
-  constructor(private campaignService: CampaignService) {}
+  constructor(
+    private campaignService: CampaignService,
+    private withdrawPopupService: WithdrawPopupService
+  ) {}
 
   ngOnInit(): void {
     this.campaignService.updateUserData.subscribe(() => {
@@ -64,33 +69,10 @@ export class LandingContainerBodyComponent implements OnInit {
       .getUserData('bonus-shop-napoli-ticket')
       .pipe(map((res) => res.data))
       .subscribe((bonusShopRes: any) => {
-        this.campaignService.changeWithdrawPopupState(
+        this.withdrawPopupService.changeWithdrawPopupState(
           bonusShopRes.state.cashout
         );
-
-        // this.progressData.amount = Math.floor(
-        //   Math.min(res.state.progress, this.levels[this.levels.length - 1].step)
-        // );
-
-        // this.userData = {
-        //   unlockedLevel: res.state.currentStepIndex,
-        //   used: res.state.used,
-        // };
       });
-  }
-
-  onPopupClose(e: any) {
-    if (
-      e.srcElement.className == 'x_close' ||
-      e.srcElement.className == 'background' ||
-      e.srcElement.className == 'background__close' ||
-      e.srcElement.className == 'main__congrets-close' ||
-      e.srcElement.className == 'main__button' ||
-      e.srcElement.className == 'withdraw-background__close'
-    ) {
-      this.campaignService.changeWithdrawPopupState(false);
-      this.campaignService.changeCongratPopupState(false);
-    }
   }
 
   clearData() {

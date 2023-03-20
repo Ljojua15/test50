@@ -1,3 +1,19 @@
+$slotFontSize: 20px;
+$white: #fff;
+$CrocoSansBlackCAPS: "CrocoSansBlackCAPS";
+$ufoHeaderFontSize: 32px;
+$ufoTextFontSize: 16px;
+$ufoFooterBorderRadius: 21px;
+$ufoFooterTextFontSize: 19px;
+
+$ufoHeaderTextFontSize-L: 15px;
+$ufoFooterTextFontSize-L: 13px;
+$ufoTextFontSize-L: 13px;
+$ufoWithdrawFontSize-L: 17px;
+$ufoHeaderTextFontSize-S: 23px;
+$ufoFooterTextFontSize-S: 13px;
+$ufoTextFontSize-S: 14px;
+
 .main {
   width: 100%;
   height: 100%;
@@ -16,17 +32,17 @@
 
   &__header-text {
     font-family: "CrocoSansCAPSRegular";
-    font-size: 32px;
+    font-size: $ufoHeaderFontSize;
     line-height: 1;
     text-align: center;
-    color: #fff;
+    color: $white;
     margin-top: 4%;
     max-width: 80%;
   }
 
   &__text {
     margin-top: 8%;
-    font-size: 16px;
+    font-size: $ufoTextFontSize;
     line-height: 131%;
   }
 
@@ -42,7 +58,7 @@
   &__footer {
     width: 100%;
     height: 16%;
-    border-radius: 21px;
+    border-radius: $ufoFooterBorderRadius;
     margin-top: 10%;
     display: flex;
     align-items: center;
@@ -52,8 +68,8 @@
     background-color: #327477;
 
     &__text {
-      font-family: "CrocoSansBlackCAPS";
-      font-size: 19px;
+      font-family: $CrocoSansBlackCAPS;
+      font-size: $ufoFooterTextFontSize;
       margin: auto;
     }
 
@@ -75,7 +91,7 @@
 
       p {
         font-size: 23px;
-        font-family: "CrocoSansBlackCAPS";
+        font-family: $CrocoSansBlackCAPS;
       }
     }
   }
@@ -100,17 +116,17 @@
     }
 
     &__text {
-      font-size: 13px;
+      font-size: $ufoTextFontSize-L;
     }
 
     &__footer {
       padding: 0 1% 0 6%;
       &__text {
-        font-size: 15px;
+        font-size: $ufoHeaderTextFontSize-L;
       }
       &__withdraw {
         p {
-          font-size: 17px;
+          font-size: $ufoWithdrawFontSize-L;
         }
       }
     }
@@ -120,15 +136,15 @@
 @media screen and (max-width: 480px) {
   .main {
     &__header-text {
-      font-size: 23px;
+      font-size: $ufoHeaderTextFontSize-S;
     }
     &__footer {
       &__text {
-        font-size: 13px;
+        font-size: $ufoFooterTextFontSize-S;
       }
       &__withdraw {
         p {
-          font-size: 14px;
+          font-size: $ufoTextFontSize-S;
         }
       }
     }

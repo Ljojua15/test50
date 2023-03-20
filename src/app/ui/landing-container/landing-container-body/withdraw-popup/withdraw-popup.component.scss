@@ -1,11 +1,31 @@
+$white: #fff;
+$CrocoSansBlackCAPS: "CrocoSansBlackCAPS";
+$withdrawPopupMaxWidth: 483px;
+$withdrawPopupHeight: 549px;
+$withdrawPopupZindex: 10;
+$withdrawPopupPaddings: 11px 11px;
+$withdrawPopupBorderRadius: 20px;
+$withdrawPopupFontSize: 18px;
+$withdrawPopupMarginBottom: -6px;
+$popupRowBoxShadow: 3px 17px 14px 2px rgb(0 0 0 / 20%);
+$popupWidthInMobile: 392px;
+$popupHeightInMobile: 447px;
+$popupMobileHeader: 17px;
+$popupMobileMarginTop: 15px;
+$popupMobileFontSize: 36px;
+$popupMobileHeaderFontSize-S: 14px;
+$popupWidthInMobile-S: 321px;
+$popupHeightInMobile-S: 398px;
+$popuptextFontSizeMobile-S: 26px;
+
 .withdraw-background {
   position: relative;
-  max-width: 483px;
-  height: 549px;
-  z-index: 10;
-  padding: 11px 11px;
-  border-radius: 20px;
-  background-image: url("../../../../../assets/images/popups/popup-background.png");
+  max-width: $withdrawPopupMaxWidth;
+  height: $withdrawPopupHeight;
+  z-index: $withdrawPopupZindex;
+  padding: $withdrawPopupPaddings;
+  border-radius: $withdrawPopupBorderRadius;
+  background-image: url("/assets/images/popups/popup-background.png");
   background-size: 100% 100%;
 
   &__close {
@@ -28,17 +48,13 @@
     height: 100%;
     padding: 2% 1.5% 1% 1.5%;
     &__header {
-      font-family: "CrocoSansBlackCAPS";
-      font-size: 18px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
+      font-family: $CrocoSansBlackCAPS;
+      font-size: $withdrawPopupFontSize;
       line-height: 1.2;
-      letter-spacing: normal;
       text-align: center;
-      color: #fff;
+      color: $white;
       max-width: 84%;
-      margin-bottom: -6px;
+      margin-bottom: $withdrawPopupMarginBottom;
     }
 
     & > :nth-child(2) {
@@ -62,7 +78,7 @@
       border-radius: 20px;
       padding: 0 4%;
       height: 26%;
-      box-shadow: 3px 17px 14px 2px rgb(0 0 0 / 20%);
+      box-shadow: $popupRowBoxShadow;
 
       &:hover {
         cursor: pointer;
@@ -75,7 +91,7 @@
 
       &__text {
         font-size: 42px;
-        font-family: "CrocoSansBlackCAPS";
+        font-family: $CrocoSansBlackCAPS;
       }
 
       &__redirect {
@@ -97,24 +113,21 @@
 
 @media screen and (max-width: 767px) {
   .withdraw-background {
-    width: 392px;
-    height: 447px;
+    width: $popupWidthInMobile;
+    height: $popupHeightInMobile;
     .main {
       &__header {
-        font-size: 17px;
+        font-size: $popupMobileHeader;
       }
 
       &__row {
         padding: 0 8%;
-        margin-top: 15px;
+        margin-top: $popupMobileMarginTop;
         &__left {
         }
 
         &__text {
-          font-size: 36px;
-        }
-
-        &__redirect {
+          font-size: $popupMobileFontSize;
         }
       }
     }
@@ -123,18 +136,18 @@
 
 @media screen and (max-width: 480px) {
   .withdraw-background {
-    width: 321px;
-    height: 398px;
+    width: $popupWidthInMobile-S;
+    height: $popupHeightInMobile-S;
     .main {
       &__header {
-        font-size: 14px;
+        font-size: $popupMobileHeaderFontSize-S;
       }
 
       &__row {
         padding: 0 8%;
 
         &__text {
-          font-size: 26px;
+          font-size: $popuptextFontSizeMobile-S;
         }
       }
     }

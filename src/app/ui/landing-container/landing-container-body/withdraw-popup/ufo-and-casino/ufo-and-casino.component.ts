@@ -1,27 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CampaignService } from 'src/app/services/campaign.service';
+import { WithdrawPopupService } from 'src/app/services/withdraw-popup.service';
 
 @Component({
   selector: 'crc-ufo-and-casino',
   templateUrl: './ufo-and-casino.component.html',
   styleUrls: ['./ufo-and-casino.component.scss'],
 })
-export class UfoAndCasinoComponent implements OnInit {
+export class UfoAndCasinoComponent {
   @Input() data: any;
-  @Output() displayPopupChange: EventEmitter<boolean> = new EventEmitter();
-  constructor(private campaign: CampaignService) {}
+  @Output() displayPopupBack: EventEmitter<boolean> = new EventEmitter();
+  constructor(
+    private withdrawPopupService: WithdrawPopupService,
+    private campaignService: CampaignService
+  ) {}
 
-  ngOnInit(): void {}
-  getSpins() {
-    this.campaign
+  cashout() {
+    this.campaignService
       .cashout('bonus-shop-napoli-ticket', this.data.id)
       .subscribe((res) => {
-        this.campaign.changeCongratPopupState({
+        this.withdrawPopupService.changeCongratPopupState({
           amount: this.data.amount,
           value: this.data.value,
           popuptype: this.data.popypType,
         });
-        this.campaign.updateUserData.next(true);
+        this.campaignService.updateUserData.next(true);
       });
   }
 }
