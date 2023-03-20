@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
 import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
+import { CashOut } from '../shared/models/cashout';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,24 @@ export class CampaignService {
   readonly liveId = 'new-year-raffle';
   readonly buttonStatusId = 'live-tv-drawing-181122';
   readonly buttonSubmitId = 'live-tv-drawing-211222-v2';
+
+  public updateUserData = new Subject<boolean>();
+
+  private $showWithdrawPopupSubject = new BehaviorSubject<CashOut | boolean>(
+    false
+  );
+  private $showCongretPopupSubject = new BehaviorSubject<any>(false);
+
+  public showWithdrawPopup$ = this.$showWithdrawPopupSubject.asObservable();
+  public showCongretPopup$ = this.$showCongretPopupSubject.asObservable();
+
+  changeWithdrawPopupState(value: any) {
+    this.$showWithdrawPopupSubject.next(value);
+  }
+
+  changeCongretPopupState(value: any) {
+    this.$showCongretPopupSubject.next(value);
+  }
 
   constructor(private http: HttpClient) {}
 
@@ -93,5 +112,11 @@ export class CampaignService {
           }
         })
       );
+  }
+
+  cashout(campaignId: string, exchangeId: string): Observable<any> {
+    return this.http.post<any>(`${this.API}/campaigns/${campaignId}/cashout`, {
+      exchangeId,
+    });
   }
 }

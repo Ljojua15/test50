@@ -18,6 +18,9 @@ import { PromotionsSwiperComponent } from './landing-container/landing-container
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
 import { LiveComponent } from './landing-container/landing-container-body/live/live.component';
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
+import { WithdrawPopupComponent } from './landing-container/landing-container-body/withdraw-popup/withdraw-popup.component';
+import { UfoAndCasinoComponent } from './landing-container/landing-container-body/withdraw-popup/ufo-and-casino/ufo-and-casino.component';
+import { ChooseSlotComponent } from './landing-container/landing-container-body/withdraw-popup/choose-slot/choose-slot.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
     PromotionsSwiperComponent,
     PopupContainerComponent,
     LiveComponent,
+    WithdrawPopupComponent,
+    UfoAndCasinoComponent,
+    ChooseSlotComponent,
   ],
   exports: [
     LandingContainerComponent,

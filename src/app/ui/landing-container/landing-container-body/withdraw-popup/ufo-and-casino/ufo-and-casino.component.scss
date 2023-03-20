@@ -1,0 +1,136 @@
+.main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2% 1.5% 1% 1.5%;
+
+  &__header-image {
+    margin-top: 3%;
+    max-width: 47%;
+    transform: scale(1.4);
+  }
+
+  &__header-text {
+    font-family: "CrocoSansCAPSRegular";
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+    max-width: 80%;
+  }
+
+  &__text {
+    margin-top: 8%;
+    font-size: 16px;
+    line-height: 131%;
+  }
+
+  &__redirect {
+    position: absolute;
+    left: 0;
+    max-width: 5%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__footer {
+    width: 100%;
+    height: 16%;
+    border-radius: 21px;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    padding: 0 2% 0px 3%;
+    justify-content: space-between;
+    box-shadow: 1px 1px 17px 2px rgb(44 38 38 / 74%);
+    background-color: #327477;
+
+    &__text {
+      font-family: "CrocoSansBlackCAPS";
+      font-size: 19px;
+      margin: auto;
+    }
+
+    &__withdraw {
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5% 7%;
+      box-shadow: 0px 0px 12px 3px rgb(231 255 238 / 50%) inset;
+      border-radius: 25.9px;
+      width: 37%;
+      background-color: #3e9ed5;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 23px;
+        font-family: "CrocoSansBlackCAPS";
+      }
+    }
+  }
+  .casinoImage {
+    margin-top: -2% !important;
+    max-width: 42% !important;
+    transform: scale(1.1) !important;
+  }
+  .casinoText {
+    margin-top: 4.1%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    &__header-image {
+      max-width: 42%;
+    }
+
+    &__header-text {
+      font-size: 26px;
+    }
+
+    &__text {
+      font-size: 13px;
+    }
+
+    &__footer {
+      padding: 0 1% 0 6%;
+      &__text {
+        font-size: 15px;
+      }
+      &__withdraw {
+        p {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    &__header-text {
+      font-size: 23px;
+    }
+    &__footer {
+      &__text {
+        font-size: 13px;
+      }
+      &__withdraw {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

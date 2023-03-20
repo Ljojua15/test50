@@ -1,0 +1,52 @@
+<div class="withdraw-background" *ngIf="showWithdrawPopup">
+  <img
+    src="./assets/images/popups/close.png"
+    class="withdraw-background__close"
+    alt=""
+  />
+
+  <ng-container [ngSwitch]="whichPopup">
+    <div class="main" *ngSwitchCase="'main'">
+      <p class="main__header">
+        {{ "widtwraw.1" | translate }}{{ cashOut.totalAmount
+        }}{{ "widtwraw.2" | translate }}
+      </p>
+
+      <div
+        class="main__row"
+        *ngFor="let item of withdraw"
+        (click)="whichPopup = item.popypType"
+        [class.disabled]="!item.canRedirect"
+      >
+        <img
+          src="./assets/images/popups/{{ item.popypType }}.png"
+          alt=""
+          class="main__row__left"
+        />
+        <p class="main__row__text">{{ item.popypType | translate }}</p>
+        <img
+          src="./assets/images/popups/redirect.png"
+          alt=""
+          class="main__row__redirect"
+        />
+      </div>
+    </div>
+
+    <crc-ufo-and-casino
+      (displayPopupChange)="whichPopup = 'main'"
+      [data]="casinoData"
+      *ngSwitchCase="'casino'"
+    ></crc-ufo-and-casino>
+    <crc-ufo-and-casino
+      (displayPopupChange)="whichPopup = 'main'"
+      [data]="ufoData"
+      *ngSwitchCase="'ufo'"
+    ></crc-ufo-and-casino>
+
+    <crc-choose-slot
+      *ngSwitchCase="'slot'"
+      (displayPopupChange)="whichPopup = 'main'"
+      [cashOut]="cashOut"
+    ></crc-choose-slot>
+  </ng-container>
+</div>

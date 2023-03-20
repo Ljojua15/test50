@@ -7,3 +7,8 @@
 <crc-slots></crc-slots>
 <crc-live></crc-live>
 <crc-promotions-swiper></crc-promotions-swiper>
+<crc-withdraw-popup
+  (click)="onPopupClose($event)"
+  *ngIf="showWithdrawPopup$ | async as data"
+  [cashOutSetter]="data"
+></crc-withdraw-popup>
