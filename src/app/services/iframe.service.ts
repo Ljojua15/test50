@@ -102,10 +102,10 @@ export class IframeService {
     this.sendMessage(1011, payload);
   }
 
-  redirectToSlot(slot: string) {
+  redirectToSlot(slot: string, provider: string) {
     this.sendMessage(
       1011,
-      `https://crocobet.com/#/slots?menu=egt&provider=egt&slot=${slot}`
+      `https://crocobet.com/#/slots?menu=${provider}&provider=${provider}&slot=${slot}`
     );
   }
 }

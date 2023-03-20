@@ -1,0 +1,31 @@
+<div class="main">
+  <img
+    src="./assets/images/popups/congrets-close.png"
+    alt=""
+    class="main__congrets-close"
+    (click)="closePupup()"
+  />
+  <p class="main__header">{{ "congretskey.1" | translate }}!</p>
+  <p class="main__text" *ngIf="data.popuptype == 'SLOT'; else ufoAndCasiono">
+    {{ "congretskey.2" | translate }} {{ data.amount }}
+    {{ "congretskey.3" | translate }} {{ data.value }}₾
+    {{ "congretskey.4" | translate }} <br />
+    {{ "congretskey.5" | translate }} {{ data.slotName }}
+  </p>
+
+  <ng-template #ufoAndCasiono>
+    <p class="main__text" *ngIf="data.popuptype == 'UFO'; else casiono">
+      {{ "congretskey.6" | translate }}{{ data.amount
+      }}{{ "congretskey.7" | translate }}
+    </p>
+    <ng-template #casiono>
+      <p class="main__text">
+        {{ "congretskey.8" | translate }} {{ data.amount
+        }}{{ "congretskey.9" | translate }}
+      </p>
+    </ng-template>
+  </ng-template>
+  <div class="main__button" (click)="redirectToSlot()">
+    {{ "play" | translate }}
+  </div>
+</div>
