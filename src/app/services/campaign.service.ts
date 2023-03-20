@@ -5,6 +5,7 @@ import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
 import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 import { CashOut } from '../shared/models/cashout';
+import { CongratPopupData } from '../shared/models/congratPopupData';
 
 @Injectable({
   providedIn: 'root',
@@ -25,17 +26,19 @@ export class CampaignService {
   private $showWithdrawPopupSubject = new BehaviorSubject<CashOut | boolean>(
     false
   );
-  private $showCongretPopupSubject = new BehaviorSubject<any>(false);
+  private $showCongratPopupSubject = new BehaviorSubject<
+    CongratPopupData | boolean
+  >(false);
 
   public showWithdrawPopup$ = this.$showWithdrawPopupSubject.asObservable();
-  public showCongretPopup$ = this.$showCongretPopupSubject.asObservable();
+  public showCongratPopup$ = this.$showCongratPopupSubject.asObservable();
 
-  changeWithdrawPopupState(value: any) {
+  changeWithdrawPopupState(value: CashOut | boolean) {
     this.$showWithdrawPopupSubject.next(value);
   }
 
-  changeCongretPopupState(value: any) {
-    this.$showCongretPopupSubject.next(value);
+  changeCongratPopupState(value: CongratPopupData | boolean) {
+    this.$showCongratPopupSubject.next(value);
   }
 
   constructor(private http: HttpClient) {}

@@ -13,12 +13,10 @@ export class UfoAndCasinoComponent implements OnInit {
 
   ngOnInit(): void {}
   getSpins() {
-    console.log(this.data.id);
-
     this.campaign
       .cashout('bonus-shop-napoli-ticket', this.data.id)
       .subscribe((res) => {
-        this.campaign.congretsSubject.next({
+        this.campaign.changeCongratPopupState({
           amount: this.data.amount,
           value: this.data.value,
           popuptype: this.data.popypType,

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { CashOut } from 'src/app/shared/models/cashout';
+import { CongratPopupData } from 'src/app/shared/models/congratPopupData';
 import { Levels, ProgressData } from 'src/app/shared/models/progressData';
 import { User } from 'src/app/shared/models/user';
 import { UserData } from 'src/app/shared/models/userData';
@@ -46,13 +47,17 @@ export class LandingContainerBodyComponent implements OnInit {
     used: 0,
   };
 
-  showWithdrawPopup$: Observable<CashOut | boolean>;
+  showWithdrawPopup$: Observable<CashOut | boolean> =
+    this.campaignService.showWithdrawPopup$;
+  showCongratPopup$: Observable<any> = this.campaignService.showCongratPopup$;
 
-  constructor(private campaignService: CampaignService) {
-    this.showWithdrawPopup$ = campaignService.showWithdrawPopup$;
+  constructor(private campaignService: CampaignService) {}
+
+  ngOnInit(): void {
+    this.campaignService.updateUserData.subscribe(() => {
+      this.getData();
+    });
   }
-
-  ngOnInit(): void {}
 
   getData() {
     return this.campaignService
@@ -84,7 +89,7 @@ export class LandingContainerBodyComponent implements OnInit {
       e.srcElement.className == 'withdraw-background__close'
     ) {
       this.campaignService.changeWithdrawPopupState(false);
-      this.campaignService.changeCongretPopupState(false);
+      this.campaignService.changeCongratPopupState(false);
     }
   }
 

@@ -21,6 +21,7 @@ import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 import { WithdrawPopupComponent } from './landing-container/landing-container-body/withdraw-popup/withdraw-popup.component';
 import { UfoAndCasinoComponent } from './landing-container/landing-container-body/withdraw-popup/ufo-and-casino/ufo-and-casino.component';
 import { ChooseSlotComponent } from './landing-container/landing-container-body/withdraw-popup/choose-slot/choose-slot.component';
+import { CongratPopupComponent } from './landing-container/landing-container-body/congrat-popup/congrat-popup.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ChooseSlotComponent } from './landing-container/landing-container-body/
     WithdrawPopupComponent,
     UfoAndCasinoComponent,
     ChooseSlotComponent,
+    CongratPopupComponent,
   ],
   exports: [
     LandingContainerComponent,

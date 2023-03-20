@@ -116,7 +116,7 @@ export class ChooseSlotComponent implements OnInit {
       .cashout('bonus-shop-napoli-ticket', this.slots[this.choosedSlotIndex].id)
       .subscribe((res) => {
         const currentSlot = this.slots[this.choosedSlotIndex];
-        this.campaign.congretsSubject.next({
+        this.campaign.changeCongratPopupState({
           amount: this.currentAmount,
           value: this.currentValue,
           slotName: currentSlot.text,

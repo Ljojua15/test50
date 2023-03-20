@@ -43,6 +43,6 @@ export class SlotsComponent {
   constructor(private iframeService: IframeService) {}
 
   onClick(url: string) {
-    this.iframeService.redirectToSlot(url);
+    // this.iframeService.redirectToSlot(url);
   }
 }

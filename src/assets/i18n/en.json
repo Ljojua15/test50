@@ -79,5 +79,17 @@
     "1": "SELECT THE DESIRED PRODUCT AND WITHDRAW FREESPINS:",
     "2": "FREESPINS OF",
     "3": ""
+  },
+
+  "congretskey": {
+    "1": "CONGRATULATIONS",
+    "2": "YOU HAVE BEEN CREDITED WITH",
+    "3": "FREESPINS OF",
+    "4": "",
+    "5": "IN THE SLOT",
+    "6": "YOU'VE BEEN CREDITED FREESPINS OF ",
+    "7": "₾ TO YOUR UFO FREESPINS BALANCE",
+    "8": "YOU'VE BEEN CREDITED FREECHIPS OF ",
+    "9": "₾ TO YOUR FREECHIP'S BALANCE"
   }
 }

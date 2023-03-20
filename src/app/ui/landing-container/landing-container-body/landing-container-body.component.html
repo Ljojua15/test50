@@ -12,3 +12,9 @@
   *ngIf="showWithdrawPopup$ | async as data"
   [cashOutSetter]="data"
 ></crc-withdraw-popup>
+
+<crc-congrat-popup
+  (click)="onPopupClose($event)"
+  *ngIf="showCongratPopup$ | async as data"
+  [data]="data"
+></crc-congrat-popup>

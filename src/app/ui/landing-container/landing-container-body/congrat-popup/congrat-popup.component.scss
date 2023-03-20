@@ -1,0 +1,99 @@
+.main {
+  background-image: url("../../../../../assets/images/popups/congrets-background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 100;
+  padding: 10px 21px 35px 21px;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__congrets-close {
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    width: 8%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__header {
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 32%);
+    font-family: TTSupermolotNeue;
+    font-size: 33px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.63;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    margin-top: 25px;
+  }
+
+  &__text {
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 32%);
+    font-family: TTSupermolotNeue;
+    font-size: 20px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 32px;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    margin-top: 28px;
+  }
+
+  &__button {
+    background-image: url("../../../../../assets/images/popups/congrat-redirect.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: TTSupermolotNeue;
+    padding: 42px 45px;
+    font-size: 22px;
+    margin-top: -6px;
+    margin-bottom: -30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    min-width: 421px;
+    &__header {
+      font-size: 27px;
+    }
+
+    &__text {
+      font-size: 16px;
+    }
+
+    &__button {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    min-width: 344px;
+
+    &__text {
+      font-size: 13px;
+      line-height: 19px;
+    }
+
+    &__button {
+      font-size: 18px;
+      padding: 29px 34px;
+    }
+  }
+}
