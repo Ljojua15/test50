@@ -49,8 +49,10 @@ export class CampaignService {
     );
   }
 
-  getRules(lang: string): Observable<any> {
-    return this.http.get<any>(environment.rulesApi(lang) + this.rulesKey);
+  getRules(lang: string): Observable<GenericResponse<object>> {
+    return this.http.get<GenericResponse<object>>(
+      environment.rulesApi(lang) + this.rulesKey
+    );
   }
 
   getBanners(): Observable<any> {
