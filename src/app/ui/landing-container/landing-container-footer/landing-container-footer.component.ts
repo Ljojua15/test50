@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, inject } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { CampaignService } from 'src/app/services/campaign.service';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { Rule } from 'src/app/shared/models/rule';
 import { GenericResponse } from 'src/app/shared/models/response';
 
@@ -11,25 +11,21 @@ import { GenericResponse } from 'src/app/shared/models/response';
   styleUrls: ['./landing-container-footer.component.scss'],
 })
 export class LandingContainerFooterComponent {
+  private readonly translateService = inject(TranslateService);
+  private readonly campaignService = inject(CampaignService);
+
   rules$: Observable<{ mainRules: Rule[]; additionalRule: Rule }> =
     this.translateService.onLangChange.pipe(
-      switchMap((language: any) => {
+      switchMap((language: LangChangeEvent) => {
         const lang = language.lang === 'ge' ? 'ka' : language.lang;
         return this.campaignService.getRules(lang);
       }),
-      tap(console.log),
-      map((res: GenericResponse<[]>) => {
-        const slicedItem = res.data.splice(-1);
-        console.log(slicedItem);
+      map((rules: GenericResponse<Array<Rule>>) => {
+        const additionalRule = rules.data.splice(-1);
         return {
-          mainRules: res.data,
-          additionalRule: slicedItem[0],
+          mainRules: rules.data,
+          additionalRule: additionalRule[0],
         };
       })
     );
-
-  constructor(
-    private translateService: TranslateService,
-    private campaignService: CampaignService
-  ) {}
 }
