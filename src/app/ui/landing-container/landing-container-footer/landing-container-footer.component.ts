@@ -21,10 +21,10 @@ export class LandingContainerFooterComponent {
         return this.campaignService.getRules(lang);
       }),
       map((rules: GenericResponse<Array<Rule>>) => {
-        const additionalRule = rules.data.splice(-1);
+        const additionalRule = rules.data.splice(-1)[0];
         return {
           mainRules: rules.data,
-          additionalRule: additionalRule[0],
+          additionalRule: additionalRule,
         };
       })
     );
