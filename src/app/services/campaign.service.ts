@@ -6,6 +6,7 @@ import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 import { CashOut } from '../shared/models/cashout';
 import { CongratPopupData } from '../shared/models/congratPopupData';
+import { Rule } from '../shared/models/rule';
 
 @Injectable({
   providedIn: 'root',
@@ -49,8 +50,8 @@ export class CampaignService {
     );
   }
 
-  getRules(lang: string): Observable<GenericResponse<object>> {
-    return this.http.get<GenericResponse<object>>(
+  getRules(lang: string): Observable<GenericResponse<Array<Rule>>> {
+    return this.http.get<GenericResponse<Array<Rule>>>(
       environment.rulesApi(lang) + this.rulesKey
     );
   }
