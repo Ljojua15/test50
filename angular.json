@@ -97,7 +97,6 @@
       }
     }
   },
-  "defaultProject": "landings-starter",
   "cli": {
     "analytics": false
   }
