@@ -1,35 +1,46 @@
-<div class="main">
-  <div class="main__texts">
-    <p>{{ "bet" | translate }}</p>
-    <p>{{ "spin" | translate }}</p>
-  </div>
-  <div class="main__zero">{{ 0 | gelPipe: false }}</div>
-  <div class="main__bg">
-    <div class="container">
-      <div
-        class="container__levels"
-        [style.flex-basis]="'calc(100% /' + progressData.levels.length + ')'"
-        *ngFor="let level of progressData.levels; index as i"
-      >
-        <p class="">{{ level.step | gelPipe: false }}</p>
-        <div class="container__breaks"></div>
+<div class="main" [class.outline]="config.hasOutline">
+  <div
+    class="main__wrapper"
+    [ngStyle]="{ 'background-color': config.containerColor }"
+  >
+    <div class="main__texts" *ngIf="config.texts">
+      <p>{{ config.texts.top | translate }}</p>
+      <p>{{ config.texts.bottom | translate }}</p>
+    </div>
+    <div class="main__bg">
+      <div class="container">
         <div
-          class="container__progress"
-          [style.width.%]="
-            i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
-          "
+          class="container__levels"
+          [ngStyle]="{ 'background-color': config.progressBarColor }"
+          [style.flex-basis]="'calc(100% /' + levels.length + ')'"
+          *ngFor="let level of levels; index as i"
         >
-          <div class="container__slider" *ngIf="i === currentIndex">
-            <span class="container__text">{{ progressData.amount }}</span>
+          <p class="">{{ level.step | gelPipe : false }}</p>
+          <div class="container__breaks" *ngIf="config.hasBreaks"></div>
+          <div
+            class="container__progress"
+            [ngStyle]="{ 'background-color': config.progressBarFilledColor }"
+            [style.width.%]="
+              i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
+            "
+          >
+            <div class="container__slider" *ngIf="i === currentIndex">
+              <span
+                class="container__text"
+                [ngStyle]="{ 'background-color': config.sliderColor }"
+                >{{
+                  config.hasGelSymbol
+                    ? (userData.amount | gelPipe : false)
+                    : userData.amount
+                }}</span
+              >
+            </div>
           </div>
+          <img
+            class="container__image"
+            src="assets/images/spin-{{ level.imageState }}.png"
+          />
         </div>
-        <img
-          class="container__image"
-          src="./.../../../../../../../assets/images/spin-{{
-            level.imageState
-          }}.png"
-          alt=""
-        />
       </div>
     </div>
   </div>
