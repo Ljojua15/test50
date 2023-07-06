@@ -23,11 +23,9 @@ export class ProgressBarComponent implements OnChanges {
   }
 
   getCurrentIndex() {
-    for (let item of this.levels) {
-      if (item.step >= this.userData.amount) {
-        this.currentIndex = this.levels.findIndex(
-          (x: any) => x.step === item.step
-        );
+    for (let i = 0; i < this.levels.length; i++) {
+      if (this.levels[i].step >= this.userData.amount) {
+        this.currentIndex = i;
         this.getExtraWidth(this.currentIndex);
         this.changeImageStates();
         return;
