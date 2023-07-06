@@ -15,7 +15,7 @@
           [style.flex-basis]="'calc(100% /' + levels.length + ')'"
           *ngFor="let level of levels; index as i"
         >
-          <p class="">{{ level.step | gelPipe : false }}</p>
+          <p>{{ level.step | gelPipe : false }}</p>
           <div
             class="container__breaks"
             [class]="config.breakType === 'line' ? 'line' : 'dot'"
