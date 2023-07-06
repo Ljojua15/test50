@@ -1,8 +1,8 @@
 export interface Config {
   texts: ProgressTexts | null;
-  hasBreaks: boolean;
   hasOutline: boolean;
   hasGelSymbol: boolean;
+  breakType: 'line' | 'dot' | '';
   containerColor: string;
   progressBarColor: string;
   progressBarFilledColor: string;
