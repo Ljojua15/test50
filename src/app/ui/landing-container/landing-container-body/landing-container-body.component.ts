@@ -3,9 +3,8 @@ import { map, Observable } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { WithdrawPopupService } from 'src/app/services/withdraw-popup.service';
 import { CashOut } from 'src/app/shared/models/cashout';
-import { CongratPopupData } from 'src/app/shared/models/congratPopupData';
-import { Levels, ProgressData } from 'src/app/shared/models/progressData';
-import { User } from 'src/app/shared/models/user';
+import { Config } from 'src/app/shared/models/progressConfig';
+import { Levels } from 'src/app/shared/models/progressData';
 import { UserData } from 'src/app/shared/models/userData';
 import { environment } from 'src/environments/environment';
 
@@ -37,15 +36,26 @@ export class LandingContainerBodyComponent implements OnInit {
     { step: 10000, points: 1, imageState: 'off' },
   ];
 
-  // progress bar levels and progress amount
-  progressData: ProgressData = {
-    levels: this.levels,
-    amount: 0,
+  progressConfig: Config = {
+    hasOutline: true,
+    hasGelSymbol: true,
+    breakType: 'line', // 'line' | 'dot' | ''
+    containerColor: '#937050',
+    progressBarColor: '#15af44',
+    progressBarFilledColor: '#5f2797',
+    sliderColor: '#15af44',
+    texts: {
+      top: 'bet',
+      bottom: 'spin',
+    },
+    // if no texts
+    // texts: null,
   };
 
   userData: UserData = {
     unlockedLevel: -1,
     used: 0,
+    amount: 0,
   };
 
   showWithdrawPopup$: Observable<CashOut | boolean> =
@@ -66,26 +76,31 @@ export class LandingContainerBodyComponent implements OnInit {
 
   getData() {
     return this.campaignService
-      .getUserData('bonus-shop-napoli-ticket')
+      .getUserData('p2p-mix-wheel-030723')
       .pipe(map((res) => res.data))
-      .subscribe((bonusShopRes: any) => {
-        this.withdrawPopupService.changeWithdrawPopupState(
-          bonusShopRes.state.cashout
-        );
+      .subscribe((res: any) => {
+        // this.withdrawPopupService.changeWithdrawPopupState(
+        //   res.state.cashout
+        // );
+
+        this.userData = {
+          unlockedLevel: res.state.currentStepIndex,
+          used: res.state.used,
+          amount: Math.min(
+            res.state.progress,
+            this.levels[this.levels.length - 1].step
+          ),
+        };
       });
   }
 
   clearData() {
     this.levels.forEach((level) => (level.imageState = 'off'));
 
-    this.progressData = {
-      levels: this.levels,
-      amount: 0,
-    };
-
     this.userData = {
       unlockedLevel: -1,
       used: 0,
+      amount: 0,
     };
   }
 
