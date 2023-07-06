@@ -16,7 +16,11 @@
           *ngFor="let level of levels; index as i"
         >
           <p class="">{{ level.step | gelPipe : false }}</p>
-          <div class="container__breaks" *ngIf="config.hasBreaks"></div>
+          <div
+            class="container__breaks"
+            [class]="config.breakType === 'line' ? 'line' : 'dot'"
+            *ngIf="config.breakType"
+          ></div>
           <div
             class="container__progress"
             [ngStyle]="{ 'background-color': config.progressBarFilledColor }"
@@ -28,11 +32,7 @@
               <span
                 class="container__text"
                 [ngStyle]="{ 'background-color': config.sliderColor }"
-                >{{
-                  config.hasGelSymbol
-                    ? (userData.amount | gelPipe : false)
-                    : userData.amount
-                }}</span
+                >{{ userData.amount | gelPipe : false }}</span
               >
             </div>
           </div>

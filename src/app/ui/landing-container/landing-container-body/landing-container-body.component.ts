@@ -37,9 +37,9 @@ export class LandingContainerBodyComponent implements OnInit {
   ];
 
   progressConfig: Config = {
-    hasBreaks: true,
     hasOutline: true,
     hasGelSymbol: true,
+    breakType: 'line', // 'line' | 'dot' | ''
     containerColor: '#937050',
     progressBarColor: '#15af44',
     progressBarFilledColor: '#5f2797',

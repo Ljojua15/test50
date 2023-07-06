@@ -24,14 +24,15 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     height: 100%;
     display: flex;
     border-radius: 15px;
+    padding: 0 10px;
   }
 
   &__texts {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    padding-left: 20px;
+    justify-content: space-between;
+    padding: 15px 0;
     font-size: variables.$font-size-m;
   }
 
@@ -44,17 +45,25 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   .container {
     display: flex;
     align-items: center;
-    width: 100%;
-    margin-inline: 40px;
+    width: 90%;
 
     &__breaks {
       position: absolute;
       left: 100%;
       top: 50%;
+      background-color: $progress-color;
+      transform: translate(-50%, -50%);
+    }
+
+    .line {
       height: 35px;
       width: 2px;
-      background-color: $progress-color;
-      transform: translateY(-50%);
+    }
+
+    .dot {
+      height: 15px;
+      width: 15px;
+      border-radius: 999px;
     }
 
     &__levels {
@@ -95,19 +104,6 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     &__text {
       padding: 5px 10px;
       border-radius: 13px;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .main {
-    &__texts {
-      padding-left: 10px;
-    }
-
-    .container {
-      margin-right: 30px !important;
-      margin-inline: 0;
     }
   }
 }
