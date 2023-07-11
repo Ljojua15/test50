@@ -13,7 +13,6 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { UiComponentsModule } from './ui/ui-components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SwiperModule } from 'swiper/angular';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -27,7 +26,6 @@ export function createTranslateLoader(http: HttpClient) {
     UiComponentsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SwiperModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,7 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
       defaultLanguage: 'ge',
     }),
   ],
-  exports: [TranslateModule, SwiperModule],
+  exports: [TranslateModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
