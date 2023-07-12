@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'crc-accordion',
-  templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.scss'],
+  template: `
+    <div>
+      <ng-content select="crc-accordion-item"></ng-content>
+    </div>
+  `,
+  styles: ['div { width: 100%; margin-bottom: 6px; }'],
 })
-export class AccordionComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class AccordionComponent {}
