@@ -9,7 +9,6 @@ import { IframeService } from 'src/app/services/iframe.service';
 export class PlayButtonComponent {
   @Input() hasAnimation = false;
 
-  // redirect url on button click
   redirectUrl = 'https://crocobet.com/#/';
 
   constructor(private iframeService: IframeService) {}

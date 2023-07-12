@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container-header',
@@ -9,11 +8,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./landing-container-header.component.scss'],
 })
 export class LandingContainerHeaderComponent {
-  filePath = environment.filePath;
-
-  //header image url
   headerUrl = this.translateService.onLangChange.pipe(
-    map((lang) => `./../../${this.filePath}assets/images/${lang.lang}.png`)
+    map((lang) => `assets/images/${lang.lang}.png`)
   );
 
   constructor(private translateService: TranslateService) {}

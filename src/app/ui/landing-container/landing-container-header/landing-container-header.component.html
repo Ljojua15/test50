@@ -1,8 +1,6 @@
 <div class="header">
-  <!-- header image -->
-  <img class="header__img" [src]="headerUrl | async" alt="" />
+  <img class="header__img" [src]="headerUrl | async" />
 
-  <!-- header text (description) -->
   <div class="header__text">
     {{ "description" | translate }}
     <span>{{ "description.prize" | translate }}</span>
