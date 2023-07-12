@@ -32,7 +32,7 @@ export class AuthService {
       .get(`https://customers01.crocobet.com/customers/personal-data`)
       .pipe(
         catchError((_) => of(false)),
-        map((res: any) => !!res),
+        map((res) => !!res),
         tap((res) => console.log(res))
       );
   }
