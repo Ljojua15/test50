@@ -10,7 +10,7 @@ import { map, Observable } from 'rxjs';
 import { BackdropService } from 'src/app/services/backdrop.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Prize } from 'src/app/shared/models/prize';
-import { environment } from 'src/environments/environment';
+import { GenericResponse } from 'src/app/shared/models/response';
 
 @Component({
   selector: 'crc-wheel',
@@ -21,16 +21,13 @@ export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() isDisabled = false;
 
-  filePath = environment.filePath;
-  imagePath = `./../../../../${this.filePath}assets/images`;
-
   // image paths
-  arrowImage = `${this.imagePath}/wheel-arrow.png`;
-  frameImage = `${this.imagePath}/wheel-frame.png`;
-  buttonImage = `${this.imagePath}/wheel-btn.png`;
-  buttonDisabledImage = `${this.imagePath}/wheel-btn-disabled.png`;
+  arrowImage = `assets/images/wheel-arrow.png`;
+  frameImage = `assets/images/wheel-frame.png`;
+  buttonImage = `assets/images/wheel-btn.png`;
+  buttonDisabledImage = `assets/images/wheel-btn-disabled.png`;
   prizesImage = this.translateService.onLangChange.pipe(
-    map((lang) => `${this.imagePath}/wheel-prizes-${lang.lang}.png`)
+    map((lang) => `assets/images/wheel-prizes-${lang.lang}.png`)
   );
 
   // campaign id for get prize
@@ -65,7 +62,7 @@ export class WheelComponent implements OnInit {
   getPrize() {
     return this.campaignService
       .getPrize(this.campaignId)
-      .pipe(map((res: any) => res.data))
+      .pipe(map((res: GenericResponse<Prize>) => res.data))
       .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
   }
 
