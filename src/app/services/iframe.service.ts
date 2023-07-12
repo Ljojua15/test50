@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class IframeService {
-  constructor() {}
-
   sendMessage(code: number, payload?: string) {
     const CROSS_ORIGIN = '*';
 

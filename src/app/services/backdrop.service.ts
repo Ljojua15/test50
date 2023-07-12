@@ -7,6 +7,4 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class BackdropService {
   public backDrop$ = new BehaviorSubject<boolean>(false);
   public isBackdropClosable$ = new Subject<boolean>();
-
-  constructor() {}
 }
