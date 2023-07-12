@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'crc-landing-container',
-  templateUrl: './landing-container.component.html',
+  template: `
+    <div class="main" [ngStyle]="styleObject()">
+      <ng-content></ng-content>
+    </div>
+  `,
   styleUrls: ['./landing-container.component.scss'],
 })
-export class LandingContainerComponent implements OnInit {
+export class LandingContainerComponent {
   styleObject(): Object {
     return {
       'background-image': 'url(' + this.bgImg + ')',
     };
   }
 
-  filePath = environment.filePath;
-
-  //main background image
-  bgImg = `../../${this.filePath}assets/images/bg.jpg`;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  bgImg = `assets/images/bg.jpg`;
 }

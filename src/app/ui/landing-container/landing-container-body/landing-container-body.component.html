@@ -6,14 +6,3 @@
 ></crc-progress-bar>
 <crc-wheel [isDisabled]="isDisabled"></crc-wheel>
 <crc-slots></crc-slots>
-<crc-live></crc-live>
-<crc-promotions-swiper></crc-promotions-swiper>
-<crc-withdraw-popup
-  *ngIf="showWithdrawPopup$ | async as data"
-  [cashOutSetter]="data"
-></crc-withdraw-popup>
-
-<crc-congrat-popup
-  *ngIf="showCongratPopup$ | async as data"
-  [data]="data"
-></crc-congrat-popup>

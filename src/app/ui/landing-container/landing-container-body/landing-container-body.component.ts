@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
-import { WithdrawPopupService } from 'src/app/services/withdraw-popup.service';
-import { CashOut } from 'src/app/shared/models/cashout';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 import { UserData } from 'src/app/shared/models/userData';
@@ -58,18 +56,10 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
-  showWithdrawPopup$: Observable<CashOut | boolean> =
-    this.withdrawPopupService.showWithdrawPopup$;
-  showCongratPopup$: Observable<any> =
-    this.withdrawPopupService.showCongratPopup$;
-
-  constructor(
-    private campaignService: CampaignService,
-    private withdrawPopupService: WithdrawPopupService
-  ) {}
+  constructor(private campaignService: CampaignService) {}
 
   ngOnInit(): void {
-    this.campaignService.updateUserData.subscribe(() => {
+    this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });
   }
@@ -78,11 +68,7 @@ export class LandingContainerBodyComponent implements OnInit {
     return this.campaignService
       .getUserData('p2p-mix-wheel-030723')
       .pipe(map((res) => res.data))
-      .subscribe((res: any) => {
-        // this.withdrawPopupService.changeWithdrawPopupState(
-        //   res.state.cashout
-        // );
-
+      .subscribe((res) => {
         this.userData = {
           unlockedLevel: res.state.currentStepIndex,
           used: res.state.used,

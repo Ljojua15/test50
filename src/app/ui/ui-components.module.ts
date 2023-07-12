@@ -13,15 +13,8 @@ import { WheelComponent } from './landing-container/landing-container-body/wheel
 import { ProgressBarComponent } from './landing-container/landing-container-body/progress-bar/progress-bar.component';
 import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
-import { SwiperModule } from 'swiper/angular';
-import { PromotionsSwiperComponent } from './landing-container/landing-container-body/promotions-swiper/promotions.component';
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
-import { LiveComponent } from './landing-container/landing-container-body/live/live.component';
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
-import { WithdrawPopupComponent } from './landing-container/landing-container-body/withdraw-popup/withdraw-popup.component';
-import { UfoAndCasinoComponent } from './landing-container/landing-container-body/withdraw-popup/ufo-and-casino/ufo-and-casino.component';
-import { ChooseSlotComponent } from './landing-container/landing-container-body/withdraw-popup/choose-slot/choose-slot.component';
-import { CongratPopupComponent } from './landing-container/landing-container-body/congrat-popup/congrat-popup.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +31,7 @@ import { CongratPopupComponent } from './landing-container/landing-container-bod
     GelPipePipe,
     SafeUrlPipe,
     SlotsComponent,
-    PromotionsSwiperComponent,
     PopupContainerComponent,
-    LiveComponent,
-    WithdrawPopupComponent,
-    UfoAndCasinoComponent,
-    ChooseSlotComponent,
-    CongratPopupComponent,
   ],
   exports: [
     LandingContainerComponent,
@@ -53,6 +40,6 @@ import { CongratPopupComponent } from './landing-container/landing-container-bod
     LandingContainerFooterComponent,
     AuthorizationBlockComponent,
   ],
-  imports: [CommonModule, TranslateModule, SwiperModule],
+  imports: [CommonModule, TranslateModule],
 })
 export class UiComponentsModule {}

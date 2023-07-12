@@ -12,8 +12,6 @@ export class TimerService {
     'Feb 21 2023 22:00:00 GMT+0400',
   ];
 
-  constructor() {}
-
   private nextLive(): Date {
     let today = new Date();
     let toDate = this.schedule.find((date) => today < new Date(date));
@@ -67,7 +65,7 @@ export class TimerService {
     return timer(0, 1000).pipe(
       // get difference between dates
       map(() => toDate.getTime() - new Date().getTime()),
-      takeWhile((x: any) => x >= 0),
+      takeWhile((x: number) => x >= 0),
       // format countdown to H,M,S
       map((x: number) => {
         const hours = Math.floor(x / (60 * 60 * 1000));

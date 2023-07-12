@@ -1,6 +1,6 @@
 export interface User {
   name: string;
-  prizes: Array<any>;
+  prizes: Array<Prizes>;
   state: State;
   type: string;
 }
@@ -13,6 +13,20 @@ interface State {
   lastStepReached: boolean;
   points: number;
   progress: number;
-  steps: Array<any>;
+  steps: Array<Step>;
   used: number;
+}
+
+interface Step {
+  points: number;
+  step: number;
+}
+
+interface Prizes {
+  amount: number;
+  id: number;
+  name: string;
+  price: number;
+  type: string;
+  value: number;
 }

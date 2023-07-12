@@ -3,8 +3,15 @@ import { Rule } from '../shared/models/rule';
 import { RulesService } from '../services/rules.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../services/auth.service';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { BackdropService } from '../services/backdrop.service';
+
+interface LangObj {
+  en: string;
+  ge: string;
+  ru: string;
+}
+type Lang = keyof LangObj;
 
 @Component({
   selector: 'crc-landing',
@@ -17,14 +24,10 @@ export class LandingComponent implements OnInit {
   backdrop$: Observable<boolean> | null = null;
   isBackdropClosable!: boolean;
 
-  title: {
-    en: string;
-    ge: string;
-    ru: string;
-  } | null = null;
+  title: LangObj | null = null;
   rules: Rule[] = [];
   additionalRules: Rule | null = null;
-  lang: 'en' | 'ge' | 'ru' = 'ge';
+  lang: Lang = 'ge';
 
   constructor(
     private rulesService: RulesService,
@@ -44,7 +47,7 @@ export class LandingComponent implements OnInit {
   }
 
   checkToken() {
-    return this.authService.isAuthorized().subscribe((res: any) => {
+    return this.authService.isAuthorized().subscribe((res) => {
       this.isAuthorized = res;
     });
   }
