@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit,
+} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container',
@@ -9,12 +17,43 @@ import { Component } from '@angular/core';
   `,
   styleUrls: ['./landing-container.component.scss'],
 })
-export class LandingContainerComponent {
-  styleObject(): Object {
-    return {
-      'background-image': 'url(' + this.bgImg + ')',
-    };
+export class LandingContainerComponent implements OnInit {
+  filePath = environment.filePath;
+  bgImg!: string;
+  isMobile!: boolean;
+  lang = 'en';
+
+  constructor(
+    private translateService: TranslateService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.updateBgImg();
+    this.translateService.onLangChange.subscribe((lang) => {
+      this.lang = lang.lang;
+      this.updateBgImg();
+    });
   }
 
-  bgImg = `assets/images/bg.jpg`;
+  private updateBgImg(): void {
+    this.isMobile = window.innerWidth <= 768;
+    this.bgImg = this.isMobile
+      ? `${this.filePath}assets/images/bg-mob-${this.lang}.jpg`
+      : `${this.filePath}assets/images/bg-${this.lang}.jpg`;
+    this.cdr.detectChanges();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    console.log(this.isMobile);
+    this.updateBgImg();
+  }
+
+  styleObject(): Object {
+    return {
+      'background-image': `url(${this.bgImg})`,
+      // 'background-size': 'cover',
+    };
+  }
 }

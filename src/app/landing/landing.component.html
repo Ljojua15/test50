@@ -1,6 +1,6 @@
 <crc-landing-container>
   <crc-landing-container-header></crc-landing-container-header>
-  <crc-authorization-block *ngIf="!isAuthorized"></crc-authorization-block>
+  <crc-authorization-block *ngIf="!!isAuthorized"></crc-authorization-block>
   <crc-landing-container-body
     [isAuthorized]="isAuthorized"
   ></crc-landing-container-body>

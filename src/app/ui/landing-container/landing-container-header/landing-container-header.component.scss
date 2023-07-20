@@ -5,13 +5,13 @@
   display: flex;
   width: 100%;
   max-width: 1100px;
-  padding-top: 440px;
+  padding-top: 490px;
   flex-direction: column;
   align-items: center;
 
   &__text {
     max-width: 550px;
-    margin-top: 20px;
+    margin-top: 60px;
     font-size: variables.$font-size-header-m;
     line-height: 125%;
     color: variables.$white;
@@ -26,7 +26,7 @@
 
 @media (max-width: variables.$tablet) {
   .header {
-    padding-top: 275px;
+    padding-top: 550px;
     margin: 0 auto;
 
     &__img {
@@ -34,22 +34,24 @@
     }
 
     &__text {
-      font-size: variables.$font-size-header-s;
+      font-size: 38px;
+      font-family:  CrocoSansBlackCAPS;
     }
   }
 }
 
+
 @media (max-width: variables.$mobile) {
   .header {
-    padding-top: 175px;
-    width: 90%;
+    padding-top: 420px;
+    // width: 90%;
 
     &__img {
       width: 150px;
     }
 
     &__text {
-      font-size: variables.$font-size-s;
+      font-size: 18px;
 
       span {
         font-size: variables.$font-size-l;

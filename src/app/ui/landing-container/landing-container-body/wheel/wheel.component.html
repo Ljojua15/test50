@@ -1,31 +1,40 @@
 <div class="main">
   <div class="container">
-    <crc-popup-container
-      (closePopup)="closePopup()"
-      [closeImage]="'assets/images/x.svg'"
-      [containerStyles]="popupContainerStyles"
-      [isBackdropClosable]="true"
-      *ngIf="popup"
-    >
+    <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'"
+      [containerStyles]="popupContainerStyles" [isBackdropClosable]="true" *ngIf="infoPopup">
       <!-- template here -->
+    </crc-popup-container>
+
+    <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'"
+      [containerStyles]="historyPopupContainerStyles" [isBackdropClosable]="true" *ngIf="historyPopup">
+      <!-- template here -->
+      <div class="history-popup">
+        <p>თარიღი</p>
+        <p>პრიზი</p>
+      </div>
+      <div class="content">
+        <div class="history-popup__item" *ngFor="let item of mockData">
+          <span>{{item.k}} </span>
+          <span>{{item.v}}</span>
+        </div>
+      </div>
+
     </crc-popup-container>
 
     <div class="container__arrow">
       <img [src]="arrowImage" />
     </div>
     <div class="container__frame">
+      <img class="info" src="./assets/images/info.webp" (click)="openInfo()" alt="info">
       <img [src]="frameImage" />
     </div>
     <div class="container__prizes">
-      <img [src]="prizesImage | async" #prizeElement />
+      <img [src]="prizesImage" #prizeElement />
     </div>
     <div class="container__btn">
-      <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
-      <img
-        *ngIf="isDisabled"
-        [src]="buttonDisabledImage"
-        [class.disabled]="isDisabled"
-      />
+      <img *ngIf="isDisabled" [src]="buttonImage" (click)="getPrize()" />
+      <img *ngIf="!isDisabled" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
     </div>
   </div>
+  <button class="history" (click)="openHistory()">ისტორია</button>
 </div>

@@ -1,8 +1,6 @@
-<crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
-<crc-progress-bar
-  [levels]="levels"
-  [userData]="userData"
-  [config]="progressConfig"
-></crc-progress-bar>
+<ng-container *ngIf="isAuthorized">
+  <crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
+</ng-container>
+<crc-progress-bar [progressData]="progressData" [userData]="userData"></crc-progress-bar>
 <crc-wheel [isDisabled]="isDisabled"></crc-wheel>
 <crc-slots></crc-slots>

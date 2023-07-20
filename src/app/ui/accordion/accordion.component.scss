@@ -1,0 +1,12 @@
+div {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  
+  @media (max-width: 767px) {
+    :host {
+      position: relative;
+      bottom: 500px;
+    }
+  }
+  

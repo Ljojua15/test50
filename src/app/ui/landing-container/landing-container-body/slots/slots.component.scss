@@ -1,13 +1,58 @@
-.main {
-  margin: 150px 0;
-  background-color: tan;
-  width: 100%;
-  border-radius: 30px;
-  background-color: #1b2344;
+.prize-frame {
+  display: flex;
+  justify-content: center;
+  width: 741px;
+  height: 158px;
+  background-image: url("../../../../../assets/images/prize-frame.webp");
+  background-position: 25% 75%;
+  background-repeat: no-repeat;
   padding: 10px;
-
-  p {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  &__title {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 10px;
+    text-align: center;
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.prize-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  height: 301px;
+  margin: 0 auto;
+
+  .prize-left,
+  .prize-right {
+    width: calc(50% - 10px);
+    height: 158px;
+    background-repeat: no-repeat;
+    padding: 10px;
+
+    p {
+      padding-bottom: 10px;
+    }
+  }
+
+  .prize-left {
+    background-image: url("../../../../../assets/images/prize-left.webp");
+    background-size: contain;
+    height: 100%;
+  }
+
+  .prize-right {
+    background-image: url("../../../../../assets/images/prize-right.webp");
+    background-size: contain;
+    height: 100%;
   }
 }
 
@@ -53,6 +98,23 @@
 }
 
 @media (max-width: 767px) {
+  :host {
+    position: relative;
+    bottom: 540px;
+  }
+  .prize-frame {
+    transform: scale(0.8) translateX(-4%); 
+    // left: 40%;
+  }
+  .prize-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 530px;
+    width: 100%;
+    margin: 0 auto;
+  }
   .main__text {
     font-size: 20px;
   }
@@ -73,6 +135,23 @@
       img {
         width: auto;
       }
+    }
+  }
+}
+
+@media (max-width: 412px) {
+  :host {
+    position: relative;
+    bottom: 610px;
+  }
+  .prize-frame {
+    transform: scale(0.5) translateX(-52%); // combine both transforms in one line
+    // left: 40%;
+  }
+  .prize-container {
+    .prize-left,
+    .prize-right {
+      width: calc(80% - 10px);
     }
   }
 }
