@@ -10,11 +10,21 @@
   align-items: center;
 
   &__text {
-    max-width: 550px;
+    // max-width: 550px;
     margin-top: 60px;
     font-size: variables.$font-size-header-m;
     line-height: 125%;
     color: variables.$white;
+    text-shadow: 0px 9px 17.3px rgba(39, 20, 13, 0.94);
+    font-family: CrocoSansBLACKCaps;
+    font-size: 28px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-align: center;
+    color: #fff;
 
     span {
       color: variables.$main-header-color;
@@ -35,11 +45,10 @@
 
     &__text {
       font-size: 38px;
-      font-family:  CrocoSansBlackCAPS;
+      font-family: CrocoSansBlackCAPS;
     }
   }
 }
-
 
 @media (max-width: variables.$mobile) {
   .header {

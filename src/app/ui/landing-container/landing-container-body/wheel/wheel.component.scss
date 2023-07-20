@@ -19,7 +19,7 @@
   );
   .history {
     position: absolute;
-    bottom: 30px;
+    bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
@@ -94,8 +94,8 @@
     margin-top: 30px;
     .info {
       position: absolute;
-      top: -7px;
-      left: 600px;
+      top: -12px;
+      left: 605px;
       cursor: pointer;
     }
   }
@@ -158,13 +158,44 @@
 @media (max-width: 412px) {
   .main {
     transform: scale(0.52);
-    bottom: 370px;
+    bottom: 385px;
   }
   .container {
     &__frame {
       .info {
         left: 635px;
         top: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    transform: scale(0.52);
+    bottom: 405px;
+  }
+  .container {
+    &__frame {
+      .info {
+        left: 635px;
+        top: 20px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 320px) {
+  .main {
+    transform: scale(0.5);
+    bottom: 410px;
+  }
+  .container {
+    &__frame {
+      .info {
+        left: 600px;
+        top: -10px;
       }
     }
   }

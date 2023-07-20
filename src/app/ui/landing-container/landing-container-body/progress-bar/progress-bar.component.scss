@@ -25,16 +25,17 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   height: 120px;
   margin: 0 auto;
   z-index: 1;
-  margin-top: 50px;
+  margin-top: 85px;
   // left: 50%;
   // transform: translateX(-50%);
   .info {
     position: relative;
-    bottom: 10px;
-    left: 10px;
+    bottom: -5px;
+    left: -5px;
     width: 28px;
     height: 28px;
-    transform: scale(1.4);
+    transform: scale(1.2);
+    cursor: pointer;
   }
 
   &__zero {
@@ -260,8 +261,29 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   }
 }
 
+@media (max-width: 360px) {
+  .main__zero {
+    left: 11%;
+  }
+
+  .container {
+    margin-right: 30px !important;
+
+    &__text {
+      padding: 4px 8px;
+    }
+  }
+  .main {
+    transform: scale(0.5) translateX(-75%);
+    position: relative;
+    // top: 10px;
+  }
+}
+
 @media (max-width: 320px) {
   .main {
+    transform: scale(0.45) translateX(-86.6%);
+
     &__texts {
       font-size: variables.$font-size-xs;
     }

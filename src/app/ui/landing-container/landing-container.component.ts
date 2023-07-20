@@ -39,8 +39,8 @@ export class LandingContainerComponent implements OnInit {
   private updateBgImg(): void {
     this.isMobile = window.innerWidth <= 768;
     this.bgImg = this.isMobile
-      ? `${this.filePath}assets/images/bg-mob-${this.lang}.jpg`
-      : `${this.filePath}assets/images/bg-${this.lang}.jpg`;
+      ? `assets/images/bg-mob-${this.lang}.jpg`
+      : `assets/images/bg-${this.lang}.jpg`;
     this.cdr.detectChanges();
   }
 
