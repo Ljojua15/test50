@@ -58,11 +58,10 @@ export class WheelComponent implements OnInit {
   historyPopup = false;
   popupContainerStyles = {
     'background-color': '#1b3a28',
-    'background-image': 'url("../../../../../assets/images/info-popup.webp")',
+    'background-image': 'url("./assets/images/info-popup.webp")',
   };
   historyPopupContainerStyles = {
-    'background-image':
-      'url("../../../../../assets/images/history-popup.webp")',
+    'background-image': 'url("./assets/images/history-popup.webp")',
     width: '600px',
     height: '360px',
   };
@@ -97,47 +96,47 @@ export class WheelComponent implements OnInit {
     this.historyPopup = false;
   }
 
-  // getPrize() {
-  //   return this.campaignService
-  //     .getPrize(this.campaignId)
-  //     .pipe(map((res: any) => res.data))
-  //     .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
-  // }
   getPrize() {
-    this.makeAnimation(8);
+    return this.campaignService
+      .getPrize(this.campaignId)
+      .pipe(map((res: any) => res.data))
+      .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
   }
+  // getPrize() {
+  //   this.makeAnimation(1);
+  // }
   switchPrize(id: number) {
     switch (id) {
       case 1:
-        return 17;
+        return 10;
       case 2:
-        return 13; //
-      case 3:
-        return 3; //
-      case 4:
         return 1; //
-      case 5:
-        return 9; //
-      case 6:
-        return 7; //
-      case 7:
+      case 3:
+        return 6; //
+      case 4:
         return 5; //
+      case 5:
+        return 3; //
+      case 6:
+        return 2; //
+      case 7:
+        return 4; //
       case 8:
-        return 11;
+        return 9;
       case 9:
-        return 19; //
+        return 7; //
       case 10:
-        return 15; //
+        return 8; //
       default:
-        return 19;
+        return 0;
     }
   }
 
   makeAnimation(id: number) {
     this.isDisabled = true;
     const prizeId = this.switchPrize(id);
-    let middleDegree = 20;
-    let additionalDegree = 45;
+    let middleDegree = 0;
+    let additionalDegree = 32.7;
     const beforeAddition = this.wheelDegree;
     this.wheelDegree += 1080 + additionalDegree * prizeId + middleDegree;
 

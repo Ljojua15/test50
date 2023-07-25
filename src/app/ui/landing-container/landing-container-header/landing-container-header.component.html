@@ -1,6 +1,6 @@
-<div class="header">
+<div class="header" [ngStyle]="{'padding-bottom': (isAuthorized | async) ? '0' : ''}">
   <!-- header image -->
-  <img class="header__img" [src]="headerUrl | async" alt="" />
+  <!-- <img class="header__img" [src]="headerUrl | async" alt="" /> -->
 
   <!-- header text (description) -->
   <div class="header__text">

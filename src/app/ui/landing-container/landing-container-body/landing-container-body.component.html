@@ -1,4 +1,4 @@
-<ng-container *ngIf="isAuthorized">
+<ng-container *ngIf="isAuth | async">
   <crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
 </ng-container>
 <crc-progress-bar [progressData]="progressData" [userData]="userData"></crc-progress-bar>

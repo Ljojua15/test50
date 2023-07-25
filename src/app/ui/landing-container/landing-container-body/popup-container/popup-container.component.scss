@@ -5,7 +5,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(13.25%, -50%);
+  transform: translate(17.25%, -50%);
   left: 0;
   right: 0;
   // background-image: url("../../../../../assets/images/info-popup.webp");
@@ -28,5 +28,11 @@
     &__close {
       width: 32px;
     }
+  }
+}
+
+@media (max-width: 375px) {
+  .main {
+    transform: translate(11.25%, -50%);
   }
 }

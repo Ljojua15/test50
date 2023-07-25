@@ -17,7 +17,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
 
 .main {
   position: relative;
-  top: 0;
+  top: -30px;
   width: 691px;
   padding: 2px;
   border-radius: 15px;
@@ -25,7 +25,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   height: 120px;
   margin: 0 auto;
   z-index: 1;
-  margin-top: 85px;
+  margin-top: 35px;
   // left: 50%;
   // transform: translateX(-50%);
   .info {
@@ -194,6 +194,13 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     transform: scale(0.7) translateX(-34%);
   }
 }
+@supports (-webkit-touch-callout: none) {
+  .main {
+    top: -75px;
+    left: 23.5%;
+    transform: scale(0.7) translateX(-34%);
+  }
+}
 
 @media (max-width: 650px) {
   .main__zero {
@@ -276,7 +283,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   .main {
     transform: scale(0.5) translateX(-75%);
     position: relative;
-    // top: 10px;
+    top: -68px;
   }
 }
 

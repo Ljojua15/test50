@@ -145,6 +145,18 @@
     flex-wrap: wrap;
   }
 }
+@media (max-width: 1024px) {
+  .prize-frame {
+    &__title {
+      font-size: 26px;
+      padding-right: 0;
+    }
+    &__desc {
+      padding-top: 0;
+      font-size: 24px;
+    }
+  }
+}
 
 @media (max-width: 767px) {
   :host {
@@ -223,13 +235,13 @@
   }
 }
 
-@media (max-width: 412px) {
+@media (max-width: 479px) {
   :host {
     position: relative;
     bottom: 610px;
   }
   .prize-frame {
-    transform: scale(0.5) translateX(-52%); // combine both transforms in one line
+    transform: scale(0.5) translateX(-52%);
     // left: 40%;
   }
   .prize-container {
@@ -237,6 +249,11 @@
     .prize-right {
       width: calc(80% - 10px);
     }
+  }
+}
+@media (max-width: 375px) {
+  .prize-frame {
+    transform: scale(0.5) translateX(-54.5%);
   }
 }
 

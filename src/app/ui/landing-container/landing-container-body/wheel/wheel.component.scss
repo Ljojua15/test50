@@ -6,7 +6,7 @@
 
 .main {
   position: relative;
-  bottom: 155px;
+  bottom: 185px;
   margin-inline: auto;
   width: 89.7%;
   padding: 4px;
@@ -19,7 +19,7 @@
   );
   .history {
     position: absolute;
-    bottom: 32px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
@@ -94,7 +94,7 @@
     margin-top: 30px;
     .info {
       position: absolute;
-      top: -12px;
+      top: 5px;
       left: 605px;
       cursor: pointer;
     }
@@ -155,25 +155,33 @@
   }
 }
 
-@media (max-width: 412px) {
+@media (max-width: 479px) {
   .main {
     transform: scale(0.52);
-    bottom: 385px;
+    bottom: 404px;
+    .history {
+      bottom: 32px;
+    }
   }
   .container {
     &__frame {
       .info {
         left: 635px;
-        top: 20px;
+        top: 18px;
       }
     }
   }
 }
-
+@media (max-width: 375px) {
+  .main {
+    transform: scale(0.52);
+    bottom: 415px;
+  }
+}
 @media (max-width: 360px) {
   .main {
     transform: scale(0.52);
-    bottom: 405px;
+    bottom: 416px;
   }
   .container {
     &__frame {
@@ -184,12 +192,11 @@
     }
   }
 }
-
 
 @media (max-width: 320px) {
   .main {
     transform: scale(0.5);
-    bottom: 410px;
+    bottom: 430px;
   }
   .container {
     &__frame {

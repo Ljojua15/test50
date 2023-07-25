@@ -34,7 +34,7 @@ export class ProgressBarComponent implements OnChanges {
 
   popupContainerStyles = {
     'background-color': '#1b3a28',
-    'background-image': 'url("../../../../../assets/images/info-popup.webp")',
+    'background-image': 'url("./assets/images/info-popup.webp")',
   };
 
   ngOnChanges(changes: SimpleChanges): void {

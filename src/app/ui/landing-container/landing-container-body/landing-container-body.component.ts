@@ -5,6 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { map } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Levels, ProgressData } from 'src/app/shared/models/progressData';
 import { User } from 'src/app/shared/models/user';
@@ -25,6 +26,7 @@ export class LandingContainerBodyComponent implements OnInit {
       this.clearData();
     }
   }
+  isAuth = this.authService.isAuthorized();
 
   // toggle play button heartbeat animation
   hasAnimation = true;
@@ -33,11 +35,11 @@ export class LandingContainerBodyComponent implements OnInit {
   isDisabled = true;
 
   levels: Levels[] = [
+    { step: 50, points: 1, imageState: 'off' },
     { step: 100, points: 1, imageState: 'off' },
+    { step: 250, points: 1, imageState: 'off' },
     { step: 500, points: 1, imageState: 'off' },
     { step: 1000, points: 1, imageState: 'off' },
-    { step: 5000, points: 1, imageState: 'off' },
-    { step: 10000, points: 1, imageState: 'off' },
   ];
 
   // progress bar levels and progress amount
@@ -52,7 +54,10 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
-  constructor(private campaignService: CampaignService) {}
+  constructor(
+    private campaignService: CampaignService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
