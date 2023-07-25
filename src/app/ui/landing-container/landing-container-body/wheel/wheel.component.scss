@@ -172,6 +172,11 @@
     }
   }
 }
+@supports (-webkit-touch-callout: none) {
+  .main {
+    bottom: 435px;
+  }
+}
 @media (max-width: 375px) {
   .main {
     transform: scale(0.52);
