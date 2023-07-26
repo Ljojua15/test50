@@ -17,7 +17,7 @@ export class PromosComponent {
     this.promos$ =  this.translateService.onLangChange.pipe(
       switchMap((res )=>{
         const lang = LanguageCode[res.lang as keyof typeof LanguageCode]
-        return this.campaignService.getBanners(LanguageCode[res.lang as keyof typeof LanguageCode],'bonus-balance-progress-v2')
+        return this.campaignService.getBanners(lang,'bonus-balance-progress-v2')
       }),
       map((res)=>{
         return res.data
