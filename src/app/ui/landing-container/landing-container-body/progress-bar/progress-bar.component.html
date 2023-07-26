@@ -2,6 +2,10 @@
   <crc-popup-container (closePopup)="closeProgressPopup()" [closeImage]="'assets/images/x.svg'"
     [containerStyles]="popupContainerStyles" [isBackdropClosable]="true" *ngIf="infoProgressPopup">
     <!-- template here -->
+    <div class="pr-text">
+      <p>{{"pr-popup.p1" | translate}}</p>
+      <p> {{"pr-popup.p2" | translate}}</p>
+    </div>
   </crc-popup-container>
   <div class="main__texts">
     <p>

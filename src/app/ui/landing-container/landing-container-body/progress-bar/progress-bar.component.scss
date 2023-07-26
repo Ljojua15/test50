@@ -37,6 +37,18 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     transform: scale(1.2);
     cursor: pointer;
   }
+  .pr-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    font-size: 26px;
+    font-family: CrocoSansCapsRegular;
+    p:nth-child(1) {
+      padding-bottom: 10px;
+    }
+  }
 
   &__zero {
     position: absolute;
@@ -164,7 +176,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     z-index: -1;
     p {
       position: absolute;
-      top: 50%;
+      top: 58%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: variables.$font-size-m;

@@ -27,18 +27,20 @@
   &__desc {
     display: flex;
     position: relative;
-    top: 30px;
+    top: 10px;
+    width: 90%;
     justify-content: center;
     flex-direction: column;
     padding-bottom: 10px;
     padding-top: 25px;
+    padding-left: 23px;
     text-align: center;
     font-family: CrocoSansBLACKCaps;
-    font-size: 26px;
+    font-size: 18px;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
-    line-height: normal;
+    line-height: 1.5rem;
     letter-spacing: 0.52px;
     text-align: center;
     color: #fff;

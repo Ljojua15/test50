@@ -8,7 +8,38 @@
   "current": {
     "promos": "CHECK OUT THE CURRENT PROMOTIONS"
   },
-  "description": "MAKE A 5-LEVEL PROGRESS, SPIN THE PRAGMATIC WHEEL AND GET",
+  "description": {
+    "1": "PLAY PLINKO MAX,",
+    "2": "COMPLETE THE PROGRESS WITH A TOTAL BET,",
+    "3": "SPIN THE WHEEL, AND WIN FREESPINS!"
+  },
+  "under": {
+    "pt1": "YOU HAVE",
+    "pt2": "SPIN"
+  },
+  "prize": {
+    "left": {
+      "egt": "EGT INTERACTIVE",
+      "freespins": "FREESPINS",
+      "description": "The number of freespins will be displayed on your freespins balance, and you can withdraw them before the end of the promotion in slot: Zodiac Wheel-0.15₾"
+    },
+    "right": {
+      "egt": "PLINKO MAX",
+      "freespins": "FREESPINS",
+      "description": "The number of freespins will be displayed on your PLINKO MAX freespins balance"
+    }
+  },
+  "congrats": "CONGRATULATIONS!",
+  "you-win": {
+    "1": "YOU WON",
+    "2": "PLINKO MAX FREESPINS"
+  },
+  "claim-prize": "FREESPINS WILL BE INSTANTLY DISPLAYED ON YOUR PLINKO MAX FREESPINS BALANCE",
+  "you-win-egt": {
+    "1": "YOU WON",
+    "2": "EGT INTERACTIVE FREESPINS"
+  },
+  "claim-prize-egt": "FREESPINS WILL BE INSTANTLY DISPLAYED ON YOUR EGT INTERACTIVE FREESPINS BALANCE",
   "freespins-text": "DURING THE RAFFLE, CLICK ON THE \"GET FREESPINS\" BUTTON AND GET TICKETS CORRESPONDING TO THE NUMBER OF TICKETS YOU HAVE COLLECTED",
   "get-freespins": "GET FREESPINS",
   "hour": "HR",
@@ -22,6 +53,15 @@
     "5": "In the final raffle, you will be credited freespins of 1₾ in 20 DAZZLING HOT;",
     "6": "Tickets collected in sports do not participate in receiving freespins;",
     "7": "*Freespins will be credited to the first 2 000 users who will click on the \"Get freespins\" button."
+  },
+  "pr-popup": {
+    "p1": "You can complete the progress bar with the total bets placed in PLINKO MAX.",
+    "p2": "E.g. If you place a total bet of  500₾ in PLINKO MAX within a day,  it will be displayed on the progress bar as 500₾."
+  },
+  "wh-popup": {
+    "1": "You can spin the wheel up to five times per day.",
+    "2": "If you fail to spin the wheel during the day, your collected points will reset and cannot be carried over to the next day;",
+    "3": "* You can spin the wheel every day, and the daily count starts at 10:00 and ends at 09:59"
   },
   "live-mintkt-popup": {
     "1": "TO GET EGT FREESPINS YOU NEED TO COLLECT",

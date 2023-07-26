@@ -19,7 +19,7 @@
   );
   .history {
     position: absolute;
-    bottom: 22px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
@@ -52,6 +52,48 @@
     justify-content: space-around;
     height: 70px;
     padding-top: 30px;
+  }
+  .wh-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    font-size: 26px;
+    font-family: CrocoSansCapsRegular;
+    p:nth-child(1) {
+      padding-bottom: 10px;
+    }
+    p:nth-child(2) {
+      padding-bottom: 10px;
+    }
+  }
+  .win {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    font-size: 26px;
+    font-family: CrocoSansBLACKCaps;
+    p:nth-child(1) {
+      padding-bottom: 20px;
+      font-size: 46px;
+      font-weight: 900;
+      color: #bcd15b;
+    }
+    p:nth-child(2) {
+      padding-bottom: 20px;
+      font-family: CrocoSansBLACKCaps;
+      font-size: 30px;
+      font-weight: 900;
+      width: 80%;
+      margin: 0 auto;
+    }
+    p:nth-child(3) {
+      font-family: CrocoSansCapsRegular;
+      font-size: 22px;
+    }
   }
 
   .content {
