@@ -6,6 +6,7 @@ import {
 } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -110,13 +111,15 @@ export class WheelComponent implements OnInit {
     private translateService: TranslateService,
     private campaignService: CampaignService,
     private backdropService: BackdropService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
   ) {
     this.translateService.onLangChange.subscribe((lang) => {
       console.log(lang.lang);
     });
     this.authService.isAuthorized().subscribe((res) => {
       this.isLoggedIn = res;
+      this.cdr.detectChanges();
     });
   }
   spinAmount: number = 0;

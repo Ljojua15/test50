@@ -59,8 +59,9 @@
       <img [src]="prizesImage" #prizeElement />
     </div>
     <div class="container__btn">
-      <img *ngIf="isDisabled && isLoggedIn" [src]="buttonImage" (click)="getPrize()" />
-      <img *ngIf="!isDisabled && isLoggedIn" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+      <img *ngIf="!isDisabled && isLoggedIn && available != 0" [src]="buttonImage" (click)="getPrize()" />
+      <img *ngIf="isDisabled || !isLoggedIn || available == 0" [src]="buttonDisabledImage"
+        [class.disabled]="isDisabled" />
     </div>
   </div>
   <button class="history" (click)="openHistory()">ისტორია</button>
