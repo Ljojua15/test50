@@ -98,3 +98,12 @@ $heartbeat-animation: heartbeat 1.5s ease-in-out infinite both;
     transform: scale(1);
   }
 }
+
+
+@mixin dFlex($jc: center, $ai: center, $fd: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+

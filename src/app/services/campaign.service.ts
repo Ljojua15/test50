@@ -61,4 +61,10 @@ export class CampaignService {
       }
     );
   }
+
+  getBanners(lang : string,campaignId : string): Observable<any> {
+    return this.http.get<any>(
+      `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
+    );
+  }
 }
