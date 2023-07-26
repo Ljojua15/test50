@@ -97,7 +97,8 @@
   }
 
   .content {
-    max-height: 268px;
+    margin-top: 50px;
+    max-height: 278px;
     overflow-y: auto;
     margin-right: 8px;
 
@@ -120,7 +121,7 @@
     .history-popup__item {
       background-color: #0c1731;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       padding: 15px 50px;
       margin: 10px auto;
       width: 90%;

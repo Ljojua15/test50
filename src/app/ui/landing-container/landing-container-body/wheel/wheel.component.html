@@ -13,14 +13,15 @@
     <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'"
       [containerStyles]="historyPopupContainerStyles" [isBackdropClosable]="true" *ngIf="historyPopup">
       <!-- template here -->
-      <div class="history-popup">
-        <p>თარიღი</p>
-        <p>პრიზი</p>
-      </div>
+
       <div class="content">
-        <div class="history-popup__item" *ngFor="let item of mockData">
-          <span>{{item.k}} </span>
-          <span>{{item.v}}</span>
+        <div class="history-popup__item">
+          <span>თარიღი</span>
+          <span>პრიზი</span>
+        </div>
+        <div class="history-popup__item" *ngFor="let h of history">
+          <span>{{h.createdAt}} </span>
+          <span>{{h.prize}}</span>
         </div>
       </div>
 
