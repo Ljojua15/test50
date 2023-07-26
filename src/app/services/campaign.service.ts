@@ -6,6 +6,7 @@ import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 import { Rule } from '../shared/models/rule';
 import { Prize } from '../shared/models/prize';
+import { Promo } from "../shared/models/promo";
 
 @Injectable({
   providedIn: 'root',
@@ -59,6 +60,12 @@ export class CampaignService {
       {
         exchangeId,
       }
+    );
+  }
+
+  getBanners(lang : string,campaignId : string): Observable<{data : Promo[]}> {
+    return this.http.get<{data : Promo[]}>(
+      `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
     );
   }
 }
