@@ -6,7 +6,7 @@ import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 import { Rule } from '../shared/models/rule';
 import { Prize } from '../shared/models/prize';
-import {Promo} from "../shared/models/promo";
+import { Promo } from "../shared/models/promo";
 
 @Injectable({
   providedIn: 'root',
