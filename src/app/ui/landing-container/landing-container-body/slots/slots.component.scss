@@ -1,3 +1,7 @@
+:host {
+  position: relative;
+  bottom: 155px;
+}
 .prize-frame {
   display: flex;
   justify-content: center;
@@ -36,7 +40,7 @@
     padding-left: 23px;
     text-align: center;
     font-family: CrocoSansBLACKCaps;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
@@ -78,7 +82,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
+  width: 815px;
   height: 301px;
   margin: 0 auto;
 
@@ -150,12 +154,12 @@
 @media (max-width: 1024px) {
   .prize-frame {
     &__title {
-      font-size: 26px;
+      font-size: 28px;
       padding-right: 0;
     }
     &__desc {
-      padding-top: 0;
-      font-size: 24px;
+      // padding-top: 0;
+      // font-size: 24px;
     }
   }
 }
@@ -187,6 +191,8 @@
       display: flex;
       position: relative;
       top: 0;
+      right: 12px;
+      width: 101%;
       justify-content: center;
       flex-direction: column;
       padding-bottom: 10px;
@@ -198,18 +204,19 @@
       font-stretch: normal;
       font-style: normal;
       line-height: normal;
-      letter-spacing: 0.52px;
-      line-height: 1.1rem;
+      line-height: 1rem;
       text-align: center;
       color: #fff;
     }
   }
   .prize-container {
+    position: relative;
+    bottom: 20px;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    height: 530px;
+    height: 470px;
     width: 100%;
     margin: 0 auto;
   }
@@ -240,11 +247,18 @@
 @media (max-width: 479px) {
   :host {
     position: relative;
-    bottom: 610px;
+    bottom: 670px;
   }
   .prize-frame {
     transform: scale(0.5) translateX(-52%);
+    margin-bottom: 0;
     // left: 40%;
+    &__title {
+      font-size: 18px;
+    }
+    &__desc {
+      font-size: 12px;
+    }
   }
   .prize-container {
     .prize-left,
@@ -262,7 +276,7 @@
 @media (max-width: 360px) {
   :host {
     position: relative;
-    bottom: 610px;
+    bottom: 675px;
   }
   .prize-frame {
     transform: scale(0.45) translateX(-62%);
@@ -305,7 +319,7 @@
       padding-top: 10px;
       text-align: center;
       font-family: CrocoSansBLACKCaps;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
       font-stretch: normal;
       font-style: normal;

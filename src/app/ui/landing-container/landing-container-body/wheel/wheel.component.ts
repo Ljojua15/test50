@@ -23,6 +23,7 @@ import { CampaignService } from 'src/app/services/campaign.service';
 import { Prize } from 'src/app/shared/models/prize';
 import { environment } from 'src/environments/environment';
 import { checkDate } from './entities';
+import { PopupService } from './popup.service';
 
 export enum PrizeType {
   PLINKO = 'PLINKO_MAX_WHEEL',
@@ -56,7 +57,7 @@ export class WheelComponent implements OnInit {
   arrowImage = `${this.imagePath}/wheel-arrow.webp`;
   frameImage = `${this.imagePath}/wheel-frame.webp`;
   buttonImage = `${this.imagePath}/wheel-btn-active.webp`;
-  buttonDisabledImage = `${this.imagePath}/wheel-btn-active.webp`;
+  buttonDisabledImage = `${this.imagePath}/wheel-btn-inactive.webp`;
   // prizesImage = this.translateService.onLangChange.pipe(
   //   map((lang) => `${this.imagePath}/wheel-prizes-${lang.lang}.webp`)
   // );
@@ -83,11 +84,20 @@ export class WheelComponent implements OnInit {
   popupContainerStyles = {
     'background-color': '#1b3a28',
     'background-image': 'url("./assets/images/info-popup.webp")',
+    transform: 'translate(17.25%, -154%)',
+  };
+  infoPop = {
+    'background-color': '#1b3a28',
+    'background-image': 'url("./assets/images/info-pop.webp")',
+    transform: 'translate(17.77%, -45%)',
+    width: '560px',
+    height: '320px',
   };
   historyPopupContainerStyles = {
     'background-image': 'url("./assets/images/history-popup.webp")',
     width: '600px',
     height: '360px',
+    transform: 'translate(13.25%, -50%)',
   };
 
   disableSpin = false;
@@ -100,10 +110,14 @@ export class WheelComponent implements OnInit {
   backdrop$: Observable<boolean> | null = null;
   openInfo() {
     this.infoPopup = true;
+    this.historyPopup = false;
+    this.popupService.sendUpdate(false);
   }
   openHistory() {
     if (this.isLoggedIn) {
       this.historyPopup = true;
+      this.infoPopup = false;
+      this.popupService.sendUpdate(false);
     }
   }
   constructor(
@@ -112,7 +126,8 @@ export class WheelComponent implements OnInit {
     private campaignService: CampaignService,
     private backdropService: BackdropService,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private popupService: PopupService
   ) {
     this.translateService.onLangChange.subscribe((lang) => {
       console.log(lang.lang);
@@ -125,6 +140,13 @@ export class WheelComponent implements OnInit {
   spinAmount: number = 0;
   ngOnInit(): void {
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
+    this.popupService.getUpdate().subscribe((res) => {
+      if (res) {
+        this.infoPopup = !res;
+        this.historyPopup = !res;
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   closePopup() {

@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
     <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'"
-      [containerStyles]="popupContainerStyles" [isBackdropClosable]="true" *ngIf="infoPopup">
+      [containerStyles]="infoPop" [isBackdropClosable]="true" *ngIf="infoPopup">
       <!-- template here -->
       <div class="wh-text">
         <p>{{"wh-popup.1" | translate}}</p>
@@ -16,8 +16,8 @@
 
       <div class="content">
         <div class="history-popup__item">
-          <span>თარიღი</span>
-          <span>პრიზი</span>
+          <span>{{"pop-date" | translate}}</span>
+          <span>{{"pop-prize" | translate}}</span>
         </div>
         <div class="history-popup__item" *ngFor="let h of history">
           <span>{{h.createdAt}} </span>
@@ -64,5 +64,5 @@
         [class.disabled]="isDisabled" />
     </div>
   </div>
-  <button class="history" (click)="openHistory()">ისტორია</button>
+  <button class="history" (click)="openHistory()">{{ "history" | translate}}</button>
 </div>

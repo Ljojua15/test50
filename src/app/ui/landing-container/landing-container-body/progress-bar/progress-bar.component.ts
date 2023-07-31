@@ -1,11 +1,15 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { ProgressData } from 'src/app/shared/models/progressData';
+import { PopupService } from '../wheel/popup.service';
+// import { WheelComponent } from '../wheel/wheel.component';
 
 @Component({
   selector: 'crc-progress-bar',
@@ -13,7 +17,7 @@ import { ProgressData } from 'src/app/shared/models/progressData';
   styleUrls: ['./progress-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProgressBarComponent implements OnChanges {
+export class ProgressBarComponent implements OnInit, OnChanges {
   @Input() progressData: ProgressData = {
     levels: [],
     amount: 0,
@@ -30,18 +34,30 @@ export class ProgressBarComponent implements OnChanges {
   // current fraction width
   extraWidth = 0;
 
-  constructor() {}
-
   popupContainerStyles = {
-    'background-color': '#1b3a28',
-    'background-image': 'url("./assets/images/info-popup.webp")',
+    // 'background-color': '#1b3a28',
+    'background-image': 'url("./assets/images/info-popup-pr.webp")',
+    transform: 'translate(11.55%, -4%)',
+    height: '240px',
   };
+  isPopupOpen = false;
 
+  constructor(
+    private popupService: PopupService,
+    private cdr: ChangeDetectorRef
+  ) {}
+  ngOnInit(): void {
+    this.popupService.getUpdate().subscribe((res) => {
+      this.infoProgressPopup = res;
+      this.cdr.detectChanges();
+    });
+  }
   ngOnChanges(changes: SimpleChanges): void {
     this.getCurrentIndex();
   }
   openProgressInfo() {
     this.infoProgressPopup = true;
+    this.popupService.sendUpdate(true);
   }
   closeProgressPopup() {
     this.infoProgressPopup = false;
