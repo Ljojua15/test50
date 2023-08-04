@@ -37,7 +37,7 @@ export class ProgressBarComponent implements OnInit, OnChanges {
   popupContainerStyles = {
     // 'background-color': '#1b3a28',
     'background-image': 'url("./assets/images/info-popup-pr.webp")',
-    transform: 'translate(11.55%, -4%)',
+    transform: 'translate(12.55%, -4%)',
     height: '240px',
   };
   isPopupOpen = false;

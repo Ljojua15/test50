@@ -36,11 +36,11 @@
     justify-content: center;
     flex-direction: column;
     padding-bottom: 10px;
-    padding-top: 25px;
+    padding-top: 30px;
     padding-left: 23px;
     text-align: center;
-    font-family: CrocoSansBLACKCaps;
-    font-size: 16px;
+    font-family: CrocoSansBlackCAPS;
+    font-size: 22px;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
@@ -257,7 +257,7 @@
       font-size: 18px;
     }
     &__desc {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
   .prize-container {
@@ -281,6 +281,9 @@
   .prize-frame {
     transform: scale(0.45) translateX(-62%);
     // left: 40%;
+    &__desc {
+      top: -10px;
+    }
   }
   .prize-container {
     .prize-left,

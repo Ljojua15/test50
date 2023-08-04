@@ -40,10 +40,10 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   .pr-text {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 49%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    font-size: 22px;
+    width: 86%;
+    font-size: 21px;
     font-family: CrocoSansCapsRegular;
     p:nth-child(1) {
       padding-bottom: 10px;
@@ -166,12 +166,13 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   }
   .under-main {
     position: relative;
-    bottom: 8px;
+    bottom: 0;
     width: 440px;
-    height: 58px;
+    height: 48px;
     margin: 0 auto;
-    border-radius: 15px;
-    border: 2px solid linear-gradient(to top, #6252bd, #b998fc);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: 2px solid linear-gradient(to top, #6252bd, #b998fc);
     background-image: linear-gradient(to top, #1c317c, #6453bf);
     z-index: 0;
     p {
@@ -267,6 +268,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   .main {
     transform: scale(0.5) translateX(-73%);
     position: relative;
+    z-index: 1;
     // top: 10px;
     .info {
       z-index: 1;
