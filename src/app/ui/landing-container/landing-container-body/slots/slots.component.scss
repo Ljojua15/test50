@@ -298,13 +298,29 @@
     }
   }
 }
-@media (max-width: 468px) {
+@media (max-width: 465px) {
   .prize-parent {
     transform: scale(0.65);
     position: relative;
     right: 43.8%;
     bottom: 185px;
     margin-left: 12px;
+  }
+}
+@media (max-width: 414px) {
+  .prize-parent {
+    transform: scale(0.65);
+    position: relative;
+    right: 54.8%;
+    bottom: 185px;
+    margin-left: 12px;
+  }
+}
+@media (max-width: 395px) {
+  .prize-parent {
+    transform: scale(0.65);
+    position: relative;
+    right: 60%;
   }
 }
 @media (max-width: 390px) {
@@ -361,6 +377,9 @@
 
 @media (max-width: 320px) {
   prize-parent {
+    transform: scale(0.5);
+    position: relative;
+    right: 80.5%;
     .prize-frame {
       transform: scale(0.45) translateX(-68%);
 

@@ -36,7 +36,8 @@ export enum PrizeType {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WheelComponent implements OnInit {
-  readonly redirectUrlPlinko = 'https://crocobet.com/#/ufo/Plinko';
+  readonly redirectUrlPlinko =
+    'https://crocobet.com/#/mini-games/plinko?game=PLINKO';
   readonly redirectUrlEGT =
     'https://crocobet.com/#/slots/play?slot=Zodiac%20Wheel&provider=egt&filter=egt';
   @ViewChild('prizeElement') prizeElement!: ElementRef;

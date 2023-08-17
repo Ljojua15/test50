@@ -34,3 +34,15 @@
     height: 1190px;
   }
 }
+
+@media (max-width: variables.$tablet) {
+  :host {
+    position: relative;
+    top: 4;
+  }
+}
+@media (max-width: 393px) {
+  :host {
+    top: 0;
+  }
+}
