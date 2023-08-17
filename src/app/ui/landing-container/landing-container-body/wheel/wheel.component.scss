@@ -19,7 +19,7 @@
   );
   .history {
     position: absolute;
-    bottom: 15px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
@@ -126,6 +126,12 @@
       margin: 10px auto;
       width: 90%;
       border-radius: 8px;
+      span:nth-child(1) {
+        width: 150px;
+      }
+      span:nth-child(2) {
+        width: 300px;
+      }
     }
   }
 
@@ -137,7 +143,7 @@
     margin-top: 30px;
     .info {
       position: absolute;
-      top: 5px;
+      top: 20px;
       left: 605px;
       cursor: pointer;
     }
@@ -223,13 +229,13 @@
 @media (max-width: 375px) {
   .main {
     transform: scale(0.52);
-    bottom: 415px;
+    bottom: 427px;
   }
 }
 @media (max-width: 360px) {
   .main {
-    transform: scale(0.52);
-    bottom: 416px;
+    transform: scale(0.51);
+    bottom: 425px;
   }
   .container {
     &__frame {

@@ -18,7 +18,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
 .main {
   position: relative;
   top: -30px;
-  width: 691px;
+  width: 710px;
   padding: 2px;
   border-radius: 15px;
   background-image: $main-bg;
@@ -29,11 +29,10 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   // transform: translateX(-50%);
   .info {
     position: relative;
-    bottom: -5px;
-    left: -5px;
+    bottom: -2px;
+    left: -2px;
     width: 28px;
     height: 28px;
-    transform: scale(1.2);
     cursor: pointer;
     z-index: 1;
   }
@@ -71,26 +70,24 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     font-size: variables.$font-size-m;
     .coin-icon {
       position: relative;
-      left: 8px;
-      bottom: -5px;
-      transform: scale(1.4);
+      left: 9px;
+      bottom: -6px;
     }
     .spin-icon {
       position: relative;
-      left: 8px;
-      bottom: 7px;
-      transform: scale(1.4);
+      left: 9px;
+      bottom: 4px;
     }
     .bet {
       position: relative;
-      left: 30px;
-      font-size: 18px;
+      left: 20px;
+      font-size: 16px;
     }
     .spin {
       position: relative;
-      left: 25px;
-      bottom: 13px;
-      font-size: 18px;
+      left: 12px;
+      bottom: 9px;
+      font-size: 16px;
     }
   }
 
@@ -107,9 +104,12 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 85%;
     height: 100%;
     margin-right: 50px;
+    position: relative;
+    left: 32px;
+    z-index: 0;
 
     &__breaks {
       position: absolute;
@@ -122,10 +122,22 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     }
 
     &__levels {
-      background-color: $progress-color;
+      background-color: #152340;
       text-align: end;
       font-size: variables.$font-size-l;
       position: relative;
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        p {
+          left: 90px;
+        }
+      }
 
       p,
       img {
@@ -134,10 +146,12 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
         transform: translateX(-50%);
       }
       p {
-        bottom: 30px;
+        bottom: 27px;
+        left: 115px;
+        font-size: 20px;
       }
       img {
-        top: 30px;
+        top: 28px;
       }
     }
 
@@ -156,12 +170,14 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
       right: 0px;
       font-size: variables.$font-size-l;
       transform: translateX(50%);
+      z-index: 1;
     }
 
     &__text {
       padding: 5px 10px;
       border-radius: 13px;
       background-color: $progress-color;
+      color: #152340;
     }
   }
   .under-main {
@@ -202,7 +218,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
 
 @media (max-width: 768px) {
   .main {
-    top: -55px;
+    top: -68px;
     left: 23.5%;
     transform: scale(0.7) translateX(-34%);
   }
@@ -238,6 +254,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
 
         p {
           bottom: 27px;
+          font-size: 20px;
         }
 
         img {
@@ -254,6 +271,10 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
 }
 
 @media (max-width: 479px) {
+  :host {
+    position: relative;
+    right: 8px;
+  }
   .main__zero {
     left: 11%;
   }
@@ -266,7 +287,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     }
   }
   .main {
-    transform: scale(0.5) translateX(-73%);
+    transform: scale(0.5) translateX(-71.5%);
     position: relative;
     z-index: 1;
     // top: 10px;

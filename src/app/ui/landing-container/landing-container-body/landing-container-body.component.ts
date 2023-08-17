@@ -1,10 +1,11 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnInit,
 } from '@angular/core';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Levels, ProgressData } from 'src/app/shared/models/progressData';
@@ -22,17 +23,19 @@ export class LandingContainerBodyComponent implements OnInit {
   @Input() set isAuthorized(value: boolean) {
     if (value || environment.testToken) {
       this.getData();
+      this.getHistory();
     } else {
       this.clearData();
     }
   }
+  @Input() history: any[] = [];
   isAuth = this.authService.isAuthorized();
 
   // toggle play button heartbeat animation
   hasAnimation = true;
 
   // disable wheel button
-  isDisabled = true;
+  isDisabled = false;
 
   levels: Levels[] = [
     { step: 50, points: 1, imageState: 'off' },
@@ -54,17 +57,27 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
+  available = 0;
+
   constructor(
     private campaignService: CampaignService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // setTimeout(() => {
+    //   this.cdr.detectChanges();
+    // }, 500);
+  }
 
   getData() {
     return this.campaignService
-      .getUserData('ufo-double-wheel-190822')
-      .pipe(map((res) => res.data))
+      .getUserData('plinko-wheel-040823')
+      .pipe(
+        map((res) => res.data),
+        tap(console.log)
+      )
       .subscribe((res: User) => {
         this.progressData.amount = Math.floor(
           Math.min(res.state.progress, this.levels[this.levels.length - 1].step)
@@ -75,6 +88,9 @@ export class LandingContainerBodyComponent implements OnInit {
           used: res.state.used,
           amount: res.state.progress, // ???
         };
+        this.available = res.state.available;
+        console.log('available', this.available);
+        this.cdr.detectChanges();
       });
   }
 
@@ -93,9 +109,9 @@ export class LandingContainerBodyComponent implements OnInit {
     };
   }
 
-  // getHistory() {
-  //   return this.campaignService
-  //     .getHistory('ufo-double-wheel-190822')
-  //     .subscribe((res) => console.log(res));
-  // }
+  getHistory() {
+    return this.campaignService
+      .getHistory('plinko-wheel-040823')
+      .subscribe((res) => (this.history = Object.entries(res)));
+  }
 }

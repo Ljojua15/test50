@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
-    <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'"
-      [containerStyles]="infoPop" [isBackdropClosable]="true" *ngIf="infoPopup">
+    <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'" [containerStyles]="infoPop"
+      [isBackdropClosable]="true" *ngIf="infoPopup">
       <!-- template here -->
       <div class="wh-text">
         <p>{{"wh-popup.1" | translate}}</p>
@@ -19,9 +19,9 @@
           <span>{{"pop-date" | translate}}</span>
           <span>{{"pop-prize" | translate}}</span>
         </div>
-        <div class="history-popup__item" *ngFor="let h of history">
-          <span>{{h.createdAt}} </span>
-          <span>{{h.prize}}</span>
+        <div class="history-popup__item" *ngFor="let h of history[0][1]">
+          <span>{{h.createdAt | date: 'dd.MM'}} </span>
+          <span>{{h.prize.name.replace('-', ' ').replace('-', ' ').toUpperCase()}} {{"freespin" | translate}}</span>
         </div>
       </div>
 
@@ -32,18 +32,18 @@
       <ng-container *ngIf="plinko else egt">
         <div class="win">
           <p>{{"congrats"| translate}}</p>
-          <p><span>{{"you-win.1"| translate}}</span> {{spinAmount}} <span>{{"you-win.2"| translate}}</span></p>
+          <p><span>{{"you-win.1"| translate}}</span> {{spinAmount / 100}} <span>{{"you-win.2"| translate}}</span></p>
           <p>{{"claim-prize"| translate}}</p>
-          <crc-play-button></crc-play-button>
+          <crc-play-button [redirectUrl]="redirectUrlPlinko"></crc-play-button>
         </div>
       </ng-container>
 
       <ng-template #egt>
         <div class="win">
           <p>{{"congrats"| translate}}</p>
-          <p>{{"you-win-egt"| translate}}</p>
+          <p><span>{{"you-win-egt.1"| translate}}</span> {{spinAmount}} <span>{{"you-win-egt.2"| translate}}</span></p>
           <p>{{"claim-prize-egt"| translate}}</p>
-          <crc-play-button></crc-play-button>
+          <crc-play-button [redirectUrl]="redirectUrlEGT"></crc-play-button>
         </div>
       </ng-template>
 
@@ -59,9 +59,10 @@
       <img [src]="prizesImage" #prizeElement />
     </div>
     <div class="container__btn">
-      <img *ngIf="!isDisabled && isLoggedIn && available != 0" [src]="buttonImage" (click)="getPrize()" />
-      <img *ngIf="isDisabled || !isLoggedIn || available == 0" [src]="buttonDisabledImage"
-        [class.disabled]="isDisabled" />
+      <img *ngIf="!isDisabled && isLoggedIn && available != 0 && !(isButtonDisabled$ | async)" [src]="buttonImage"
+        (click)="getPrize()" />
+      <img *ngIf="isDisabled || !isLoggedIn || available == 0 || (isButtonDisabled$ | async)"
+        [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
     </div>
   </div>
   <button class="history" (click)="openHistory()">{{ "history" | translate}}</button>

@@ -1,6 +1,6 @@
 <ng-container *ngIf="isAuth | async">
   <crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
 </ng-container>
-<crc-progress-bar [progressData]="progressData" [userData]="userData"></crc-progress-bar>
-<crc-wheel [isDisabled]="isDisabled"></crc-wheel>
+<crc-progress-bar [progressData]="progressData" [userData]="userData" [available]="available"></crc-progress-bar>
+<crc-wheel [isDisabled]="isDisabled" [available]="available" [history]="history"></crc-wheel>
 <crc-slots></crc-slots>

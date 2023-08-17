@@ -16,7 +16,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { BackdropService } from 'src/app/services/backdrop.service';
 import { CampaignService } from 'src/app/services/campaign.service';
@@ -36,6 +36,9 @@ export enum PrizeType {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WheelComponent implements OnInit {
+  readonly redirectUrlPlinko = 'https://crocobet.com/#/ufo/Plinko';
+  readonly redirectUrlEGT =
+    'https://crocobet.com/#/slots/play?slot=Zodiac%20Wheel&provider=egt&filter=egt';
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() available = 0;
   @Output() availableChange = new EventEmitter<boolean>();
@@ -48,7 +51,8 @@ export class WheelComponent implements OnInit {
       this.getHistory();
     }
   }
-  history: any = [];
+  @Input() history: any = [];
+  isButtonDisabled$ = new BehaviorSubject<boolean>(false);
 
   filePath = environment.filePath;
   imagePath = `./../../../../${this.filePath}assets/images`;
@@ -64,7 +68,7 @@ export class WheelComponent implements OnInit {
   prizesImage = `${this.imagePath}/wheel-prizes-en.webp`;
 
   // campaign id for get prize
-  campaignId = '';
+  campaignId = 'plinko-wheel-040823';
   mockData = [
     { k: 'ეგტ', v: 'asd' },
     { k: 'ეგტ', v: 'asd' },
@@ -84,7 +88,7 @@ export class WheelComponent implements OnInit {
   popupContainerStyles = {
     'background-color': '#1b3a28',
     'background-image': 'url("./assets/images/info-popup.webp")',
-    transform: 'translate(17.25%, -154%)',
+    transform: 'translate(17.25%, -31%)',
   };
   infoPop = {
     'background-color': '#1b3a28',
@@ -119,6 +123,7 @@ export class WheelComponent implements OnInit {
       this.infoPopup = false;
       this.popupService.sendUpdate(false);
     }
+    console.log(this.history);
   }
   constructor(
     private builder: AnimationBuilder,
@@ -147,12 +152,14 @@ export class WheelComponent implements OnInit {
         this.cdr.detectChanges();
       }
     });
+    this.isButtonDisabled$.next(false);
   }
 
   closePopup() {
     this.infoPopup = false;
     this.historyPopup = false;
     this.winPopup = false;
+    this.cdr.detectChanges();
   }
 
   // getPrize() {
@@ -167,9 +174,18 @@ export class WheelComponent implements OnInit {
       .getPrize(this.campaignId)
       .pipe(map((res: any) => res.data))
       .subscribe((res: Prize) => {
+        this.isButtonDisabled$.next(true);
         this.spinAmount = res.prize.amount;
         this.prizeType = res.prize.type;
+        if (this.prizeType === 'PLINKO_FREESPIN') {
+          this.plinko = true;
+        }
+        if (this.prizeType === 'EGT_FREESPIN') {
+          this.plinko = false;
+        }
         this.makeAnimation(res.prizeId);
+        
+        this.cdr.detectChanges();
       });
   }
   // getPrize() {
@@ -189,37 +205,39 @@ export class WheelComponent implements OnInit {
         }
       });
     });
+    console.log(this.history);
   }
 
   switchPrize(id: number) {
     switch (id) {
       case 1:
-        return 10;
+        return 5;
       case 2:
-        return 1; //
-      case 3:
-        return 6; //
-      case 4:
-        return 5; //
-      case 5:
         return 3; //
-      case 6:
-        return 2; //
-      case 7:
-        return 4; //
-      case 8:
-        return 9;
-      case 9:
+      case 3:
+        return 9; //
+      case 4:
         return 7; //
-      case 10:
+      case 5:
+        return 0; //
+      case 6:
+        return 10; //
+      case 7:
+        return 1; //
+      case 8:
+        return 6;
+      case 9:
         return 8; //
+      case 10:
+        return 2; //
       default:
-        return 0;
+        return 4;
     }
   }
 
   makeAnimation(id: number) {
     this.isDisabled = true;
+    this.isButtonDisabled$.next(true);
     const prizeId = this.switchPrize(id);
     let middleDegree = 0;
     let additionalDegree = 32.7;
@@ -250,6 +268,8 @@ export class WheelComponent implements OnInit {
       this.winPopup = true;
       this.getHistory();
       this.availableChange.emit(true);
+      this.isButtonDisabled$.next(false);
+      this.cdr.detectChanges();
     });
   }
 }

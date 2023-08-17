@@ -30,7 +30,7 @@
             i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
           ">
           <div class="container__slider" *ngIf="i === currentIndex">
-            <span class="container__text">{{ progressData.amount }}</span>
+            <span class="container__text">{{ progressData.amount }}₾</span>
           </div>
         </div>
         <img class="container__image" src="./assets/images/spin-{{
@@ -41,6 +41,6 @@
     <img class="info" src="./assets/images/info.webp" (click)="openProgressInfo()" alt="info">
   </div>
   <div class="under-main">
-    <p> {{"under.pt1" | translate}} {{progressData.amount}} {{"under.pt2" | translate}}</p>
+    <p> {{"under.pt1" | translate}} {{ available }} {{"under.pt2" | translate}}</p>
   </div>
 </div>
