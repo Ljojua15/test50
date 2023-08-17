@@ -4,5 +4,5 @@ export const environment = {
   production: true,
   cmsApi: 'https://cms.crocobet.com',
   testToken: '',
-  filePath: 'plinko-max-test/',
+  filePath: 'plinko-wheel/',
 };
