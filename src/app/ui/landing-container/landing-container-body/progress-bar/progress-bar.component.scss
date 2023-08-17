@@ -261,8 +261,8 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
           top: 27px;
           width: 20px;
         }
-        &:last-child{
-          img{
+        &:last-child {
+          img {
             left: 112px;
           }
         }
@@ -293,6 +293,33 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
   }
   .main {
     transform: scale(0.5) translateX(-71.5%);
+    position: relative;
+    z-index: 1;
+    // top: 10px;
+    .info {
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 465px) {
+  :host {
+    position: relative;
+    right: 8px;
+  }
+  .main__zero {
+    left: 11%;
+  }
+
+  .container {
+    margin-right: 30px !important;
+
+    &__text {
+      padding: 4px 8px;
+    }
+  }
+  .main {
+    transform: scale(0.5) translateX(-67%);
     position: relative;
     z-index: 1;
     // top: 10px;
