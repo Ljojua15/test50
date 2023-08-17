@@ -59,10 +59,10 @@
       <img [src]="prizesImage" #prizeElement />
     </div>
     <div class="container__btn">
-      <img *ngIf="!isDisabled && isLoggedIn && available != 0 && !(isButtonDisabled$ | async)" [src]="buttonImage"
+      <img *ngIf="isLoggedIn && available != 0 && !(isButtonDisabled$ | async)" [src]="buttonImage"
         (click)="getPrize()" />
-      <img *ngIf="isDisabled || !isLoggedIn || available == 0 || (isButtonDisabled$ | async)"
-        [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+      <img *ngIf="!isLoggedIn || available == 0 || (isButtonDisabled$ | async)" [src]="buttonDisabledImage"
+        [class.disabled]="isDisabled" />
     </div>
   </div>
   <button class="history" (click)="openHistory()">{{ "history" | translate}}</button>

@@ -179,7 +179,7 @@
   }
   .prize-parent {
     .prize-frame {
-      transform: scale(0.8) translateX(-4%);
+      transform: scale(0.8) translateX(-7.2%);
       // left: 40%;
       &__title {
         display: flex;
@@ -304,6 +304,7 @@
     position: relative;
     right: 54.8%;
     bottom: 185px;
+    margin-left: 12px;
   }
 }
 @media (max-width: 390px) {

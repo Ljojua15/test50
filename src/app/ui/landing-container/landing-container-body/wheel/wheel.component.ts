@@ -42,6 +42,7 @@ export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() available = 0;
   @Output() availableChange = new EventEmitter<boolean>();
+  @Output() animationDone = new EventEmitter<void>();
   @Input() isDisabled = false;
   @Input() set isAuthorized(value: boolean) {
     if (!value) {
@@ -184,12 +185,15 @@ export class WheelComponent implements OnInit {
           this.plinko = false;
         }
         this.makeAnimation(res.prizeId);
-        
+
         this.cdr.detectChanges();
       });
   }
   // getPrize() {
   //   this.makeAnimation(1);
+  //   // this.isButtonDisabled$.next(true);
+  //   this.available -= 1;
+  //   this.cdr.detectChanges();
   // }
 
   getHistory() {
@@ -269,6 +273,7 @@ export class WheelComponent implements OnInit {
       this.getHistory();
       this.availableChange.emit(true);
       this.isButtonDisabled$.next(false);
+      this.animationDone.emit();
       this.cdr.detectChanges();
     });
   }

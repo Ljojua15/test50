@@ -108,7 +108,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     height: 100%;
     margin-right: 50px;
     position: relative;
-    left: 32px;
+    left: 20px;
     z-index: 0;
 
     &__breaks {
@@ -261,6 +261,11 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
           top: 27px;
           width: 20px;
         }
+        &:last-child{
+          img{
+            left: 112px;
+          }
+        }
       }
 
       &__text {
@@ -302,7 +307,7 @@ $container-bg: linear-gradient(0deg, #203482, #6456bd);
     left: 16%;
   }
   .container {
-    width: 67% !important;
+    // width: 67% !important;
   }
 }
 

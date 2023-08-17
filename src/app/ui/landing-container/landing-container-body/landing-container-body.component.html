@@ -2,5 +2,6 @@
   <crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
 </ng-container>
 <crc-progress-bar [progressData]="progressData" [userData]="userData" [available]="available"></crc-progress-bar>
-<crc-wheel [isDisabled]="isDisabled" [available]="available" [history]="history"></crc-wheel>
+<crc-wheel [isDisabled]="isDisabled" (animationDone)="getData()" [available]="available"
+  [history]="history"></crc-wheel>
 <crc-slots></crc-slots>
