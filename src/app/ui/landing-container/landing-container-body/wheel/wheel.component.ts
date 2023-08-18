@@ -186,7 +186,7 @@ export class WheelComponent implements OnInit {
           this.plinko = false;
         }
         this.makeAnimation(res.prizeId);
-
+        this.getHistory();
         this.cdr.detectChanges();
       });
   }

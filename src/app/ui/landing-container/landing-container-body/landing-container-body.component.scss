@@ -38,7 +38,10 @@
 @media (max-width: variables.$tablet) {
   :host {
     position: relative;
-    top: 4;
+    @supports (-webkit-touch-callout: none) {
+      position: relative;
+      top: 25px;
+    }
   }
 }
 @media (max-width: 393px) {

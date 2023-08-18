@@ -90,6 +90,7 @@ export class LandingContainerBodyComponent implements OnInit {
         };
         this.available = res.state.available;
         console.log('available', this.available);
+        this.getHistory();
         this.cdr.detectChanges();
       });
   }
