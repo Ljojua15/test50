@@ -55,6 +55,8 @@ export class ProgressBarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.popupService.getUpdate().subscribe((res) => {
       this.infoProgressPopup = res;
+      console.log('res', res);
+      this.cdr.detectChanges();
       this.reloadProgress();
     });
   }

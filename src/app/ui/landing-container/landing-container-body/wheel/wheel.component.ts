@@ -118,6 +118,13 @@ export class WheelComponent implements OnInit {
     this.infoPopup = true;
     this.historyPopup = false;
     this.popupService.sendUpdate(false);
+    this.popupService.getUpdate().subscribe((res) => {
+      if (res) {
+        this.infoPopup = !res;
+        this.historyPopup = !res;
+        this.cdr.detectChanges();
+      }
+    });
   }
   openHistory() {
     if (this.isLoggedIn) {
@@ -125,7 +132,6 @@ export class WheelComponent implements OnInit {
       this.infoPopup = false;
       this.popupService.sendUpdate(false);
     }
-    console.log(this.history);
   }
   constructor(
     private builder: AnimationBuilder,
