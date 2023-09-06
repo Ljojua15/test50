@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="main__tabs">
+
+    <div (click)="curerrentTab = i" *ngFor="let tab of tabs; let i = index" [class.active]="i === curerrentTab"
+         class="tab pointer">
+      <div class="tab__content">
+        <img alt="" src="./assets/images/tabs/{{tab.header}}.png">
+        <div class="tab__texts">
+          <p>{{tab.header}}</p>
+          <div>{{tab.text}}<span>{{tab.amount}}</span></div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="main__iframe">
+    <img alt="" src="./assets/images/tabs/iframe-bg.png">
+  </div>
+</div>

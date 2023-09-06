@@ -16,6 +16,7 @@ import { SlotsComponent } from './landing-container/landing-container-body/slots
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 import { PromosComponent } from './landing-container/landing-container-body/promos/promos.component';
+import { IframeContainerComponent } from './landing-container/landing-container-body/iframe-container/iframe-container.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PromosComponent } from './landing-container/landing-container-body/prom
     SlotsComponent,
     PopupContainerComponent,
     PromosComponent,
+    IframeContainerComponent,
   ],
   exports: [
     LandingContainerComponent,
