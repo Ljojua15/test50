@@ -1,4 +1,21 @@
 <div class="container">
+  <crc-popup-container
+    (closePopup)="closePopup()"
+    [closeImage]="'assets/images/prog/x.png'"
+    [containerStyles]="popupContainerStyles"
+    [isBackdropClosable]="true"
+    *ngIf="popup"
+  >
+    <h4 class="popup__header">დღეს დააგროვე</h4>
+
+    <p class="popup__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+      ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+      facilisis.
+    </p>
+  </crc-popup-container>
+
   <div class="progress__wrapper">
     <div class="progress">
       <div class="progress__circle" #progress>
@@ -35,6 +52,10 @@
     </div>
   </div>
   <div class="info__wrapper">
-    <img class="info__wrapper-icon" src="assets/images/prog/i.png" />
+    <img
+      (click)="popup = true"
+      class="info__wrapper-icon"
+      src="assets/images/prog/i.png"
+    />
   </div>
 </div>

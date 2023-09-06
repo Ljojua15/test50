@@ -23,6 +23,19 @@ export class ProgressBarComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() userData!: UserData;
   @Input() config!: Config;
 
+  popup = false;
+  popupContainerStyles = {
+    'background-color': '#145674',
+    'box-shadow': 'inset 0px 3px 2px -2px #fff',
+    width: '100%',
+    'max-width': '420px',
+    padding: '30px',
+    'border-radius': '18px',
+    height: 'auto',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+
   progressStartValue = 0;
   progressEndValue = 60;
   speed = 10;
@@ -43,5 +56,9 @@ export class ProgressBarComponent implements OnInit, OnChanges, AfterViewInit {
         clearInterval(progress);
       }
     }, this.speed);
+  }
+
+  closePopup() {
+    this.popup = false;
   }
 }
