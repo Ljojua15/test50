@@ -18,6 +18,8 @@ import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 import { PromosComponent } from './landing-container/landing-container-body/promos/promos.component';
 import { IframeContainerComponent } from './landing-container/landing-container-body/iframe-container/iframe-container.component';
 import { LeaderBoardComponent } from './landing-container/landing-container-body/leader-board/leader-board.component';
+import { GameSwiperComponent } from './landing-container/landing-container-body/game-swiper/game-swiper.component';
+import { GameCardComponent } from './landing-container/landing-container-body/game-swiper/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { LeaderBoardComponent } from './landing-container/landing-container-body
     PromosComponent,
     IframeContainerComponent,
     LeaderBoardComponent,
+    GameSwiperComponent,
+    GameCardComponent,
   ],
   exports: [
     LandingContainerComponent,

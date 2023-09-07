@@ -1,0 +1,110 @@
+.card {
+  display: grid;
+  grid-template-rows: 1fr 76px;
+  margin: auto;
+  max-width: 318px;
+  border-radius: 16px;
+
+  &__content {
+    position: relative;
+    z-index: 9;
+    max-height: 308px;
+    padding: 9px 6px 0 6px;
+    background-color: #c59e5f;
+    border-radius: 46px 46px 4px 4px;
+    display: grid;
+    grid-template-rows: 1fr 42px;
+    box-shadow: inset 0px 2px 1px 0px #83cade, inset 0px -2px 1px 0px #368db7;
+
+    &-game {
+      border: 3px solid #aa864a;
+      border-radius: 46px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-name {
+      text-align: center;
+      align-self: center;
+      color: #856736;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &__footer {
+    position: relative;
+    bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding: 13px 10px;
+    gap: 35px;
+    background-color: #10426a;
+    box-shadow: inset 0px -2px 1px 0px #2aafee;
+    border-radius: 4px 4px 46px 46px;
+
+    &-amount {
+      background-color: #123859;
+      width: 100%;
+      height: 100%;
+      border-radius: 23.5px;
+      line-height: 47px;
+
+      span:first-child {
+        color: #467aa6;
+      }
+
+      span:last-child {
+        font-size: 31px;
+      }
+    }
+
+    button {
+      height: 100%;
+      width: 100%;
+      border-radius: 26.5px;
+      box-shadow: 0px 4px 6px 0 rgba(22, 70, 113, 0.74);
+      border: solid 1px #c59e5f;
+      background-color: #4ab652;
+      font-size: 26px;
+      font-weight: 900;
+      color: #2a7630;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 269px;
+
+    &__content {
+      grid-template-rows: 1fr 35px;
+    }
+
+    &__footer {
+      grid-template-columns: 1.3fr 1fr;
+      gap: 8px;
+      padding: 16px 10px;
+
+      &-amount {
+        font-size: 14px;
+        line-height: 40px;
+
+        span:last-child {
+          font-size: 25px;
+        }
+      }
+
+      button {
+        font-size: 21px;
+      }
+    }
+  }
+}

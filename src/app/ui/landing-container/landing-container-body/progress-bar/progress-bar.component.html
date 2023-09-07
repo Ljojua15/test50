@@ -1,47 +1,61 @@
-<div class="main" [class.outline]="config.hasOutline">
-  <div
-    class="main__wrapper"
-    [ngStyle]="{ 'background-color': config.containerColor }"
+<div class="container">
+  <crc-popup-container
+    (closePopup)="closePopup()"
+    [closeImage]="'assets/images/prog/x.png'"
+    [containerStyles]="popupContainerStyles"
+    [isBackdropClosable]="true"
+    *ngIf="popup"
   >
-    <div class="main__texts" *ngIf="config.texts">
-      <p>{{ config.texts.top | translate }}</p>
-      <p>{{ config.texts.bottom | translate }}</p>
+    <h4 class="popup__header">დღეს დააგროვე</h4>
+
+    <p class="popup__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+      ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+      facilisis.
+    </p>
+  </crc-popup-container>
+
+  <div class="progress__wrapper">
+    <div class="progress">
+      <div class="progress__circle" #progress>
+        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
+        <span class="progress__value">{{ progressEndValue }} / 100</span>
+      </div>
     </div>
-    <div class="main__bg">
-      <div class="container">
-        <div
-          class="container__levels"
-          [ngStyle]="{ 'background-color': config.progressBarColor }"
-          [style.flex-basis]="'calc(100% /' + levels.length + ')'"
-          *ngFor="let level of levels; index as i"
-        >
-          <p>{{ level.step | gelPipe : false }}</p>
-          <div
-            class="container__breaks"
-            [class]="config.breakType === 'line' ? 'line' : 'dot'"
-            *ngIf="config.breakType"
-          ></div>
-          <div
-            class="container__progress"
-            [ngStyle]="{ 'background-color': config.progressBarFilledColor }"
-            [style.width.%]="
-              i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
-            "
-          >
-            <div class="container__slider" *ngIf="i === currentIndex">
-              <span
-                class="container__text"
-                [ngStyle]="{ 'background-color': config.sliderColor }"
-                >{{ userData.amount | gelPipe : false }}</span
-              >
-            </div>
-          </div>
+  </div>
+  <div class="balance__wrapper">
+    <div class="balance">
+      <div class="balance__info">
+        <div class="balance__info-text">დღეს დააგროვე</div>
+        <div class="balance__info-amount">
+          500/1000
           <img
-            class="container__image"
-            src="assets/images/spin-{{ level.imageState }}.png"
+            class="balance__info-icon"
+            src="assets/images/prog/prog-off.png"
+          />
+        </div>
+      </div>
+
+      <div class="balance__divider"></div>
+
+      <div class="balance__info">
+        <div class="balance__info-text balance__info--green">ჩემი ბალანსი</div>
+        <div class="balance__info-amount balance__info--green">
+          700
+          <img
+            class="balance__info-icon"
+            src="assets/images/prog/prog-on.png"
           />
         </div>
       </div>
     </div>
+  </div>
+  <div class="info__wrapper">
+    <img
+      (click)="popup = true"
+      class="info__wrapper-icon"
+      src="assets/images/prog/i.png"
+    />
   </div>
 </div>
