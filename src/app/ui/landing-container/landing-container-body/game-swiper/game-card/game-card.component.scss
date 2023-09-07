@@ -79,3 +79,32 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 269px;
+
+    &__content {
+      grid-template-rows: 1fr 35px;
+    }
+
+    &__footer {
+      grid-template-columns: 1.3fr 1fr;
+      gap: 8px;
+      padding: 16px 10px;
+
+      &-amount {
+        font-size: 14px;
+        line-height: 40px;
+
+        span:last-child {
+          font-size: 25px;
+        }
+      }
+
+      button {
+        font-size: 21px;
+      }
+    }
+  }
+}
