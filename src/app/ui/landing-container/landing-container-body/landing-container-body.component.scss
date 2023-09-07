@@ -5,6 +5,7 @@
   @include variables.dFlex(flex-start, center, column);
 }
 
+
 //@media (max-width: 1700px) {
 //  :host {
 //    width: 55%;
@@ -28,8 +29,8 @@
 //    width: 90%;
 //  }
 //}
-@media (max-width: variables.$tablet) {
-  :host {
-    width: 95%;
-  }
-}
+//@media (max-width: variables.$tablet) {
+//  :host {
+//    width: 95%;
+//  }
+//}
