@@ -2,6 +2,7 @@
 
 :host {
   width: 100%;
+  @include variables.dFlex(flex-start, center, column);
 }
 
 //@media (max-width: 1700px) {

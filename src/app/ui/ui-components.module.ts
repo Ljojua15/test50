@@ -17,6 +17,7 @@ import { PopupContainerComponent } from './landing-container/landing-container-b
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 import { PromosComponent } from './landing-container/landing-container-body/promos/promos.component';
 import { IframeContainerComponent } from './landing-container/landing-container-body/iframe-container/iframe-container.component';
+import { LeaderBoardComponent } from './landing-container/landing-container-body/leader-board/leader-board.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { IframeContainerComponent } from './landing-container/landing-container-
     PopupContainerComponent,
     PromosComponent,
     IframeContainerComponent,
+    LeaderBoardComponent,
   ],
   exports: [
     LandingContainerComponent,
