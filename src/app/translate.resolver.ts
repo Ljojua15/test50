@@ -15,7 +15,9 @@ export class TranslateResolver {
   ): Observable<boolean> {
     const lang = route.paramMap.get('lang');
     if (lang) {
-      this.translateService.use(lang);
+      lang === 'tr'
+        ? this.translateService.use('en')
+        : this.translateService.use(lang);
     }
     return of(true);
   }
