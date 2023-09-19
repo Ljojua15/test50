@@ -1,7 +1,7 @@
 <div class="main">
   <div class="main__tabs">
 
-    <div (click)="curerrentTab = i" *ngFor="let tab of tabs; let i = index" [class.active]="i === curerrentTab"
+    <div (click)="currentTab = i" *ngFor="let tab of tabs; let i = index" [class.active]="i === currentTab"
          class="tab pointer">
       <div class="tab__content">
         <img alt="" src="./assets/images/tabs/{{tab.header}}.png">

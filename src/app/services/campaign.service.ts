@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-import { GenericResponse } from '../shared/models/response';
-import { User } from '../shared/models/user';
-import { Rule } from '../shared/models/rule';
-import { Prize } from '../shared/models/prize';
-import { Promo } from "../shared/models/promo";
+import {Injectable} from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {map, Observable, Subject} from 'rxjs';
+import {GenericResponse} from '../shared/models/response';
+import {IframeResponse, User} from '../shared/models/user';
+import {Rule} from '../shared/models/rule';
+import {Prize} from '../shared/models/prize';
+import {Promo} from "../shared/models/promo";
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +15,12 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'ufocashbackwheel';
-  readonly campaignId = 'ufocashbackwheel';
+  readonly campaignId = 'croco-challenge/bonus-universe';
 
   public updateUserData = new Subject<boolean>();
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) {
+  }
 
   getUserData(
     campaignId: string = this.campaignId
@@ -63,9 +65,23 @@ export class CampaignService {
     );
   }
 
-  getBanners(lang : string,campaignId : string): Observable<{data : Promo[]}> {
-    return this.http.get<{data : Promo[]}>(
+  getBanners(lang: string, campaignId: string): Observable<{ data: Promo[] }> {
+    return this.http.get<{ data: Promo[] }>(
       `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
     );
+  }
+
+
+  getGameUrl(lang: string): Observable<IframeResponse> {
+    return this.http
+      .post<GenericResponse<IframeResponse>>(
+        `${this.API}/campaigns/${this.campaignId}/user/session?lang=${lang}`,
+        {}
+      )
+      .pipe(
+        map((res: GenericResponse<IframeResponse>) => {
+          return res.data;
+        })
+      );
   }
 }
