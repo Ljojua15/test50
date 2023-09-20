@@ -5,6 +5,7 @@ $main-bg: linear-gradient(0deg, #945527, #ffd372 50%, #945527);
 $container-bg: linear-gradient(0deg, #684739, #937050);
 
 :host {
+  width: 100%;
   display: block;
   margin: 626px 0 100px 0;
 }
@@ -50,7 +51,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
         justify-content: center;
         transform: rotate(180deg);
         box-shadow: inset 0px 0px 10px -2px #000000,
-        inset 0px 0px 10px -2px #ffffff;
+          inset 0px 0px 10px -2px #ffffff;
 
         &::before {
           content: "";
@@ -60,7 +61,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
           border-radius: 50%;
           background-color: #0c5575;
           box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.6),
-          0px 0px 4px 1px rgba(255, 255, 255, 0.6);
+            0px 0px 4px 1px rgba(255, 255, 255, 0.6);
         }
 
         &-icon {
