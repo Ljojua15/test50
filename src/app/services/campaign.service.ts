@@ -6,7 +6,7 @@ import { GenericResponse } from '../shared/models/response';
 import { User } from '../shared/models/user';
 import { Rule } from '../shared/models/rule';
 import { Prize } from '../shared/models/prize';
-import { Promo } from "../shared/models/promo";
+import { Promo } from '../shared/models/promo';
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +15,20 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'ufocashbackwheel';
-  readonly campaignId = 'ufocashbackwheel';
+  readonly campaignId = 'bonus-space-v2';
 
   public updateUserData = new Subject<boolean>();
   constructor(private http: HttpClient) {}
 
   getUserData(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user/state`
+    );
+  }
+
+  getBalance(
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
@@ -63,9 +71,13 @@ export class CampaignService {
     );
   }
 
-  getBanners(lang : string,campaignId : string): Observable<{data : Promo[]}> {
-    return this.http.get<{data : Promo[]}>(
+  getBanners(lang: string, campaignId: string): Observable<{ data: Promo[] }> {
+    return this.http.get<{ data: Promo[] }>(
       `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
     );
+  }
+
+  getCursomUrl(url: string) {
+    return this.http.get(url);
   }
 }

@@ -66,7 +66,7 @@ export class LandingContainerBodyComponent implements OnInit {
 
   getData() {
     return this.campaignService
-      .getUserData('p2p-mix-wheel-030723')
+      .getUserData()
       .pipe(map((res) => res.data))
       .subscribe((res) => {
         this.userData = {
