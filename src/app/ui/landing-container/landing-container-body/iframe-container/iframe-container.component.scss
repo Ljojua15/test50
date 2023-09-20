@@ -1,0 +1,214 @@
+@use "./../../../../../styles/variables";
+@use "./../../../../../fonts";
+
+:host {
+  width: 100%;
+}
+
+.main {
+  margin-top: 24px;
+  width: 100%;
+  background-image: url("../../../../../assets/images/tabs/main-bg-web.webp");
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: auto;
+  min-height: 989px;
+  position: relative;
+  @include variables.dFlex(flex-start, center, column);
+
+  &__tabs {
+    max-width: 674px;
+    width: 100%;
+    position: absolute;
+    top: -7.1%;
+    @include variables.dFlex(space-between, flex-end);
+    height: 72px;
+
+    .tab {
+      width: 100%;
+      margin: 0px 1px;
+      border-radius: 18px 18px 0px 0px;
+      @include variables.dFlex(center, flex-start);
+      height: 100%;
+      background-color: rgb(14, 68, 114);
+      box-shadow: 1px 2px 3px -1px rgba(255, 255, 255, 0.75) inset;
+      padding-top: 2px;
+      transition: all 200ms ease;
+
+      &__content {
+        @include variables.dFlex(space-between, center);
+        background-color: rgb(5, 41, 74);
+        height: 79%;
+        width: 70%;
+        border-radius: 0px 0px 13px 13px;
+        padding: 1px 0px 0px 4px;
+
+
+        img {
+          max-width: 30%;
+
+        }
+      }
+
+      &__texts {
+        width: 100%;
+        height: 100%;
+        @include variables.dFlex(space-between, center, column);
+        padding: 3% 0% 3% 0%;
+
+        p {
+          font-family: "CrocoSansBlackCAPS";
+          font-size: 22px;
+          white-space: nowrap;
+
+        }
+
+        div {
+          margin-top: 1px;
+          @include variables.dFlex(space-between, center);
+          font-size: 14px;
+          white-space: nowrap;
+
+          span {
+            border-radius: 8px;
+            background-color: #2b679d;
+            padding: 3px 4px;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      &.active {
+        height: 120%;
+        width: 120%;
+        background-color: rgb(51, 139, 214);
+        z-index: 1;
+
+        .tab__content {
+          height: 84%;
+          width: 82%;
+          background-color: rgb(14, 68, 114);
+
+          img {
+            max-width: 326%;
+
+          }
+        }
+
+        .tab__texts {
+
+          p {
+            font-size: 26px;
+          }
+
+          div {
+            font-size: 18px;
+
+
+            span {
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  &__iframe {
+    width: 100%;
+    max-width: 428px;
+    margin-top: 15px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+
+}
+
+
+@media (max-width: variables.$tablet) {
+  .main {
+    background-image: url("../../../../../assets/images/tabs/main-bg-mob.webp");
+    min-height: 562px;
+
+    &__tabs {
+      max-width: 352px;
+      width: 98%;
+      height: 60px;
+      top: -10.4%;
+
+      .tab {
+        border-radius: 14px 14px 0px 0px;
+
+        &__content {
+          flex-direction: column;
+          height: 92%;
+          width: 85%;
+          border-radius: 8px 8px 13px 13px;
+
+          img {
+            max-width: 54%;
+            margin-top: -20%;
+          }
+        }
+
+        &__texts {
+
+          p {
+            display: none;
+          }
+
+          div {
+            font-size: 13px;
+
+            span {
+            }
+          }
+        }
+
+        &.active {
+          padding: 0;
+          border-radius: 22px 22px 0px 0px;
+
+          .tab__content {
+            height: 90%;
+            width: 84%;
+
+            img {
+              max-width: 57%;
+              margin-top: -21%;
+            }
+          }
+
+          .tab__texts {
+
+            p {
+            }
+
+            div {
+
+              font-size: 16px;
+
+              span {
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    &__iframe {
+      max-width: 330px;
+
+      img {
+      }
+    }
+
+
+  }
+
+}
+

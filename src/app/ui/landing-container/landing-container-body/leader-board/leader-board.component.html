@@ -1,0 +1,27 @@
+<div class="main">
+  <img alt="" class="main__header-img" src="./assets/images/leaderboard/main-header-img.png">
+  <div class="main__title">ლიდერბორდი</div>
+  <div class="main__header">
+    <div><p>#</p></div>
+    <div><p>მომხმარებელი</p></div>
+    <div><p>ქულა</p></div>
+    <div><p>პრიზი</p></div>
+  </div>
+  <div class="main__content">
+    <div *ngFor="let item of arr; let i = index"
+         [class.current]="i === 1" class="main__content-item">
+      <div><p [class.active]="i%2 === 0">{{i + 1}}</p></div>
+      <div><p>user77..........//////
+        <img alt="" class="user" src="./assets/images/leaderboard/user.png">
+      </p></div>
+      <div>
+        <div class="left"><p>1000</p></div>
+        <div class="right"><img alt="" src="./assets/images/leaderboard/vector.png"></div>
+      </div>
+      <div [class.active]="i%2 === 0">
+        <div class="left"><p>1000</p></div>
+        <div class="right"><img alt="" src="./assets/images/leaderboard/{{i%2 === 0 ? 'disable' : 'enable'}}.png"></div>
+      </div>
+    </div>
+  </div>
+</div>
