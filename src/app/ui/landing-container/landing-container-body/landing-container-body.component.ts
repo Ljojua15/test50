@@ -44,6 +44,12 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
+  progressData = {
+    balance: 0,
+    progress: 0,
+    total: 0,
+  };
+
   constructor(private campaignService: CampaignService) {}
 
   @Input() set isAuthorized(value: boolean) {
@@ -64,17 +70,10 @@ export class LandingContainerBodyComponent implements OnInit {
   getData() {
     return this.campaignService
       .getUserData()
-      .pipe(map((res) => res.data))
-      .subscribe((res) => {
-        console.log(res);
-        // this.userData = {
-        //   unlockedLevel: res.state.currentStepIndex,
-        //   used: res.state.used,
-        //   amount: Math.min(
-        //     res.state.progress,
-        //     this.levels[this.levels.length - 1].step
-        //   ),
-        // };
+      .pipe(map((res: any) => res.data))
+      .subscribe((res: typeof this.progressData) => {
+        this.progressData = res;
+        console.log(this.progressData);
       });
   }
 
@@ -85,6 +84,12 @@ export class LandingContainerBodyComponent implements OnInit {
       unlockedLevel: -1,
       used: 0,
       amount: 0,
+    };
+
+    this.progressData = {
+      balance: 0,
+      progress: 0,
+      total: 0,
     };
   }
 

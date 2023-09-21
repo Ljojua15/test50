@@ -29,7 +29,7 @@
       <div class="balance__info">
         <div class="balance__info-text">დღეს დააგროვე</div>
         <div class="balance__info-amount">
-          500/1000
+          {{ progressData.balance }}/1000
           <img
             class="balance__info-icon"
             src="assets/images/prog/prog-off.png"
@@ -42,7 +42,7 @@
       <div class="balance__info">
         <div class="balance__info-text balance__info--green">ჩემი ბალანსი</div>
         <div class="balance__info-amount balance__info--green">
-          700
+          {{ progressData.total }}
           <img
             class="balance__info-icon"
             src="assets/images/prog/prog-on.png"
