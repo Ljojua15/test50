@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {map} from 'rxjs';
-import {CampaignService} from 'src/app/services/campaign.service';
-import {Config} from 'src/app/shared/models/progressConfig';
-import {Levels} from 'src/app/shared/models/progressData';
-import {UserData} from 'src/app/shared/models/userData';
-import {environment} from 'src/environments/environment';
+import { Component, Input, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { CampaignService } from 'src/app/services/campaign.service';
+import { Config } from 'src/app/shared/models/progressConfig';
+import { Levels } from 'src/app/shared/models/progressData';
+import { UserData } from 'src/app/shared/models/userData';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crc-landing-container-body',
@@ -17,11 +17,11 @@ export class LandingContainerBodyComponent implements OnInit {
   // disable wheel button
   isDisabled = true;
   levels: Levels[] = [
-    {step: 100, points: 1, imageState: 'off'},
-    {step: 500, points: 1, imageState: 'off'},
-    {step: 1000, points: 1, imageState: 'off'},
-    {step: 5000, points: 1, imageState: 'off'},
-    {step: 10000, points: 1, imageState: 'off'},
+    { step: 100, points: 1, imageState: 'off' },
+    { step: 500, points: 1, imageState: 'off' },
+    { step: 1000, points: 1, imageState: 'off' },
+    { step: 5000, points: 1, imageState: 'off' },
+    { step: 10000, points: 1, imageState: 'off' },
   ];
   progressConfig: Config = {
     hasOutline: true,
@@ -44,8 +44,7 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
-  constructor(private campaignService: CampaignService) {
-  }
+  constructor(private campaignService: CampaignService) {}
 
   @Input() set isAuthorized(value: boolean) {
     if (value || environment.testToken) {
@@ -59,23 +58,23 @@ export class LandingContainerBodyComponent implements OnInit {
     this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });
-
-
   }
 
+  // get progress
   getData() {
     return this.campaignService
       .getUserData()
       .pipe(map((res) => res.data))
       .subscribe((res) => {
-        this.userData = {
-          unlockedLevel: res.state.currentStepIndex,
-          used: res.state.used,
-          amount: Math.min(
-            res.state.progress,
-            this.levels[this.levels.length - 1].step
-          ),
-        };
+        console.log(res);
+        // this.userData = {
+        //   unlockedLevel: res.state.currentStepIndex,
+        //   used: res.state.used,
+        //   amount: Math.min(
+        //     res.state.progress,
+        //     this.levels[this.levels.length - 1].step
+        //   ),
+        // };
       });
   }
 
