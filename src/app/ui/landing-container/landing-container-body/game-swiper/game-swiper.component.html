@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #target>
   <div class="cards">
     <div class="cards__arrows">
       <img
@@ -16,6 +16,7 @@
       class="card"
       [ngClass]="card.position"
       [name]="'MASTER WHEEL'"
+      [video]="card.video"
       (click)="card.position === 'active' ? null : onArrowClick(card.position)"
     ></crc-game-card>
   </div>
