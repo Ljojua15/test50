@@ -1,10 +1,12 @@
 import {Component, HostListener, ViewChild} from '@angular/core';
-import {tabs} from "./config";
+import {changeTab, GameID, IframeData, tabs} from "./config";
 import {TranslateService} from "@ngx-translate/core";
 import {CampaignService} from "../../../../services/campaign.service";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {IframeService} from "../../../../services/iframe.service";
-import {filter, of, tap} from "rxjs";
+import {catchError, filter, iif, map, Observable, of, switchMap, tap} from "rxjs";
+import {AuthService} from "../../../../services/auth.service";
+import {TabsService} from "../../../../services/tabs.service";
 
 @Component({
   selector: 'crc-iframe-container',
@@ -12,34 +14,51 @@ import {filter, of, tap} from "rxjs";
   styleUrls: ['./iframe-container.component.scss']
 })
 export class IframeContainerComponent {
-  public currentTab: number = 2
   public tabs = tabs
-  IframeUrl: any;
   @ViewChild('iframe') iframe: any;
+
+  public iframeData$: Observable<IframeData>
+  public changeTab$: Observable<changeTab>
 
   constructor(
     private translateService: TranslateService,
     private campaignService: CampaignService,
     private domSanitizer: DomSanitizer,
-    private iframeService: IframeService
+    private iframeService: IframeService,
+    private authService: AuthService,
+    private tabsService: TabsService
   ) {
+    this.iframeData$ = this.tabsService.iframeData$
 
-    this.campaignService
-      .getGameUrl('en').subscribe(
-      (res) => {
-        this.IframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://bonus-space.crocobet.com/home/authtest?playerId=48362&token=dd7fd1c9-ce50-4556-af8f-e204451b56d3.oddsapi1&language=en')
-      }
-    )
+    this.changeTab$ = this.tabsService.changeTab$.pipe(
+      switchMap(res => {
+          return this.authService.isAuthorized().pipe(
+            map(isAuthorized => {
+              if (res && isAuthorized) {
+                const iframe: any = document.getElementById('gameFrame')
+                iframe.contentWindow.postMessage(
+                  {
+                    action: 'changeGame',
+                    code: 1100,
+                    value: res.gameId,
+                    message: 'change game',
+                  },
+                  '*'
+                );
+                return res
+              }
+              return {
+                gameId: 'wheel',
+                currentTabInd: 1
+              } as changeTab
+            })
+          )
+        }
+      ))
   }
 
-  changeTab(ind: number, gameId: 'wheel' | 'masters' | 'chest') {
-    const iframe: any = document.getElementById('gameFrame')
-    this.currentTab = ind
-    console.log(iframe, gameId)
-    iframe.contentWindow.postMessage(
-      gameId,
-      '*'
-    );
+  changeTab(gameId: GameID) {
+    this.tabsService.changeTab(gameId)
   }
 
 
@@ -50,19 +69,9 @@ export class IframeContainerComponent {
         tap(res => {
           console.log(res)
         })
-        // filter(
-        //   (event) => event.origin === 'https://treasureisland.crocobet.com'
-        // )
       )
       .subscribe((res) => {
-        // if (res.data.message === 'CloseGame') {
-        //   this.IframeUrl = '';
-        //
-        //   if (res.data.game) {
-        //     this.iframeService.openNewTab(res.data.game);
-        //   }
-        //   this.closeIframe.emit();
-        // }
+
       });
   }
 }

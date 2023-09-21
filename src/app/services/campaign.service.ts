@@ -81,6 +81,7 @@ export class CampaignService {
 
 
   getGameUrl(lang: string): Observable<IframeResponse> {
+    console.log(lang, 'laang')
     return this.http
       .post<GenericResponse<IframeResponse>>(
         `${this.API}/campaigns/${this.campaignId}/user/session?lang=${lang}`,

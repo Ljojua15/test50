@@ -128,10 +128,14 @@
 
     }
 
-    img {
+    &__bg {
       position: absolute;
       width: 100%;
       pointer-events: none;
+    }
+
+    &__default {
+      width: 94%;
     }
   }
 

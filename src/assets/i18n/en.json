@@ -51,16 +51,13 @@
   "watch-live": "WATCH THE LIVE RAFFLE HERE AND",
   "watch-recent": "WATCH THE PREVIOUS  RAFFLES",
   "win-spins": "GET 500 EGT FREESPINS!",
-
   "widtwraw": {
     "1": "YOU'VE GOT",
     "2": " FREESPINS OF 0.15₾ CHOOSE A PRODUCT AND GET THE PRIZE"
   },
-
   "slot": "SLOT",
   "ufo": "UFO",
   "casino": "CASINO",
-
   "casinokey": {
     "1": "GET CASINO FREECHIPS",
     "2": "FREECHIPS ARE CREDITED TO YOUR BALANCE OF EVOLUTION GAMING FREECHIPS, WHICH YOU CAN USE AT THE DESIRED VALUE IN ANY EVOLUTION GAMING ROULETTE.",
@@ -80,7 +77,6 @@
     "2": "FREESPINS OF",
     "3": ""
   },
-
   "congretskey": {
     "1": "CONGRATULATIONS",
     "2": "YOU HAVE BEEN CREDITED WITH",
@@ -91,5 +87,6 @@
     "7": "₾ TO YOUR UFO FREESPINS BALANCE",
     "8": "YOU'VE BEEN CREDITED FREECHIPS OF ",
     "9": "₾ TO YOUR FREECHIP'S BALANCE"
-  }
+  },
+  "iframeBgUrl": "./assets/images/iframe/en.png"
 }
