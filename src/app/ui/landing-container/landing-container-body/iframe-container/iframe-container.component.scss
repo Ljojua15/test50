@@ -117,10 +117,21 @@
   &__iframe {
     width: 100%;
     max-width: 428px;
+    height: 711px;
     margin-top: 15px;
+    position: relative;
+    @include variables.dFlex(center, center);
+
+    iframe {
+      width: 95%;
+      height: 95%;
+
+    }
 
     img {
+      position: absolute;
       width: 100%;
+      pointer-events: none;
     }
   }
 

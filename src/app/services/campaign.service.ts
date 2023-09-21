@@ -15,7 +15,7 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'ufocashbackwheel';
-  readonly campaignId = 'croco-challenge/bonus-universe';
+  readonly campaignId = 'bonus-space-v2';
 
   public updateUserData = new Subject<boolean>();
 
@@ -26,7 +26,15 @@ export class CampaignService {
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
-      `${this.API}/campaigns/${campaignId}/user`
+      `${this.API}/campaigns/${campaignId}/user/state`
+    );
+  }
+
+  getLeaderBoard(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user/leaderboard`
     );
   }
 

@@ -1,7 +1,7 @@
 <div class="main">
   <div class="main__tabs">
 
-    <div (click)="currentTab = i" *ngFor="let tab of tabs; let i = index" [class.active]="i === currentTab"
+    <div (click)="changeTab(i,tab.gameId)" *ngFor="let tab of tabs; let i = index" [class.active]="i === currentTab"
          class="tab pointer">
       <div class="tab__content">
         <img alt="" src="./assets/images/tabs/{{tab.header}}.png">
@@ -16,5 +16,14 @@
   </div>
   <div class="main__iframe">
     <img alt="" src="./assets/images/tabs/iframe-bg.png">
+    <iframe #iframe *ngIf="IframeUrl" [src]="IframeUrl" id="gameFrame" rel="prefetch"
+    ></iframe>
+
+    <!--    <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+    <!--            allowfullscreen frameborder="0"-->
+    <!--            height="315"-->
+    <!--            src="https://bonus-space.crocobet.com/home/authtest?playerId=48362&token=5dda5665-dd8a-4f6a-93f6-66890464c707.oddsapi1&language=en"-->
+    <!--            title="YouTube video player"-->
+    <!--    ></iframe>-->
   </div>
 </div>
