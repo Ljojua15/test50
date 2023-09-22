@@ -4,17 +4,23 @@ import {CampaignService} from "./campaign.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {IframeService} from "./iframe.service";
 import {AuthService} from "./auth.service";
-import {BehaviorSubject, catchError, iif, map, Observable, of, switchMap} from "rxjs";
-import {changeTab, GameID, IframeData} from "../ui/landing-container/landing-container-body/iframe-container/config";
+import {BehaviorSubject, catchError, combineLatest, iif, map, Observable, of, switchMap} from "rxjs";
+import {
+  changeTab,
+  GameID,
+  IframeData,
+  IframeTabsData, tabs
+} from "../ui/landing-container/landing-container-body/iframe-container/config";
+import {Tab} from "../shared/models/tab";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TabsService {
-  public iframeData$: Observable<IframeData>
+  public iframeTabsData$: Observable<IframeTabsData>
 
-  private $changeTabSubject: BehaviorSubject<changeTab | null> = new BehaviorSubject<changeTab | null>(null)
-  public changeTab$: Observable<changeTab | null> = this.$changeTabSubject.asObservable()
+  private $changeTabSubject: BehaviorSubject<GameID | null> = new BehaviorSubject<GameID | null>(null)
+  public changeTab$: Observable<GameID | null> = this.$changeTabSubject.asObservable()
 
   constructor(
     private translateService: TranslateService,
@@ -23,41 +29,55 @@ export class TabsService {
     private iframeService: IframeService,
     private authService: AuthService,
   ) {
-    this.iframeData$ = this.authService.isAuthorized().pipe(
-      switchMap((res: any) =>
-        iif(
-          () => res,
-          this.translateService.onLangChange.pipe(
-            switchMap(resLang => {
-              return this.campaignService.getGameUrl(resLang.lang).pipe(
-                map((res) => {
-                    res.url += `&language=${resLang.lang}`
-                    return {
-                      iframeUrl: this.domSanitizer.bypassSecurityTrustResourceUrl(res.url) as string
-                    }
-                  }
-                )
-              )
+    this.iframeTabsData$ = combineLatest([
+      this.authService.isAuthorized(),
+      this.translateService.onLangChange
+    ]).pipe(
+      switchMap(([isAuthorized, lang]) => {
+        console.log(isAuthorized, lang, 'change')
+        if (isAuthorized) {
+          return this.campaignService.getGameUrl(lang.lang).pipe(
+            switchMap(gameResponse => {
+              const response: any = {
+                iframeUrl: this.domSanitizer.bypassSecurityTrustResourceUrl(gameResponse.url) as string
+              }
+              return this.changeTab$.pipe(map(gameId => {
+                if (gameId) {
+                  tabs.forEach(tab => tab.isCurrent = tab.gameId === gameId)
+                  this.changeGame(gameId)
+                }
+                response.tabs = tabs
+                return response
+              }))
             })
           )
-          ,
-          of({
+        } else {
+          tabs.forEach(tab => tab.isCurrent = tab.gameId === 'wheel')
+          return of({
+            tabs: tabs,
             iframeUrl: null
           })
-        )
-      ),
-      catchError(() => of({
-        iframeUrl: null
-      }))
+        }
+      })
+    )
+  }
+
+  changeGame(gameId: GameID) {
+    const iframe: any = document.getElementById('gameFrame')
+    // console.log(iframe, 'iframe')
+    iframe.contentWindow.postMessage(
+      {
+        action: 'changeGame',
+        code: 1100,
+        value: gameId,
+        message: 'change game',
+      },
+      '*'
     );
   }
 
   changeTab(gameId: GameID) {
-
-    this.$changeTabSubject.next({
-      gameId: gameId,
-      currentTabInd: gameId === 'chest' ? 0 : gameId === 'wheel' ? 1 : 2
-    });
+    this.$changeTabSubject.next(gameId);
   }
 }
 

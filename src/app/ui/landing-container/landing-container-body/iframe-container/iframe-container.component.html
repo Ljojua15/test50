@@ -1,8 +1,8 @@
-<div *ngIf="iframeData$ | async as iframeData" class="main">
-  <div *ngIf="changeTab$ | async as currentTab" class="main__tabs">
+<div *ngIf="iframeTabsData$ | async as iframeTabsData" class="main">
+  <div class="main__tabs">
 
-    <div (click)="changeTab(tab.gameId)" *ngFor="let tab of tabs; let i = index"
-         [class.active]="i == currentTab.currentTabInd"
+    <div (click)="changeTab(tab.gameId)" *ngFor="let tab of iframeTabsData.tabs; let i = index"
+         [class.active]="tab.isCurrent"
          class="tab pointer">
       <div class="tab__content">
         <img alt="" src="./assets/images/tabs/{{tab.header}}.png">
@@ -17,9 +17,10 @@
   </div>
   <div class="main__iframe">
     <img alt="" class="main__iframe__bg" src="./assets/images/tabs/iframe-bg.png">
-    <img *ngIf="!iframeData.iframeUrl else iframe" class="main__iframe__default" src="{{ 'iframeBgUrl' | translate }}">
+    <img *ngIf="!iframeTabsData.iframeUrl else iframe" class="main__iframe__default"
+         src="{{ 'iframeBgUrl' | translate }}">
     <ng-template #iframe>
-      <iframe #iframe [src]="iframeData.iframeUrl" id="gameFrame" rel="prefetch"
+      <iframe #iframe [src]="iframeTabsData.iframeUrl" id="gameFrame" rel="prefetch"
       ></iframe>
     </ng-template>
   </div>
