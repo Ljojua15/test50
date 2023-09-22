@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
-type Cards = Array<{ id: number; position: 'active' | 'left' | 'right' }>;
+type Cards = Array<{
+  id: number;
+  position: 'active' | 'left' | 'right';
+  video: string;
+}>;
 
 @Component({
   selector: 'crc-game-swiper',
@@ -8,10 +12,12 @@ type Cards = Array<{ id: number; position: 'active' | 'left' | 'right' }>;
   styleUrls: ['./game-swiper.component.scss'],
 })
 export class GameSwiperComponent {
+  @ViewChild('target') target: ElementRef;
+
   cards: Cards = [
-    { id: 0, position: 'active' },
-    { id: 1, position: 'right' },
-    { id: 2, position: 'left' },
+    { id: 0, position: 'active', video: 'assets/videos/wheel.mp4' },
+    { id: 1, position: 'right', video: 'assets/videos/master.mp4' },
+    { id: 2, position: 'left', video: 'assets/videos/viking.mp4' },
   ];
 
   selected = 0;
