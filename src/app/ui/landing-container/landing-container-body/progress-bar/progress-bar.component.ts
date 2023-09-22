@@ -25,12 +25,13 @@ export class ProgressBarComponent {
     'background-color': '#145674',
     'box-shadow': 'inset 0px 3px 2px -2px #fff',
     width: '100%',
-    'max-width': '420px',
+    'max-width': '550px',
     padding: '30px',
     'border-radius': '18px',
     height: 'auto',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    'text-align': 'left',
   };
 
   progressStartValue = 0;
