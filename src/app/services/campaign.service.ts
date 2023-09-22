@@ -37,6 +37,14 @@ export class CampaignService {
     );
   }
 
+  getLeaderBoard(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user/leaderboard`
+    );
+  }
+
   getPrize(
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<Prize>> {
@@ -79,6 +87,7 @@ export class CampaignService {
   }
 
   getGameUrl(lang: string): Observable<IframeResponse> {
+    // console.log(lang, 'laang')
     return this.http
       .post<GenericResponse<IframeResponse>>(
         `${this.API}/campaigns/${this.campaignId}/user/session?lang=${lang}`,

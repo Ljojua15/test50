@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -60,6 +60,16 @@ export class IframeService {
           code: 1010,
           value: payload,
           message: 'redirect',
+        },
+        CROSS_ORIGIN
+      );
+    } else if (code === 1100) {
+      window.parent.postMessage(
+        {
+          action: 'changeGame',
+          code: 1100,
+          value: payload,
+          message: 'change game',
         },
         CROSS_ORIGIN
       );

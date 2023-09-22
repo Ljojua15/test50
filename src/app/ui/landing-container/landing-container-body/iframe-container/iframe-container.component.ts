@@ -1,9 +1,12 @@
-import {Component} from '@angular/core';
-import {tabs} from "./config";
+import {Component, HostListener, ViewChild} from '@angular/core';
+import {changeTab, GameID, IframeData, IframeTabsData, tabs} from "./config";
 import {TranslateService} from "@ngx-translate/core";
 import {CampaignService} from "../../../../services/campaign.service";
-import {DomSanitizer} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {IframeService} from "../../../../services/iframe.service";
+import {catchError, filter, iif, map, Observable, of, switchMap, tap} from "rxjs";
+import {AuthService} from "../../../../services/auth.service";
+import {TabsService} from "../../../../services/tabs.service";
 
 @Component({
   selector: 'crc-iframe-container',
@@ -11,16 +14,32 @@ import {IframeService} from "../../../../services/iframe.service";
   styleUrls: ['./iframe-container.component.scss']
 })
 export class IframeContainerComponent {
-  public currentTab: number = 2
-  public tabs = tabs
+  public iframeTabsData$: Observable<IframeTabsData>
 
   constructor(
-    private translateService: TranslateService,
-    private campaignService: CampaignService,
-    private domSanitizer: DomSanitizer,
-    private iframeService: IframeService
+    private tabsService: TabsService
   ) {
-    this.campaignService
-      .getGameUrl('ka')
+    this.iframeTabsData$ = this.tabsService.iframeTabsData$.pipe(tap(res => {
+      // console.log(res, 'in subscribe')
+    }))
+
+  }
+
+  changeTab(gameId: GameID) {
+    this.tabsService.changeTab(gameId)
+  }
+
+
+  @HostListener('window:message', ['$event'])
+  onMessage(event: MessageEvent) {
+    of(event)
+      .pipe(
+        tap(res => {
+          // console.log(res)
+        })
+      )
+      .subscribe((res) => {
+
+      });
   }
 }
