@@ -69,11 +69,10 @@ export class LandingContainerBodyComponent implements OnInit {
   // get progress
   getData() {
     return this.campaignService
-      .getUserData()
+      .getBalance()
       .pipe(map((res: any) => res.data))
       .subscribe((res: typeof this.progressData) => {
         this.progressData = res;
-        console.log(this.progressData);
       });
   }
 

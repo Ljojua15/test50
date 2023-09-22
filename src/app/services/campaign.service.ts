@@ -25,7 +25,7 @@ export class CampaignService {
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
-      `${this.API}/campaigns/${campaignId}/user/state`
+      `${this.API}/campaigns/${campaignId}/user`
     );
   }
 
@@ -33,7 +33,7 @@ export class CampaignService {
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
-      `${this.API}/campaigns/${campaignId}/user`
+      `${this.API}/campaigns/${campaignId}/user/state`
     );
   }
 
