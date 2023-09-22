@@ -217,6 +217,7 @@
 
     &__iframe {
       max-width: 330px;
+      max-height: 553px;
 
       img {
       }
@@ -226,4 +227,22 @@
   }
 
 }
+
+
+@media (max-width: variables.$tablet) {
+  .main {
+
+
+    &__iframe {
+      width: 99%;
+
+      img {
+      }
+    }
+
+
+  }
+}
+
+
 
