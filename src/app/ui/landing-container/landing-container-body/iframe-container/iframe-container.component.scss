@@ -152,7 +152,7 @@
       max-width: 352px;
       width: 98%;
       height: 60px;
-      top: -10.4%;
+      top: -9%;
 
       .tab {
         border-radius: 14px 14px 0px 0px;
@@ -216,9 +216,12 @@
     }
 
     &__iframe {
-      max-width: 330px;
+      max-width: 390px;
+      max-height: 653px;
+      width: 98%;
 
       img {
+        height: 100%;
       }
     }
 
@@ -226,4 +229,23 @@
   }
 
 }
+
+
+@media (max-width: 420px) {
+  .main {
+
+
+    &__iframe {
+      max-height: 594px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+
+  }
+}
+
+
 

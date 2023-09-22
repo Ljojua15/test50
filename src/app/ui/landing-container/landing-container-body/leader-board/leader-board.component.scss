@@ -15,6 +15,7 @@
   background-size: 100% 100%;
   @include variables.dFlex(flex-start, center, column);
   padding: 20px 30px 30px 33px;
+  position: relative;
 
   &__header-img {
     display: none;
@@ -154,6 +155,28 @@
         min-width: 52px;
 
       }
+    }
+  }
+
+  &.sticky {
+    .current {
+      position: absolute;
+      top: 85%;
+      width: 89%;
+      border-radius: 3px;
+      z-index: 2;
+
+      .user {
+        display: block;
+      }
+
+      & {
+        mix-blend-mode: normal;
+      }
+    }
+
+    .main__content {
+      padding-bottom: 56px;
     }
   }
 }
