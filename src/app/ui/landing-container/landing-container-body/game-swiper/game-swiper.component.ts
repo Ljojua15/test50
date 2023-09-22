@@ -1,9 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {TabsService} from "../../../../services/tabs.service";
+import {GameID} from "../iframe-container/config";
 
 type Cards = Array<{
   id: number;
   position: 'active' | 'left' | 'right';
   video: string;
+  gameId: GameID
 }>;
 
 @Component({
@@ -15,12 +18,12 @@ export class GameSwiperComponent {
   @ViewChild('target') target: ElementRef;
 
   cards: Cards = [
-    { id: 0, position: 'active', video: 'assets/videos/wheel.mp4' },
-    { id: 1, position: 'right', video: 'assets/videos/master.mp4' },
-    { id: 2, position: 'left', video: 'assets/videos/viking.mp4' },
+    {id: 0, position: 'active', video: 'assets/videos/wheel.mp4', gameId: "wheel"},
+    {id: 1, position: 'right', video: 'assets/videos/master.mp4', gameId: "masters"},
+    {id: 2, position: 'left', video: 'assets/videos/viking.mp4', gameId: "chest"},
   ];
-
   selected = 0;
+
 
   onArrowClick(arrow: 'left' | 'right') {
     if (arrow === 'left') {

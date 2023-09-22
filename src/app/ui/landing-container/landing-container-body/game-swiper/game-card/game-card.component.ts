@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
+import {TabsService} from "../../../../../services/tabs.service";
+import {GameID} from "../../iframe-container/config";
 
 @Component({
   selector: 'crc-game-card',
@@ -7,8 +9,15 @@ import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 })
 export class GameCardComponent implements AfterViewInit {
   // @ViewChild('vid') video: any;
-  @Input() video: string;
-  @Input() name: string;
+  @Input() card: any;
+
+
+  constructor(private tabsService: TabsService) {
+  }
+
+  changeTab(gameId: GameID) {
+    this.tabsService.changeTab(gameId)
+  }
 
   ngAfterViewInit(): void {
     // this.video.play();

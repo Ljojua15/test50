@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card__content">
     <div class="card__content-game">
-      <video muted loop autoplay playsinline>
-        <source [src]="video" type="video/mp4" />
+      <video autoplay loop muted playsinline>
+        <source [src]="card.video" type="video/mp4"/>
       </video>
     </div>
 
-    <span class="card__content-name">{{ name }}</span>
+    <span class="card__content-name">{{ card.name }}</span>
   </div>
 
   <div class="card__footer">
@@ -15,6 +15,6 @@
       <span>15</span>
     </div>
 
-    <button>PLAY</button>
+    <button (click)="changeTab(card.gameId)">PLAY</button>
   </div>
 </div>
