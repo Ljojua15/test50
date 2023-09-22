@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -83,6 +83,15 @@ export class IframeService {
         },
         CROSS_ORIGIN
       );
+    } else if (code === 1031) {
+      window.parent.postMessage(
+        {
+          action: 'scrollTo',
+          code: 1031,
+          value: 0,
+        },
+        CROSS_ORIGIN
+      );
     }
   }
 
@@ -115,5 +124,9 @@ export class IframeService {
       1011,
       `https://crocobet.com/#/slots?menu=${provider}&provider=${provider}&slot=${slot}`
     );
+  }
+
+  scrollFromTop() {
+    this.sendMessage(1031);
   }
 }
