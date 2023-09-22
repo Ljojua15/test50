@@ -1,4 +1,5 @@
-<div *ngIf="leaderboardData$ | async as leaderboardData" class="main" id="leaderboard">
+<div *ngIf="leaderboardData$ | async as leaderboardData" [class.sticky]="leaderboardData.isSticky" class="main"
+     id="leaderboard">
   <img alt="" class="main__header-img" src="./assets/images/leaderboard/main-header-img.png">
   <div class="main__title">{{"leaderBoard.1" | translate}}</div>
   <div class="main__header">
@@ -8,7 +9,7 @@
     <div><p>{{"leaderBoard.4" | translate}}</p></div>
   </div>
   <div class="main__content">
-    <div *ngFor="let leaderboard of leaderboardData; let i = index"
+    <div *ngFor="let leaderboard of leaderboardData.leaderboardData; let i = index"
          [class.current]="leaderboard.itsMe" class="main__content-item">
       <div><p [class.active]="i === 0">{{leaderboard.place}}</p></div>
       <div><p>{{leaderboard.maskedName}}
