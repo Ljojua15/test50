@@ -1,26 +1,26 @@
-<div class="main" id="leaderboard">
+<div *ngIf="leaderboardData$ | async as leaderboardData" class="main" id="leaderboard">
   <img alt="" class="main__header-img" src="./assets/images/leaderboard/main-header-img.png">
-  <div class="main__title">ლიდერბორდი</div>
+  <div class="main__title">{{"leaderBoard.1" | translate}}</div>
   <div class="main__header">
     <div><p>#</p></div>
-    <div><p>მომხმარებელი</p></div>
-    <div><p>ქულა</p></div>
-    <div><p>პრიზი</p></div>
+    <div><p>{{"leaderBoard.2" | translate}}</p></div>
+    <div><p>{{"leaderBoard.3" | translate}}</p></div>
+    <div><p>{{"leaderBoard.4" | translate}}</p></div>
   </div>
   <div class="main__content">
-    <div *ngFor="let item of arr; let i = index"
-         [class.current]="i === 1" class="main__content-item">
-      <div><p [class.active]="i%2 === 0">{{i + 1}}</p></div>
-      <div><p>user77..........//////
+    <div *ngFor="let leaderboard of leaderboardData; let i = index"
+         [class.current]="leaderboard.itsMe" class="main__content-item">
+      <div><p [class.active]="i === 0">{{leaderboard.place}}</p></div>
+      <div><p>{{leaderboard.maskedName}}
         <img alt="" class="user" src="./assets/images/leaderboard/user.png">
       </p></div>
       <div>
-        <div class="left"><p>1000</p></div>
+        <div class="left"><p>{{leaderboard.score}}</p></div>
         <div class="right"><img alt="" src="./assets/images/leaderboard/vector.png"></div>
       </div>
-      <div [class.active]="i%2 === 0">
-        <div class="left"><p>1000</p></div>
-        <div class="right"><img alt="" src="./assets/images/leaderboard/{{i%2 === 0 ? 'disable' : 'enable'}}.png"></div>
+      <div [class.active]="i === 0">
+        <div class="left"><p>{{leaderboard.score}}</p></div>
+        <div class="right"><img alt="" src="./assets/images/leaderboard/{{i === 0 ? 'disable' : 'enable'}}.png"></div>
       </div>
     </div>
   </div>

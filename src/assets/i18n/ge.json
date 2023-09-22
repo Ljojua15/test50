@@ -88,5 +88,11 @@
     "8": "შენ დაგერიცხა ",
     "9": "ლარის ღირებულების ფრიჩიპები EVOLUTION GAMING-ის რულეტკების ფრიჩიპების ბალანსზე"
   },
-  "iframeBgUrl": "./assets/images/iframe/ge.png"
+  "iframeBgUrl": "./assets/images/iframe/ge.png",
+  "leaderBoard": {
+    "1": "ლიდერბორდი",
+    "2": "მომხმარებელი",
+    "3": "ქულა",
+    "4": "პრიზი"
+  }
 }

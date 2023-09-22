@@ -7,6 +7,7 @@ import {IframeResponse, User} from '../shared/models/user';
 import {Rule} from '../shared/models/rule';
 import {Prize} from '../shared/models/prize';
 import {Promo} from "../shared/models/promo";
+import {Leaderboard} from "../shared/models/leaderboard";
 
 @Injectable({
   providedIn: 'root',
@@ -32,10 +33,10 @@ export class CampaignService {
 
   getLeaderBoard(
     campaignId: string = this.campaignId
-  ): Observable<GenericResponse<User>> {
-    return this.http.get<GenericResponse<User>>(
+  ): Observable<Leaderboard []> {
+    return this.http.get<{ data: Leaderboard [] }>(
       `${this.API}/campaigns/${campaignId}/user/leaderboard`
-    );
+    ).pipe(map(res => res.data));
   }
 
   getPrize(

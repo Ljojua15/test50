@@ -88,5 +88,11 @@
     "8": "YOU'VE BEEN CREDITED FREECHIPS OF ",
     "9": "₾ TO YOUR FREECHIP'S BALANCE"
   },
-  "iframeBgUrl": "./assets/images/iframe/en.png"
+  "iframeBgUrl": "./assets/images/iframe/en.png",
+  "leaderBoard": {
+    "1": "LEADERBOARD",
+    "2": "USER",
+    "3": "POINT",
+    "4": "PRIZE"
+  }
 }

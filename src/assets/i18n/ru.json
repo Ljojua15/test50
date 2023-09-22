@@ -87,5 +87,11 @@
     "8": "ТЕБЯ ЗАЧИСЛЕНО ФРИЧИПЫ В СУММУ ",
     "9": "₾ НА БАЛАНС ФРИЧИПОВ"
   },
-  "iframeBgUrl": "./assets/images/iframe/ru.png"
+  "iframeBgUrl": "./assets/images/iframe/ru.png",
+  "leaderBoard": {
+    "1": "ЛИДЕРБОРД",
+    "2": "ПОЛЬЗОВАТЕЛЬ",
+    "3": "БАЛЛ",
+    "4": "ПРИЗ"
+  }
 }
