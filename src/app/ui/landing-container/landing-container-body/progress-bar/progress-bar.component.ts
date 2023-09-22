@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 
@@ -13,11 +7,17 @@ import { Levels } from 'src/app/shared/models/progressData';
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements AfterViewInit {
+export class ProgressBarComponent {
   @ViewChild('progress') progressEl: ElementRef;
 
+  data: any = null;
+
   @Input() levels!: Levels[];
-  @Input() progressData!: any;
+  @Input() set progressData(progressData: any) {
+    this.data = progressData;
+    this.setProgress();
+  }
+
   @Input() config!: Config;
 
   popup = false;
@@ -37,8 +37,16 @@ export class ProgressBarComponent implements AfterViewInit {
   progressEndValue = 0;
   speed = 10;
 
-  ngAfterViewInit(): void {
-    this.progressEndValue = this.progressData.progress;
+  closePopup() {
+    this.popup = false;
+  }
+
+  setProgress() {
+    console.log('herees');
+
+    this.progressStartValue = 0;
+
+    this.progressEndValue = this.data.progress;
     let progress = setInterval(() => {
       this.progressEl.nativeElement.style.background = `conic-gradient(#00a75b ${
         this.progressStartValue * 3.6
@@ -50,9 +58,5 @@ export class ProgressBarComponent implements AfterViewInit {
 
       this.progressStartValue++;
     }, this.speed);
-  }
-
-  closePopup() {
-    this.popup = false;
   }
 }

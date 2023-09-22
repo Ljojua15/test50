@@ -20,7 +20,7 @@
     <div class="progress">
       <div class="progress__circle" #progress>
         <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
-        <span class="progress__value">{{ progressEndValue }} / 100</span>
+        <span class="progress__value">{{ data.progress }} / 50</span>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
       <div class="balance__info">
         <div class="balance__info-text">დღეს დააგროვე</div>
         <div class="balance__info-amount">
-          {{ progressData.balance }}/1000
+          {{ data.balance }}/1000
           <img
             class="balance__info-icon"
             src="assets/images/prog/prog-off.png"
@@ -42,7 +42,7 @@
       <div class="balance__info">
         <div class="balance__info-text balance__info--green">ჩემი ბალანსი</div>
         <div class="balance__info-amount balance__info--green">
-          {{ progressData.total }}
+          {{ data.total }}
           <img
             class="balance__info-icon"
             src="assets/images/prog/prog-on.png"
