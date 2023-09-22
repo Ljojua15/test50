@@ -1,7 +1,9 @@
 <div class="card">
   <div class="card__content">
     <div class="card__content-game">
-      <img src="assets/images/game.png" alt="" />
+      <video muted loop autoplay playsinline>
+        <source [src]="video" type="video/mp4" />
+      </video>
     </div>
 
     <span class="card__content-name">{{ name }}</span>

@@ -20,10 +20,17 @@ export class CampaignService {
 
   public updateUserData = new Subject<boolean>();
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getUserData(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user`
+    );
+  }
+
+  getBalance(
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<User>> {
     return this.http.get<GenericResponse<User>>(
@@ -93,5 +100,9 @@ export class CampaignService {
           return res.data;
         })
       );
+  }
+
+  getCursomUrl(url: string) {
+    return this.http.get(url);
   }
 }
