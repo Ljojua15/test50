@@ -20,7 +20,8 @@
     <img *ngIf="!iframeTabsData.iframeUrl else iframe" class="main__iframe__default"
          src="{{ 'iframeBgUrl' | translate }}">
     <ng-template #iframe>
-      <iframe #iframe [src]="iframeTabsData.iframeUrl" id="gameFrame" rel="prefetch"
+      <iframe #iframe *ngIf="reload" [src]="iframeTabsData.iframeUrl" id="gameFrame" rel="prefetch"
+              
       ></iframe>
     </ng-template>
   </div>

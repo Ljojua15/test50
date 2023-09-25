@@ -15,6 +15,7 @@ import {TabsService} from "../../../../services/tabs.service";
 })
 export class IframeContainerComponent {
   public iframeTabsData$: Observable<IframeTabsData>
+  public reload = true
 
   constructor(
     private tabsService: TabsService
@@ -22,7 +23,6 @@ export class IframeContainerComponent {
     this.iframeTabsData$ = this.tabsService.iframeTabsData$.pipe(tap(res => {
       // console.log(res, 'in subscribe')
     }))
-
   }
 
   changeTab(gameId: GameID) {
@@ -32,6 +32,16 @@ export class IframeContainerComponent {
 
   @HostListener('window:message', ['$event'])
   onMessage(event: MessageEvent) {
-    console.log(event, 'eveeeeeeeeeeeeeeent')
+    console.log(event, 'eveeeeeeeeeeeeeeeeent')
+    if (event.origin === 'https://bonus-space.crocobet.com') {
+      if (event.data.message === 'CloseGame')
+        window.open(event.data.gameUrl)
+      else if (event.data === 'reloadGame') {
+        this.reload = false
+        setTimeout(() => {
+          this.reload = true
+        }, 500)
+      }
+    }
   }
 }
