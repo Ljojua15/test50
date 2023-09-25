@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class IframeService {
-  sendMessage(code: number, payload?: string) {
+  sendMessage(code: number, payload?: string | number) {
     const CROSS_ORIGIN = '*';
 
     if (code === 1002) {
@@ -88,7 +88,7 @@ export class IframeService {
         {
           action: 'scrollTo',
           code: 1031,
-          value: 0,
+          value: payload,
         },
         CROSS_ORIGIN
       );
@@ -126,7 +126,7 @@ export class IframeService {
     );
   }
 
-  scrollFromTop() {
-    this.sendMessage(1031);
+  scrollFromTop(top: number) {
+    this.sendMessage(1031, top);
   }
 }
