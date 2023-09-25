@@ -74,8 +74,8 @@ export class LandingContainerBodyComponent implements OnInit {
       .subscribe((res: typeof this.progressData) => {
         this.progressData = {
           total: res.total,
-          balance: Math.floor(res.progress / 50),
-          progress: res.progress % 50,
+          progress: Math.floor(res.progress % 50),
+          balance: res.balance,
         };
       });
   }

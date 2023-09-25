@@ -50,7 +50,7 @@ export class ProgressBarComponent {
     this.progressEndValue = this.data.progress;
     let progress = setInterval(() => {
       this.progressEl.nativeElement.style.background = `conic-gradient(#00a75b ${
-        this.progressStartValue * 3.6
+        this.progressStartValue * 7.2
       }deg, #07435E 0deg)`;
 
       if (this.progressStartValue === this.progressEndValue) {
