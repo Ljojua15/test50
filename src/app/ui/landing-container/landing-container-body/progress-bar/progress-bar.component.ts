@@ -31,7 +31,7 @@ export class ProgressBarComponent {
     height: 'auto',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    'text-align': 'left',
+    'text-align': 'center',
   };
 
   progressStartValue = 0;
