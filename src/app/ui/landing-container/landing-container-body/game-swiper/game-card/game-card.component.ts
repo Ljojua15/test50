@@ -17,6 +17,11 @@ export class GameCardComponent {
 
   onPlay() {
     this.tabsService.changeTab(this.card.gameId);
-    this.iframe.scrollFromTop(1000);
+
+    if (window.innerWidth <= 479) {
+      this.iframe.scrollFromTop(700);
+    } else {
+      this.iframe.scrollFromTop(800);
+    }
   }
 }
