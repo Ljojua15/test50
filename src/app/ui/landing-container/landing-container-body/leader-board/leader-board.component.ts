@@ -4,7 +4,7 @@ import {CampaignService} from "../../../../services/campaign.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {IframeService} from "../../../../services/iframe.service";
 import {AuthService} from "../../../../services/auth.service";
-import {map, Observable, tap} from "rxjs";
+import {map, Observable, switchMap, tap} from "rxjs";
 import {Leaderboard} from "../../../../shared/models/leaderboard";
 
 @Component({
@@ -19,17 +19,20 @@ export class LeaderBoardComponent {
   constructor(
     private translateService: TranslateService,
     private campaignService: CampaignService,
+    private authService: AuthService
   ) {
-    this.leaderboardData$ = this.campaignService.getLeaderBoard().pipe(map((res: any) => {
-      const changedRes = {
-        leaderboardData: res,
-        isSticky: false
-      }
-      res.forEach((item: any) => item.itsMe ? item.place < 7 ? changedRes.isSticky = true : null : null)
-      return changedRes
-    }), tap(res => {
-      console.log(res)
-    }))
+    this.leaderboardData$ = this.authService.isAuthorized().pipe(
+      switchMap(() => {
+        return this.campaignService.getLeaderBoard().pipe(map((res: any) => {
+          const changedRes = {
+            leaderboardData: res,
+            isSticky: false
+          }
+          res.forEach((item: any) => item.itsMe ? item.place > 7 ? changedRes.isSticky = true : null : null)
+          return changedRes
+        }))
+      })
+    )
   }
 
 }
