@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { TabsService } from '../../../../services/tabs.service';
 import { GameID } from '../iframe-container/config';
 
 type Cards = Array<{

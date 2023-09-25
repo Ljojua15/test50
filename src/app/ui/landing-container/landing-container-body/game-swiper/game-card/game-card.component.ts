@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabsService } from '../../../../../services/tabs.service';
-import { GameID } from '../../iframe-container/config';
 import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { IframeService } from 'src/app/services/iframe.service';
   templateUrl: './game-card.component.html',
   styleUrls: ['./game-card.component.scss'],
 })
-export class GameCardComponent implements AfterViewInit {
+export class GameCardComponent {
   @Input() card: any;
 
   constructor(
@@ -16,13 +15,8 @@ export class GameCardComponent implements AfterViewInit {
     private iframe: IframeService
   ) {}
 
-  changeTab(gameId: GameID) {
-    this.tabsService.changeTab(gameId);
-  }
-
-  ngAfterViewInit(): void {}
-
-  onClick() {
+  onPlay() {
+    this.tabsService.changeTab(this.card.gameId);
     this.iframe.scrollFromTop(1000);
   }
 }
