@@ -38,6 +38,8 @@ export class TabsService {
         if (isAuthorized) {
           return this.campaignService.getGameUrl(lang.lang).pipe(
             switchMap(gameResponse => {
+              gameResponse.url += '&lang=en'
+              console.log(gameResponse.url)
               const response: any = {
                 iframeUrl: this.domSanitizer.bypassSecurityTrustResourceUrl(gameResponse.url) as string
               }

@@ -32,14 +32,6 @@ export class IframeContainerComponent {
 
   @HostListener('window:message', ['$event'])
   onMessage(event: MessageEvent) {
-    of(event)
-      .pipe(
-        tap(res => {
-          // console.log(res)
-        })
-      )
-      .subscribe((res) => {
-
-      });
+    console.log(event, 'eveeeeeeeeeeeeeeent')
   }
 }

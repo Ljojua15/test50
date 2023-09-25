@@ -20,7 +20,8 @@ export class CampaignService {
 
   public updateUserData = new Subject<boolean>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getUserData(
     campaignId: string = this.campaignId
@@ -59,7 +60,7 @@ export class CampaignService {
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<TObj>> {
     return this.http.get<GenericResponse<TObj>>(
-      `${this.API}/campaigns/${campaignId}/history`
+      `${this.API}/campaigns/${campaignId}/user/history`
     );
   }
 

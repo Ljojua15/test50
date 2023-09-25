@@ -124,6 +124,10 @@
       border-radius: 18.5px;
       width: 62%;
 
+      .right {
+        justify-content: flex-end !important;
+      }
+
       img {
         transform: translateY(9%);
       }

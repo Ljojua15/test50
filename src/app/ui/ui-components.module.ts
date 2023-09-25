@@ -20,6 +20,7 @@ import { IframeContainerComponent } from './landing-container/landing-container-
 import { LeaderBoardComponent } from './landing-container/landing-container-body/leader-board/leader-board.component';
 import { GameSwiperComponent } from './landing-container/landing-container-body/game-swiper/game-swiper.component';
 import { GameCardComponent } from './landing-container/landing-container-body/game-swiper/game-card/game-card.component';
+import { HistoryComponent } from './landing-container/landing-container-body/history/history.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { GameCardComponent } from './landing-container/landing-container-body/ga
     LeaderBoardComponent,
     GameSwiperComponent,
     GameCardComponent,
+    HistoryComponent,
   ],
   exports: [
     LandingContainerComponent,
