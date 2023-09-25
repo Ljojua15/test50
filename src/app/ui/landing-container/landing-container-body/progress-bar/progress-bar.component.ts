@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 
@@ -13,11 +7,17 @@ import { Levels } from 'src/app/shared/models/progressData';
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements AfterViewInit {
+export class ProgressBarComponent {
   @ViewChild('progress') progressEl: ElementRef;
 
+  data: any = null;
+
   @Input() levels!: Levels[];
-  @Input() progressData!: any;
+  @Input() set progressData(progressData: any) {
+    this.data = progressData;
+    this.setProgress();
+  }
+
   @Input() config!: Config;
 
   popup = false;
@@ -25,23 +25,32 @@ export class ProgressBarComponent implements AfterViewInit {
     'background-color': '#145674',
     'box-shadow': 'inset 0px 3px 2px -2px #fff',
     width: '100%',
-    'max-width': '420px',
+    'max-width': '550px',
     padding: '30px',
     'border-radius': '18px',
     height: 'auto',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    'text-align': 'center',
   };
 
   progressStartValue = 0;
   progressEndValue = 0;
   speed = 10;
 
-  ngAfterViewInit(): void {
-    this.progressEndValue = this.progressData.progress;
+  closePopup() {
+    this.popup = false;
+  }
+
+  setProgress() {
+    console.log('herees');
+
+    this.progressStartValue = 0;
+
+    this.progressEndValue = this.data.progress;
     let progress = setInterval(() => {
       this.progressEl.nativeElement.style.background = `conic-gradient(#00a75b ${
-        this.progressStartValue * 3.6
+        this.progressStartValue * 7.2
       }deg, #07435E 0deg)`;
 
       if (this.progressStartValue === this.progressEndValue) {
@@ -50,9 +59,5 @@ export class ProgressBarComponent implements AfterViewInit {
 
       this.progressStartValue++;
     }, this.speed);
-  }
-
-  closePopup() {
-    this.popup = false;
   }
 }

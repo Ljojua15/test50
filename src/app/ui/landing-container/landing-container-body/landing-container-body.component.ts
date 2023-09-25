@@ -72,7 +72,11 @@ export class LandingContainerBodyComponent implements OnInit {
       .getBalance()
       .pipe(map((res: any) => res.data))
       .subscribe((res: typeof this.progressData) => {
-        this.progressData = res;
+        this.progressData = {
+          total: res.total,
+          progress: Math.floor(res.progress % 50),
+          balance: res.balance,
+        };
       });
   }
 

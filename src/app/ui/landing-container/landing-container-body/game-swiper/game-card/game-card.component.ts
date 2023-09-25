@@ -1,27 +1,27 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
-import {TabsService} from "../../../../../services/tabs.service";
-import {GameID} from "../../iframe-container/config";
+import { Component, Input } from '@angular/core';
+import { TabsService } from '../../../../../services/tabs.service';
+import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
   selector: 'crc-game-card',
   templateUrl: './game-card.component.html',
   styleUrls: ['./game-card.component.scss'],
 })
-export class GameCardComponent implements AfterViewInit {
-  // @ViewChild('vid') video: any;
+export class GameCardComponent {
   @Input() card: any;
 
+  constructor(
+    private tabsService: TabsService,
+    private iframe: IframeService
+  ) {}
 
-  constructor(private tabsService: TabsService) {
-  }
+  onPlay() {
+    this.tabsService.changeTab(this.card.gameId);
 
-  changeTab(gameId: GameID) {
-    this.tabsService.changeTab(gameId)
-  }
-
-  ngAfterViewInit(): void {
-    // this.video.play();
-    // @ts-ignore: Unreachable code error
-    // document?.getElementById('vid')?.play();
+    if (window.innerWidth <= 479) {
+      this.iframe.scrollFromTop(700);
+    } else {
+      this.iframe.scrollFromTop(800);
+    }
   }
 }

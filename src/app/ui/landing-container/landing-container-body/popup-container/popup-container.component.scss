@@ -7,11 +7,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  transform: translate(-50%, -70%) !important;
 
   &__close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 0px;
+    right: 0px;
     width: auto;
     cursor: pointer;
   }

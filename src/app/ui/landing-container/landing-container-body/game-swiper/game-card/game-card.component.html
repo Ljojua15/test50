@@ -2,19 +2,21 @@
   <div class="card__content">
     <div class="card__content-game">
       <video autoplay loop muted playsinline>
-        <source [src]="card.video" type="video/mp4"/>
+        <source [src]="card.video" type="video/mp4" />
       </video>
     </div>
 
-    <span class="card__content-name">{{ card.name }}</span>
+    <span class="card__content-name">{{
+      card.key | translate | uppercase
+    }}</span>
   </div>
 
   <div class="card__footer">
     <div class="card__footer-amount">
-      <span>MIN</span> BET
-      <span>15</span>
+      <span>{{ "mini" | translate }}</span> {{ "bet" | translate }}
+      <span>{{ card.bet }}</span>
     </div>
 
-    <button (click)="changeTab(card.gameId)">PLAY</button>
+    <button (click)="onPlay()">{{ "play" | translate }}</button>
   </div>
 </div>

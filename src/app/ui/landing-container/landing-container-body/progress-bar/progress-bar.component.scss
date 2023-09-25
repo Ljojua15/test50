@@ -10,10 +10,6 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   margin: 626px 0 100px 0;
 }
 
-.popup__text {
-  margin-top: 40px;
-}
-
 .container {
   display: flex;
   margin-inline: auto;
@@ -191,6 +187,12 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
 
 @media (max-width: 479px) {
   .container {
+    .popup__text {
+      p {
+        font-size: 12px;
+      }
+    }
+
     .progress__wrapper {
       .progress {
         &__value {

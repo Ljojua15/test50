@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IframeService {
-  sendMessage(code: number, payload?: string) {
+  sendMessage(code: number, payload?: string | number) {
     const CROSS_ORIGIN = '*';
 
     if (code === 1002) {
@@ -83,6 +83,15 @@ export class IframeService {
         },
         CROSS_ORIGIN
       );
+    } else if (code === 1031) {
+      window.parent.postMessage(
+        {
+          action: 'scrollTo',
+          code: 1031,
+          value: payload,
+        },
+        CROSS_ORIGIN
+      );
     }
   }
 
@@ -115,5 +124,9 @@ export class IframeService {
       1011,
       `https://crocobet.com/#/slots?menu=${provider}&provider=${provider}&slot=${slot}`
     );
+  }
+
+  scrollFromTop(top: number) {
+    this.sendMessage(1031, top);
   }
 }
