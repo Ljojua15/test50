@@ -1,6 +1,7 @@
 video {
   width: 100%;
-  height: 100%;
+  height: 251px;
+  object-fit: cover;
 }
 
 .card {
@@ -86,6 +87,10 @@ video {
 }
 
 @media (max-width: 767px) {
+  video {
+    height: 226px;
+  }
+
   .card {
     max-width: 269px;
 
