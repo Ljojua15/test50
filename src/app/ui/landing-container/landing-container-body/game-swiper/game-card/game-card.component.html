@@ -6,7 +6,9 @@
       </video>
     </div>
 
-    <span class="card__content-name">{{ card.name }}</span>
+    <span class="card__content-name">{{
+      card.key | translate | uppercase
+    }}</span>
   </div>
 
   <div class="card__footer">

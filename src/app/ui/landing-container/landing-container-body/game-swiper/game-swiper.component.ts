@@ -7,6 +7,7 @@ type Cards = Array<{
   video: string;
   gameId: GameID;
   bet: number;
+  key: string;
 }>;
 
 @Component({
@@ -23,6 +24,7 @@ export class GameSwiperComponent {
       position: 'active',
       video: 'assets/videos/wheel.mp4',
       gameId: 'wheel',
+      key: 'croco-master',
       bet: 5,
     },
     {
@@ -30,6 +32,7 @@ export class GameSwiperComponent {
       position: 'right',
       video: 'assets/videos/master.mp4',
       gameId: 'masters',
+      key: 'sakura-wheel',
       bet: 1,
     },
     {
@@ -37,6 +40,7 @@ export class GameSwiperComponent {
       position: 'left',
       video: 'assets/videos/viking.mp4',
       gameId: 'chest',
+      key: 'viking-treasure',
       bet: 1,
     },
   ];
