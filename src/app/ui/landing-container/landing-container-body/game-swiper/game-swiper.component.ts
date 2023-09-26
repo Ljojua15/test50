@@ -24,7 +24,7 @@ export class GameSwiperComponent {
       position: 'active',
       video: 'assets/videos/wheel.mp4',
       gameId: 'wheel',
-      key: 'croco-master',
+      key: 'sakura-wheel',
       bet: 5,
     },
     {
@@ -32,7 +32,7 @@ export class GameSwiperComponent {
       position: 'right',
       video: 'assets/videos/master.mp4',
       gameId: 'masters',
-      key: 'sakura-wheel',
+      key: 'croco-master',
       bet: 1,
     },
     {
