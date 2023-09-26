@@ -119,6 +119,10 @@ video {
 }
 
 @media (max-width: 767px) {
+  :host {
+    max-width: 361px;
+  }
+
   video {
     height: 226px;
   }
