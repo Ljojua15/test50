@@ -124,7 +124,8 @@ video {
   }
 
   video {
-    height: 226px;
+    height: 100%;
+    min-height: 226px;
   }
 
   .card {
