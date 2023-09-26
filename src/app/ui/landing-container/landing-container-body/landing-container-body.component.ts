@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { map, of, tap } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
@@ -71,10 +71,10 @@ export class LandingContainerBodyComponent implements OnInit {
     return this.campaignService
       .getBalance()
       .pipe(map((res: any) => res.data))
-      .subscribe((res: typeof this.progressData) => {
+      .subscribe((res: any) => {
         this.progressData = {
           total: res.total,
-          progress: Math.floor(res.progress % 50),
+          progress: Math.floor(res.progressForNextSpin),
           balance: res.balance,
         };
       });
@@ -95,6 +95,17 @@ export class LandingContainerBodyComponent implements OnInit {
       total: 0,
     };
   }
+
+  // @HostListener('window:message', ['$event'])
+  // onMessage(event: MessageEvent) {
+  //   of(event)
+  //     .pipe(
+  //       tap((res) => {
+  //         console.log(res);
+  //       })
+  //     )
+  //     .subscribe((res) => {});
+  // }
 
   // getHistory() {
   //   return this.campaignService
