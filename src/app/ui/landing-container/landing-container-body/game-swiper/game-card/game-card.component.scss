@@ -11,9 +11,41 @@ video {
   max-width: 318px;
   border-radius: 16px;
 
+  &__top {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #c59e5f;
+    border-radius: 10.5px;
+    width: 127px;
+    height: 52px;
+    z-index: 1;
+    box-shadow: inset 0px 2px 1px 0px #f3ebdebf;
+  }
+
+  &__side {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #917035;
+    width: 52px;
+    height: 180px;
+    border-radius: 10.5px;
+    box-shadow: inset 0px 2px 2px 0px #f3ebdebf;
+
+    &--left {
+      left: 39px;
+    }
+
+    &--right {
+      right: 39px;
+    }
+  }
+
   &__content {
     position: relative;
-    z-index: 9;
+    z-index: 99;
     max-height: 308px;
     padding: 9px 6px 0 6px;
     background-color: #c59e5f;
