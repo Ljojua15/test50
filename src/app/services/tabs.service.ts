@@ -34,7 +34,7 @@ export class TabsService {
       this.translateService.onLangChange
     ]).pipe(
       switchMap(([isAuthorized, lang]) => {
-        console.log(isAuthorized, lang, 'change')
+        // console.log(isAuthorized, lang, 'change')
         if (isAuthorized) {
           return this.campaignService.getGameUrl(lang.lang).pipe(
             switchMap(gameResponse => {

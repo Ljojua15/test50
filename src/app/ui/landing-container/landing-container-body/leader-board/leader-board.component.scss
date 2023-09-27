@@ -26,16 +26,16 @@
     background-color: #d5c085;
   }
 
-  //.current {
-  //  .user {
-  //    display: block;
-  //  }
-  //
-  //  & {
-  //    mix-blend-mode: hard-light;
-  //    background-color: #19ad4b;
-  //  }
-  //}
+  .current {
+    .user {
+      display: block;
+    }
+
+    & {
+      mix-blend-mode: hard-light;
+      background-color: #19ad4b;
+    }
+  }
 
 
   &__title {
