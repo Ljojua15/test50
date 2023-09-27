@@ -110,5 +110,11 @@
   "my-balance": "MY BALANCE",
   "croco-master": "Croco Master",
   "sakura-wheel": "Sakura Wheel",
-  "viking-treasure": "Viking treasure"
+  "viking-treasure": "Viking treasure",
+  "history-translations": {
+    "header": "HISTORY",
+    "date": "DATE",
+    "amount": "AMOUNT",
+    "product": "PRODUCT"
+  }
 }

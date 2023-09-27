@@ -3,5 +3,6 @@ export interface Tab {
   text: string
   amount: number,
   gameId: 'wheel' | 'masters' | 'chest',
-  isCurrent: boolean
+  isCurrent: boolean,
+  translateKey: string
 }
