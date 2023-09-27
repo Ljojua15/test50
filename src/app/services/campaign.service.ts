@@ -15,7 +15,7 @@ import {Leaderboard} from "../shared/models/leaderboard";
 export class CampaignService {
   readonly API = environment.cmsApi;
 
-  readonly rulesKey = 'ufocashbackwheel';
+  readonly rulesKey = 'bonusworld';
   readonly campaignId = 'bonus-space-v2';
 
   public updateUserData = new Subject<boolean>();

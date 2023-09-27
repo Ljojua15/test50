@@ -12,14 +12,15 @@
   background-image: url("../../../assets/images/bg.webp");
 }
 
-//@media (max-width: variables.$tablet) {
-//  .main {
-//    background-size: 1200px;
-//  }
-//}
+@media (max-width: variables.$tablet) {
+  .main {
+    background-size: cover;
+  }
+}
+
 //
-//@media (max-width: variables.$mobile) {
-//  .main {
-//    background-size: 767px;
-//  }
-//}
+@media (max-width: variables.$mobile) {
+  .main {
+    background-size: 722px;
+  }
+}

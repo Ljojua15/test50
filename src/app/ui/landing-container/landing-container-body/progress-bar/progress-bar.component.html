@@ -1,10 +1,12 @@
+<p class="header-text">დაგროვე ბონუს ქოინები, ჩაერთე 3 აქციაში ერთდოულად, მიიღე პრიზები</p>
+
 <div class="container">
   <crc-popup-container
     (closePopup)="closePopup()"
+    *ngIf="popup"
     [closeImage]="'assets/images/prog/x.png'"
     [containerStyles]="popupContainerStyles"
     [isBackdropClosable]="true"
-    *ngIf="popup"
   >
     <div class="popup__text">
       <p>{{ "progress-popup.1" | translate }}</p>
@@ -20,8 +22,8 @@
 
   <div class="progress__wrapper">
     <div class="progress">
-      <div class="progress__circle" #progress>
-        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
+      <div #progress class="progress__circle">
+        <img class="progress__circle-icon" src="assets/images/prog/prog.png"/>
         <span class="progress__value">{{ data.progress }} / 50</span>
       </div>
     </div>

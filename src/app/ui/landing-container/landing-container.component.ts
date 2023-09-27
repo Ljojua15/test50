@@ -12,22 +12,25 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class LandingContainerComponent {
   lang!: string;
+  //main background image
+  bgImg!: string;
+
+  constructor(private translateService: TranslateService) {
+  }
 
   generateBackgroundUrl(): void {
     const isMobile = window.innerWidth < 768 ? 'mob' : 'web';
-    this.bgImg = `./assets/images/backgrounds/bg-${isMobile}-${this.lang}.webp`;
+    if (isMobile === 'mob') {
+      this.bgImg = `./assets/images/backgrounds/bg-${isMobile}-${this.lang}.png`;
+    } else {
+      this.bgImg = `./assets/images/backgrounds/bg-${isMobile}-${this.lang}.webp`;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: { target: { innerWidth: any } }) {
     this.generateBackgroundUrl();
   }
-
-
-  //main background image
-  bgImg!: string;
-
-  constructor(private translateService: TranslateService) {}
 
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe((lang) => {

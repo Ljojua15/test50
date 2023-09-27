@@ -32,7 +32,7 @@ export class IframeContainerComponent {
 
   @HostListener('window:message', ['$event'])
   onMessage(event: MessageEvent) {
-    console.log(event, 'eveeeeeeeeeeeeeeeeent')
+    // console.log(event, 'eveeeeeeeeeeeeeeeeent')
     if (event.origin === 'https://bonus-space.crocobet.com') {
       if (event.data.message === 'CloseGame')
         window.open(event.data.gameUrl)

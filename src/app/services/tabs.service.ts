@@ -34,12 +34,11 @@ export class TabsService {
       this.translateService.onLangChange
     ]).pipe(
       switchMap(([isAuthorized, lang]) => {
-        console.log(isAuthorized, lang, 'change')
+        // console.log(isAuthorized, lang, 'change')
         if (isAuthorized) {
           return this.campaignService.getGameUrl(lang.lang).pipe(
             switchMap(gameResponse => {
-              gameResponse.url += '&lang=en'
-              console.log(gameResponse.url)
+              gameResponse.url += `&language=${lang.lang}`
               const response: any = {
                 iframeUrl: this.domSanitizer.bypassSecurityTrustResourceUrl(gameResponse.url) as string
               }
@@ -47,6 +46,8 @@ export class TabsService {
                 if (gameId) {
                   tabs.forEach(tab => tab.isCurrent = tab.gameId === gameId)
                   this.changeGame(gameId)
+                } else {
+                  // this.changeGame('wheel')
                 }
                 response.tabs = tabs
                 return response
@@ -54,7 +55,7 @@ export class TabsService {
             })
           )
         } else {
-          tabs.forEach(tab => tab.isCurrent = tab.gameId === 'wheel')
+          tabs.forEach(tab => tab.isCurrent = tab.gameId === 'masters')
           return of({
             tabs: tabs,
             iframeUrl: null

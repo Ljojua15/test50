@@ -167,8 +167,10 @@
       position: absolute;
       top: 85%;
       width: 89%;
-      border-radius: 3px;
+      border-radius: 0px 0px 8px 8px;
       z-index: 2;
+      mix-blend-mode: hard-light;
+      background: linear-gradient(90deg, rgb(18 111 69) 22%, rgba(25, 173, 107, 1) 74%);
 
       .user {
         display: block;
@@ -260,15 +262,10 @@
 
 
       &::-webkit-scrollbar {
-      }
-
-      &::-webkit-scrollbar-thumb {
-
+        width: 4px;
       }
 
 
-      &::-webkit-scrollbar-track-piece {
-      }
     }
 
     &__content-item {
@@ -315,5 +312,25 @@
         }
       }
     }
+
+    &.sticky {
+      .current {
+        top: 86.5%;
+        width: 93%;
+        border-radius: 2px 2px 20px 23px;
+        left: 3%;
+
+        .user {
+        }
+
+        & {
+        }
+      }
+
+      .main__content {
+      }
+    }
   }
+
+
 }

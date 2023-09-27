@@ -1,6 +1,6 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Config } from 'src/app/shared/models/progressConfig';
-import { Levels } from 'src/app/shared/models/progressData';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Config} from 'src/app/shared/models/progressConfig';
+import {Levels} from 'src/app/shared/models/progressData';
 
 @Component({
   selector: 'crc-progress-bar',
@@ -13,13 +13,7 @@ export class ProgressBarComponent {
   data: any = null;
 
   @Input() levels!: Levels[];
-  @Input() set progressData(progressData: any) {
-    this.data = progressData;
-    this.setProgress();
-  }
-
   @Input() config!: Config;
-
   popup = false;
   popupContainerStyles = {
     'background-color': '#145674',
@@ -33,17 +27,21 @@ export class ProgressBarComponent {
     transform: 'translate(-50%, -50%)',
     'text-align': 'center',
   };
-
   progressStartValue = 0;
   progressEndValue = 0;
   speed = 10;
+
+  @Input() set progressData(progressData: any) {
+    this.data = progressData;
+    this.setProgress();
+  }
 
   closePopup() {
     this.popup = false;
   }
 
   setProgress() {
-    console.log('herees');
+    // console.log('herees');
 
     this.progressStartValue = 0;
 
