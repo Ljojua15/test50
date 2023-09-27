@@ -20,7 +20,7 @@ export class LandingContainerComponent {
 
   generateBackgroundUrl(): void {
     const isMobile = window.innerWidth < 768 ? 'mob' : 'web';
-    if (this.lang === 'en' && isMobile === 'mob') {
+    if (isMobile === 'mob') {
       this.bgImg = `./assets/images/backgrounds/bg-${isMobile}-${this.lang}.png`;
     } else {
       this.bgImg = `./assets/images/backgrounds/bg-${isMobile}-${this.lang}.webp`;
