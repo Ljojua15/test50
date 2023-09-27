@@ -17,7 +17,6 @@ export interface HistoryItem {
 })
 export class HistoryComponent {
 
-  public items = [1, 1, 1, 1, 2, 2, 2, 2, 22, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,]
   public historyData$: Observable<HistoryItem[] | null>;
 
   constructor(private historyService: HistoryService,
