@@ -11,9 +11,10 @@
 
   &__close {
     position: absolute;
-    top: 0px;
-    right: 0px;
+
     width: auto;
+    top: -20px;
+    right: -20px;
     cursor: pointer;
   }
 }
@@ -21,6 +22,8 @@
 @media (max-width: 479px) {
   .main {
     &__close {
+      top: 0px;
+      right: 0px;
       width: 44px;
     }
   }
