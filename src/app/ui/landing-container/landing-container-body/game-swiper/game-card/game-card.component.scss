@@ -155,3 +155,8 @@ video {
     }
   }
 }
+
+.disabled {
+  pointer-events: none;
+  filter: grayscale(1);
+}
