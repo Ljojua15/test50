@@ -22,6 +22,8 @@
       <span>{{ card.bet }}</span>
     </div>
 
-    <button (click)="onPlay()">{{ "play" | translate }}</button>
+    <button [class.disabled]="!isAuthorized" (click)="onPlay()">
+      {{ "play" | translate }}
+    </button>
   </div>
 </div>
