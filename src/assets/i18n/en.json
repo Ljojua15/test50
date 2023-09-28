@@ -110,5 +110,12 @@
   "my-balance": "MY BALANCE",
   "croco-master": "Croco Master",
   "sakura-wheel": "Sakura Wheel",
-  "viking-treasure": "Viking treasure"
+  "viking-treasure": "Viking treasure",
+  "history-translations": {
+    "header": "HISTORY",
+    "date": "DATE",
+    "amount": "AMOUNT",
+    "product": "PRODUCT"
+  },
+  "landing-title": "COMPLETE THE PROGRESS, GET SPINS FOR THE GAME, AND GET INVOLVED IN THE DESIRED PROMOTION!"
 }

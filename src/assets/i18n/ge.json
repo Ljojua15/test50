@@ -110,5 +110,12 @@
   "my-balance": "ჩემი ბალანსი",
   "croco-master": "კროკო მასტერი",
   "sakura-wheel": "საკურას ბორბალი",
-  "viking-treasure": "ვიკინგების განძი"
+  "viking-treasure": "ვიკინგების განძი",
+  "history-translations": {
+    "header": "ისტორია",
+    "date": "თარიღი",
+    "amount": "რაოდენობა",
+    "product": "პროდუქტი"
+  },
+  "landing-title": "შეავსე პროგრესი, მიიღე თამაშის სპინები და ჩაერთე სასურველ აქციაში!"
 }

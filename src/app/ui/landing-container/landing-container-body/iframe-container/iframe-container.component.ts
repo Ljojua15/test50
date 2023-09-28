@@ -7,6 +7,7 @@ import {IframeService} from "../../../../services/iframe.service";
 import {catchError, filter, iif, map, Observable, of, switchMap, tap} from "rxjs";
 import {AuthService} from "../../../../services/auth.service";
 import {TabsService} from "../../../../services/tabs.service";
+import {HistoryService} from "../../../../services/history.service";
 
 @Component({
   selector: 'crc-iframe-container',
@@ -18,7 +19,7 @@ export class IframeContainerComponent {
   public reload = true
 
   constructor(
-    private tabsService: TabsService
+    private tabsService: TabsService, private historyService: HistoryService
   ) {
     this.iframeTabsData$ = this.tabsService.iframeTabsData$.pipe(tap(res => {
       // console.log(res, 'in subscribe')
@@ -34,9 +35,10 @@ export class IframeContainerComponent {
   onMessage(event: MessageEvent) {
     // console.log(event, 'eveeeeeeeeeeeeeeeeent')
     if (event.origin === 'https://bonus-space.crocobet.com') {
-      if (event.data.message === 'CloseGame')
+      if (event.data.message === 'CloseGame') {
         window.open(event.data.gameUrl)
-      else if (event.data === 'reloadGame') {
+        this.historyService.makeRequest();
+      } else if (event.data === 'reloadGame') {
         this.reload = false
         setTimeout(() => {
           this.reload = true

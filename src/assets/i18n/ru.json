@@ -109,5 +109,12 @@
   "my-balance": "МОЙ БАЛАНС",
   "croco-master": "Croco Мастер",
   "sakura-wheel": "Колесо Сакуры",
-  "viking-treasure": "Сокровища викингов"
+  "viking-treasure": "Сокровища викингов",
+  "history-translations": {
+    "header": "ИСТОРИЯ",
+    "date": "ДАТА",
+    "amount": "КОЛИЧЕСТВО",
+    "product": "ПРОДУКТ"
+  },
+  "landing-title": "ЗАПОЛНИ ПРОГРЕСС, ПОЛУЧИ СПИНЫ ДЛЯ ИГРЫ И УЧАСТВУЙ В ЖЕЛАННОЙ АКЦИИ!"
 }

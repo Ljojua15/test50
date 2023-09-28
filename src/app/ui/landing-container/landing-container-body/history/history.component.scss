@@ -26,6 +26,13 @@ $bold: 'CrocoSansBlackCAPS';
     @include variables.dFlex(space-between, center, column);
     padding: 5px 20px 13px 20px;
     margin-top: 19px;
+    z-index: 1000;
+
+    &__close {
+      position: absolute;
+      right: -4%;
+      top: -2%;
+    }
 
 
     &__header {
@@ -52,6 +59,7 @@ $bold: 'CrocoSansBlackCAPS';
           width: 100%;
           font-size: 15px;
           color: #46759d;
+          padding: 0 4px;
         }
       }
 
@@ -60,7 +68,7 @@ $bold: 'CrocoSansBlackCAPS';
       }
 
       .content {
-        @include variables.dFlex(space-between, center, column);
+        @include variables.dFlex(flex-start, center, column);
         width: 99%;
         height: 100%;
         overflow: hidden;
@@ -108,6 +116,66 @@ $bold: 'CrocoSansBlackCAPS';
     font-size: 20px;
     font-family: $bold;
     padding: 23px 27px;
+  }
+
+  &__button-wrapper {
+    background: #164671;
+    padding: 5px 4px 1px 4px;
+    border-radius: 20px;
+  }
+}
+
+
+@media (max-width: variables.$tablet) {
+  .main {
+
+
+    &__popup {
+      height: 509px;
+      width: 92%;
+      padding: 5px 7px 13px 7px;
+      background-image: url("../../../../../assets/images/history/history-back-mob.webp");
+
+
+      &__close {
+
+      }
+
+
+      &__header {
+
+      }
+
+      &__content {
+        background-image: url("../../../../../assets/images/history/history-content-mob.webp");
+        height: 86%;
+
+        .item {
+
+          div {
+            font-size: 13px;
+          }
+        }
+
+        .content-header {
+        }
+
+        .content {
+          height: 87%;
+          padding: 0px 10px;
+
+          .item {
+            background-image: url("../../../../../assets/images/history/item-back-mob.webp");
+
+          }
+
+        }
+      }
+    }
+
+    &__button {
+
+    }
   }
 }
 
