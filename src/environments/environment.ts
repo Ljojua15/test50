@@ -7,7 +7,7 @@ export const environment = {
     `https://cms.crocobet.com/ui/policy/${lang}/categories/promotions/`,
   production: false,
   cmsApi: 'https://cms.crocobet.com',
-  testToken: 'cecbadad-1afc-429c-b945-1a2b6b75bdcc.oddsapi1',
+  testToken: 'f30e74b7-d303-445d-ab7c-161765182706.oddsapi2',
 };
 
 /*

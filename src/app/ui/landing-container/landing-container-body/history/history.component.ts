@@ -36,7 +36,6 @@ export class HistoryComponent {
                   return this.historyService.openCloseHistoryPopup$.pipe(
                     map((action: boolean) => {
                       console.log('history', mapHistoryData)
-
                       return action ? mapHistoryData : null
                     })
                   )
@@ -62,7 +61,7 @@ export class HistoryComponent {
     return historyData.data.map((item: any) => {
         return {
           date: item.timestamp.slice(0, 10),
-          amountAndValue: `${item.amount} X ${item.nominalAmount}`,
+          amountAndValue: item.nominalAmount ? `${item.amount} X ${item.nominalAmount}₾` : `${item.amount}₾`,
           product: item.nominalName
         }
       }
