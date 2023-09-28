@@ -8,10 +8,8 @@
 
 <crc-iframe-container>
   <crc-history></crc-history>
-
 </crc-iframe-container>
-
 
 <crc-leader-board></crc-leader-board>
 
-<crc-game-swiper></crc-game-swiper>
+<crc-game-swiper *ngIf="!isMobile"></crc-game-swiper>
