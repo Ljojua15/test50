@@ -50,6 +50,8 @@ export class LandingContainerBodyComponent implements OnInit {
     total: 0,
   };
 
+  isMobile = false;
+
   constructor(private campaignService: CampaignService) {}
 
   @Input() set isAuthorized(value: boolean) {
@@ -61,6 +63,10 @@ export class LandingContainerBodyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (window.innerWidth < 767) {
+      this.isMobile = true;
+    }
+
     this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });

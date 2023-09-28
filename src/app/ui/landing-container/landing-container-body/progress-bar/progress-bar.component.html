@@ -1,4 +1,4 @@
-<p class="header-text">{{'landing-title' | translate}}</p>
+<p class="header-text">{{ "landing-title" | translate }}</p>
 
 <div class="container">
   <crc-popup-container
@@ -9,21 +9,21 @@
     [isBackdropClosable]="true"
   >
     <div class="popup__text">
-      <p>{{ "progress-popup.1" | translate }}</p>
-      <p>{{ "progress-popup.2" | translate }}</p>
-      <p>{{ "progress-popup.3" | translate }}</p>
-      <p>{{ "progress-popup.4" | translate }}</p>
-      <p>{{ "progress-popup.5" | translate }}</p>
-      <p>{{ "progress-popup.6" | translate }}</p>
-      <p>{{ "progress-popup.7" | translate }}</p>
-      <p>{{ "progress-popup.8" | translate }}</p>
+      <p>{{ "progress-popup.1" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.2" | translate | uppercase }}</p>
+      <!-- <p>{{ "progress-popup.3" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.4" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.5" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.6" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.7" | translate | uppercase }}</p>
+      <p>{{ "progress-popup.8" | translate | uppercase }}</p> -->
     </div>
   </crc-popup-container>
 
   <div class="progress__wrapper">
     <div class="progress">
       <div #progress class="progress__circle">
-        <img class="progress__circle-icon" src="assets/images/prog/prog.png"/>
+        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
         <span class="progress__value">{{ data.progress }} / 50</span>
       </div>
     </div>
