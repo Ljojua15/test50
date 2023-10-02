@@ -1,6 +1,6 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {Config} from 'src/app/shared/models/progressConfig';
-import {Levels} from 'src/app/shared/models/progressData';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Config } from 'src/app/shared/models/progressConfig';
+import { Levels } from 'src/app/shared/models/progressData';
 
 @Component({
   selector: 'crc-progress-bar',
@@ -41,13 +41,11 @@ export class ProgressBarComponent {
   }
 
   setProgress() {
-    // console.log('herees');
-
     this.progressStartValue = 0;
 
     this.progressEndValue = this.data.progress;
     let progress = setInterval(() => {
-      this.progressEl.nativeElement.style.background = `conic-gradient(#00a75b ${
+      this.progressEl.nativeElement.style.background = `conic-gradient(#bb9e53 ${
         this.progressStartValue * 7.2
       }deg, #07435E 0deg)`;
 
