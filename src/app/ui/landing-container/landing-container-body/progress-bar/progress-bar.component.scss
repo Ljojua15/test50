@@ -8,7 +8,10 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   width: 100%;
   display: block;
   margin: 770px 0 100px 0;
+}
 
+.booster {
+  color: #dabb6b;
 }
 
 .header-text {
@@ -53,7 +56,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
         justify-content: center;
         transform: rotate(180deg);
         box-shadow: inset 0px 0px 10px -2px #000000,
-        inset 0px 0px 10px -2px #ffffff;
+          inset 0px 0px 10px -2px #ffffff;
 
         &::before {
           content: "";
@@ -63,14 +66,21 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
           border-radius: 50%;
           background-color: #0c5575;
           box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.6),
-          0px 0px 4px 1px rgba(255, 255, 255, 0.6);
+            0px 0px 4px 1px rgba(255, 255, 255, 0.6);
         }
 
         &-icon {
           position: absolute;
           top: -15px;
           left: 50%;
-          transform: translateX(-50%);
+          transform: translateX(-50%) rotate(180deg);
+        }
+
+        &-gift {
+          position: absolute;
+          bottom: 28px;
+          left: 50%;
+          transform: translateX(-50%) rotate(180deg);
         }
       }
 
@@ -78,8 +88,9 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
         position: relative;
         font-size: 22px;
         font-weight: 600;
-        color: #fff;
+        color: #87b1c4;
         transform: rotate(180deg);
+        bottom: 6px;
       }
     }
   }
@@ -179,12 +190,9 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   .header-text {
     margin-bottom: 20px;
   }
-
 }
 
-
 @media (max-width: 610px) {
-
   .container {
     padding-right: 10px;
 
