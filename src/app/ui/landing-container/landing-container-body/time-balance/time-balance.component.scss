@@ -1,0 +1,72 @@
+.time {
+  width: 250px;
+  height: 10px;
+  margin: 0 1px 15px 0;
+  margin-left: 15px;
+  object-fit: contain;
+  font-family: NeueCrocosansMedium;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 5 em;
+  text-align: center;
+  color: #fff;
+}
+
+.balance {
+  width: 218px;
+  height: 30px;
+  background-image: url(../../../../../assets/iimages/big-ground.png);
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+//შენი ქეშბექი
+.cash-back {
+  width: 106px;
+  height: 12px;
+  object-fit: contain;
+  font-family: NeueCrocosansMedium;
+  font-size: 15px;
+  margin-bottom: 7px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+//ფრისპინები
+.free-spins {
+  width: 100px;
+  height: 30px;
+  position: relative;
+  text-align: center;
+  margin-left: 17px;
+  padding-top: 1px;
+}
+
+.free-spin-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-family: NeueCrocosansMedium;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #36a450;
+}

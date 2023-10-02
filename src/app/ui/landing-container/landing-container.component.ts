@@ -16,5 +16,5 @@ export class LandingContainerComponent {
     };
   }
 
-  bgImg = `assets/images/bg.jpg`;
+  bgImg = `assets/fastcashbackimg/max-llighting.png`;
 }
