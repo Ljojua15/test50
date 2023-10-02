@@ -16,10 +16,6 @@ import { SlotsComponent } from './landing-container/landing-container-body/slots
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
 import { PromosComponent } from './landing-container/landing-container-body/promos/promos.component';
-import { TimeBalanceComponent } from './landing-container/landing-container-body/time-balance/time-balance.component';
-import { SpinComponent } from './landing-container/landing-container-body/spin/spin.component';
-import { MinMaxComponent } from './landing-container/landing-container-body/min-max/min-max.component';
-import { BalanceBarComponent } from './landing-container/landing-container-body/balance-bar/balance-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +34,6 @@ import { BalanceBarComponent } from './landing-container/landing-container-body/
     SlotsComponent,
     PopupContainerComponent,
     PromosComponent,
-    TimeBalanceComponent,
-    SpinComponent,
-    MinMaxComponent,
-    BalanceBarComponent,
   ],
   exports: [
     LandingContainerComponent,
