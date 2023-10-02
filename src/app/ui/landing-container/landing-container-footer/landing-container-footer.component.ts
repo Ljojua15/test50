@@ -4,6 +4,7 @@ import { CampaignService } from 'src/app/services/campaign.service';
 import { Observable, map, switchMap } from 'rxjs';
 import { Rule } from 'src/app/shared/models/rule';
 import { GenericResponse } from 'src/app/shared/models/response';
+import { whichAction } from './booster';
 
 @Component({
   selector: 'crc-landing-container-footer',
@@ -18,7 +19,8 @@ export class LandingContainerFooterComponent {
     this.translateService.onLangChange.pipe(
       switchMap((language: LangChangeEvent) => {
         const lang = language.lang === 'ge' ? 'ka' : language.lang;
-        return this.campaignService.getRules(lang);
+        const boosterKey = whichAction('rules');
+        return this.campaignService.getRules(lang, boosterKey as string);
       }),
       map((rules: GenericResponse<Array<Rule>>) => {
         const additionalRule = rules.data.splice(-1)[0];

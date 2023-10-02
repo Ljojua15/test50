@@ -1,13 +1,13 @@
-import {Injectable} from '@angular/core';
-import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
-import {map, Observable, Subject} from 'rxjs';
-import {GenericResponse} from '../shared/models/response';
-import {IframeResponse, User} from '../shared/models/user';
-import {Rule} from '../shared/models/rule';
-import {Prize} from '../shared/models/prize';
-import {Promo} from "../shared/models/promo";
-import {Leaderboard} from "../shared/models/leaderboard";
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable, Subject } from 'rxjs';
+import { GenericResponse } from '../shared/models/response';
+import { IframeResponse, User } from '../shared/models/user';
+import { Rule } from '../shared/models/rule';
+import { Prize } from '../shared/models/prize';
+import { Promo } from '../shared/models/promo';
+import { Leaderboard } from '../shared/models/leaderboard';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +20,7 @@ export class CampaignService {
 
   public updateUserData = new Subject<boolean>();
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getUserData(
     campaignId: string = this.campaignId
@@ -41,10 +40,12 @@ export class CampaignService {
 
   getLeaderBoard(
     campaignId: string = this.campaignId
-  ): Observable<Leaderboard []> {
-    return this.http.get<{ data: Leaderboard [] }>(
-      `${this.API}/campaigns/${campaignId}/user/leaderboard`
-    ).pipe(map(res => res.data));
+  ): Observable<Leaderboard[]> {
+    return this.http
+      .get<{ data: Leaderboard[] }>(
+        `${this.API}/campaigns/${campaignId}/user/leaderboard`
+      )
+      .pipe(map((res) => res.data));
   }
 
   getPrize(
@@ -64,9 +65,12 @@ export class CampaignService {
     );
   }
 
-  getRules(lang: string): Observable<GenericResponse<Array<Rule>>> {
+  getRules(
+    lang: string,
+    key = this.rulesKey
+  ): Observable<GenericResponse<Array<Rule>>> {
     return this.http.get<GenericResponse<Array<Rule>>>(
-      environment.rulesApi(lang) + this.rulesKey
+      environment.rulesApi(lang) + key
     );
   }
 
@@ -87,7 +91,6 @@ export class CampaignService {
       `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
     );
   }
-
 
   getGameUrl(lang: string): Observable<IframeResponse> {
     // console.log(lang, 'laang')
