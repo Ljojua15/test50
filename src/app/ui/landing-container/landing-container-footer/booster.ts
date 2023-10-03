@@ -4,7 +4,7 @@ export function whichAction(
   const date = new Date();
 
   const boosterStart = new Date('OCT 03, 2023 10:00:00');
-  const boosterEnd = new Date('OCT 04, 2023 09:59:00');
+  const boosterEnd = new Date('OCT 05, 2023 09:59:00');
 
   const saleStart = new Date('AUG 12, 2023 13:00:00');
   const saleEnd = new Date('AUG 14, 2023 09:59:00');
