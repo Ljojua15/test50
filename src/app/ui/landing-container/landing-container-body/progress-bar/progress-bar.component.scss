@@ -19,6 +19,10 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
   font-size: 19px;
 }
 
+.text-center {
+  bottom: 0 !important;
+}
+
 .container {
   display: flex;
   margin-inline: auto;

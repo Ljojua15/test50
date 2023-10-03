@@ -48,6 +48,7 @@ export class LandingContainerBodyComponent implements OnInit {
     balance: 0,
     progress: 0,
     total: 0,
+    isBooster: true,
   };
 
   isMobile = false;
@@ -78,12 +79,14 @@ export class LandingContainerBodyComponent implements OnInit {
       .getBalance()
       .pipe(map((res: any) => res.data))
       .subscribe((res: any) => {
+        console.log(res);
         this.progressData = {
           total: res.total,
-          progress: Math.floor(res.progressDetails.booster),
-          // progress: Math.floor(res.progressForNextSpin),
+          progress: Math.floor(res.progressForNextSpin),
           balance: res.balance,
+          isBooster: !res.total,
         };
+        console.log(this.progressData);
       });
   }
 
@@ -100,6 +103,7 @@ export class LandingContainerBodyComponent implements OnInit {
       balance: 0,
       progress: 0,
       total: 0,
+      isBooster: true,
     };
   }
 

@@ -31,6 +31,8 @@ export class ProgressBarComponent {
   progressEndValue = 0;
   speed = 10;
 
+  progressColor = '#00a75b';
+
   @Input() set progressData(progressData: any) {
     this.data = progressData;
     this.setProgress();
@@ -41,13 +43,20 @@ export class ProgressBarComponent {
   }
 
   setProgress() {
+    console.log(this.data);
+    if (this.data.isBooster) {
+      this.progressColor = '#bb9e53';
+    } else {
+      this.progressColor = '#00a75b';
+    }
+
     this.progressStartValue = 0;
 
     this.progressEndValue = this.data.progress;
     let progress = setInterval(() => {
-      this.progressEl.nativeElement.style.background = `conic-gradient(#bb9e53 ${
-        this.progressStartValue * 7.2
-      }deg, #07435E 0deg)`;
+      this.progressEl.nativeElement.style.background = `conic-gradient(${
+        this.progressColor
+      } ${this.progressStartValue * 7.2}deg, #07435E 0deg)`;
 
       if (this.progressStartValue === this.progressEndValue) {
         clearInterval(progress);

@@ -22,11 +22,17 @@
 
   <div class="progress__wrapper">
     <div class="progress">
-      <div #progress class="progress__circle">
+      <div *ngIf="data.isBooster" #progress class="progress__circle">
         <img class="progress__circle-gift" src="assets/images/prog/gift.webp" />
         <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
         <span class="progress__value"
           ><span class="booster">{{ data.progress }}/</span>50</span
+        >
+      </div>
+      <div *ngIf="!data.isBooster" #progress class="progress__circle">
+        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
+        <span class="progress__value text-center"
+          ><span>{{ data.progress }}/</span>50</span
         >
       </div>
     </div>
