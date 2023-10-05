@@ -8,7 +8,7 @@ import { GenericResponse } from 'src/app/shared/models/response';
 @Component({
   selector: 'crc-landing-container-footer',
   templateUrl: './landing-container-footer.component.html',
-  styles: [':host { margin: 0 0 0 0; position: relative; bottom: 100px; }'],
+  styles: [':host { margin: 100px 0; }'],
 })
 export class LandingContainerFooterComponent {
   private readonly translateService = inject(TranslateService);

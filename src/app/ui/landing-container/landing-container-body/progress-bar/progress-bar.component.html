@@ -1,46 +1,47 @@
-<div class="main">
-  <crc-popup-container (closePopup)="closeProgressPopup()" [closeImage]="'assets/images/x.svg'"
-    [containerStyles]="popupContainerStyles" [isBackdropClosable]="true" *ngIf="infoProgressPopup">
-    <!-- template here -->
-    <div class="pr-text">
-      <p>{{"pr-popup.p1" | translate}}</p>
-      <p> {{"pr-popup.p2" | translate}}</p>
+<div class="main" [class.outline]="config.hasOutline">
+  <div
+    class="main__wrapper"
+    [ngStyle]="{ 'background-color': config.containerColor }"
+  >
+    <div class="main__texts" *ngIf="config.texts">
+      <p>{{ config.texts.top | translate }}</p>
+      <p>{{ config.texts.bottom | translate }}</p>
     </div>
-  </crc-popup-container>
-  <div class="main__texts">
-    <p>
-      <span><img class="coin-icon" src="./assets/images/coin.webp" alt="coin"></span>
-      <span class="bet">{{ "bet" | translate }}</span>
-    </p>
-    <p>
-      <span><img class="spin-icon" src="./assets/images/spin.webp" alt="spin"></span>
-      <span class="spin">
-        {{ "spin" | translate }}
-      </span>
-    </p>
-  </div>
-  <!-- <div class="main__zero">{{ 0 | gelPipe: false }}</div> -->
-  <div class="main__bg">
-    <div class="container">
-      <div class="container__levels" [style.flex-basis]="'calc(100% /' + progressData.levels.length + ')'"
-        *ngFor="let level of progressData.levels; index as i">
-        <p class="">{{ level.step | gelPipe: false }}</p>
-        <div class="container__breaks"></div>
-        <div class="container__progress" [style.width.%]="
-            i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
-          ">
-          <div class="container__slider" *ngIf="i === currentIndex">
-            <span class="container__text">{{ progressData.amount }}₾</span>
+    <div class="main__bg">
+      <div class="container">
+        <div
+          class="container__levels"
+          [ngStyle]="{ 'background-color': config.progressBarColor }"
+          [style.flex-basis]="'calc(100% /' + levels.length + ')'"
+          *ngFor="let level of levels; index as i"
+        >
+          <p>{{ level.step | gelPipe : false }}</p>
+          <div
+            class="container__breaks"
+            [class]="config.breakType === 'line' ? 'line' : 'dot'"
+            *ngIf="config.breakType"
+          ></div>
+          <div
+            class="container__progress"
+            [ngStyle]="{ 'background-color': config.progressBarFilledColor }"
+            [style.width.%]="
+              i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
+            "
+          >
+            <div class="container__slider" *ngIf="i === currentIndex">
+              <span
+                class="container__text"
+                [ngStyle]="{ 'background-color': config.sliderColor }"
+                >{{ userData.amount | gelPipe : false }}</span
+              >
+            </div>
           </div>
+          <img
+            class="container__image"
+            src="assets/images/spin-{{ level.imageState }}.png"
+          />
         </div>
-        <img class="container__image" src="./assets/images/spin-{{
-            level.imageState
-          }}.svg" alt="" />
       </div>
     </div>
-    <img class="info" src="./assets/images/info.webp" (click)="openProgressInfo()" alt="info">
-  </div>
-  <div class="under-main">
-    <p> {{"under.pt1" | translate}} {{ available }} {{"under.pt2" | translate}}</p>
   </div>
 </div>

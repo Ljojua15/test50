@@ -1,12 +1,19 @@
 <div class="container w-container" [ngClass]="{ 'last-container': lastItem }">
-  <div class="acc-header" [ngClass]="{ 'acc-main-header': mainHeader }" (click)="toggle()">
+  <div
+    class="acc-header"
+    [ngClass]="{ 'acc-main-header': mainHeader }"
+    (click)="toggle()"
+  >
     <div class="header-title">
       {{ title }}
     </div>
     <div class="arrow">
-      <img [@rotate]="!showBody ? 'default' : 'rotated'"
-        src="https://uploads-ssl.webflow.com/5f58d61f6ca8429f42778e70/5f7addf1875f609ce31262e6_arr.svg" alt="arrow"
-        class="arrow-img" />
+      <img
+        [@rotate]="!showBody ? 'default' : 'rotated'"
+        src="https://uploads-ssl.webflow.com/5f58d61f6ca8429f42778e70/5f7addf1875f609ce31262e6_arr.svg"
+        alt="arrow"
+        class="arrow-img"
+      />
     </div>
   </div>
   <div [@smoothCollapse]="!showBody ? 'initial' : 'final'">

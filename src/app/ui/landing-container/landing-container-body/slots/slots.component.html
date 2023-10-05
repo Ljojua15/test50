@@ -1,29 +1,19 @@
-<div class="prize-parent">
-  <div class="prize-frame">
-    <p class="prize-frame__text">
-      <span>{{ "plinko.pt1" | translate }}</span>
-      <span>{{ "plinko.pt2" | translate }}</span>
-    </p>
-  </div>
-
-  <div class="prize-container">
-    <div class="prize-left">
-      <p class="prize-frame__title">
-        <span>{{ "prize.left.egt" | translate }}</span>
-        <span>{{ "prize.left.freespins" | translate }}</span>
-      </p>
-      <p class="prize-frame__desc">
-        <span>{{ "prize.left.description" | translate }}</span>
-      </p>
-    </div>
-    <div class="prize-right">
-      <p class="prize-frame__title">
-        <span>{{ "prize.right.egt" | translate }}</span>
-        <span>{{ "prize.right.freespins" | translate }}</span>
-      </p>
-      <p class="prize-frame__desc">
-        <span>{{ "prize.right.description" | translate }}</span>
-      </p>
+<div class="main">
+  <p class="main__text">{{ "slots.text" | translate }}</p>
+  <div class="container">
+    <div
+      class="container__slots"
+      [style.backgroundColor]="slot.bgColor"
+      *ngFor="let slot of slots"
+      (click)="onClick(slot.name)"
+    >
+      <div class="text__container">
+        <p class="container__slots__cost">
+          1 {{ "spin" | translate }} = {{ slot.cost | gelPipe : false }}
+        </p>
+        <p class="container__slots__text">{{ slot.name }}</p>
+      </div>
+      <img class="container__slots__image" [src]="slot.imageUrl" />
     </div>
   </div>
 </div>

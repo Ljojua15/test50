@@ -14,8 +14,8 @@ import { Promo } from "../shared/models/promo";
 export class CampaignService {
   readonly API = environment.cmsApi;
 
-  readonly rulesKey = 'plinkomaxwheel';
-  readonly campaignId = 'plinko-wheel-100523';
+  readonly rulesKey = 'ufocashbackwheel';
+  readonly campaignId = 'ufocashbackwheel';
 
   public updateUserData = new Subject<boolean>();
   constructor(private http: HttpClient) {}

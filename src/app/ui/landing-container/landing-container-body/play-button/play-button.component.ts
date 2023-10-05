@@ -8,10 +8,8 @@ import { IframeService } from 'src/app/services/iframe.service';
 })
 export class PlayButtonComponent {
   @Input() hasAnimation = false;
-  @Input() redirectUrl = 'https://crocobet.com/#/mini-games/plinko?game=PLINKO';
 
-  // redirectUrl =
-  //   'https://crocobet.com/#/slots/play?slot=Zodiac%20Wheel&provider=egt&filter=egt';
+  redirectUrl = 'https://crocobet.com/#/';
 
   constructor(private iframeService: IframeService) {}
 

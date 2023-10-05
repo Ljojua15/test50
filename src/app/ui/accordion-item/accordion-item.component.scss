@@ -1,11 +1,6 @@
 @use "../../../fonts";
 @use "../../../styles/variables";
-:host ::ng-deep .acc-body p {
-  padding: 0 20px;
-}
-:host ::ng-deep .acc-body ul {
-  padding: 0 20px;
-}
+
 .acc-body:nth-child(1) {
   margin-top: 10px;
 }
@@ -32,7 +27,7 @@
   align-items: center;
   padding: 14px;
   color: variables.$white;
-  border-radius: 35px;
+  border-radius: 6px;
   background-color: variables.$rules-secondary-bg;
 }
 
@@ -43,7 +38,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: 35px;
+  border-radius: 10px;
   background-color: variables.$rules-main-bg;
   transition: all 500ms ease;
   cursor: pointer;
@@ -76,7 +71,7 @@
 
 @media (max-width: variables.$tablet-l) {
   .w-container {
-    width: 98%;
+    width: 90%;
   }
 
   .acc-body {
@@ -87,7 +82,7 @@
 @media screen and (max-width: variables.$tablet) {
   .acc-body,
   .header-title {
-    font-size: 10px;
+    font-size: variables.$font-size-xs;
   }
 
   .acc-header {
