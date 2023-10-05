@@ -15,6 +15,7 @@ import { GelPipePipe } from '../shared/pipes/gel-pipe.pipe';
 import { SlotsComponent } from './landing-container/landing-container-body/slots/slots.component';
 import { PopupContainerComponent } from './landing-container/landing-container-body/popup-container/popup-container.component';
 import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
+import { PromosComponent } from './landing-container/landing-container-body/promos/promos.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SafeUrlPipe } from '../shared/pipes/safe-url.pipe';
     SafeUrlPipe,
     SlotsComponent,
     PopupContainerComponent,
+    PromosComponent,
   ],
   exports: [
     LandingContainerComponent,

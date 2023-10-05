@@ -1,0 +1,131 @@
+@use "./../../../../../styles/variables";
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.promo {
+  margin: auto;
+  @include variables.dFlex(space-between, center);
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  padding: 24px 25px;
+  background-color: rgb(24, 73, 107);
+  border-radius: 20px;
+  box-shadow: inset 0px 4.5px 8px -4px rgba(256, 255, 255, 0.5019607843);
+  max-width: 856px;
+
+  &__item {
+    padding: 3px;
+    position: relative;
+    background-image: url("../../../../../assets/images/background.png");
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 23%;
+
+    img {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    &__button {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      background-color: #28a77b;
+      text-decoration: none;
+      padding: 13px 23px;
+      font-size: 20px;
+      border-radius: 20px;
+      color: white;
+      box-shadow: 1px 1px 3px 5px rgb(167 246 207 / 92%) inset;
+    }
+
+    &__key {
+      color: rgb(163, 157, 157);
+      font-family: "CrocoSansBlackCAPS";
+      margin: 11px 0;
+      white-space: nowrap;
+      font-size: 13px;
+
+    }
+
+    &:hover {
+      & > :nth-child(1) {
+        display: block;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      & > :nth-child(2) {
+        filter: blur(3px);
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .promo {
+      margin-top: 8px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      width: 98%;
+      max-width: 460px;
+
+      &__item {
+        margin: 8px;
+        max-width: none;
+
+        &__button {
+          padding: 11px 20px;
+          font-size: 16px;
+        }
+
+        img {
+          max-width: 180px;
+        }
+
+        &__key {
+          font-size: 13px;
+        }
+      }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .promo {
+      min-width: 320px;
+
+      &__item {
+        margin: 7px;
+
+        &__button {
+          padding: 9px 17px;
+          font-size: 13px;
+        }
+
+        img {
+          max-width: 137px;
+        }
+
+
+        &__key {
+          font-size: 11px;
+        }
+      }
+    }
+}
+
+

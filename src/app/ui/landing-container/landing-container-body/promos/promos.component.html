@@ -1,0 +1,16 @@
+<div class="promo" *ngIf="promos$ | async as promos">
+  <div
+    class="promo__item"
+    *ngFor="let item of promos"
+    [class.disabled]="!item.active.isActive"
+  >
+    <button
+      class="promo__item__button"
+      (click)="redirect(item.href)"
+    >
+      {{ "play" | translate }}
+    </button>
+    <img [src]="item.image"/>
+    <p class="promo__item__key">{{ item.title }}</p>
+  </div>
+</div>
