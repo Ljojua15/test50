@@ -14,7 +14,7 @@ export class CampaignService {
   readonly API = environment.cmsApi;
 
   readonly rulesKey = 'plinkomaxwheel';
-  readonly campaignId = 'plinko-wheel-040823';
+  readonly campaignId = 'plinko-wheel-100523';
 
   public updateUserData = new Subject<boolean>();
   constructor(private http: HttpClient) {}

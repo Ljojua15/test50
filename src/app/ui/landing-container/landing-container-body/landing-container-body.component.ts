@@ -73,7 +73,7 @@ export class LandingContainerBodyComponent implements OnInit {
 
   getData() {
     return this.campaignService
-      .getUserData('plinko-wheel-040823')
+      .getUserData('plinko-wheel-100523')
       .pipe(
         map((res) => res.data),
         tap(console.log)
@@ -112,7 +112,7 @@ export class LandingContainerBodyComponent implements OnInit {
 
   getHistory() {
     return this.campaignService
-      .getHistory('plinko-wheel-040823')
+      .getHistory('plinko-wheel-100523')
       .subscribe((res) => (this.history = Object.entries(res)));
   }
 }

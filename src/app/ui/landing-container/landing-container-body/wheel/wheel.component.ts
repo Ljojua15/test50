@@ -70,7 +70,7 @@ export class WheelComponent implements OnInit {
   prizesImage = `${this.imagePath}/wheel-prizes-en.webp`;
 
   // campaign id for get prize
-  campaignId = 'plinko-wheel-040823';
+  campaignId = 'plinko-wheel-100523';
   mockData = [
     { k: 'ეგტ', v: 'asd' },
     { k: 'ეგტ', v: 'asd' },
