@@ -1,9 +1,7 @@
 <crc-landing-container>
   <crc-landing-container-header></crc-landing-container-header>
-  <crc-authorization-block *ngIf="!isAuthorized"></crc-authorization-block>
-  <crc-landing-container-body
-    [isAuthorized]="isAuthorized"
-  ></crc-landing-container-body>
+  <crc-authorization-block *ngIf="!(isAuth | async)"></crc-authorization-block>
+  <crc-landing-container-body [isAuthorized]="isAuthorized"></crc-landing-container-body>
   <crc-landing-container-footer></crc-landing-container-footer>
 </crc-landing-container>
 <div (click)="onClose()" *ngIf="backdrop$ | async" class="backdrop"></div>

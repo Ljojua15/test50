@@ -1,8 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { map, tap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { CampaignService } from 'src/app/services/campaign.service';
-import { Config } from 'src/app/shared/models/progressConfig';
-import { Levels } from 'src/app/shared/models/progressData';
+import { Levels, ProgressData } from 'src/app/shared/models/progressData';
+import { User } from 'src/app/shared/models/user';
 import { UserData } from 'src/app/shared/models/userData';
 import { environment } from 'src/environments/environment';
 
@@ -10,44 +17,38 @@ import { environment } from 'src/environments/environment';
   selector: 'crc-landing-container-body',
   templateUrl: './landing-container-body.component.html',
   styleUrls: ['./landing-container-body.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingContainerBodyComponent implements OnInit {
   @Input() set isAuthorized(value: boolean) {
     if (value || environment.testToken) {
       this.getData();
+      this.getHistory();
     } else {
       this.clearData();
     }
   }
+  @Input() history: any[] = [];
+  isAuth = this.authService.isAuthorized();
 
   // toggle play button heartbeat animation
   hasAnimation = true;
 
   // disable wheel button
-  isDisabled = true;
+  isDisabled = false;
 
   levels: Levels[] = [
+    { step: 50, points: 1, imageState: 'off' },
     { step: 100, points: 1, imageState: 'off' },
+    { step: 250, points: 1, imageState: 'off' },
     { step: 500, points: 1, imageState: 'off' },
     { step: 1000, points: 1, imageState: 'off' },
-    { step: 5000, points: 1, imageState: 'off' },
-    { step: 10000, points: 1, imageState: 'off' },
   ];
 
-  progressConfig: Config = {
-    hasOutline: true,
-    hasGelSymbol: true,
-    breakType: 'line', // 'line' | 'dot' | ''
-    containerColor: '#937050',
-    progressBarColor: '#15af44',
-    progressBarFilledColor: '#5f2797',
-    sliderColor: '#15af44',
-    texts: {
-      top: 'bet',
-      bottom: 'spin',
-    },
-    // if no texts
-    // texts: null,
+  // progress bar levels and progress amount
+  progressData: ProgressData = {
+    levels: this.levels,
+    amount: 0,
   };
 
   userData: UserData = {
@@ -56,32 +57,51 @@ export class LandingContainerBodyComponent implements OnInit {
     amount: 0,
   };
 
-  constructor(private campaignService: CampaignService) {}
+  available = 0;
+
+  constructor(
+    private campaignService: CampaignService,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.campaignService.updateUserData.subscribe((_) => {
-      this.getData();
-    });
+    // setTimeout(() => {
+    //   this.cdr.detectChanges();
+    // }, 500);
   }
 
   getData() {
     return this.campaignService
-      .getUserData('p2p-mix-wheel-030723')
-      .pipe(map((res) => res.data))
-      .subscribe((res) => {
+      .getUserData('plinko-wheel-100523')
+      .pipe(
+        map((res) => res.data),
+        tap(console.log)
+      )
+      .subscribe((res: User) => {
+        this.progressData.amount = Math.floor(
+          Math.min(res.state.progress, this.levels[this.levels.length - 1].step)
+        );
+
         this.userData = {
           unlockedLevel: res.state.currentStepIndex,
           used: res.state.used,
-          amount: Math.min(
-            res.state.progress,
-            this.levels[this.levels.length - 1].step
-          ),
+          amount: res.state.progress, // ???
         };
+        this.available = res.state.available;
+        console.log('available', this.available);
+        this.getHistory();
+        this.cdr.detectChanges();
       });
   }
 
   clearData() {
     this.levels.forEach((level) => (level.imageState = 'off'));
+
+    this.progressData = {
+      levels: this.levels,
+      amount: 0,
+    };
 
     this.userData = {
       unlockedLevel: -1,
@@ -90,9 +110,9 @@ export class LandingContainerBodyComponent implements OnInit {
     };
   }
 
-  // getHistory() {
-  //   return this.campaignService
-  //     .getHistory('ufo-double-wheel-190822')
-  //     .subscribe((res) => console.log(res));
-  // }
+  getHistory() {
+    return this.campaignService
+      .getHistory('plinko-wheel-100523')
+      .subscribe((res) => (this.history = Object.entries(res)));
+  }
 }

@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   cmsApi: 'https://cms.crocobet.com',
   testToken: '1420828d-0c4e-4e58-a4cc-fa4192d9c318.oddsapi1',
+  filePath: '',
 };
 
 /*

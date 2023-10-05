@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'crc-landing-container-header',
@@ -11,6 +12,9 @@ export class LandingContainerHeaderComponent {
   headerUrl = this.translateService.onLangChange.pipe(
     map((lang) => `assets/images/${lang.lang}.png`)
   );
-
-  constructor(private translateService: TranslateService) {}
+  isAuthorized = this.auth.isAuthorized();
+  constructor(
+    private translateService: TranslateService,
+    private auth: AuthService
+  ) {}
 }

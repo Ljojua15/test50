@@ -5,16 +5,27 @@
   display: flex;
   width: 100%;
   max-width: 1100px;
-  padding-top: 440px;
+  padding-top: 490px;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 45px;
 
   &__text {
-    max-width: 550px;
-    margin-top: 20px;
+    // max-width: 550px;
+    margin-top: 60px;
     font-size: variables.$font-size-header-m;
     line-height: 125%;
     color: variables.$white;
+    text-shadow: 0px 9px 17.3px rgba(39, 20, 13, 0.94);
+    font-family: CrocoSansBlackCAPS;
+    font-size: 28px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-align: center;
+    color: #fff;
 
     span {
       color: variables.$main-header-color;
@@ -26,34 +37,83 @@
 
 @media (max-width: variables.$tablet) {
   .header {
-    padding-top: 275px;
+    padding-top: 550px;
     margin: 0 auto;
+    padding-bottom: 0;
 
     &__img {
       width: 250px;
     }
 
     &__text {
-      font-size: variables.$font-size-header-s;
+      font-size: 38px;
+      font-family: CrocoSansBlackCAPS;
     }
   }
 }
 
 @media (max-width: variables.$mobile) {
   .header {
-    padding-top: 175px;
-    width: 90%;
+    padding-top: 420px;
+    // width: 90%;
 
     &__img {
       width: 150px;
     }
 
     &__text {
-      font-size: variables.$font-size-s;
-
+      text-shadow: 0px 9px 17.3px rgba(39, 20, 13, 0.94);
+      font-family: CrocoSansBlackCAPS;
+      font-size: 24px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.89px;
+      text-align: center;
+      color: #fff;
+      width: 85%;
+      margin-bottom: 12px;
       span {
         font-size: variables.$font-size-l;
       }
+    }
+  }
+}
+
+@media (max-width: 390) {
+  .header {
+    padding-top: 420px;
+    // width: 90%;
+
+    &__img {
+      width: 150px;
+    }
+
+    &__text {
+      text-shadow: 0px 9px 17.3px rgba(39, 20, 13, 0.94);
+      font-family: CrocoSansBlackCAPS;
+      font-size: 24px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.89px;
+      text-align: center;
+      color: #fff;
+      width: 85%;
+      margin-bottom: 12px;
+      span {
+        font-size: variables.$font-size-l;
+      }
+    }
+  }
+}
+@media (max-width: 385px) {
+  .header {
+    &__text {
+      font-size: 22px;
+      padding-bottom: 34px;
     }
   }
 }
