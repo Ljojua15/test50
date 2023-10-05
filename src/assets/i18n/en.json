@@ -8,46 +8,7 @@
   "current": {
     "promos": "CHECK OUT THE CURRENT PROMOTIONS"
   },
-  "description": {
-    "1": "PLAY PLINKO MAX,",
-    "2": "COMPLETE THE PROGRESS WITH A TOTAL BET,",
-    "3": "SPIN THE WHEEL, AND WIN FREESPINS!"
-  },
-  "under": {
-    "pt1": "YOU HAVE",
-    "pt2": "SPIN"
-  },
-  "history": "HISTORY",
-  "pop-date": "DATE",
-  "pop-prize": "PRIZE",
-  "plinko": {
-    "pt1": "PLINKO MAX WHEEL",
-    "pt2": "PRIZES:"
-  },
-  "prize": {
-    "left": {
-      "egt": "EGT INTERACTIVE",
-      "freespins": "FREESPINS",
-      "description": "THE NUMBER OF FREESPINS WILL BE CREDITED TO EGT INTERACTIVE SLOT – ZODIAC WHEEL"
-    },
-    "right": {
-      "egt": "PLINKO MAX",
-      "freespins": "FREESPINS",
-      "description": "THE NUMBER OF FREESPINS WILL BE DISPLAYED ON YOUR PLINKO MAX FREESPINS BALANCE"
-    }
-  },
-  "freespin": "FREESPIN",
-  "congrats": "CONGRATULATIONS!",
-  "you-win": {
-    "1": "YOU WON",
-    "2": "PLINKO MAX FREESPINS"
-  },
-  "claim-prize": "FREESPINS WILL BE INSTANTLY DISPLAYED ON YOUR PLINKO MAX FREESPINS BALANCE",
-  "you-win-egt": {
-    "1": "YOU WON",
-    "2": "EGT INTERACTIVE FREESPINS"
-  },
-  "claim-prize-egt": "FREESPINS WILL BE INSTANTLY DISPLAYED ON YOUR ZODIAC WHEEL FREESPINS BALANCE",
+  "description": "MAKE A 5-LEVEL PROGRESS, SPIN THE PRAGMATIC WHEEL AND GET",
   "freespins-text": "DURING THE RAFFLE, CLICK ON THE \"GET FREESPINS\" BUTTON AND GET TICKETS CORRESPONDING TO THE NUMBER OF TICKETS YOU HAVE COLLECTED",
   "get-freespins": "GET FREESPINS",
   "hour": "HR",
@@ -61,15 +22,6 @@
     "5": "In the final raffle, you will be credited freespins of 1₾ in 20 DAZZLING HOT;",
     "6": "Tickets collected in sports do not participate in receiving freespins;",
     "7": "*Freespins will be credited to the first 2 000 users who will click on the \"Get freespins\" button."
-  },
-  "pr-popup": {
-    "p1": "YOU CAN COMPLETE THE PROGRESS BAR WITH THE TOTAL BETS PLACED IN PLINKO MAX.",
-    "p2": "E.G. IF YOU PLACE A TOTAL BET OF  500₾ IN PLINKO MAX WITHIN A DAY,  IT WILL BE DISPLAYED ON THE PROGRESS BAR AS 500₾."
-  },
-  "wh-popup": {
-    "1": "YOU CAN SPIN THE WHEEL UP TO FIVE TIMES PER DAY.",
-    "2": "IF YOU FAIL TO SPIN THE WHEEL DURING THE DAY, YOUR COLLECTED POINTS WILL RESET AND CANNOT BE CARRIED OVER TO THE NEXT DAY;",
-    "3": "* YOU CAN SPIN THE WHEEL EVERY DAY, AND THE DAILY COUNT STARTS AT 10:00 AND ENDS AT 09:59"
   },
   "live-mintkt-popup": {
     "1": "TO GET EGT FREESPINS YOU NEED TO COLLECT",

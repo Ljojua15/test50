@@ -1,22 +1,17 @@
 .main {
-  width: 564px;
-  height: 395px;
-  border-radius: 20px;
+  height: 50%;
+  width: 100%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(17.25%, -50%);
+  transform: translateY(-50%);
   left: 0;
   right: 0;
-  // background-image: url("../../../../../assets/images/info-popup.webp");
-  background-repeat: no-repeat;
   z-index: 1000;
 
   &__close {
     position: absolute;
-    display: block;
-    top: 22px;
-    right: 22px;
+    top: 12px;
+    right: 12px;
     width: 24px;
     cursor: pointer;
   }
@@ -24,15 +19,8 @@
 
 @media (max-width: 479px) {
   .main {
-    transform: translate(17.25%, -50%);
     &__close {
-      width: 32px;
+      width: 14px;
     }
-  }
-}
-
-@media (max-width: 375px) {
-  .main {
-    transform: translate(11.25%, -50%);
   }
 }

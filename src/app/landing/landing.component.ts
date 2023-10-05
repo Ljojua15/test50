@@ -28,7 +28,6 @@ export class LandingComponent implements OnInit {
   rules: Rule[] = [];
   additionalRules: Rule | null = null;
   lang: Lang = 'ge';
-  isAuth = this.authService.isAuthorized();
 
   constructor(
     private rulesService: RulesService,
