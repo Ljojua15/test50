@@ -5,6 +5,7 @@ import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 import { UserData } from 'src/app/shared/models/userData';
 import { environment } from 'src/environments/environment';
+import { whichAction } from '../landing-container-footer/booster';
 
 @Component({
   selector: 'crc-landing-container-body',
@@ -67,7 +68,8 @@ export class LandingContainerBodyComponent implements OnInit {
     if (window.innerWidth < 767) {
       this.isMobile = true;
     }
-
+    whichAction('isBooster');
+    console.log(whichAction('isBooster'));
     this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });
