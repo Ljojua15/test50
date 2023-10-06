@@ -30,8 +30,3 @@ interface Prizes {
   type: string;
   value: number;
 }
-
-export interface IframeResponse {
-  sessionId: string;
-  url: string;
-}

@@ -7,14 +7,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  transform: translate(-50%, -70%) !important;
 
   &__close {
     position: absolute;
-
-    width: auto;
-    top: -20px;
-    right: -20px;
+    top: 12px;
+    right: 12px;
+    width: 24px;
     cursor: pointer;
   }
 }
@@ -22,9 +20,7 @@
 @media (max-width: 479px) {
   .main {
     &__close {
-      top: 0px;
-      right: 0px;
-      width: 44px;
+      width: 14px;
     }
   }
 }

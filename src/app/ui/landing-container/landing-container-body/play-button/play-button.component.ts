@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {IframeService} from 'src/app/services/iframe.service';
+import { Component, Input } from '@angular/core';
+import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({
   selector: 'crc-play-button',
@@ -11,8 +11,7 @@ export class PlayButtonComponent {
 
   redirectUrl = 'https://crocobet.com/#/';
 
-  constructor(private iframeService: IframeService) {
-  }
+  constructor(private iframeService: IframeService) {}
 
   onClick() {
     this.iframeService.openNewTab(this.redirectUrl);

@@ -1,11 +1,10 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { map, of, tap } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 import { UserData } from 'src/app/shared/models/userData';
 import { environment } from 'src/environments/environment';
-import { whichAction } from '../landing-container-footer/booster';
 
 @Component({
   selector: 'crc-landing-container-body',
@@ -13,11 +12,20 @@ import { whichAction } from '../landing-container-footer/booster';
   styleUrls: ['./landing-container-body.component.scss'],
 })
 export class LandingContainerBodyComponent implements OnInit {
+  @Input() set isAuthorized(value: boolean) {
+    if (value || environment.testToken) {
+      this.getData();
+    } else {
+      this.clearData();
+    }
+  }
+
   // toggle play button heartbeat animation
   hasAnimation = true;
-  isBooster: boolean | string = whichAction('isBooster');
+
   // disable wheel button
   isDisabled = true;
+
   levels: Levels[] = [
     { step: 100, points: 1, imageState: 'off' },
     { step: 500, points: 1, imageState: 'off' },
@@ -25,6 +33,7 @@ export class LandingContainerBodyComponent implements OnInit {
     { step: 5000, points: 1, imageState: 'off' },
     { step: 10000, points: 1, imageState: 'off' },
   ];
+
   progressConfig: Config = {
     hasOutline: true,
     hasGelSymbol: true,
@@ -40,55 +49,34 @@ export class LandingContainerBodyComponent implements OnInit {
     // if no texts
     // texts: null,
   };
+
   userData: UserData = {
     unlockedLevel: -1,
     used: 0,
     amount: 0,
   };
 
-  progressData = {
-    balance: 0,
-    progress: 0,
-    total: 0,
-    isBooster: this.isBooster,
-  };
-
-  isMobile = false;
-
   constructor(private campaignService: CampaignService) {}
 
-  @Input() set isAuthorized(value: boolean) {
-    if (value || environment.testToken) {
-      this.getData();
-    } else {
-      this.clearData();
-    }
-  }
-
   ngOnInit(): void {
-    if (window.innerWidth < 767) {
-      this.isMobile = true;
-    }
-    this.isBooster = whichAction('isBooster');
     this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });
   }
 
-  // get progress
   getData() {
     return this.campaignService
-      .getBalance()
-      .pipe(map((res: any) => res.data))
-      .subscribe((res: any) => {
-        console.log(res);
-        this.progressData = {
-          total: res.total,
-          progress: Math.floor(res.progressForNextSpin),
-          balance: res.balance,
-          isBooster: !res.total,
+      .getUserData('p2p-mix-wheel-030723')
+      .pipe(map((res) => res.data))
+      .subscribe((res) => {
+        this.userData = {
+          unlockedLevel: res.state.currentStepIndex,
+          used: res.state.used,
+          amount: Math.min(
+            res.state.progress,
+            this.levels[this.levels.length - 1].step
+          ),
         };
-        console.log(this.progressData);
       });
   }
 
@@ -100,25 +88,7 @@ export class LandingContainerBodyComponent implements OnInit {
       used: 0,
       amount: 0,
     };
-
-    this.progressData = {
-      balance: 0,
-      progress: 0,
-      total: 0,
-      isBooster: true,
-    };
   }
-
-  // @HostListener('window:message', ['$event'])
-  // onMessage(event: MessageEvent) {
-  //   of(event)
-  //     .pipe(
-  //       tap((res) => {
-  //         console.log(res);
-  //       })
-  //     )
-  //     .subscribe((res) => {});
-  // }
 
   // getHistory() {
   //   return this.campaignService
