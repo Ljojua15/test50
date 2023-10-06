@@ -2,8 +2,8 @@
   <div class="main__tabs">
 
     <div (click)="changeTab(tab.gameId)" *ngFor="let tab of iframeTabsData.tabs; let i = index"
-         [class.active]="tab.isCurrent"
-         class="tab pointer">
+      [class.active]="tab.isCurrent" class="tab pointer">
+      <!-- <img *ngIf="tab.header==='WHEEL'" src="./assets/images/tabs/sale.webp" alt=""> -->
       <div class="tab__content">
         <img alt="" src="./assets/images/tabs/{{tab.header}}.png">
         <div class="tab__texts">
@@ -18,14 +18,10 @@
   <div class="main__iframe">
     <img alt="" class="main__iframe__bg" src="./assets/images/tabs/iframe-bg.png">
     <img *ngIf="!iframeTabsData.iframeUrl else iframe" class="main__iframe__default"
-         src="{{ 'iframeBgUrl' | translate }}">
+      src="{{ 'iframeBgUrl' | translate }}">
     <ng-template #iframe>
-      <iframe #iframe *ngIf="reload" [src]="iframeTabsData.iframeUrl" id="gameFrame" rel="prefetch"
-
-      ></iframe>
+      <iframe #iframe *ngIf="reload" [src]="iframeTabsData.iframeUrl" id="gameFrame" rel="prefetch"></iframe>
     </ng-template>
   </div>
   <ng-content></ng-content>
 </div>
-
-

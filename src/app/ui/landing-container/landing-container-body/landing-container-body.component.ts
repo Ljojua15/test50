@@ -15,6 +15,7 @@ import { whichAction } from '../landing-container-footer/booster';
 export class LandingContainerBodyComponent implements OnInit {
   // toggle play button heartbeat animation
   hasAnimation = true;
+  isBooster: boolean | string = whichAction('isBooster');
   // disable wheel button
   isDisabled = true;
   levels: Levels[] = [
@@ -49,7 +50,7 @@ export class LandingContainerBodyComponent implements OnInit {
     balance: 0,
     progress: 0,
     total: 0,
-    isBooster: true,
+    isBooster: this.isBooster,
   };
 
   isMobile = false;
@@ -68,8 +69,7 @@ export class LandingContainerBodyComponent implements OnInit {
     if (window.innerWidth < 767) {
       this.isMobile = true;
     }
-    whichAction('isBooster');
-    console.log(whichAction('isBooster'));
+    this.isBooster = whichAction('isBooster');
     this.campaignService.updateUserData.subscribe((_) => {
       this.getData();
     });

@@ -34,7 +34,11 @@
       box-shadow: 1px 2px 3px -1px rgba(255, 255, 255, 0.75) inset;
       padding-top: 2px;
       transition: all 200ms ease;
-
+      > img {
+        position: absolute;
+        bottom: 60px;
+        right: 77px;
+      }
       &__content {
         @include variables.dFlex(space-between, center);
         background-color: rgb(5, 41, 74);
@@ -43,10 +47,8 @@
         border-radius: 0px 0px 13px 13px;
         padding: 1px 0px 0px 4px;
 
-
         img {
           max-width: 30%;
-
         }
       }
 
@@ -60,7 +62,6 @@
           font-family: "CrocoSansBlackCAPS";
           font-size: 13px;
           max-width: 72%;
-
         }
 
         div {
@@ -92,12 +93,10 @@
 
           img {
             max-width: 326%;
-
           }
         }
 
         .tab__texts {
-
           p {
             font-size: 18px;
           }
@@ -105,13 +104,11 @@
           div {
             font-size: 18px;
 
-
             span {
             }
           }
         }
       }
-
     }
   }
 
@@ -128,7 +125,6 @@
       height: 95%;
       border-radius: 20px;
       touch-action: manipulation;
-
     }
 
     &__bg {
@@ -142,10 +138,7 @@
       border-radius: 30px;
     }
   }
-
-
 }
-
 
 @media (max-width: variables.$tablet) {
   .main {
@@ -174,7 +167,6 @@
         }
 
         &__texts {
-
           p {
             display: none;
           }
@@ -202,12 +194,10 @@
           }
 
           .tab__texts {
-
             p {
             }
 
             div {
-
               font-size: 16px;
 
               span {
@@ -215,7 +205,6 @@
             }
           }
         }
-
       }
     }
 
@@ -228,12 +217,8 @@
         height: 100%;
       }
     }
-
-
   }
-
 }
-
 
 @media (max-width: 420px) {
   .main {
@@ -248,10 +233,5 @@
         height: 100%;
       }
     }
-
-
   }
 }
-
-
-
