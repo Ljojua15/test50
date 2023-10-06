@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class IframeService {
-  sendMessage(code: number, payload?: string | number) {
+  sendMessage(code: number, payload?: string) {
     const CROSS_ORIGIN = '*';
 
     if (code === 1002) {
@@ -63,16 +63,6 @@ export class IframeService {
         },
         CROSS_ORIGIN
       );
-    } else if (code === 1100) {
-      window.parent.postMessage(
-        {
-          action: 'changeGame',
-          code: 1100,
-          value: payload,
-          message: 'change game',
-        },
-        CROSS_ORIGIN
-      );
     } else if (code === 1011) {
       window.parent.postMessage(
         {
@@ -80,15 +70,6 @@ export class IframeService {
           code: 1011,
           value: payload,
           message: 'openTab',
-        },
-        CROSS_ORIGIN
-      );
-    } else if (code === 1031) {
-      window.parent.postMessage(
-        {
-          action: 'scrollTo',
-          code: 1031,
-          value: payload,
         },
         CROSS_ORIGIN
       );
@@ -124,9 +105,5 @@ export class IframeService {
       1011,
       `https://crocobet.com/#/slots?menu=${provider}&provider=${provider}&slot=${slot}`
     );
-  }
-
-  scrollFromTop(top: number) {
-    this.sendMessage(1031, top);
   }
 }

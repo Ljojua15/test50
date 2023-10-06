@@ -1,78 +1,47 @@
-<p class="header-text">{{ "landing-title" | translate }}</p>
-
-<div class="container">
-  <crc-popup-container
-    (closePopup)="closePopup()"
-    *ngIf="popup"
-    [closeImage]="'assets/images/prog/x.png'"
-    [containerStyles]="popupContainerStyles"
-    [isBackdropClosable]="true"
+<div class="main" [class.outline]="config.hasOutline">
+  <div
+    class="main__wrapper"
+    [ngStyle]="{ 'background-color': config.containerColor }"
   >
-    <div class="popup__text">
-      <p>{{ "progress-popup.1" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.2" | translate | uppercase }}</p>
-      <!-- <p>{{ "progress-popup.3" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.4" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.5" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.6" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.7" | translate | uppercase }}</p>
-      <p>{{ "progress-popup.8" | translate | uppercase }}</p> -->
+    <div class="main__texts" *ngIf="config.texts">
+      <p>{{ config.texts.top | translate }}</p>
+      <p>{{ config.texts.bottom | translate }}</p>
     </div>
-  </crc-popup-container>
-
-  <div class="progress__wrapper">
-    <div class="progress">
-      <div *ngIf="data.isBooster" #progress class="progress__circle">
-        <img class="progress__circle-gift" src="assets/images/prog/gift.webp" />
-        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
-        <span class="progress__value"
-          ><span class="booster">{{ data.progress }}/</span>50</span
+    <div class="main__bg">
+      <div class="container">
+        <div
+          class="container__levels"
+          [ngStyle]="{ 'background-color': config.progressBarColor }"
+          [style.flex-basis]="'calc(100% /' + levels.length + ')'"
+          *ngFor="let level of levels; index as i"
         >
-      </div>
-      <div *ngIf="!data.isBooster" #progress class="progress__circle">
-        <img class="progress__circle-icon" src="assets/images/prog/prog.png" />
-        <span class="progress__value text-center"
-          ><span>{{ data.progress }}/</span>50</span
-        >
-      </div>
-    </div>
-  </div>
-  <div class="balance__wrapper">
-    <div class="balance">
-      <div class="balance__info">
-        <div class="balance__info-text">
-          {{ "youve-collected" | translate }}
-        </div>
-        <div class="balance__info-amount">
-          {{ data.total }}/1000
+          <p>{{ level.step | gelPipe : false }}</p>
+          <div
+            class="container__breaks"
+            [class]="config.breakType === 'line' ? 'line' : 'dot'"
+            *ngIf="config.breakType"
+          ></div>
+          <div
+            class="container__progress"
+            [ngStyle]="{ 'background-color': config.progressBarFilledColor }"
+            [style.width.%]="
+              i < currentIndex ? 100 : i === currentIndex ? extraWidth : 0
+            "
+          >
+            <div class="container__slider" *ngIf="i === currentIndex">
+              <span
+                class="container__text"
+                [ngStyle]="{ 'background-color': config.sliderColor }"
+                >{{ userData.amount | gelPipe : false }}</span
+              >
+            </div>
+          </div>
           <img
-            class="balance__info-icon"
-            src="assets/images/prog/prog-off.png"
-          />
-        </div>
-      </div>
-
-      <div class="balance__divider"></div>
-
-      <div class="balance__info">
-        <div class="balance__info-text balance__info--green">
-          {{ "my-balance" | translate }}
-        </div>
-        <div class="balance__info-amount balance__info--green">
-          {{ data.balance }}
-          <img
-            class="balance__info-icon"
-            src="assets/images/prog/prog-on.png"
+            class="container__image"
+            src="assets/images/spin-{{ level.imageState }}.png"
           />
         </div>
       </div>
     </div>
-  </div>
-  <div class="info__wrapper">
-    <img
-      (click)="popup = true"
-      class="info__wrapper-icon"
-      src="assets/images/prog/i.png"
-    />
   </div>
 </div>

@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 })
 export class LandingContainerHeaderComponent {
   headerUrl = this.translateService.onLangChange.pipe(
-    map((lang) => `assets/images/bonus-header-${lang.lang}.webp`)
+    map((lang) => `assets/images/${lang.lang}.png`)
   );
 
   constructor(private translateService: TranslateService) {}
