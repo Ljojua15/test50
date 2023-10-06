@@ -1,0 +1,22 @@
+<div #target class="container">
+  <div class="cards">
+    <div class="cards__arrows">
+      <img
+        (click)="onArrowClick('left')"
+        src="assets/images/swiper-arrow.png"
+      />
+      <img
+        (click)="onArrowClick('right')"
+        src="assets/images/swiper-arrow.png"
+      />
+    </div>
+
+    <crc-game-card
+      (click)="card.position === 'active' ? null : onArrowClick(card.position)"
+      *ngFor="let card of cards"
+      [card]="card"
+      [ngClass]="card.position"
+      class="card"
+    ></crc-game-card>
+  </div>
+</div>

@@ -1,9 +1,15 @@
-<crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
 <crc-progress-bar
-  [levels]="levels"
-  [userData]="userData"
   [config]="progressConfig"
+  [levels]="levels"
+  [progressData]="progressData"
 ></crc-progress-bar>
-<crc-wheel [isDisabled]="isDisabled"></crc-wheel>
-<crc-slots></crc-slots>
-<crc-promos></crc-promos>
+
+<ng-content></ng-content>
+
+<crc-iframe-container>
+  <crc-history></crc-history>
+</crc-iframe-container>
+
+<crc-leader-board></crc-leader-board>
+
+<crc-game-swiper *ngIf="!isMobile"></crc-game-swiper>

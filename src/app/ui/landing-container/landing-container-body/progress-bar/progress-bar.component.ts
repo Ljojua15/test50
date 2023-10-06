@@ -1,64 +1,68 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
-import { UserData } from 'src/app/shared/models/userData';
 
 @Component({
   selector: 'crc-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnChanges {
+export class ProgressBarComponent {
+  @ViewChild('progress') progressEl: ElementRef;
+
+  data: any = null;
+
   @Input() levels!: Levels[];
-  @Input() userData!: UserData;
   @Input() config!: Config;
+  popup = false;
+  popupContainerStyles = {
+    'background-color': '#145674',
+    'box-shadow': 'inset 0px 3px 2px -2px #fff',
+    width: '100%',
+    'max-width': '550px',
+    padding: '30px',
+    'border-radius': '18px',
+    height: 'auto',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    'text-align': 'center',
+  };
+  progressStartValue = 0;
+  progressEndValue = 0;
+  speed = 10;
 
-  // index of unlocked items
-  currentIndex = 0;
-  // current fraction width
-  extraWidth = 0;
+  progressColor = '#00a75b';
 
-  ngOnChanges(): void {
-    this.getCurrentIndex();
+  @Input() set progressData(progressData: any) {
+    this.data = progressData;
+    this.setProgress();
   }
 
-  getCurrentIndex() {
-    for (let i = 0; i < this.levels.length; i++) {
-      if (this.levels[i].step >= this.userData.amount) {
-        this.currentIndex = i;
-        this.getExtraWidth(this.currentIndex);
-        this.changeImageStates();
-        return;
-      }
-    }
+  closePopup() {
+    this.popup = false;
   }
 
-  // calculate width for active segment
-  getExtraWidth(index: number) {
-    if (index === 0) {
-      this.extraWidth = (this.userData.amount * 100) / this.levels[0].step;
+  setProgress() {
+    console.log(this.data);
+    if (this.data.isBooster) {
+      this.progressColor = '#bb9e53';
     } else {
-      const fractionAmount =
-        this.levels[index].step - this.levels[index - 1].step;
-      const extraPoints = this.userData.amount - this.levels[index - 1].step;
-      this.extraWidth = (extraPoints / fractionAmount) * 100;
+      this.progressColor = '#00a75b';
     }
-  }
 
-  changeImageStates() {
-    const baseSpinsUsed = this.userData.used % 5; // change depending on last points
-    const goldSpinsUsed = Math.floor(this.userData.used / 5); // change depending on last points
+    this.progressStartValue = 0;
 
-    this.levels.forEach((level, index) => {
-      if (this.userData.unlockedLevel >= index) level.imageState = 'on';
-      if (baseSpinsUsed > index) level.imageState = 'done';
-      // if every level is 1 point
-      // if (this.userData.used >= index) level.imageState = 'done';
-    });
+    this.progressEndValue = this.data.progress;
+    let progress = setInterval(() => {
+      this.progressEl.nativeElement.style.background = `conic-gradient(${
+        this.progressColor
+      } ${this.progressStartValue * 7.2}deg, #07435E 0deg)`;
 
-    // change slice if last levels costs more points
-    this.levels.slice(3).forEach((level, index) => {
-      if (goldSpinsUsed > index) level.imageState = 'done';
-    });
+      if (this.progressStartValue === this.progressEndValue) {
+        clearInterval(progress);
+      }
+
+      this.progressStartValue++;
+    }, this.speed);
   }
 }

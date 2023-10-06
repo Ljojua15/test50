@@ -1,0 +1,44 @@
+<div class="main">
+  <ng-container *ngIf="historyData$ | async as historyData">
+    <div (click)="closeHistory()" class="overlay "></div>
+    <div class="main__popup">
+      <img (click)="closeHistory()" alt="" class="main__popup__close pointer click"
+           src="./assets/images/history/history_close.webp">
+      <p class="main__popup__header">{{"history-translations.header"  | translate}}</p>
+      <div class="main__popup__content">
+        <div class="content-header item">
+          <div>
+            <div>{{"history-translations.date"  | translate}}</div>
+          </div>
+          <div>
+            <div>{{"history-translations.amount"  | translate}}</div>
+          </div>
+          <div>
+            <div>{{"history-translations.product"  | translate}}</div>
+          </div>
+
+        </div>
+
+        <div class="content">
+          <div *ngFor="let item of historyData" class="item">
+            <div>
+              <div>{{item.date}}</div>
+            </div>
+            <div>
+              <div>{{item.amountAndValue}}</div>
+            </div>
+            <div>
+              <div>{{item.product}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div (click)="openHistory()" class="main__button-wrapper pointer click">
+    <div class="main__button">
+      {{"history-translations.header"  | translate}}
+    </div>
+  </div>
+</div>

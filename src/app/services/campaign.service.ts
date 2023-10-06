@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { GenericResponse } from '../shared/models/response';
-import { User } from '../shared/models/user';
+import { IframeResponse, User } from '../shared/models/user';
 import { Rule } from '../shared/models/rule';
 import { Prize } from '../shared/models/prize';
-import { Promo } from "../shared/models/promo";
+import { Promo } from '../shared/models/promo';
+import { Leaderboard } from '../shared/models/leaderboard';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,11 @@ import { Promo } from "../shared/models/promo";
 export class CampaignService {
   readonly API = environment.cmsApi;
 
-  readonly rulesKey = 'ufocashbackwheel';
-  readonly campaignId = 'ufocashbackwheel';
+  readonly rulesKey = 'bonusworld';
+  readonly campaignId = 'bonus-space-v2';
 
   public updateUserData = new Subject<boolean>();
+
   constructor(private http: HttpClient) {}
 
   getUserData(
@@ -26,6 +28,24 @@ export class CampaignService {
     return this.http.get<GenericResponse<User>>(
       `${this.API}/campaigns/${campaignId}/user`
     );
+  }
+
+  getBalance(
+    campaignId: string = this.campaignId
+  ): Observable<GenericResponse<User>> {
+    return this.http.get<GenericResponse<User>>(
+      `${this.API}/campaigns/${campaignId}/user/state`
+    );
+  }
+
+  getLeaderBoard(
+    campaignId: string = this.campaignId
+  ): Observable<Leaderboard[]> {
+    return this.http
+      .get<{ data: Leaderboard[] }>(
+        `${this.API}/campaigns/${campaignId}/user/leaderboard`
+      )
+      .pipe(map((res) => res.data));
   }
 
   getPrize(
@@ -41,13 +61,16 @@ export class CampaignService {
     campaignId: string = this.campaignId
   ): Observable<GenericResponse<TObj>> {
     return this.http.get<GenericResponse<TObj>>(
-      `${this.API}/campaigns/${campaignId}/history`
+      `${this.API}/campaigns/${campaignId}/user/history`
     );
   }
 
-  getRules(lang: string): Observable<GenericResponse<Array<Rule>>> {
+  getRules(
+    lang: string,
+    key = this.rulesKey
+  ): Observable<GenericResponse<Array<Rule>>> {
     return this.http.get<GenericResponse<Array<Rule>>>(
-      environment.rulesApi(lang) + this.rulesKey
+      environment.rulesApi(lang) + key
     );
   }
 
@@ -63,9 +86,26 @@ export class CampaignService {
     );
   }
 
-  getBanners(lang : string,campaignId : string): Observable<{data : Promo[]}> {
-    return this.http.get<{data : Promo[]}>(
+  getBanners(lang: string, campaignId: string): Observable<{ data: Promo[] }> {
+    return this.http.get<{ data: Promo[] }>(
       `${this.API}/banners?platform=desktop&type=landing&lang=${lang}&campaignId=${campaignId}`
     );
+  }
+
+  getGameUrl(lang: string): Observable<IframeResponse> {
+    return this.http
+      .post<GenericResponse<IframeResponse>>(
+        `${this.API}/campaigns/${this.campaignId}/user/session?lang=${lang}`,
+        {}
+      )
+      .pipe(
+        map((res: GenericResponse<IframeResponse>) => {
+          return res.data;
+        })
+      );
+  }
+
+  getCursomUrl(url: string) {
+    return this.http.get(url);
   }
 }

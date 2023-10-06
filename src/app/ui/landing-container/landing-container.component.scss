@@ -9,16 +9,18 @@
   background-position: 50% 0%;
   background-size: auto;
   background-color: variables.$main-bg;
+  background-image: url("../../../assets/images/bg.webp");
 }
 
 @media (max-width: variables.$tablet) {
   .main {
-    background-size: 1200px;
+    background-size: cover;
   }
 }
 
+//
 @media (max-width: variables.$mobile) {
   .main {
-    background-size: 767px;
+    background-size: 722px;
   }
 }

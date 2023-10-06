@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card__top"></div>
+
+  <div class="card__side card__side--left"></div>
+  <div class="card__side card__side--right"></div>
+
+  <div class="card__content">
+    <div class="card__content-game">
+      <video autoplay loop muted playsinline>
+        <source [src]="card.video" type="video/mp4" />
+      </video>
+    </div>
+
+    <span class="card__content-name">{{
+      card.key | translate | uppercase
+    }}</span>
+  </div>
+
+  <div class="card__footer">
+    <div class="card__footer-amount">
+      <span>{{ "mini" | translate }}</span> {{ "bet" | translate }}
+      <span>{{ card.bet }}</span>
+    </div>
+
+    <button [class.disabled]="!isAuthorized" (click)="onPlay()">
+      {{ "play" | translate }}
+    </button>
+  </div>
+</div>

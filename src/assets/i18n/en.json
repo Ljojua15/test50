@@ -51,16 +51,13 @@
   "watch-live": "WATCH THE LIVE RAFFLE HERE AND",
   "watch-recent": "WATCH THE PREVIOUS  RAFFLES",
   "win-spins": "GET 500 EGT FREESPINS!",
-
   "widtwraw": {
     "1": "YOU'VE GOT",
     "2": " FREESPINS OF 0.15₾ CHOOSE A PRODUCT AND GET THE PRIZE"
   },
-
   "slot": "SLOT",
   "ufo": "UFO",
   "casino": "CASINO",
-
   "casinokey": {
     "1": "GET CASINO FREECHIPS",
     "2": "FREECHIPS ARE CREDITED TO YOUR BALANCE OF EVOLUTION GAMING FREECHIPS, WHICH YOU CAN USE AT THE DESIRED VALUE IN ANY EVOLUTION GAMING ROULETTE.",
@@ -80,7 +77,6 @@
     "2": "FREESPINS OF",
     "3": ""
   },
-
   "congretskey": {
     "1": "CONGRATULATIONS",
     "2": "YOU HAVE BEEN CREDITED WITH",
@@ -91,5 +87,35 @@
     "7": "₾ TO YOUR UFO FREESPINS BALANCE",
     "8": "YOU'VE BEEN CREDITED FREECHIPS OF ",
     "9": "₾ TO YOUR FREECHIP'S BALANCE"
-  }
+  },
+  "iframeBgUrl": "./assets/images/iframe/en.png",
+  "leaderBoard": {
+    "1": "LEADERBOARD",
+    "2": "USER",
+    "3": "POINT",
+    "4": "PRIZE"
+  },
+  "youve-collected": "TODAY YOU'VE COLLECTED",
+  "progress-popup": {
+    "1": "You can collect game spins in slot, casino, UFO and spin games with the total bet placed during the day. ",
+    "2": "Total bet 50₾ = 1 spin",
+    "3": "*Slots - All slot games participate in the promotion, except for the following games (joker poker, keno universe, 4-of-a-kind poker and jacks or better video poker, EGT roulette DP, Virtual Roulette, EGT roulette);",
+    "4": "*Casino - includes any Roulette from Evolution Gaming, Pragmatic, Crocbet, and Creedroomz;",
+    "5": "*UFO - Both winning and unsuccessful bets take part in the promotion.",
+    "6": "*Min. odds of cashout - 1.5;",
+    "7": "Spin Games - Only bets placed at 2X are eligible.",
+    "8": "* Bets placed on spin games will be credited to the progress of the spins in a double amount, e.g.: if your bet in the spin games is 10₾, 20₾ will be reflected on the progress bar;"
+  },
+  "mini": "MIN.",
+  "my-balance": "MY BALANCE",
+  "croco-master": "Croco Master",
+  "sakura-wheel": "Sakura Wheel",
+  "viking-treasure": "Viking treasure",
+  "history-translations": {
+    "header": "HISTORY",
+    "date": "DATE",
+    "amount": "AMOUNT",
+    "product": "PRODUCT"
+  },
+  "landing-title": "COMPLETE THE PROGRESS, GET SPINS FOR THE GAME, AND GET INVOLVED IN THE DESIRED PROMOTION!"
 }
