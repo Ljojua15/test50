@@ -22,10 +22,11 @@ export class WheelComponent implements OnInit {
   @Input() isDisabled = false;
 
   // image paths
-  arrowImage = `assets/images/wheel-arrow.png`;
-  frameImage = `assets/images/wheel-frame.png`;
-  buttonImage = `assets/images/wheel-btn.png`;
-  buttonDisabledImage = `assets/images/wheel-btn-disabled.png`;
+  framebg = `assets/iimages/wheel/wheel-main.webp`;
+  arrowImage = `assets/iimages/wheel/wheel-nody.webp`;
+  frameImage = `assets/iimages/wheel/wheel-main.webp`;
+  buttonImage = `assets/iimages/wheel/wheel-spin.webp`;
+  buttonDisabledImage = `assets/iimages/wheel/wheel-spin.webp`;
   prizesImage = this.translateService.onLangChange.pipe(
     map((lang) => `assets/images/wheel-prizes-${lang.lang}.png`)
   );

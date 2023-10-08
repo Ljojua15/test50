@@ -1,31 +1,29 @@
 <div class="main">
-  <div class="container">
-    <crc-popup-container
-      (closePopup)="closePopup()"
-      [closeImage]="'assets/images/x.svg'"
-      [containerStyles]="popupContainerStyles"
-      [isBackdropClosable]="true"
-      *ngIf="popup"
-    >
-      <!-- template here -->
-    </crc-popup-container>
+    <div class="container">
+        <crc-popup-container (closePopup)="closePopup()" [closeImage]="'assets/images/x.svg'" [containerStyles]="popupContainerStyles" [isBackdropClosable]="true" *ngIf="popup">
+            <!-- template here -->
+        </crc-popup-container>
 
-    <div class="container__arrow">
-      <img [src]="arrowImage" />
+        <div class="wheel-info"></div>
+        <div class="wheel-history">
+            <p>ისტორია</p>
+        </div>
+
+        <div class="container__arrow">
+            <img [src]="arrowImage" />
+        </div>
+        <div class="container__bg">
+            <img [src]="framebg" />
+        </div>
+        <div class="container__frame">
+            <img [src]="frameImage" />
+        </div>
+        <div class="container__prizes">
+            <img [src]="prizesImage | async" #prizeElement />
+        </div>
+        <div class="container__btn">
+            <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
+            <img *ngIf="isDisabled" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+        </div>
     </div>
-    <div class="container__frame">
-      <img [src]="frameImage" />
-    </div>
-    <div class="container__prizes">
-      <img [src]="prizesImage | async" #prizeElement />
-    </div>
-    <div class="container__btn">
-      <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
-      <img
-        *ngIf="isDisabled"
-        [src]="buttonDisabledImage"
-        [class.disabled]="isDisabled"
-      />
-    </div>
-  </div>
 </div>
