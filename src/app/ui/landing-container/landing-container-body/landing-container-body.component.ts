@@ -27,18 +27,18 @@ export class LandingContainerBodyComponent implements OnInit {
   isDisabled = true;
 
   levels: Levels[] = [
+    { step: 50, points: 1, imageState: 'off' },
     { step: 100, points: 1, imageState: 'off' },
+    { step: 250, points: 1, imageState: 'off' },
     { step: 500, points: 1, imageState: 'off' },
     { step: 1000, points: 1, imageState: 'off' },
-    { step: 5000, points: 1, imageState: 'off' },
-    { step: 10000, points: 1, imageState: 'off' },
   ];
 
   progressConfig: Config = {
     hasOutline: true,
     hasGelSymbol: true,
     breakType: 'line', // 'line' | 'dot' | ''
-    containerColor: '#937050',
+    containerColor: 'url("../../../../assets/iimages/progres-bar/pb-bg.webp")',
     progressBarColor: '#15af44',
     progressBarFilledColor: '#5f2797',
     sliderColor: '#15af44',

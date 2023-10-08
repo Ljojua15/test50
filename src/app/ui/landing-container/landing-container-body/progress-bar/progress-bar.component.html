@@ -1,12 +1,23 @@
 <div class="main" [class.outline]="config.hasOutline">
+  <div class="progres-info">
+    <img src="../../../../../assets/iimages/progres-bar/pb-info.webp" alt="">
+  </div>
   <div
     class="main__wrapper"
     [ngStyle]="{ 'background-color': config.containerColor }"
   >
-    <div class="main__texts" *ngIf="config.texts">
+  <!-- წარწერა და იმიჯი -->
+  <div class="main__texts" *ngIf="config.texts">
+    <div class="text-group">
+      <img src="../../../../../assets/iimages/progres-bar/pb-bet.webp" alt="">
       <p>{{ config.texts.top | translate }}</p>
+    </div>
+    <div class="text-group">
+      <img src="../../../../../assets/iimages/progres-bar/pb-spin.webp" alt="">
       <p>{{ config.texts.bottom | translate }}</p>
     </div>
+    <!-- წარწერა და იმიჯი -->
+  </div>
     <div class="main__bg">
       <div class="container">
         <div
@@ -38,7 +49,7 @@
           </div>
           <img
             class="container__image"
-            src="assets/images/spin-{{ level.imageState }}.png"
+            src="assets/iimages/progres-bar/spin-{{ level.imageState }}.webp"
           />
         </div>
       </div>
