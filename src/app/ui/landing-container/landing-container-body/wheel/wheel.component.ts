@@ -55,6 +55,7 @@ export class WheelComponent implements OnInit {
 
   ngOnInit(): void {
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
+    console.log("isExecuted")
   }
 
   closePopup() {
