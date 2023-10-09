@@ -16,5 +16,18 @@ export class LandingContainerComponent {
     };
   }
 
-  bgImg = `assets/iimages/mb-bg.webp`;
+  bgImg = `assets/iimages/main-bg.webp`;
+
+  constructor(){
+    this.setBg();
+  }
+
+  setBg(){
+    if(window.innerWidth > 1024){
+      this.bgImg = `assets/iimages/main-bg.webp`;
+    }
+    else{
+      this.bgImg = `assets/iimages/mb-bg.webp`;
+    }
+  }
 }

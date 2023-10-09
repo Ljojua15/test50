@@ -9,6 +9,7 @@
   background-position: 50% 0%;
   background-size: auto;
   background-color: variables.$main-bg;
+  overflow: hidden;
 }
 
 @media (max-width: variables.$tablet) {

@@ -8,52 +8,90 @@
   padding-top: 440px;
   flex-direction: column;
   align-items: center;
+  margin-top: 20%;
 
   &__text {
-    max-width: 550px;
-    margin-top: 20px;
-    font-size: variables.$font-size-header-m;
-    line-height: 125%;
-    color: variables.$white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -32px;
+    span{
+      width: 750px;
+      height: 38px;
 
-    span {
-      color: variables.$main-header-color;
-      font-size: variables.$font-size-header-l;
-      font-family: fonts.$font-bold;
+      object-fit: contain;
+
+      font-family: CrocoSansBLACKCaps;
+      font-size: 28px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.56px;
+      text-align: center;
+      color: #fff;
+    }
+    }
+
+  }
+ @media (max-width: 1024px){
+  .header__text{
+    margin-top: 8%;
+    span{
+
+      width: 497px;
+      height: 70px;
+      object-fit: contain;
+      text-shadow: 0px 9px 17.3px rgba(39, 20, 13, 0.94);
+      font-family: CrocoSansBLACKCaps;
+      font-size: 35px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.89px;
+      text-align: center;
+      color: #fff;
+    }
+    .min{
+      height: 38px;
     }
   }
 }
 
-@media (max-width: variables.$tablet) {
-  .header {
-    padding-top: 275px;
-    margin: 0 auto;
 
-    &__img {
-      width: 250px;
-    }
+// @media (max-width: variables.$tablet) {
+//   .header {
+//     padding-top: 275px;
+//     margin: 0 auto;
 
-    &__text {
-      font-size: variables.$font-size-header-s;
-    }
-  }
-}
+//     &__img {
+//       width: 250px;
+//     }
 
-@media (max-width: variables.$mobile) {
-  .header {
-    padding-top: 175px;
-    width: 90%;
+//     &__text {
+//       font-size: variables.$font-size-header-s;
+//     }
+//   }
+// }
 
-    &__img {
-      width: 150px;
-    }
 
-    &__text {
-      font-size: variables.$font-size-s;
+// @media (max-width: variables.$mobile) {
+//   .header {
+//     padding-top: 175px;
+//     width: 90%;
 
-      span {
-        font-size: variables.$font-size-l;
-      }
-    }
-  }
-}
+//     &__img {
+//       width: 150px;
+//     }
+
+//     &__text {
+//       font-size: variables.$font-size-s;
+
+//       span {
+//         font-size: variables.$font-size-l;
+//       }
+//     }
+//   }
+// }
