@@ -22,7 +22,8 @@ export class WheelComponent implements OnInit {
   @Input() isDisabled = false;
 
   // image paths
-  framebg = `assets/iimages/wheel/wheel-main.webp`;
+  framepalma = `assets/iimages/wheel/wheel-tree.webp`;
+  framebg = `assets/iimages/wheel/wheel-round-bg.webp`;
   arrowImage = `assets/iimages/wheel/wheel-nody.webp`;
   frameImage = `assets/iimages/wheel/wheel-main.webp`;
   buttonImage = `assets/iimages/wheel/wheel-spin.webp`;

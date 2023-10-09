@@ -8,22 +8,29 @@
         <div class="wheel-history">
             <p>ისტორია</p>
         </div>
+        <div class="container__bg">
+          <img [src]="framebg" />
 
+      </div>
+      <div class="container__palma">
+        <img [src]="framepalma" />
+      </div>
+
+      <div class="container__frame">
+        <img [src]="frameImage" />
+      </div>
         <div class="container__arrow">
             <img [src]="arrowImage" />
-        </div>
-        <div class="container__bg">
-            <img [src]="framebg" />
-        </div>
-        <div class="container__frame">
-            <img [src]="frameImage" />
-        </div>
-        <div class="container__prizes">
+          </div>
+          <div class="container__btn">
+              <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
+              <img *ngIf="isDisabled" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+          </div>
+
+
+          <!-- <div class="container__prizes">
             <img [src]="prizesImage | async" #prizeElement />
-        </div>
-        <div class="container__btn">
-            <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
-            <img *ngIf="isDisabled" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
-        </div>
+          </div> -->
+
     </div>
 </div>
