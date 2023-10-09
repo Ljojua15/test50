@@ -1,14 +1,11 @@
 <crc-play-button [hasAnimation]="hasAnimation"></crc-play-button>
 
-
-  <crc-progress-bar
-  [levels]="levels"
-  [userData]="userData"
-  [config]="progressConfig"
-></crc-progress-bar>
-<crc-wheel [isDisabled]="isDisabled"></crc-wheel>
+<div class="background-test"> <img src="../../../../assets/iimages/sc-main-bg.webp" alt=""> </div>
+<crc-progress-bar class="test-pg" [levels]="levels" [userData]="userData" [config]="progressConfig"></crc-progress-bar>
+<crc-wheel class="test-wheel" [isDisabled]="isDisabled"></crc-wheel>
 
 
+<!-- <crc-background class="test-bg"></crc-background> -->
 
 <crc-comp-tree></crc-comp-tree>
 <crc-comp-four></crc-comp-four>

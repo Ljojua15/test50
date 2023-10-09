@@ -1,29 +1,28 @@
 @use "./../../../../../styles/variables";
 @use "./../../../../../fonts";
-
 .play {
-  background: variables.$play-btn;
-  margin: 30px 0;
-  padding: 20px 25px;
-  border-radius: 50px;
-  font-family: fonts.$font-bold;
-  font-size: variables.$font-size-header-m;
-  transition: all 500ms ease;
-  border: none;
-  cursor: pointer;
+    background: variables.$play-btn;
+    margin: 30px 1px;
+    padding: 20px 25px;
+    border-radius: 50px;
+    font-family: fonts.$font-bold;
+    font-size: variables.$font-size-header-m;
+    transition: all 500ms ease;
+    border: none;
+    cursor: pointer;
 }
 
 .play:hover {
-  box-shadow: variables.$play-btn-hover;
+    box-shadow: variables.$play-btn-hover;
 }
 
 .heartbeat {
-  animation: variables.$heartbeat-animation;
+    animation: variables.$heartbeat-animation;
 }
 
 @media (max-width: variables.$mobile) {
-  .play {
-    padding: 15px;
-    font-size: variables.$font-size-l;
-  }
+    .play {
+        padding: 15px;
+        font-size: variables.$font-size-l;
+    }
 }

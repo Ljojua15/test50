@@ -4,7 +4,8 @@ $main-bg: linear-gradient(to top, #6252bd, #b998fc);
 $container-bg: linear-gradient(0deg, #684739, #937050);
 :host {
     display: block;
-    margin: 10px 0 100px 0;;
+    margin: 10px 0 100px 0;
+    ;
 }
 
 .your-xbet {
@@ -25,6 +26,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     background-image: linear-gradient(to top, #1c317c, #6453bf);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 50;
     span {
         margin: auto;
         width: 384px;
@@ -42,31 +44,30 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
         color: #fff;
     }
 }
-.black-bg{
-  width: 760px;
-  height: 971px;
-  margin: auto;
-  object-fit: contain;
-  padding: 35px;
-  border-radius: 40px;
-  border-style: solid;
-  background-image: url(../../../../../assets/iimages/sc-main-bg.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  border: 2px solid #945f14;
-  z-index: -5;
-  // border-radius: 20px;
+
+.black-bg {
+    width: 760px;
+    height: 971px;
+    margin: auto;
+    object-fit: contain;
+    padding: 35px;
+    border-radius: 40px;
+    border-style: solid;
+    background-image: url(../../../../../assets/iimages/sc-main-bg.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 2px solid #945f14;
+    z-index: -5;
+    // border-radius: 20px;
 }
 
-@media (max-width: 1024px){
-.black-bg{
-  background-image: none;
-  border: none;
+@media (max-width: 1024px) {
+    .black-bg {
+        background-image: none;
+        border: none;
+    }
 }
-}
-
-
 
 .outline {
     padding: 2px;
@@ -79,6 +80,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     border-radius: 15px;
     height: 120px;
     margin: auto;
+    margin-top: 28px;
     &__wrapper {
         height: 100%;
         margin: auto;

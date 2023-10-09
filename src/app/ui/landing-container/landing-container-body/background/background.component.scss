@@ -1,22 +1,21 @@
-.black-bg{
-  width: 760px;
-  height: 971px;
-  margin: auto;
-  object-fit: contain;
-  border-radius: 40px;
-  border-style: solid;
-  background-image: url(../../../../../assets/iimages/sc-main-bg.webp);
-  background-size: 100%;
-  border: 2px solid #945f14;
-  z-index: -5;
-  // border-radius: 20px;
+.black-bg {
+    width: 760px;
+    height: 1040px;
+    margin: auto;
+    object-fit: contain;
+    border-radius: 40px;
+    border-style: solid;
+    background-image: url(../../../../../assets/iimages/sc-main-bg.webp);
+    background-size: 100% 1050px;
+    background-repeat: no-repeat;
+    border: 2px solid #945f14;
+    z-index: -12;
+    // border-radius: 20px;
 }
 
-@media (max-width: 1024px){
-.black-bg{
-  background-image: none;
-  border: none;
+@media (max-width: 1024px) {
+    .black-bg {
+        background-image: none;
+        border: none;
+    }
 }
-}
-
-
