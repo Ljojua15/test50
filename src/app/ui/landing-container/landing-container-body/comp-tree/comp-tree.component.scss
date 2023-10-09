@@ -1,3 +1,6 @@
+:host{
+  margin-top: 20px;
+}
 .comp-tree-cont{
 
   position: relative;
@@ -6,6 +9,7 @@ margin: auto;
 display: flex;
 justify-content: center;
 align-items: center;
+margin-top: 20%;
 img{
   position: absolute;
   width: 100%;
