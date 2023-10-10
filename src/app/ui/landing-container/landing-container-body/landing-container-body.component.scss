@@ -31,9 +31,14 @@
     position: absolute;
     max-width: 790px;
     height: 1060px;
-    top: 137%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    // top: 141%;
+    // left: 50%;
+    // transform: translate(-50%, -141%);
     img {
         width: 780px;
         height: 1050px;
