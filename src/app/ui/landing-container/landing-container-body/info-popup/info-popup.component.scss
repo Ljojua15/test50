@@ -1,0 +1,48 @@
+.info-popup{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  width: 560px;
+  height: 240px;
+
+  object-fit: contain;
+  border-radius: 20px;
+  border: 1px solid #925d10;
+
+  border-image-slice: 1;
+  background-image: url(../../../../../assets/iimages/popup-bg.webp);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  p{
+      width: 451px;
+  height: 159px;
+  margin: 29px 10px 0 0;
+  object-fit: contain;
+  font-family: 'CrocoSansCAPSRegular', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #fff;
+  }
+}
+
+
+.cancel{
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  background-image: url(../../../../../assets/iimages/cancel.webp);
+  top: 13px;
+  right: 13px;
+  z-index: 3;
+  cursor: pointer;
+}

@@ -18,6 +18,9 @@ export class LandingContainerBodyComponent implements OnInit {
     } else {
       this.clearData();
     }
+
+
+
   }
 
   // toggle play button heartbeat animation
@@ -37,10 +40,10 @@ export class LandingContainerBodyComponent implements OnInit {
   progressConfig: Config = {
     hasOutline: true,
     hasGelSymbol: true,
-    breakType: 'line', // 'line' | 'dot' | ''
+    breakType: 'line', //| 'dot', //'line' | 'dot' | '',
     containerColor: 'url("../../../../assets/iimages/progres-bar/pb-bg.webp")',
-    progressBarColor: '#15af44',
-    progressBarFilledColor: '#5f2797',
+    progressBarColor: '#152340',
+    progressBarFilledColor: '#15af44',
     sliderColor: '#15af44',
     texts: {
       top: 'bet',
@@ -66,7 +69,7 @@ export class LandingContainerBodyComponent implements OnInit {
 
   getData() {
     return this.campaignService
-      .getUserData('p2p-mix-wheel-030723')
+      .getUserData('plinko-wheel-100523')
       .pipe(map((res) => res.data))
       .subscribe((res) => {
         this.userData = {

@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
 import { UserData } from 'src/app/shared/models/userData';
@@ -8,10 +9,17 @@ import { UserData } from 'src/app/shared/models/userData';
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnChanges {
+export class ProgressBarComponent implements OnChanges, OnInit{
   @Input() levels!: Levels[];
   @Input() userData!: UserData;
   @Input() config!: Config;
+  showPopup = false;
+
+
+
+  ngOnInit(): void {
+    console.log(this.userData)
+  }
 
   // index of unlocked items
   currentIndex = 0;

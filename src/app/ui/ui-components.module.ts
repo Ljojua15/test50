@@ -19,6 +19,7 @@ import { PromosComponent } from './landing-container/landing-container-body/prom
 import { CompTreeComponent } from './landing-container/landing-container-body/comp-tree/comp-tree.component';
 import { CompFourComponent } from './landing-container/landing-container-body/comp-four/comp-four.component';
 import { BackgroundComponent } from './landing-container/landing-container-body/background/background.component';
+import { InfoPopupComponent } from './landing-container/landing-container-body/info-popup/info-popup.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BackgroundComponent } from './landing-container/landing-container-body/
     CompTreeComponent,
     CompFourComponent,
     BackgroundComponent,
+    InfoPopupComponent,
   ],
   exports: [
     LandingContainerComponent,
