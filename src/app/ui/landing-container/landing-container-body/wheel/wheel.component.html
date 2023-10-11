@@ -4,7 +4,8 @@
             <!-- template here -->
         </crc-popup-container>
 
-        <div class="wheel-info"></div>
+        <div class="wheel-info" (click)="showWheelInfo=true"></div>
+        <crc-wheel-info *ngIf="showWheelInfo" (closeWheelInfo)="showWheelInfo=false" ></crc-wheel-info>
         <div class="wheel-history">
             <p>ისტორია</p>
         </div>

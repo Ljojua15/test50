@@ -3,10 +3,11 @@
 
 
   <div class="main" [class.outline]="config.hasOutline">
-  <div class="progres-info">
-    <crc-info-popup *ngIf="showPopup" (close)="showPopup=false"></crc-info-popup>
+  <div class="progres-info" (click)="showPopup=true">
     <img src="../../../../../assets/iimages/progres-bar/pb-info.webp" alt="">
   </div>
+  <crc-info-popup *ngIf="showPopup" (closeName)="showPopup = false"></crc-info-popup>
+
   <div
     class="main__wrapper"
     [ngStyle]="{ 'background-color': config.containerColor }"

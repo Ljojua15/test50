@@ -20,6 +20,8 @@ import { CompTreeComponent } from './landing-container/landing-container-body/co
 import { CompFourComponent } from './landing-container/landing-container-body/comp-four/comp-four.component';
 import { BackgroundComponent } from './landing-container/landing-container-body/background/background.component';
 import { InfoPopupComponent } from './landing-container/landing-container-body/info-popup/info-popup.component';
+import { WheelInfoComponent } from './landing-container/landing-container-body/wheel-info/wheel-info.component';
+import { HistoryPopupComponent } from './landing-container/landing-container-body/history-popup/history-popup.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { InfoPopupComponent } from './landing-container/landing-container-body/i
     CompFourComponent,
     BackgroundComponent,
     InfoPopupComponent,
+    WheelInfoComponent,
+    HistoryPopupComponent,
   ],
   exports: [
     LandingContainerComponent,

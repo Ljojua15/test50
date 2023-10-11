@@ -9,16 +9,14 @@ import { UserData } from 'src/app/shared/models/userData';
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnChanges, OnInit{
+export class ProgressBarComponent implements OnChanges, OnInit {
   @Input() levels!: Levels[];
   @Input() userData!: UserData;
   @Input() config!: Config;
   showPopup = false;
 
-
-
   ngOnInit(): void {
-    console.log(this.userData)
+    console.log(this.userData);
   }
 
   // index of unlocked items

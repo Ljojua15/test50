@@ -1,4 +1,4 @@
-.info-popup{
+.info-wheel{
   margin: auto;
   display: flex;
   align-items: center;
@@ -7,23 +7,23 @@
   flex-direction: column;
   position: relative;
   width: 560px;
-  // width: 100%;
-  min-height: 240px;
+  height: 320px;
+
 
   object-fit: contain;
   border-radius: 20px;
   border: 1px solid #925d10;
 
   border-image-slice: 1;
-  background-image: url(../../../../../assets/iimages/popup-bg.webp);
+  background-image: url(../../../../../assets/iimages/wheel-info.webp);
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: content-box, border-box;
 
   p{
-    width: 451px;
-    height: 159px;
-  margin: 43px 10px 0 0;
+  width: 500px;
+  height: 231px;
+  margin: 39px 11px 0 0;
   object-fit: contain;
   font-family: 'CrocoSansCAPSRegular', sans-serif;
   font-size: 20px;
@@ -38,7 +38,7 @@
 }
 
 
-.cancel{
+.cancel-wheel{
   width: 26px;
   height: 26px;
   position: absolute;
@@ -51,16 +51,17 @@
 
 
 @media (max-width: 585px) {
-  .info-popup{
-    width: 313px;
+  .info-wheel{
+    width: 350px;
     height: 200px;
 
   P{
     width: 280px;
-    height: 230px;
-    margin: 46px 10px 0 0;
-    font-size: 17px;
+    height: 89px;
+    margin: 17px 10px 0 0;
+    font-size: 13px;
 
   }
 }
 }
+

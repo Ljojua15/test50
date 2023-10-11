@@ -20,7 +20,7 @@ import { GenericResponse } from 'src/app/shared/models/response';
 export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() isDisabled = false;
-
+  showWheelInfo = false;
   // image paths
   framepalma = `assets/iimages/wheel/wheel-tree.webp`;
   framebg = `assets/iimages/wheel/wheel-round-bg.webp`;
@@ -55,7 +55,7 @@ export class WheelComponent implements OnInit {
 
   ngOnInit(): void {
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
-    console.log("isExecuted")
+    console.log('isExecuted');
   }
 
   closePopup() {
