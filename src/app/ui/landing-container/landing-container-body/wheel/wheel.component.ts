@@ -31,7 +31,7 @@ export class WheelComponent implements OnInit {
   prizesImage = this.translateService.onLangChange.pipe(
     map((lang) => `assets/images/wheel-prizes-${lang.lang}.png`)
   );
-
+  isDisabledGet = false;
   // campaign id for get prize
   campaignId = '';
 
@@ -63,10 +63,12 @@ export class WheelComponent implements OnInit {
   }
 
   getPrize() {
-    return this.campaignService
-      .getPrize(this.campaignId)
-      .pipe(map((res: GenericResponse<Prize>) => res.data))
-      .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
+    this.isDisabledGet = true;
+    this.makeAnimation(1);
+    // return this.campaignService
+    //   .getPrize(this.campaignId)
+    //   .pipe(map((res: GenericResponse<Prize>) => res.data))
+    //   .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
   }
 
   switchPrize(id: number) {
@@ -95,8 +97,8 @@ export class WheelComponent implements OnInit {
   makeAnimation(id: number) {
     this.isDisabled = true;
     const prizeId = this.switchPrize(id);
-    let middleDegree = 20;
-    let additionalDegree = 45;
+    let middleDegree = 32.7;
+    let additionalDegree = 32.7;
     const beforeAddition = this.wheelDegree;
     this.wheelDegree += 1080 + additionalDegree * prizeId + middleDegree;
 
@@ -119,6 +121,7 @@ export class WheelComponent implements OnInit {
     const player = myAnimation.create(this.prizeElement.nativeElement);
     player.play();
     player.onDone(() => {
+      this.isDisabledGet = false;
       // this.openPopup = true;
       // this.isDisabled = false;
     });

@@ -1,6 +1,8 @@
     @use "./../../../../../styles/variables";
     .disabled {
-        cursor: pointer;
+      filter: grayscale(1);
+      cursor: initial;
+      pointer-events: none;
     }
 
     .main {

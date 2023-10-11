@@ -17,15 +17,15 @@
         <img [src]="framepalma" />
       </div>
 
-      <div class="container__frame">
+      <div class="container__frame" #prizeElement>
         <img [src]="frameImage" />
       </div>
         <div class="container__arrow">
             <img [src]="arrowImage" />
           </div>
           <div class="container__btn">
-              <img *ngIf="!isDisabled" [src]="buttonImage" (click)="getPrize()" />
-              <img *ngIf="isDisabled" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+              <img *ngIf="!isDisabledGet" [src]="buttonImage" (click)="getPrize()" />
+              <img *ngIf="isDisabledGet" [src]="buttonDisabledImage" [class.disabled]="isDisabled"  />
           </div>
 
 
