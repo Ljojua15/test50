@@ -42,3 +42,10 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+//ისტორიის პრიზის მოდული
+
+export interface PlaceName {
+  place : number;
+  prize : string;
+}

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs';
+
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Config } from 'src/app/shared/models/progressConfig';
 import { Levels } from 'src/app/shared/models/progressData';
@@ -98,4 +99,6 @@ export class LandingContainerBodyComponent implements OnInit {
   //     .getHistory('ufo-double-wheel-190822')
   //     .subscribe((res) => console.log(res));
   // }
+
+
 }

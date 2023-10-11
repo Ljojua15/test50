@@ -1,1 +1,11 @@
-<p>history-popup works!</p>
+<div class="info-wheel">
+    <div class="cancel-history"> </div>
+    <div class="history-static">
+        <p>{{"history.1" | translate}}</p>
+        <p>{{"history.2" | translate}}</p>
+    </div>
+    <div class="history-dinamic" *ngFor="let items Of historyPlace">
+        <p>{{ items.place }}</p>
+        <p> {{items.prize}}</p>
+    </div>
+</div>
