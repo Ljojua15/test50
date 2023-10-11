@@ -1,10 +1,10 @@
     @use "./../../../../../styles/variables";
     .disabled {
-      filter: grayscale(1);
-      cursor: initial;
-      pointer-events: none;
+        filter: grayscale(1);
+        cursor: initial;
+        pointer-events: none;
     }
-
+    
     .main {
         max-width: 700px;
         margin-inline: auto;
@@ -13,11 +13,9 @@
         border-radius: 30px;
         background: linear-gradient(0deg, #945527, #ffd372 50%, #945527);
         margin-bottom: 90px;
-      }
-
-
+    }
+    
     .container {
-
         position: relative;
         border-radius: 30px;
         border-image-source: linear-gradient(to top, #925d10, #c4a64c, #945f14);
@@ -27,49 +25,42 @@
         justify-content: center;
         align-items: center;
         padding: 20px 20px;
-
-        &__frame{
-          position: absolute;
-          margin: auto;
-          z-index: 10;
-          top: 9%;
-          img{
-            z-index: 1;
-          }
+        &__frame {
+            position: absolute;
+            margin: auto;
+            z-index: 10;
+            top: 9%;
+            img {
+                z-index: 1;
+            }
         }
-
-        &__palma{
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 650px;
-          top: 14%;
-
-
+        &__palma {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 650px;
+            top: 14%;
         }
-        &__bg{
-          z-index: 10;
+        &__bg {
+            z-index: 10;
         }
-
-        &__arrow{
-          width: 200px;
-          height: 382px;
-          position: absolute;
-          z-index: 20;
-          top: 8%;
+        &__arrow {
+            width: 200px;
+            height: 382px;
+            position: absolute;
+            z-index: 20;
+            top: 8%;
         }
-
-        &__btn{
-          width: 135px;
-          height: 135px;
-          top: 38.5%;
-          position: absolute;
-          z-index: 30;
+        &__btn {
+            width: 135px;
+            height: 135px;
+            top: 38.5%;
+            position: absolute;
+            z-index: 30;
         }
-
     }
-
+    
     .wheel-info {
         width: 38px;
         height: 38px;
@@ -83,7 +74,7 @@
         cursor: pointer;
         z-index: 30;
     }
-
+    
     .wheel-history {
         width: 180px;
         height: 60px;
@@ -106,7 +97,7 @@
         transform: translate(-50%, 50%);
         cursor: pointer;
     }
-
+    
     .wheel-history p {
         object-fit: contain;
         font-family: 'CrocoSansCAPSRegular', sans-serif;
@@ -119,11 +110,11 @@
         letter-spacing: 0.48px;
         color: #fff;
     }
-
-    .spin-btn{
-      cursor: pointer;
+    
+    .spin-btn {
+        cursor: pointer;
     }
-
+    
     @media (max-width: variables.$tablet) {
         .container {
             img {
@@ -131,27 +122,20 @@
             }
         }
     }
-
-
-
-
-    @media (max-width: 950px){
-      .container{
-        &__palma{
-          width: 100px;
+    
+    @media (max-width: 950px) {
+        .container {
+            &__palma {
+                width: 100px;
+            }
         }
-      }
-
     }
-
-
-
+    
     @media (max-width: 765px) {
-        .main{
-          max-width: 400px;
-
+        .main {
+            max-width: 400px;
         }
-      .container {
+        .container {
             &__prizes {
                 width: 78%;
             }
@@ -161,58 +145,43 @@
             &__btn {
                 width: 25%;
             }
-
             &__bg {
-              max-width: 650px;
-              height: 390px;
-              display: flex;
-              justify-content: center;
-              text-align: center;
-              align-items: center;
-              margin: auto;
-
-
-              margin: auto;
-              img{
-                width: 370px;
-                height: 370px;
-              }
+                max-width: 650px;
+                height: 390px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                margin: auto;
+                margin: auto;
+                img {
+                    width: 370px;
+                    height: 370px;
+                }
             }
-
-            &__frame{
-              width: 320px;
-              height: 320px;
-              top: 14%;
+            &__frame {
+                width: 320px;
+                height: 320px;
+                top: 14%;
             }
-            &__arrow{
-              width: 120px;
-              height: 382px;
-              top: 13%;
+            &__arrow {
+                width: 120px;
+                height: 382px;
+                top: 13%;
             }
-            &__btn{
-              width: 80px;
-              height: 100px;
-              top: 41.5%
-
+            &__btn {
+                width: 80px;
+                height: 100px;
+                top: 41.5%
             }
-
         }
     }
-
-
-
-
-
-
-
-
-
+    
     @media (max-width: 650px) {
-      .main{
-        max-width: 400px;
-      }
-
-      .container {
+        .main {
+            max-width: 400px;
+        }
+        .container {
             &__prizes {
                 width: 78%;
             }
@@ -222,41 +191,41 @@
             &__btn {
                 width: 25%;
             }
-            &__palma{
-
-              width: 375px;
-
+            &__palma {
+                width: 375px;
             }
-            &__bg{
-
-              img{
-                width: 340px;
-                height: 340px;
-              }
+            &__bg {
+                img {
+                    width: 340px;
+                    height: 340px;
+                }
             }
-            &__frame{
-              width: 300px;
-              height: 300px;
-              top: 16%;
+            &__frame {
+                width: 300px;
+                height: 300px;
+                top: 16%;
             }
-            &__arrow{
-              width: 100px;
-              height: 382px;
-              top: 15%;
+            &__arrow {
+                width: 100px;
+                height: 382px;
+                top: 15%;
             }
-            &__btn{
-              width: 70px;
-              height: 100px;
-              top: 38.5%
-
+            &__btn {
+                width: 70px;
+                height: 100px;
+                top: 38.5%
             }
-
         }
     }
-
-
-    crc-wheel-info{
-      position: absolute;
-      z-index: 57;
-
+    
+    crc-wheel-info {
+        position: absolute;
+        z-index: 57;
+    }
+    
+    crc-history-popup {
+        width: 100%;
+        bottom: 25%;
+        position: absolute;
+        z-index: 60;
     }

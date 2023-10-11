@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PlaceName } from 'src/app/app.module';
 
 
@@ -11,9 +12,10 @@ import { PlaceName } from 'src/app/app.module';
 export class HistoryPopupComponent {
 
 historyPlace: PlaceName[] = [
-  {place: 1 , prize: "2 UFO FREESPIN"},
-  {place: 2 , prize: "2 UFO FREESPIN"},
-  {place: 3 , prize: "20  FREESPINS"}
+  // {place: 1 , prize: "2 UFO FREESPIN"},
+  {place: 2 , prize: "2 UFO FREESPIN"}
+  // {place: 3 , prize: "20  FREESPINS"}
  ]
- 
+ @Output() historyPo = new EventEmitter<void>();
 }
+

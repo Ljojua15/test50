@@ -5,31 +5,33 @@
         </crc-popup-container>
 
         <div class="wheel-info" (click)="showWheelInfo=true"></div>
-        <crc-wheel-info *ngIf="showWheelInfo" (closeWheelInfo)="showWheelInfo=false" ></crc-wheel-info>
-        <div class="wheel-history">
+        <crc-wheel-info *ngIf="showWheelInfo" (closeWheelInfo)="showWheelInfo=false"></crc-wheel-info>
+        <div class="wheel-history" (click)="poHist=true">
             <p>ისტორია</p>
         </div>
+        <crc-history-popup *ngIf="poHist" (historyPo)="poHist=false"></crc-history-popup>
+
         <div class="container__bg">
-          <img [src]="framebg" />
+            <img [src]="framebg" />
 
-      </div>
-      <div class="container__palma">
-        <img [src]="framepalma" />
-      </div>
+        </div>
+        <div class="container__palma">
+            <img [src]="framepalma" />
+        </div>
 
-      <div class="container__frame" #prizeElement>
-        <img [src]="frameImage" />
-      </div>
+        <div class="container__frame" #prizeElement>
+            <img [src]="frameImage" />
+        </div>
         <div class="container__arrow">
             <img [src]="arrowImage" />
-          </div>
-          <div class="container__btn">
-              <img class="spin-btn" *ngIf="!isDisabledGet" [src]="buttonImage" (click)="getPrize()" />
-              <img *ngIf="isDisabledGet" [src]="buttonDisabledImage" [class.disabled]="isDisabled"  />
-          </div>
+        </div>
+        <div class="container__btn">
+            <img class="spin-btn" *ngIf="!isDisabledGet" [src]="buttonImage" (click)="getPrize()" />
+            <img *ngIf="isDisabledGet" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+        </div>
 
 
-          <!-- <div class="container__prizes">
+        <!-- <div class="container__prizes">
             <img [src]="prizesImage | async" #prizeElement />
           </div> -->
 

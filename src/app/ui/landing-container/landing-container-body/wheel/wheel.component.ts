@@ -21,6 +21,7 @@ export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
   @Input() isDisabled = false;
   showWheelInfo = false;
+  poHist=false;
   // image paths
   framepalma = `assets/iimages/wheel/wheel-tree.webp`;
   framebg = `assets/iimages/wheel/wheel-round-bg.webp`;
