@@ -120,6 +120,10 @@
         color: #fff;
     }
 
+    .spin-btn{
+      cursor: pointer;
+    }
+
     @media (max-width: variables.$tablet) {
         .container {
             img {
