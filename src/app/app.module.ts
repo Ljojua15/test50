@@ -13,13 +13,14 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { UiComponentsModule } from './ui/ui-components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WinPopupComponent } from './win-popup/win-popup.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent],
+  declarations: [AppComponent, LandingComponent, WinPopupComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
