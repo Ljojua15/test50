@@ -19,9 +19,6 @@ export class LandingContainerBodyComponent implements OnInit {
     } else {
       this.clearData();
     }
-
-
-
   }
 
   // toggle play button heartbeat animation
@@ -37,6 +34,8 @@ export class LandingContainerBodyComponent implements OnInit {
     { step: 500, points: 1, imageState: 'off' },
     { step: 1000, points: 1, imageState: 'off' },
   ];
+
+  @Input() available!: number;
 
   progressConfig: Config = {
     hasOutline: true,
@@ -58,14 +57,13 @@ export class LandingContainerBodyComponent implements OnInit {
     unlockedLevel: -1,
     used: 0,
     amount: 0,
+    available: 0,
   };
 
   constructor(private campaignService: CampaignService) {}
 
   ngOnInit(): void {
-    this.campaignService.updateUserData.subscribe((_) => {
-      this.getData();
-    });
+    this.getData();
   }
 
   getData() {
@@ -80,7 +78,13 @@ export class LandingContainerBodyComponent implements OnInit {
             res.state.progress,
             this.levels[this.levels.length - 1].step
           ),
+          available: res.state.available,
         };
+        this.available = res.state.available;
+        console.log('av', this.userData);
+        if (res.state.available > 0) {
+          this.isDisabled = false;
+        }
       });
   }
 
@@ -91,6 +95,7 @@ export class LandingContainerBodyComponent implements OnInit {
       unlockedLevel: -1,
       used: 0,
       amount: 0,
+      available: 0,
     };
   }
 
@@ -99,6 +104,4 @@ export class LandingContainerBodyComponent implements OnInit {
   //     .getHistory('ufo-double-wheel-190822')
   //     .subscribe((res) => console.log(res));
   // }
-
-
 }

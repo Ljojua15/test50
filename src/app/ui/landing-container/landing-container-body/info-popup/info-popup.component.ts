@@ -6,6 +6,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./info-popup.component.scss'],
 })
 export class InfoPopupComponent {
-
- @Output() closeName = new EventEmitter<void>()
+  @Output() closeName = new EventEmitter<void>();
 }

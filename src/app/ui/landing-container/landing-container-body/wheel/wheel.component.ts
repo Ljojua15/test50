@@ -11,6 +11,7 @@ import { BackdropService } from 'src/app/services/backdrop.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 import { Prize } from 'src/app/shared/models/prize';
 import { GenericResponse } from 'src/app/shared/models/response';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'crc-wheel',
@@ -19,9 +20,11 @@ import { GenericResponse } from 'src/app/shared/models/response';
 })
 export class WheelComponent implements OnInit {
   @ViewChild('prizeElement') prizeElement!: ElementRef;
+  @ViewChild('progressbar') progressbar!: ProgressBarComponent;
   @Input() isDisabled = false;
+  popupTxt = '';
   showWheelInfo = false;
-  poHist=false;
+  poHist = false;
   // image paths
   framepalma = `assets/iimages/wheel/wheel-tree.webp`;
   framebg = `assets/iimages/wheel/wheel-round-bg.webp`;
@@ -34,7 +37,7 @@ export class WheelComponent implements OnInit {
   );
   isDisabledGet = false;
   // campaign id for get prize
-  campaignId = '';
+  campaignId = 'plinko-wheel-100523';
 
   // popup configuration
   popup = false;
@@ -44,6 +47,7 @@ export class WheelComponent implements OnInit {
 
   wheelDegree = 0;
   offset = 0;
+  showWinPopup: boolean = false;
 
   backdrop$: Observable<boolean> | null = null;
 
@@ -56,7 +60,7 @@ export class WheelComponent implements OnInit {
 
   ngOnInit(): void {
     this.backdrop$ = this.backdropService.backDrop$.asObservable();
-    console.log('isExecuted');
+    console.log(`disable? ${this.isDisabled}`);
   }
 
   closePopup() {
@@ -64,12 +68,19 @@ export class WheelComponent implements OnInit {
   }
 
   getPrize() {
-    this.isDisabledGet = true;
-    this.makeAnimation(7);
-    // return this.campaignService
-    //   .getPrize(this.campaignId)
-    //   .pipe(map((res: GenericResponse<Prize>) => res.data))
-    //   .subscribe((res: Prize) => this.makeAnimation(res.prizeId));
+    // this.isDisabledGet = true;
+    // this.makeAnimation(7);
+
+    this.campaignService
+      .getPrize(this.campaignId)
+      .pipe(map((res: GenericResponse<Prize>) => res.data))
+      .subscribe((res: Prize) => {
+        this.makeAnimation(res.prizeId);
+        console.log('getprize', res);
+        setTimeout(() => {
+          this.showWinPopup = true;
+        }, 5000);
+      });
   }
 
   switchPrize(id: number) {

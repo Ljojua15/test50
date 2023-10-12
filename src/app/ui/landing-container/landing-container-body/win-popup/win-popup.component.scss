@@ -11,8 +11,8 @@
 }
 
 .congrt-popup{
-  max-width: 560px;
-  width: 95%;
+  width: 560px;
+  // width: 95%;
   height: 393px;
   position: relative;
   margin: auto;
@@ -30,6 +30,9 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
+  top: -670px;
+
+
 
 
 }
@@ -115,11 +118,12 @@
 }
 
 
-@media (max-width: 660px) {
+@media (max-width: 760px) {
   .congrt-popup{
-    max-width: 331px;
-    width: 95%;
+    width: 331px;
+    // width: 95%;
     height: 234px;
+    top: -450px;
   }
   .p1{
     width: 252px;

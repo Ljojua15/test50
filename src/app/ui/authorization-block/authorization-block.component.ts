@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IframeService } from 'src/app/services/iframe.service';
 
 @Component({

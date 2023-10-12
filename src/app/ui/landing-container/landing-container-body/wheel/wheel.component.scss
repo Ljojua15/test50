@@ -4,7 +4,7 @@
         cursor: initial;
         pointer-events: none;
     }
-    
+
     .main {
         max-width: 700px;
         margin-inline: auto;
@@ -14,7 +14,7 @@
         background: linear-gradient(0deg, #945527, #ffd372 50%, #945527);
         margin-bottom: 90px;
     }
-    
+
     .container {
         position: relative;
         border-radius: 30px;
@@ -60,7 +60,7 @@
             z-index: 30;
         }
     }
-    
+
     .wheel-info {
         width: 38px;
         height: 38px;
@@ -74,7 +74,7 @@
         cursor: pointer;
         z-index: 30;
     }
-    
+
     .wheel-history {
         width: 180px;
         height: 60px;
@@ -98,7 +98,7 @@
         cursor: pointer;
         z-index: 80;
     }
-    
+
     .wheel-history p {
         object-fit: contain;
         font-family: 'CrocoSansCAPSRegular', sans-serif;
@@ -111,11 +111,11 @@
         letter-spacing: 0.48px;
         color: #fff;
     }
-    
+
     .spin-btn {
         cursor: pointer;
     }
-    
+
     @media (max-width: variables.$tablet) {
         .container {
             img {
@@ -123,7 +123,7 @@
             }
         }
     }
-    
+
     @media (max-width: 950px) {
         .container {
             &__palma {
@@ -131,7 +131,7 @@
             }
         }
     }
-    
+
     @media (max-width: 765px) {
         .main {
             max-width: 400px;
@@ -177,7 +177,7 @@
             }
         }
     }
-    
+
     @media (max-width: 650px) {
         .main {
             max-width: 400px;
@@ -218,15 +218,23 @@
             }
         }
     }
-    
+
     crc-wheel-info {
         position: absolute;
         z-index: 57;
     }
-    
+
     crc-history-popup {
         width: 100%;
         bottom: 25%;
         position: absolute;
         z-index: 60;
+    }
+
+    crc-win-popup{
+      position: absolute;
+      z-index: 99;
+      left: 50%;
+      transform: translateX(-50%);
+
     }

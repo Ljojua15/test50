@@ -25,15 +25,26 @@
         <div class="container__arrow">
             <img [src]="arrowImage" />
         </div>
-        <div class="container__btn">
-            <img class="spin-btn" *ngIf="!isDisabledGet" [src]="buttonImage" (click)="getPrize()" />
-            <img *ngIf="isDisabledGet" [src]="buttonDisabledImage" [class.disabled]="isDisabled" />
+        <div class="container__btn" >
+            <img class="spin-btn"  *ngIf="!isDisabled" [src]="buttonImage" (click)=" getPrize()"  />
+            <img *ngIf="isDisabled" [src]="buttonDisabledImage"  [class.disabled]="isDisabled"  (click)="getPrize()"  />
         </div>
+
+
 
 
         <!-- <div class="container__prizes">
             <img [src]="prizesImage | async" #prizeElement />
           </div> -->
 
+
+
+
     </div>
+
+
 </div>
+
+<crc-win-popup  *ngIf="showWinPopup" (closeName)="showWinPopup = false">
+
+</crc-win-popup>

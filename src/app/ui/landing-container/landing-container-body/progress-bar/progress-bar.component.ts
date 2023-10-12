@@ -13,10 +13,14 @@ export class ProgressBarComponent implements OnChanges, OnInit {
   @Input() levels!: Levels[];
   @Input() userData!: UserData;
   @Input() config!: Config;
+  @Input() available: number = 0;
+
+  numb = 0;
   showPopup = false;
 
   ngOnInit(): void {
     console.log(this.userData);
+    this.available = this.userData.available;
   }
 
   // index of unlocked items
