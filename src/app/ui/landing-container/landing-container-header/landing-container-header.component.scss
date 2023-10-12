@@ -59,6 +59,26 @@
     }
   }
 }
+@media (max-width: 480px){
+  .header{
+    margin-top: -14%;
+  }
+  .header__text{
+    height: 25px;
+    span{
+
+      width: 350px;
+      height: 44px;
+
+      font-size: 20px;
+
+    }
+    .min{
+      height: 38px;
+    }
+  }
+}
+
 
 
 // @media (max-width: variables.$tablet) {
