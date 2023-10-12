@@ -6,31 +6,145 @@
   background-image: url(../../../../../assets/iimages/cancel.webp);
   top: 13px;
   right: 13px;
-  z-index: 3;
+  z-index: 99;
   cursor: pointer;
 }
 
 .congrt-popup{
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
+  max-width: 560px;
+  width: 95%;
+  height: 393px;
   position: relative;
-  width: 560px;
-  // width: 100%;
-  min-height: 240px;
-
+  margin: auto;
   object-fit: contain;
   border-radius: 20px;
-  border: 1px solid #925d10;
 
-  border-image-slice: 1;
-  background-image: url(../../../../../assets/iimages/popup-bg.webp);
+  background-image: url(../../../../../assets/iimages/cong-bg.webp);
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-origin: border-box;
+  border-image-slice: 1;
   background-clip: content-box, border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 
 
+}
+
+
+.play-btn{
+  max-width: 298px;
+  width: 90%;
+  height: 106px;
+  padding: 42px 62px;
+  object-fit: contain;
+  border-radius: 57.3px;
+  background-color: #13ad4b;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+
+  p{
+    width: 250px;
+    height: 80px;
+    object-fit: contain;
+    font-family: CrocoSansBLACKCaps;
+    font-size: 42px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.99;
+    letter-spacing: 2.3px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.p1{
+  width: 252px;
+  height: 32px;
+  font-size: 46px;
+
+  object-fit: contain;
+  font-family:'CrocoSansBlackCAPS', sans-serif;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.92px;
+  text-align: center;
+  color: #bcd15b;
+}
+.p2{
+
+    width: 375px;
+    height: 57px;
+    // margin: 26px 52px 26px 53px;
+    object-fit: contain;
+    font-family: 'CrocoSansCAPSRegular', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #fff;
+
+}
+
+.p3{
+    width: 473px;
+  height: 43px;
+  // margin: 26px 0 22px;
+  object-fit: contain;
+  font-family:'CrocoSansCAPSRegular', sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.44px;
+  text-align: center;
+  color: #fff;
+}
+
+
+@media (max-width: 660px) {
+  .congrt-popup{
+    max-width: 331px;
+    width: 95%;
+    height: 234px;
+  }
+  .p1{
+    width: 252px;
+    height: 18px;
+    font-size: 24px;
+  }
+  .p2{
+    width: 252px;
+    height: 32px;
+    font-size: 15px;
+  }
+  .p3{
+    width: 280px;
+    height: 32px;
+    font-size: 15px;
+  }
+  .play-btn{
+    max-width: 190px;
+    width: 90%;
+    height: 48px;
+
+  p{
+    width: 123px;
+    height: 41px;
+    font-size: 24px;
+  }
+}
 }
