@@ -1,0 +1,36 @@
+
+.cancel{
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  background-image: url(../../../../../assets/iimages/cancel.webp);
+  top: 13px;
+  right: 13px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.congrt-popup{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  width: 560px;
+  // width: 100%;
+  min-height: 240px;
+
+  object-fit: contain;
+  border-radius: 20px;
+  border: 1px solid #925d10;
+
+  border-image-slice: 1;
+  background-image: url(../../../../../assets/iimages/popup-bg.webp);
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+
+}

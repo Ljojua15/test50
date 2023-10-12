@@ -3,9 +3,11 @@
     <div class="history-static">
         <p>{{"history.1" | translate}}</p>
         <p>{{"history.2" | translate}}</p>
+      </div>
+   <div class="datamain">
+    <div class="history-dinamic" *ngFor="let items of historyPlace">
+      <p>{{ items.place }}</p>
+      <p> {{items.prize}}</p>
     </div>
-    <div class="history-dinamic" *ngFor="let items Of historyPlace">
-        <p>{{ items.place }}</p>
-        <p> {{items.prize}}</p>
-    </div>
+  </div>
 </div>

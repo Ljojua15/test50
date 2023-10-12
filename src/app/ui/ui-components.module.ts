@@ -22,6 +22,7 @@ import { BackgroundComponent } from './landing-container/landing-container-body/
 import { InfoPopupComponent } from './landing-container/landing-container-body/info-popup/info-popup.component';
 import { WheelInfoComponent } from './landing-container/landing-container-body/wheel-info/wheel-info.component';
 import { HistoryPopupComponent } from './landing-container/landing-container-body/history-popup/history-popup.component';
+import { WinPopupComponent } from './landing-container/landing-container-body/win-popup/win-popup.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HistoryPopupComponent } from './landing-container/landing-container-bod
     InfoPopupComponent,
     WheelInfoComponent,
     HistoryPopupComponent,
+    WinPopupComponent,
   ],
   exports: [
     LandingContainerComponent,
