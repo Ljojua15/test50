@@ -135,8 +135,9 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
             transform: translate(-50%, -50%);
         }
         .line {
-            height: 3px;
-            width: 0px;
+            height: 8px;
+            width: 5px;
+            background-color: red
         }
         .dot {
             height: 15px;
@@ -165,8 +166,7 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            height: 6px;
-            border-radius: 1px;
+            height: 8px;
         }
         &__slider {
             position: absolute;
@@ -217,11 +217,10 @@ $container-bg: linear-gradient(0deg, #684739, #937050);
     }
 }
 
-
-crc-info-popup{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 10;
+crc-info-popup {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }

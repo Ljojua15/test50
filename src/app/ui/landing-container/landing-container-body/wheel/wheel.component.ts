@@ -68,19 +68,19 @@ export class WheelComponent implements OnInit {
   }
 
   getPrize() {
-    // this.isDisabledGet = true;
-    // this.makeAnimation(7);
+    this.isDisabledGet = true;
+    this.makeAnimation(7);
 
-    this.campaignService
-      .getPrize(this.campaignId)
-      .pipe(map((res: GenericResponse<Prize>) => res.data))
-      .subscribe((res: Prize) => {
-        this.makeAnimation(res.prizeId);
-        console.log('getprize', res);
-        setTimeout(() => {
-          this.showWinPopup = true;
-        }, 5000);
-      });
+    // this.campaignService
+    //   .getPrize(this.campaignId)
+    //   .pipe(map((res: GenericResponse<Prize>) => res.data))
+    //   .subscribe((res: Prize) => {
+    //     this.makeAnimation(res.prizeId);
+    //     console.log('getprize', res);
+    //     setTimeout(() => {
+    //       this.showWinPopup = true;
+    //     }, 5000);
+    //   });
   }
 
   switchPrize(id: number) {
